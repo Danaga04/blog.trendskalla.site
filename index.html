@@ -27,11 +27,7 @@
     }
     .fornpay_btn {
       background: #3d94f6;
-      background-image: -webkit-linear-gradient(top, #3d94f6, #1e62d0);
-      background-image: -moz-linear-gradient(top, #3d94f6, #1e62d0);
-      background-image: -ms-linear-gradient(top, #3d94f6, #1e62d0);
-      background-image: -o-linear-gradient(top, #3d94f6, #1e62d0);
-      background-image: -webkit-gradient(to bottom, #3d94f6, #1e62d0);
+      background-image: linear-gradient(to bottom, #3d94f6, #1e62d0);
       border-radius: 10px;
       color: #fff;
       font-family: Arial;
@@ -52,6 +48,36 @@
       display: block;
       cursor: pointer;
       text-align: center;
+    }
+
+    /* Slider infinito de imagens */
+    .slider-container {
+      overflow: hidden;
+      width: 100%;
+      margin: 30px auto 10px;
+      padding: 10px 0;
+    }
+    .slider-track {
+      display: flex;
+      width: calc(250px * 20);
+      animation: scrollSlider 40s linear infinite;
+    }
+    .slider-track img {
+      width: 180px;
+      height: auto;
+      margin: 0 10px;
+      border-radius: 12px;
+      flex-shrink: 0;
+    }
+    @keyframes scrollSlider {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    @media (max-width: 600px) {
+      .slider-track img {
+        width: 120px;
+        margin: 0 5px;
+      }
     }
   </style>
 </head>
@@ -85,7 +111,34 @@
         <button id="button-cta" class="runSpin">GIRE PARA GANHAR</button>
       </div>
 
-      <!-- Espaço grande abaixo da roleta -->
+      <!-- 🎞️ Carrossel de imagens abaixo da roleta -->
+      <div class="slider-container">
+        <div class="slider-track">
+          <img src="/imageatriz/atriz1.jpg" alt="Atriz 1">
+          <img src="/imageatriz/atriz10.jpg" alt="Atriz 10">
+          <img src="/imageatriz/atriz2.jpg" alt="Atriz 2">
+          <img src="/imageatriz/atriz3.jpg" alt="Atriz 3">
+          <img src="/imageatriz/atriz4.jpg" alt="Atriz 4">
+          <img src="/imageatriz/atriz5.jpg" alt="Atriz 5">
+          <img src="/imageatriz/atriz6.jpg" alt="Atriz 6">
+          <img src="/imageatriz/atriz7.jpg" alt="Atriz 7">
+          <img src="/imageatriz/atriz8.png" alt="Atriz 8">
+          <img src="/imageatriz/atriz9.jpg" alt="Atriz 9">
+          <!-- Repetição para efeito de loop infinito -->
+          <img src="/imageatriz/atriz1.jpg" alt="Atriz 1">
+          <img src="/imageatriz/atriz10.jpg" alt="Atriz 10">
+          <img src="/imageatriz/atriz2.jpg" alt="Atriz 2">
+          <img src="/imageatriz/atriz3.jpg" alt="Atriz 3">
+          <img src="/imageatriz/atriz4.jpg" alt="Atriz 4">
+          <img src="/imageatriz/atriz5.jpg" alt="Atriz 5">
+          <img src="/imageatriz/atriz6.jpg" alt="Atriz 6">
+          <img src="/imageatriz/atriz7.jpg" alt="Atriz 7">
+          <img src="/imageatriz/atriz8.png" alt="Atriz 8">
+          <img src="/imageatriz/atriz9.jpg" alt="Atriz 9">
+        </div>
+      </div>
+
+      <!-- Espaço após a roleta -->
       <div style="height: 300px;"></div>
     </section>
   </div>
@@ -95,8 +148,8 @@
     <p style="text-align: center" id="people-p">João acabou de ganhar <b>75% de desconto</b>!</p>
   </div>
 
-  <!-- Pop-up tentar novamente -->
   <div id="overlay" class="overlay"></div>
+
   <div id="popup-try-again" class="popup">
     <div class="popup-content">
       <h2>Uma pena!</h2>
@@ -106,18 +159,15 @@
     </div>
   </div>
 
-  <!-- Pop-up vencedor -->
   <div id="popup" class="popup">
     <div class="popup-content">
       <h2>Parabéns!</h2>
       <img src="images/star-struck.png">
       <p>Você acaba de ganhar o <b class="text-success pulsating">Mega Desconto de 95%</b></p>
-
       <div style="width: auto; max-width: 400px;">
         <a href="javascript:void(0)" data-fornpay="wdvwxuzvdq" class="fornpay_btn">SIM, EU ACEITO ESSA OFERTA</a>
         <a href="javascript:void(0)" data-downsell="https://quiz.cakto.com.br/preview/privalia-HfgQZa" class="fornpay_downsell">Vou recusar essa oferta</a>
       </div>
-
     </div>
     <audio id="confetti-audio" src="media/ml.mp3"></audio>
     <audio id="roleta-audio" src="media/roleta.mp3"></audio>
@@ -130,23 +180,19 @@
   <script src="https://app.tribopay.com.br/js/oneclick.js"></script>
   <script>
     let attempt = 0;
-
     const animateSpin = () => {
       const roleta2 = document.querySelector('#roleta2');
       const roleta2Img = document.querySelector('#roleta2 img');
       const buttonCta = document.getElementById('button-cta');
       const confettiAudio = document.getElementById('confetti-audio');
       const roletaAudio = document.getElementById('roleta-audio');
-
       if (roleta2) {
         roleta2Img.classList.remove('spinner');
         buttonCta.style.display = 'none';
         roletaAudio.currentTime = 0;
         roletaAudio.play();
-
         if (attempt === 0) {
           roleta2.classList.add('wheel__spinner_animated_retry_then_win');
-
           setTimeout(() => {
             roletaAudio.pause();
             document.getElementById('overlay').style.display = 'block';
@@ -154,7 +200,6 @@
           }, 10000);
         } else {
           roleta2.classList.add('wheel__spinner_animated');
-
           setTimeout(() => {
             roletaAudio.pause();
             confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
@@ -192,7 +237,6 @@
         { frase: `Ana acabou de ganhar <b>75% de desconto</b>!`, imgSrc: 'https://i.postimg.cc/prw31XTF/2.jpg' },
         { frase: `Bruno acabou de ganhar <b>95% de desconto</b>!`, imgSrc: 'https://i.postimg.cc/2ynfYBgw/5.jpg' }
       ];
-
       setInterval(() => {
         const rand = Math.floor(Math.random() * frases.length);
         const { frase, imgSrc } = frases[rand];
