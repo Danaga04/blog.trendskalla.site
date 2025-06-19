@@ -1,87 +1,182 @@
-<!DOCTYPE html><html lang="pt-br"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
   <title>Gire a Roleta!</title>
-  <link rel="icon" href="favicon.html">
-  <link rel="stylesheet" href="css/all.css" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/bootstrap.min.css">
-  <link rel="stylesheet" href="css/stylead8e.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css" />
   <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #000;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+    }
+
+    h1, h2, p, b {
+      color: #fff;
+    }
+
+    .pulsating {
+      animation: pulse 1.5s infinite;
+    }
+
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.3); }
       100% { transform: scale(1); }
     }
-    .pulsating {
-      animation: pulse 1.5s infinite;
+
+    .roulette {
+      margin: 20px auto;
+      max-width: 320px;
+      position: relative;
+    }
+
+    .roulette img {
+      width: 100%;
+    }
+
+    .button-roulette {
+      margin-top: 20px;
+    }
+
+    button.runSpin {
+      padding: 15px 30px;
+      background: red;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .popup, .overlay {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+    }
+
+    .overlay {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .popup-content {
+      background: #222;
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      max-width: 320px;
+      margin: 100px auto;
+      color: #fff;
+    }
+
+    .popup-content img {
+      width: 80px;
+      margin: 15px auto;
+    }
+
+    #people {
+      margin-top: 20px;
+    }
+
+    #people img {
+      width: 80px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .fornpay_btn {
+      background: #3d94f6;
+      background-image: linear-gradient(to bottom, #3d94f6, #1e62d0);
+      border-radius: 10px;
+      color: #fff;
+      font-family: Arial;
+      font-size: 18px;
+      font-weight: 100;
+      padding: 10px 20px;
+      border: 1px solid #337fed;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .fornpay_downsell {
+      color: #004faa;
+      font-family: Arial;
+      margin-top: 10px;
+      font-size: 16px !important;
+      font-weight: 100;
+      text-decoration: none;
+      display: block;
+      cursor: pointer;
+      text-align: center;
     }
   </style>
-  
-
-
-
 </head>
 <body>
-<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
-  <div id="loading-screen" style="display: none;">
-    <div class="spinner-loading"></div>
+
+  <h1><b>PARABÉNS!</b></h1>
+  <p>VOCÊ ACABOU DE GANHAR ACESSO AOS <b>VÍDEOS DAS FAMOSAS</b>.</p>
+  <p><b>PRIVACY</b> da MC MIRELA, Lais Dias, Mari Ávila, Luiza Ambiel, Martina Oliveira, Clara Aguilar e MUITO MAIS!</p>
+  <p>TODAS ELAS COBRAM MAIS DE <b>R$1.000,00 POR MÊS</b> JUNTAS!</p>
+  <p>Mas <b>hoje</b> você pode assistir aos vídeos de todas <b>com um desconto único</b> que só está disponível <u>NESTA PÁGINA!</u></p>
+  <p><b style="color: yellow;">GIRE A ROLETA ABAIXO E DESCUBRA SEU DESCONTO AGORA:</b></p>
+
+  <div class="roulette">
+    <img src="responda.html" id="roleta1">
+    <div id="roleta2">
+      <img src="images/roleta.png" class="spinner">
+    </div>
+    <img src="images/button-gire.png" id="roleta3" style="cursor: pointer;">
   </div>
 
-  <div id="page-content">
-    <section>
-      <div class="cta">
-        <h1 id="cta-text">
-         
-        </h1>
-      </div>
-      <div class="roulette">
-        <img src="responda.html" id="roleta1">
-        <div id="roleta2">
-          <img src="images/roleta.png" class="spinner">
-        </div> 
-        <img src="images/button-gire.png" id="roleta3" style="cursor: pointer;">
-      </div>
-      <div class="button-roulette">
-        <button id="button-cta" class="runSpin">GIRE PARA GANHAR</button>
-      </div>
-    </section>
+  <div class="button-roulette">
+    <button id="button-cta" class="runSpin">GIRE PARA GANHAR</button>
   </div>
 
   <div id="people" class="people">
     <img src="images/man6.jpg" id="people-img" alt="">
-    <p style="text-align: center" id="people-p">João acabou de ganhar <b>75% de desconto</b>!</p>
+    <p id="people-p">João acabou de ganhar <b>75% de desconto</b>!</p>
   </div>
 
-  <!-- Pop-up tentar novamente -->
   <div id="overlay" class="overlay"></div>
+
+  <!-- POPUP TENTAR NOVAMENTE -->
   <div id="popup-try-again" class="popup">
     <div class="popup-content">
       <h2>Uma pena!</h2>
       <img src="images/sweat.png">
-      <p>Você foi o grande selecionado e ganhou 
-        <b class="text-success pulsating" style="color: green!important; font-size: 22px;"> 01 </b> chance extra. Boa sorte!
-      </p>
+      <p>Você ganhou <b class="text-success pulsating" style="color: green!important; font-size: 22px;">01</b> chance extra. Boa sorte!</p>
       <button id="try-again-button">Tentar Novamente</button>
     </div>
   </div>
 
-  <!-- Pop-up vencedor -->
+  <!-- POPUP FINAL COM OFERTA -->
   <div id="popup" class="popup">
     <div class="popup-content">
       <h2>Parabéns!</h2>
       <img src="images/star-struck.png">
       <p>Você acaba de ganhar o <b class="text-success pulsating">Mega Desconto de 95%</b></p>
-      <button id="resgatar-premio">Resgatar seu Prêmio</button>
+      <div style="width: auto; max-width: 400px;">
+        <a href="javascript:void(0)" data-fornpay="o3fizizruo" class="fornpay_btn">SIM, EU ACEITO ESSA OFERTA</a>
+        <a href="https://quiz.cakto.com.br/preview/privalia-HfgQZa" class="fornpay_downsell">Vou recusar essa oferta</a>
+      </div>
     </div>
     <audio id="confetti-audio" src="media/ml.mp3"></audio>
     <audio id="roleta-audio" src="media/roleta.mp3"></audio>
   </div>
 
-  <!-- SCRIPTS -->
-  <script src="js/jquery-3.0.0.slim.min.js"></script>
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/confetti.browser.min.js"></script>
+  <script src="https://app.tribopay.com.br/js/oneclick.js"></script>
 
   <script>
     let attempt = 0;
@@ -116,20 +211,17 @@
             confettiAudio.play();
             document.getElementById('overlay').style.display = 'block';
             document.getElementById('popup').style.display = 'block';
-            buttonCta.classList.add('hide-me');
           }, 10000);
         }
       }
     };
 
-    const addSpinAnimation = (element) => {
-      element.addEventListener('click', () => {
+    document.querySelectorAll('.runSpin').forEach(el => {
+      el.addEventListener('click', () => {
         animateSpin();
         attempt++;
       });
-    };
-
-    document.querySelectorAll('.runSpin').forEach(addSpinAnimation);
+    });
 
     document.getElementById('roleta3').addEventListener('click', () => {
       animateSpin();
@@ -143,9 +235,7 @@
       document.getElementById('button-cta').style.display = 'block';
     });
 
-    // Atualização das notificações de pessoas ganhando
     (() => {
-      const descontos = [5, 25, 50, 75, 95];
       const frases = [
         { frase: `Pedro acabou de ganhar <b>50% de desconto</b>!`, imgSrc: 'https://i.postimg.cc/RhB8zCK5/24.jpg' },
         { frase: `Ana acabou de ganhar <b>75% de desconto</b>!`, imgSrc: 'https://i.postimg.cc/prw31XTF/2.jpg' },
@@ -154,31 +244,10 @@
 
       setInterval(() => {
         const rand = Math.floor(Math.random() * frases.length);
-        const { frase, imgSrc } = frases[rand];
-        document.getElementById('people-p').innerHTML = frase;
-        document.getElementById('people-img').src = imgSrc;
-        const contDiv = document.getElementById('people');
-        contDiv.classList.toggle('display-off');
-        contDiv.classList.remove('slide-animation');
-        setTimeout(() => {
-          contDiv.classList.toggle('display-off');
-          contDiv.classList.add('slide-animation');
-        }, 20);
+        document.getElementById('people-p').innerHTML = frases[rand].frase;
+        document.getElementById('people-img').src = frases[rand].imgSrc;
       }, 4000);
     })();
-
-    // ✅ Redireciona o botão “Resgatar seu Prêmio” para o Facebook
-    document.getElementById('resgatar-premio').addEventListener('click', () => {
-      window.location.href = '/';
-    });
-
-    window.addEventListener('load', function () {
-      document.getElementById('loading-screen').style.display = 'none';
-    });
   </script>
-
-  <script src="js/jstools.js"></script>
-
-
-
-</body></html>
+</body>
+</html>
