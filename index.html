@@ -1,4 +1,6 @@
-<!DOCTYPE html><html lang="pt-br"><head>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Gire a Roleta!</title>
@@ -15,30 +17,39 @@
     .pulsating {
       animation: pulse 1.5s infinite;
     }
+    .headline {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      padding: 20px;
+      font-size: 18px;
+      color: #000;
+      font-weight: bold;
+    }
   </style>
-  
-
-
-
 </head>
 <body>
-<script src="js/latest.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
+  <script src="js/latest.js" async defer></script>
+
   <div id="loading-screen" style="display: none;">
     <div class="spinner-loading"></div>
   </div>
 
   <div id="page-content">
     <section>
-      <div class="cta">
-        <h1 id="cta-text">
-         
-        </h1>
+      <div class="headline">
+        <p>PARABÉNS!</p>
+        <p>VOCÊ ACABOU DE GANHAR ACESSO AOS VÍDEOS DAS FAMOSAS.</p>
+        <p>PRIVACY DA MC MRIELA, Lais Dias, Mari Ávila, Luiza Ambiel, Martina Oliveira, Clara Aguilar E MUITO MAIS!</p>
+        <p>TODAS ELAS COBRAM POR MÊS MAIS DE 1000 REAIS JUNTAS!</p>
+        <p><strong>MAS HOJE VOCÊ PODE ASSISTIR OS VÍDEOS DE TODAS ELAS POR UM DESCONTO ÚNICO QUE SÓ ESTÁ NESSA PÁGINA!</strong></p>
+        <p style="color: red; font-size: 20px;">GIRE A ROLETA ABAIXO E VEJA O SEU DESCONTO AGORA:</p>
       </div>
+
       <div class="roulette">
         <img src="responda.html" id="roleta1">
         <div id="roleta2">
           <img src="images/roleta.png" class="spinner">
-        </div> 
+        </div>
         <img src="images/button-gire.png" id="roleta3" style="cursor: pointer;">
       </div>
       <div class="button-roulette">
@@ -82,7 +93,6 @@
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/confetti.browser.min.js"></script>
-
   <script>
     let attempt = 0;
 
@@ -143,9 +153,7 @@
       document.getElementById('button-cta').style.display = 'block';
     });
 
-    // Atualização das notificações de pessoas ganhando
     (() => {
-      const descontos = [5, 25, 50, 75, 95];
       const frases = [
         { frase: `Pedro acabou de ganhar <b>50% de desconto</b>!`, imgSrc: 'https://i.postimg.cc/RhB8zCK5/24.jpg' },
         { frase: `Ana acabou de ganhar <b>75% de desconto</b>!`, imgSrc: 'https://i.postimg.cc/prw31XTF/2.jpg' },
@@ -167,7 +175,6 @@
       }, 4000);
     })();
 
-    // ✅ Redireciona o botão “Resgatar seu Prêmio” para o Facebook
     document.getElementById('resgatar-premio').addEventListener('click', () => {
       window.location.href = '/';
     });
@@ -176,9 +183,6 @@
       document.getElementById('loading-screen').style.display = 'none';
     });
   </script>
-
   <script src="js/jstools.js"></script>
-
-
-
-</body></html>
+</body>
+</html>
