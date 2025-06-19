@@ -6,6 +6,54 @@
   <link rel="stylesheet" href="css/all.css" crossorigin="anonymous">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/stylead8e.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #000;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      font-size: 28px;
+      color: #00FF88;
+    }
+    p {
+      font-size: 18px;
+      margin: 10px 0;
+    }
+    .destaque {
+      color: #FFD700;
+      font-weight: bold;
+    }
+    .roleta {
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #1a1a1a;
+      border: 2px dashed #00FF88;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>PARABÉNS!</h1>
+  <p>VOCÊ ACABOU DE GANHAR ACESSO AOS <span class="destaque">VÍDEOS DAS FAMOSAS</span>.</p>
+
+  <p>PRIVACY da <span class="destaque">MC MIRELA</span>, <span class="destaque">Lais Dias</span>, <span class="destaque">Mari Ávila</span>, <span class="destaque">Luiza Ambiel</span>, <span class="destaque">Martina Oliveira</span>, <span class="destaque">Clara Aguilar</span> e MUITO MAIS!</p>
+
+  <p><span class="destaque">TODAS ELAS COBRAM MAIS DE R$1.000,00 POR MÊS JUNTAS!</span></p>
+
+  <p>Mas hoje você pode assistir aos vídeos de todas com <span class="destaque">um desconto único</span> que só está disponível <u>NESTA PÁGINA</u>!</p>
+
+  <div class="roleta">
+    <h2>🎯 GIRE A ROLETA ABAIXO E DESCUBRA SEU DESCONTO AGORA:</h2>
+    <!-- Aqui você pode adicionar o script da roleta -->
+  </div>
+
+
+
   <style>
     @keyframes pulse {
       0% { transform: scale(1); }
@@ -167,17 +215,49 @@
       }, 4000);
     })();
 
-    // ✅ Redireciona o botão “Resgatar seu Prêmio” para o Facebook
-    document.getElementById('resgatar-premio').addEventListener('click', () => {
-      window.location.href = '/';
-    });
+  
+	<div style="width: auto; max-width: 400px;">
+        <a href="javascript:void(0)" data-fornpay="o3fizizruo" class="fornpay_btn">SIM, EU ACEITO ESSA OFERTA</a>
+        <a href="javascript:void(0)" data-downsell="https://quiz.cakto.com.br/preview/privalia-HfgQZa" class="fornpay_downsell">Vou recusar essa oferta</a>
+			
+    </div>
+    <style>
+        .fornpay_btn {
+            background: #3d94f6;
+            background-image: -webkit-linear-gradient(top, #3d94f6, #1e62d0);
+            background-image: -moz-linear-gradient(top, #3d94f6, #1e62d0);
+            background-image: -ms-linear-gradient(top, #3d94f6, #1e62d0);
+            background-image: -o-linear-gradient(top, #3d94f6, #1e62d0);
+            background-image: -webkit-gradient(to bottom, #3d94f6, #1e62d0);
+            -webkit-border-radius: 10px;
+            -moz-border-radius: 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-family: Arial;
+            font-size: 18px;
+            font-weight: 100;
+            padding: 10px 20px;
+            border: 1px solid #337fed;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+            text-align: center
+        }
 
-    window.addEventListener('load', function () {
-      document.getElementById('loading-screen').style.display = 'none';
-    });
-  </script>
-
-  <script src="js/jstools.js"></script>
+        .fornpay_downsell {
+            color: #004faa;
+            font-family: Arial;
+            margin-top: 10px;
+            font-size: 16px!important;
+            font-weight: 100;
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+            text-align: center
+        }
+    </style>
+    <script src="https://app.tribopay.com.br/js/oneclick.js"></script>
+	
 
 
 
