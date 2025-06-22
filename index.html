@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>Gire a Roleta!</title>
+  <title>PARABÉNS!</title>
   <link rel="icon" href="favicon.html">
   <link rel="stylesheet" href="css/all.css" crossorigin="anonymous">
   <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -253,5 +253,43 @@
     });
   </script>
   <script src="js/jstools.js"></script>
+
+
+<canvas id="confetti"></canvas>
+
+<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+<script>
+    // Criação da instância do JSConfetti, especificando o canvas
+    const jsConfetti = new JSConfetti({ canvasId: 'confetti' });
+
+    // Dispara o confete automaticamente quando a página for carregada
+    window.onload = () => {
+        jsConfetti.addConfetti();
+    };
+</script>
+
+<style>
+    #confetti {
+        position: fixed;
+        height: 100%;
+        width: 100%;
+        top: 0px;
+        left: 0px;
+        z-index: 999;
+        pointer-events: none;
+    }
+</style>
+
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+  
+  
+  
 </body>
 </html>
