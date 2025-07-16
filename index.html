@@ -318,7 +318,29 @@
   defer
 ></script>
   
-  
+  <style>
+/* Corrige a rotação da imagem da roleta */
+.spinner {
+  animation: girar 2s linear infinite;
+}
+
+/* Classe usada na tentativa 1 (erro proposital) */
+.wheel__spinner_animated_retry_then_win img {
+  animation: girar 10s ease-out forwards;
+}
+
+/* Classe usada na tentativa 2 (ganhou) */
+.wheel__spinner_animated img {
+  animation: girar 10s ease-out forwards;
+}
+
+/* Animação girar */
+@keyframes girar {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(3600deg); } /* 10 voltas */
+}
+</style>
+
   
 </body>
 </html>
