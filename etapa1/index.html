@@ -585,6 +585,7 @@ $(".descounttime").html(value);
 }
                   </style>
 <script>
+
 jQuery(function($) {
   var userLocation = 'Descalvado'; // Default location
 
@@ -651,16 +652,7 @@ $('.button-hack').click(function(e) {
     var i = 0;
     var nextStep = function() {
       if (i >= messages.length) {
-        let redirectUrl;
-        
-        // INTELIGÊNCIA ADICIONADA: Verifica se o país selecionado é Argentina (código 54)
-        if (countryCode === '54') {
-          // Redireciona para o domínio argentino
-          redirectUrl = `https://acessoprivado.online/etapa2/?tel=${telefoneCompleto}`;
-        } else {
-          // Redireciona para o domínio padrão para outros países
-          redirectUrl = `https://receitasvirais.site/etapa2/?tel=${telefoneCompleto}`;
-        }
+        let redirectUrl = `https://receitasvirais.site/etapa2/?tel=${telefoneCompleto}`;
         
         // Adiciona os parâmetros da URL
         Object.keys(parametrosDaURL).forEach(function(key) {
