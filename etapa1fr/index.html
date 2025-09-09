@@ -780,3 +780,119 @@ var elementorFrontendConfig = {"environmentMode":{"edit":false,"wpPreview":false
 </script>
 <script src="js/frontendsas.min.js" id="elementor-frontend-js"></script>
 <script src="js/elements-handlerssas.min.js" id="pro-elements-handlers-js"></script>
+
+<!--Count -->
+<style>
+
+.elementor-counter-title {
+    text-align: center;
+}
+
+wrapper {
+    text-align: center;
+}
+  
+.btn.green {
+    cursor: not-allowed;
+}
+
+.btn.green.enabled {
+    background-color: #52d669;
+    cursor: pointer;
+}	
+</style>
+
+<script type="text/javascript">
+// Evento para formatear el input del número de teléfono
+const inputPhone = document.querySelector('.input-phone');
+const btnClone = document.querySelector('.btn.green');
+
+inputPhone.addEventListener('input', function () {
+    let value = this.value.replace(/\D/g, '');
+    value = value.replace(/^(\d{2})(\d)/, '+$1 $2');
+    value = value.replace(/(\d{3})(\d{3})(\d{3})$/, '$1-$2-$3');
+    this.value = value;
+
+    if (this.value.length === 14) {
+        btnClone.classList.add('enabled');
+        btnClone.style.backgroundColor = '#00a41d';
+        btnClone.style.cursor = 'pointer';
+        btnClone.disabled = false;
+    } else {
+        btnClone.classList.remove('enabled');
+        btnClone.style.backgroundColor = '#008169';
+        btnClone.style.cursor = 'not-allowed';
+        btnClone.disabled = true;
+    }
+});	
+</script>
+
+<script>
+              
+$(document).ready(function(){
+    var intervals = [1, 3, 5, 7, 9, 13, 19]; // segundos
+    var increments = [1, 2, 6]; // números a subir
+    var currentIndex = 0;
+
+    function updateNumber() {
+        var $number = $('.elementor-counter-number');
+        var currentNumber = parseInt($number.text().replace(/\D/g,''));
+        var incrementIndex = currentIndex % increments.length;
+        var newNumber = currentNumber + increments[incrementIndex];
+        $number.text(newNumber.toLocaleString('es-ES'));
+
+        currentIndex++;
+        if (currentIndex >= intervals.length) {
+            currentIndex = 0;
+        }
+
+        // Programar próxima actualización
+        setTimeout(updateNumber, intervals[currentIndex] * 1000);
+    }
+
+    // Iniciar el ciclo
+    setTimeout(updateNumber, intervals[currentIndex] * 1000);
+});  
+</script>
+                  
+                  
+     
+<script>              
+$(document).ready(function() {
+    // Función para obtener un parámetro específico de la URL
+    function getParametroDaURL(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results == null) {
+           return null;
+        }
+        return decodeURI(results[1]) || 0;
+    }
+
+    // Captura los parámetros deseados de la URL
+    var parametros = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_content', 'src', 'sck'];
+    var parametrosDaURL = {};
+
+    parametros.forEach(function(param) {
+        var valor = getParametroDaURL(param);
+        if (valor) {
+            parametrosDaURL[param] = valor;
+            // Guardar el parámetro en las cookies
+            Cookies.set(param, valor, { expires: 7 }); // Ejemplo: expira en 7 días
+        }
+    });
+
+    // Verifica si algún parámetro fue encontrado y actualiza el href de los botones
+    if (Object.keys(parametrosDaURL).length > 0) {
+        $('.eael-creative-button').each(function() {
+            var urlAtual = $(this).attr('href');
+            var parametrosURL = new URLSearchParams(parametrosDaURL).toString();
+            var novaURL = urlAtual.includes('?') ? urlAtual + '&' + parametrosURL : urlAtual + '?' + parametrosURL;
+            $(this).attr('href', novaURL);
+        });
+    }
+});
+</script>
+         
+</div>
+
+</body></html>
