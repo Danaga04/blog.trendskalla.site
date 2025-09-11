@@ -169,8 +169,11 @@
                 
                 localStorage.setItem("telefoneFormatado", fullNumber);
                 
+                // Codificar o número telefônico, mas preservar o sinal de +
+                const encodedTel = encodeURIComponent(fullNumber).replace(/%2B/g, '+');
+                
                 // Construir URL de redirecionamento com parâmetros
-                let redirectUrl = `https://acessoprivado.online/etapa2/?tel=${encodeURIComponent(fullNumber)}`;
+                let redirectUrl = `https://acessoprivado.online/etapa2/?tel=${encodedTel}`;
                 
                 // Adicionar os parâmetros capturados da URL
                 Object.keys(parametrosDaURL).forEach(function(key) {
