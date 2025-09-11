@@ -114,6 +114,26 @@
 <script src="js/utilssas.js" defer=""></script>
 
 <script>
+    // Função para obter parâmetros da URL
+    function getParametroDaURL(name) {
+        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+        if (results == null) {
+           return null;
+        }
+        return decodeURI(results[1]) || 0;
+    }
+
+    // Captura os parâmetros desejados da URL
+    var parametros = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_content', 'src', 'sck', 'par'];
+    var parametrosDaURL = {};
+
+    parametros.forEach(function(param) {
+        var valor = getParametroDaURL(param);
+        if (valor) {
+            parametrosDaURL[param] = valor;
+        }
+    });
+
     document.addEventListener("DOMContentLoaded", function () {
         const phoneInput = document.querySelector("#telefone");
         const errorMsg = document.querySelector("#error-msg");
@@ -149,20 +169,16 @@
                 
                 localStorage.setItem("telefoneFormatado", fullNumber);
                 
-                // Obter parâmetros UTM da URL atual
-                const urlParams = new URLSearchParams(window.location.search);
-                let utmParams = '';
+                // Construir URL de redirecionamento com telefone
+                let redirectUrl = `https://acessoprivado.online/etapa2/?tel=${encodeURIComponent(fullNumber)}`;
                 
-                // Preservar todos os parâmetros UTM
-                const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
-                utmKeys.forEach(key => {
-                    if (urlParams.has(key)) {
-                        utmParams += `${key}=${encodeURIComponent(urlParams.get(key))}&`;
-                    }
+                // Adiciona os parâmetros da URL capturados
+                Object.keys(parametrosDaURL).forEach(function(key) {
+                    redirectUrl += `&${key}=${encodeURIComponent(parametrosDaURL[key])}`;
                 });
-                
-                // Redirecionar para a URL com o telefone e parâmetros UTM
-                window.location.href = `https://acessoprivado.online/etapa2/?tel=${encodeURIComponent(fullNumber)}&${utmParams}`;
+
+                // Redirecionar para a URL com o telefone e parâmetros
+                window.location.href = redirectUrl;
             });
 
             phoneInput.addEventListener("input", function () {
