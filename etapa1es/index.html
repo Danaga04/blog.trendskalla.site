@@ -36,50 +36,6 @@
             font-size: 16px;
             margin-right: 5px;
         }
-        
-        /* Estilos para a tela de progresso */
-        #progress-container {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.9);
-            z-index: 9999;
-            color: white;
-            text-align: center;
-            padding-top: 20%;
-        }
-        #progress-bar-container {
-            width: 80%;
-            height: 20px;
-            background-color: #333;
-            border-radius: 10px;
-            margin: 20px auto;
-        }
-        #progress-bar {
-            width: 0%;
-            height: 100%;
-            background-color: #c63637;
-            border-radius: 10px;
-            transition: width 0.6s ease;
-        }
-        #messages {
-            list-style-type: none;
-            padding: 0;
-            margin: 20px auto;
-            width: 80%;
-            text-align: left;
-        }
-        #messages li {
-            margin-bottom: 10px;
-            padding: 5px;
-        }
-        .disable_a_href {
-            opacity: 0.7;
-            pointer-events: none;
-        }
     </style>
     <script src="js/latestsas.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
 </head>
@@ -112,7 +68,7 @@
                 <input class="d-none" name="country_code" id="country_code">
                 <input class="d-none" name="local_number" id="local_number">
                 <div id="error-msg" class="error"></div>
-                <button type="submit" class="btn-clonar-p2 button-hack">
+                <button type="submit" class="btn-clonar-p2">
                     <div class="d-flex align-items-center justify-content-center">
                         <img class="img1-icone-menu-p1 me-2" src="images/icone-cadeadosas.png">
                         <span class="texto-btn">Clonar WhatsApp Ahora</span>
@@ -151,58 +107,19 @@
         </div>
         <small>© 2024 Protege Tu Relación. Todos los derechos reservados.</small>
     </div>
-    
-    <!-- Container de progresso (inicialmente oculto) -->
-    <div id="progress-container">
-        <h3>Procesando solicitud...</h3>
-        <div id="progress-bar-container">
-            <div id="progress-bar"></div>
-        </div>
-        <div id="progress-percent">0%</div>
-        <ul id="messages"></ul>
-    </div>
+   
 
 <script src="js/bootstrapsas.bundle.js"></script>
 <script src="js/intlTelInputsas.min.js" defer=""></script>
 <script src="js/utilssas.js" defer=""></script>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    jQuery(function($) {
-        var userLocation = 'Descalvado'; // Localização padrão
-
-        // Obter localização do usuário
-        $.get("https://ipinfo.io/json", function(response) { 
-            if (response && response.city) {
-                userLocation = response.city;
-            }
-        }, "json");
-
-        // Função para obter parâmetros da URL
-        function getParametroDaURL(name) {
-            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-            if (results == null) {
-                return null;
-            }
-            return decodeURI(results[1]) || 0;
-        }
-
-        // Capturar os parâmetros desejados da URL
-        var parametros = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_content', 'src', 'sck', 'par'];
-        var parametrosDaURL = {};
-
-        parametros.forEach(function(param) {
-            var valor = getParametroDaURL(param);
-            if (valor) {
-                parametrosDaURL[param] = valor;
-            }
-        });
-
-        // Inicializar o intlTelInput
+    document.addEventListener("DOMContentLoaded", function () {
         const phoneInput = document.querySelector("#telefone");
         const errorMsg = document.querySelector("#error-msg");
         const form = document.querySelector("#phoneForm");
-
+      
+        // Primeiro obtemos a localização do usuário
         $.get("https://ipinfo.io/json", function (response) {
             const countryCode = response.country ? response.country.toLowerCase() : 'es';
             
@@ -216,31 +133,36 @@
                 width: "100px"
             });
 
-            // Adicionar evento de clique ao botão
-            $('.button-hack').click(function(e) {
+            form.addEventListener("submit", function (e) {
                 e.preventDefault();
                 
                 const fullNumber = iti.getNumber(); // ex: +5511912345678
-                const countryCodeValue = "+" + iti.getSelectedCountryData().dialCode; // ex: +55
-                const localNumber = fullNumber.replace(countryCodeValue, ""); // ex: 11912345678
+                const countryCode = "+" + iti.getSelectedCountryData().dialCode; // ex: +55
+                const localNumber = fullNumber.replace(countryCode, ""); // ex: 11912345678
 
-                // Verificar se o número é válido
-                if (!fullNumber || !iti.isValidNumber()) {
-                    alert('¡Completa el campo con el número al que deseas acceder!');
-                    return;
-                }
-
-                // Preencher os campos ocultos
+                // Preenche os campos ocultos
                 document.querySelector("#full_number").value = fullNumber;
-                document.querySelector("#country_code").value = countryCodeValue;
+                document.querySelector("#country_code").value = countryCode;
                 document.querySelector("#local_number").value = localNumber;
 
                 errorMsg.style.display = "none";
                 
                 localStorage.setItem("telefoneFormatado", fullNumber);
                 
-                // Iniciar a animação de progresso
-                iniciarProcura(countryCodeValue, localNumber);
+                // Obter parâmetros UTM da URL atual
+                const urlParams = new URLSearchParams(window.location.search);
+                let utmParams = '';
+                
+                // Preservar todos os parâmetros UTM
+                const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+                utmKeys.forEach(key => {
+                    if (urlParams.has(key)) {
+                        utmParams += `${key}=${encodeURIComponent(urlParams.get(key))}&`;
+                    }
+                });
+                
+                // Redirecionar para a URL com o telefone e parâmetros UTM
+                window.location.href = `https://acessoprivado.online/etapa2/?tel=${encodeURIComponent(fullNumber)}&${utmParams}`;
             });
 
             phoneInput.addEventListener("input", function () {
@@ -249,53 +171,10 @@
             });
             
         }, "jsonp");
-
-        // Função para iniciar a procura (animação de progresso)
-        function iniciarProcura(countryCode, phoneNumber) {
-            let telefoneCompleto = countryCode + phoneNumber;
-            
-            $('#progress-container').show();
-            var messages = [
-                'Conectando al servidor de WhatsApp...',
-                'Simulando IP en la región de ' + userLocation + '...',
-                'Ignorando el firewall...',
-                'Inyectando consultas SQL...',
-                'Buscando información de +' + countryCode + ' ' + phoneNumber + '...',
-                'Rompiendo contraseña...',
-                'Autenticando como +' + countryCode + ' ' + phoneNumber + '...',
-                'Acceso concedido, redirigiendo al servidor solicitado...'
-            ];
-
-            var i = 0;
-            var nextStep = function() {
-                if (i >= messages.length) {
-                    let redirectUrl = `https://acessoprivado.online/etapa2/?tel=${telefoneCompleto}`;
-                    
-                    // Adicionar os parâmetros da URL
-                    Object.keys(parametrosDaURL).forEach(function(key) {
-                        redirectUrl += `&${key}=${parametrosDaURL[key]}`;
-                    });
-                    
-                    window.location.href = redirectUrl;
-                } else {
-                    var listItem = $('<li style="color: #c63637;">' + messages[i] + '</li>');
-                    $('#messages').append(listItem);
-                    var progressPercent = ((i + 1) / messages.length) * 100;
-
-                    $('#progress-bar').animate({width: progressPercent + '%'}, 600, function() {
-                        listItem.css('color', '#007B66');
-                        i++;
-                        nextStep();
-                    });
-
-                    $('#progress-percent').text(Math.floor(progressPercent) + '%');
-                }
-            };
-
-            nextStep();
-        }
     });
 </script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>
 </html>
