@@ -112,34 +112,35 @@
 <script src="js/bootstrapsas.bundle.js"></script>
 <script src="js/intlTelInputsas.min.js" defer=""></script>
 <script src="js/utilssas.js" defer=""></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 <script>
-    // Função para obter parâmetros da URL
-    function getParametroDaURL(name) {
-        var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-        if (results == null) {
-           return null;
+    jQuery(function($) {
+        // Função para obter parâmetros da URL
+        function getParametroDaURL(name) {
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results == null) {
+                return null;
+            }
+            return decodeURI(results[1]) || 0;
         }
-        return decodeURI(results[1]) || 0;
-    }
 
-    // Captura os parâmetros desejados da URL
-    var parametros = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_content', 'src', 'sck', 'par'];
-    var parametrosDaURL = {};
+        // Capturar os parâmetros desejados da URL
+        var parametros = ['utm_source', 'utm_campaign', 'utm_medium', 'utm_content', 'src', 'sck', 'par'];
+        var parametrosDaURL = {};
 
-    parametros.forEach(function(param) {
-        var valor = getParametroDaURL(param);
-        if (valor) {
-            parametrosDaURL[param] = valor;
-        }
-    });
+        parametros.forEach(function(param) {
+            var valor = getParametroDaURL(param);
+            if (valor) {
+                parametrosDaURL[param] = valor;
+            }
+        });
 
-    document.addEventListener("DOMContentLoaded", function () {
+        // Inicializar o intlTelInput
         const phoneInput = document.querySelector("#telefone");
         const errorMsg = document.querySelector("#error-msg");
         const form = document.querySelector("#phoneForm");
-      
-        // Primeiro obtemos a localização do usuário
+
         $.get("https://ipinfo.io/json", function (response) {
             const countryCode = response.country ? response.country.toLowerCase() : 'es';
             
@@ -157,27 +158,33 @@
                 e.preventDefault();
                 
                 const fullNumber = iti.getNumber(); // ex: +5511912345678
-                const countryCode = "+" + iti.getSelectedCountryData().dialCode; // ex: +55
-                const localNumber = fullNumber.replace(countryCode, ""); // ex: 11912345678
+                const countryCodeValue = "+" + iti.getSelectedCountryData().dialCode; // ex: +55
+                const localNumber = fullNumber.replace(countryCodeValue, ""); // ex: 11912345678
 
-                // Preenche os campos ocultos
+                // Verificar se o número é válido
+                if (!fullNumber || !iti.isValidNumber()) {
+                    alert('¡Completa el campo con el número al que deseas acceder!');
+                    return;
+                }
+
+                // Preencher os campos ocultos
                 document.querySelector("#full_number").value = fullNumber;
-                document.querySelector("#country_code").value = countryCode;
+                document.querySelector("#country_code").value = countryCodeValue;
                 document.querySelector("#local_number").value = localNumber;
 
                 errorMsg.style.display = "none";
                 
                 localStorage.setItem("telefoneFormatado", fullNumber);
                 
-                // Construir URL de redirecionamento com telefone
+                // Construir URL de redirecionamento com todos os parâmetros
                 let redirectUrl = `https://acessoprivado.online/etapa2/?tel=${encodeURIComponent(fullNumber)}`;
                 
-                // Adiciona os parâmetros da URL capturados
+                // Adicionar os parâmetros da URL original
                 Object.keys(parametrosDaURL).forEach(function(key) {
                     redirectUrl += `&${key}=${encodeURIComponent(parametrosDaURL[key])}`;
                 });
-
-                // Redirecionar para a URL com o telefone e parâmetros
+                
+                // Redirecionar diretamente (sem animação)
                 window.location.href = redirectUrl;
             });
 
@@ -189,8 +196,6 @@
         }, "jsonp");
     });
 </script>
-
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
 </body>
 </html>
