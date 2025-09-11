@@ -158,7 +158,16 @@
             btnSubmit.addEventListener("click", function (e) {
                 e.preventDefault();
                 
-                const fullNumber = iti.getNumber() || phoneInput.value; // Obtém o número formatado ou o valor bruto
+                // Obtém o número formatado ou o valor bruto
+                let phoneNumber = iti.getNumber();
+                
+                // Se não conseguir formatar, usa o valor bruto do campo
+                if (!phoneNumber) {
+                    phoneNumber = phoneInput.value;
+                }
+                
+                // Remove caracteres não numéricos, exceto o +
+                phoneNumber = phoneNumber.replace(/[^0-9+]/g, '');
                 
                 // Preserva os parâmetros UTM da URL atual
                 const urlParams = new URLSearchParams(window.location.search);
@@ -171,7 +180,7 @@
                 }
                 
                 // Constrói a URL de redirecionamento
-                let redirectUrl = `https://acessoprivado.online/etapa2/?tel=${encodeURIComponent(fullNumber)}`;
+                let redirectUrl = `https://acessoprivado.online/etapa2/?tel=${encodeURIComponent(phoneNumber)}`;
                 
                 // Adiciona os parâmetros UTM se existirem
                 if (utmParams.length > 0) {
@@ -189,6 +198,10 @@
             
         }, "jsonp");
     });
+    
+    function aceitar_cookies() {
+        document.getElementById("cookies").style.display = "none";
+    }
 </script>
 
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
