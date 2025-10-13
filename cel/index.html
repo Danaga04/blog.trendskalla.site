@@ -5,38 +5,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>(1) MIRA ESTO</title>
   
-  <!-- PRECONNECT APENAS PARA O VÍDEO - PRIORIDADE MÁXIMA -->
-  <link rel="preconnect" href="https://scripts.converteai.net">
-  <link rel="dns-prefetch" href="https://scripts.converteai.net">
-  
-  <!-- CSS MÍNIMO INLINE - APENAS PARA O VÍDEO -->
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{background:#fff;overflow-x:hidden}
-    .video-container{width:90%;max-width:700px;margin:30px auto;padding:10px;background:#fff;border-radius:10px;min-height:400px}
-    #ab-68ea3ecbd469876bc129d021{display:block;margin:0 auto;width:100%}
-  </style>
-  
-  <!-- PRELOAD DO SCRIPT DO VÍDEO - MÁXIMA PRIORIDADE -->
-  <link rel="preload" as="script" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/68ea3ecbd469876bc129d021/player.js">
+<!-- PRECONNECT APENAS PARA O VÍDEO - PRIORIDADE MÁXIMA -->
+<link rel="preconnect" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+
+<!-- CSS MÍNIMO INLINE - APENAS PARA O VÍDEO -->
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#fff;overflow-x:hidden}
+  .video-container{width:90%;max-width:700px;margin:30px auto;padding:10px;background:#fff;border-radius:10px;min-height:400px}
+  #vid-68ed4b2f085e4cbc564d8d95{display:block;margin:0 auto;width:100%}
+</style>
+
+<!-- PRELOAD DO SCRIPT DO VÍDEO - MÁXIMA PRIORIDADE -->
+<link rel="preload" as="script" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/68ed4b2f085e4cbc564d8d95/v4/player.js">
 </head>
 
 <body>
 
   <!-- APENAS O VÍDEO - NADA MAIS -->
   <div class="video-container">
-    <vturb-smartplayer id="ab-68ea3ecbd469876bc129d021"></vturb-smartplayer>
+    <vturb-smartplayer id="vid-68ed4b2f085e4cbc564d8d95" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
   </div>
 
   <!-- SCRIPT DO VÍDEO INLINE - CARREGA INSTANTANEAMENTE -->
   <script>
     (function(){
       var s=document.createElement("script");
-      s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/68ea3ecbd469876bc129d021/player.js";
+      s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/68ed4b2f085e4cbc564d8d95/v4/player.js";
       s.async=false; // Síncrono para carregar mais rápido
       document.head.appendChild(s);
     })();
   </script>
+
 
   <!-- TODO O RESTO DA PÁGINA CARREGA DEPOIS -->
   <script>
@@ -393,3 +394,4 @@
 
 </body>
 </html>
+
