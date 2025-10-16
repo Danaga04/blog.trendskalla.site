@@ -1,395 +1,99 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>(1) MIRA ESTO</title>
-  
-  <!-- PRECONNECT APENAS PARA O VÍDEO - PRIORIDADE MÁXIMA -->
-  <link rel="preconnect" href="https://scripts.converteai.net">
-  <link rel="dns-prefetch" href="https://scripts.converteai.net">
-  
-  <!-- CSS MÍNIMO INLINE - APENAS PARA O VÍDEO -->
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{background:#fff;overflow-x:hidden}
-    .video-container{width:90%;max-width:700px;margin:30px auto;padding:10px;background:#fff;border-radius:10px;min-height:400px}
-    #ab-68ea3ecbd469876bc129d021{display:block;margin:0 auto;width:100%}
-  </style>
-  
-  <!-- PRELOAD DO SCRIPT DO VÍDEO - MÁXIMA PRIORIDADE -->
-  <link rel="preload" as="script" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/68ea3ecbd469876bc129d021/player.js">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>La JORNADA CON MI ÁNGEL</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Georgia', serif;
+            background: linear-gradient(to bottom, #f0f8ff, #dcdcdc);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .login-container {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.2);
+            width: 350px;
+            padding: 40px;
+            text-align: center;
+            position: relative;
+        }
+
+        .login-container::before {
+            content: "🕊️";
+            font-size: 60px;
+            position: absolute;
+            top: -30px;
+            left: calc(50% - 30px);
+        }
+
+        h1 {
+            margin-bottom: 30px;
+            color: #4b3c8f;
+            font-size: 22px;
+            text-transform: uppercase;
+        }
+
+        input[type="email"], input[type="password"] {
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4b3c8f;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        button:hover {
+            background-color: #362b6f;
+        }
+
+        .angel-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: url('https://images.unsplash.com/photo-1612197520470-06b0ed38bfe4?fit=crop&w=800&q=80') no-repeat center center;
+            background-size: cover;
+            opacity: 0.1;
+        }
+    </style>
 </head>
-
 <body>
+    <div class="login-container">
+        <div class="angel-bg"></div>
+        <h1>La JORNADA CON MI ÁNGEL</h1>
+        <form onsubmit="redirect(event)">
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
 
-  <!-- APENAS O VÍDEO - NADA MAIS -->
-  <div class="video-container">
-    <vturb-smartplayer id="ab-68ea3ecbd469876bc129d021"></vturb-smartplayer>
-  </div>
-
-  <!-- SCRIPT DO VÍDEO INLINE - CARREGA INSTANTANEAMENTE -->
-  <script>
-    (function(){
-      var s=document.createElement("script");
-      s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/68ea3ecbd469876bc129d021/player.js";
-      s.async=false; // Síncrono para carregar mais rápido
-      document.head.appendChild(s);
-    })();
-  </script>
-
-  <!-- TODO O RESTO DA PÁGINA CARREGA DEPOIS -->
-  <script>
-    // Aguarda o vídeo carregar, então carrega o resto
-    window.addEventListener('load', function() {
-      setTimeout(function() {
-        // Injeta o resto do HTML
-        var restOfPage = `
-          <!-- Meta tags -->
-          <div style="display:none">
-            <meta property="og:type" content="website">
-            <meta property="og:url" content="https://bicarbonatofuerte.online/">
-            <meta property="og:title" content="Safe Site">
-            <meta property="og:description" content="Safe Site">
-            <meta property="og:image" content="https://img.imageboss.me/atm/cdn/format:auto/u/umsGbYu2QNOfeAn5fEqSwCDI4VE3/l/rBhIAv7621085.png">
-          </div>
-
-          <!-- Seção de Comentários -->
-          <div style="background-color: white; padding: 20px 0;">
-            <section class="comments py-4">
-              <div class="container">
-                <div class="row justify-content-center">
-                  <div class="col-lg-8">
-                    <div class="fb-comments" style="margin-top: 5px;">
-                      <div class="fb-comments-header">
-                        <span>21 of 23,834 comments</span>
-                      </div>
-                      <div class="fb-comments-wrapper">
-                        <table class="fb-comments-comment">
-                          <tbody>
-                            <tr>
-                              <td rowspan="3" class="fb-comments-comment-img"><img src="https://i.postimg.cc/Zq5MHX4g/h1.jpg" loading="lazy" width="40" height="40"></td>
-                              <td><font class="fb-comments-comment-name"><name>Juan Pérez</name></font></td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-text">Dr. Michael, llevo 15 días usando esto y ya noto una gran mejora en mi concentración y cómo se ve todo más nítido. Sin dudas, seguiré con esto!</td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-actions">
-                                <like>Like</like> · <reply>Reply</reply> · <likes>8</likes> <date>4 min</date>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="fb-comments-wrapper">
-                        <table class="fb-comments-comment">
-                          <tbody>
-                            <tr>
-                              <td rowspan="3" class="fb-comments-comment-img"><img src="https://i.postimg.cc/CKr6QJKK/h2.jpg" loading="lazy" width="40" height="40"></td>
-                              <td><font class="fb-comments-comment-name"><name>Lucía Gómez</name></font></td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-text">Aquí en <span id="address" style="color:#000000;">NY</span> solo se hablan de esto</td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-actions">
-                                <like>Like</like> · <reply>Reply</reply> · <likes>9</likes> <date>5 min</date>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="fb-comments-wrapper">
-                        <table class="fb-comments-comment">
-                          <tbody>
-                            <tr>
-                              <td rowspan="3" class="fb-comments-comment-img"><img src="https://i.postimg.cc/qRtZVntx/h3.jpg" loading="lazy" width="40" height="40"></td>
-                              <td><font class="fb-comments-comment-name"><name>Carlos Díaz</name></font></td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-text">¡Por fin alguien que va al grano! ¡GRACIAS! ¡Empecé hoy!</td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-actions">
-                                <like>Like</like> · <reply>Reply</reply> · <likes>11</likes> <date>12 min</date>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="fb-comments-wrapper">
-                        <table class="fb-comments-comment">
-                          <tbody>
-                            <tr>
-                              <td rowspan="3" class="fb-comments-comment-img"><img src="https://i.postimg.cc/d1zNq1rP/h4.jpg" loading="lazy" width="40" height="40"></td>
-                              <td><font class="fb-comments-comment-name"><name>Matthew Davis</name></font></td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-text">Buena explicación, directa y clara. Sabemos que un problema lleva a otro, como la visión borrosa que causa dolores de cabeza. Espero que funcione para todo, desde leer de cerca hasta conducir de noche.</td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-actions">
-                                <like>Like</like> · <reply>Reply</reply> · <likes>15</likes> <date>19 min</date>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="fb-comments-wrapper">
-                        <table class="fb-comments-comment">
-                          <tbody>
-                            <tr>
-                              <td rowspan="3" class="fb-comments-comment-img"><img src="https://i.postimg.cc/J4CYvsRj/h5.jpg" loading="lazy" width="40" height="40"></td>
-                              <td><font class="fb-comments-comment-name"><name>Miguel Torres</name></font></td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-text">Llevo 17 días con esto. Honestamente, no sabía qué esperar, pero ahora puedo leer las señales de tráfico de noche sin tanto reflejo. Un gran alivio. Realmente funciona!</td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-actions">
-                                <like>Like</like> · <reply>Reply</reply> · <likes>17</likes> <date>24 min</date>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="fb-comments-wrapper">
-                        <table class="fb-comments-comment">
-                          <tbody>
-                            <tr>
-                              <td rowspan="3" class="fb-comments-comment-img"><img src="https://i.postimg.cc/Z5VfWjpL/h6.jpg" loading="lazy" width="40" height="40"></td>
-                              <td><font class="fb-comments-comment-name"><name>Ana Fernández</name></font></td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-text">Seguí tu recomendación y los resultados son increíbles. Los colores se ven más vivos y puedo leer letras pequeñas sin forzar los ojos. Ha cambiado mi rutina por completo.</td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-actions">
-                                <like>Like</like> · <reply>Reply</reply> · <likes>18</likes> <date>26 min</date>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <div class="fb-comments-wrapper">
-                        <table class="fb-comments-comment">
-                          <tbody>
-                            <tr>
-                              <td rowspan="3" class="fb-comments-comment-img"><img src="https://i.postimg.cc/jj2MPNhY/h7.jpg" loading="lazy" width="40" height="40"></td>
-                              <td><font class="fb-comments-comment-name"><name>Rosa Martínez</name></font></td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-text">Dr, gracias. Los últimos años han sido difíciles y buscaba algo que ayudara. Solo llevo 5 días y es un cambio total. Mi visión está mucho más clara y tengo energía para hacer cosas sin los constantes dolores de cabeza por la fatiga ocular. Realmente ha hecho una gran diferencia.</td>
-                            </tr>
-                            <tr>
-                              <td class="fb-comments-comment-actions">
-                                <like>Like</like> · <reply>Reply</reply> · <likes>22</likes> <date>39 min</date>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <button class="fb-comments-loadmore" onclick="loadMore()">See more comments</button>
-                      <div style="display:none" id="more">
-                        <div class="fb-comments-wrapper">
-                          <table class="fb-comments-comment">
-                            <tbody>
-                              <tr>
-                                <td rowspan="3" class="fb-comments-comment-img"><img src="https://i.postimg.cc/W4yXn39F/h8.jpg" loading="lazy" width="40" height="40"></td>
-                                <td><font class="fb-comments-comment-name"><name>Sofía Ramírez</name></font></td>
-                              </tr>
-                              <tr>
-                                <td class="fb-comments-comment-text">¡Increíble! Solo llevo 3 días y ya siento mis ojos más descansados. No puedo creer la diferencia.</td>
-                              </tr>
-                              <tr>
-                                <td class="fb-comments-comment-actions">
-                                  <like>Like</like> · <reply>Reply</reply> · <likes>41</likes> <date>1 h</date>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div class="fb-comments-wrapper">
-                          <table class="fb-comments-comment">
-                            <tbody>
-                              <tr>
-                                <td rowspan="3" class="fb-comments-comment-img"><img src="https://i.postimg.cc/qvMwHnS6/m7.jpg" loading="lazy" width="40" height="40"></td>
-                                <td><font class="fb-comments-comment-name"><name>Diego Morales</name></font></td>
-                              </tr>
-                              <tr>
-                                <td class="fb-comments-comment-text">Empecé ayer y ya noto que leer el celular no me cansa tanto. Esto sí que funciona.</td>
-                              </tr>
-                              <tr>
-                                <td class="fb-comments-comment-actions">
-                                  <like>Like</like> · <reply>Reply</reply> · <likes>40</likes> <date>1 h</date>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div class="fb-comments-wrapper">
-                          <table class="fb-comments-comment">
-                            <tbody>
-                              <tr>
-                                <td rowspan="3" class="fb-comments-comment-img"><img src="https://i.postimg.cc/7L5Nf4xx/thispersondoesnotexist.jpg" loading="lazy" width="40" height="40"></td>
-                                <td><font class="fb-comments-comment-name"><name>Valentina López</name></font></td>
-                              </tr>
-                              <tr>
-                                <td class="fb-comments-comment-text">Gracias, Dr Mi visión siempre estaba borrosa de cerca, y después de una semana veo mucho más clara. ¡Súper contenta!</td>
-                              </tr>
-                              <tr>
-                                <td class="fb-comments-comment-actions">
-                                  <like>Like</like> · <reply>Reply</reply> · <likes>47</likes> <date>1 h</date>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div class="fb-comments-wrapper">
-                          <table class="fb-comments-comment">
-                            <tbody>
-                              <tr>
-                                <td rowspan="3" class="fb-comments-comment-img"><img src="https://i.postimg.cc/yd9XyTgt/m9.jpg" loading="lazy" width="40" height="40"></td>
-                                <td><font class="fb-comments-comment-name"><name>Andrés Ruiz</name></font></td>
-                              </tr>
-                              <tr>
-                                <td class="fb-comments-comment-text">No creía en esto, pero llevo 10 días y puedo ver la televisión sin esfuerzo. ¡Qué alivio!</td>
-                              </tr>
-                              <tr>
-                                <td class="fb-comments-comment-actions">
-                                  <like>Like</like> · <reply>Reply</reply> · <likes>50</likes> <date>1 h</date>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                        <div class="fb-comments-wrapper">
-                          <table class="fb-comments-comment">
-                            <tbody>
-                              <tr>
-                                <td rowspan="3" class="fb-comments-comment-img"><img src="https://i.postimg.cc/d3j2zt99/thispersondoesnotexist.jpg" loading="lazy" width="40" height="40"></td>
-                                <td><font class="fb-comments-comment-name"><name>Camila Torres</name></font></td>
-                              </tr>
-                              <tr>
-                                <td class="fb-comments-comment-text">¡Funciona! Mis dolores de cabeza por la vista casi desaparecieron en pocos días.</td>
-                              </tr>
-                              <tr>
-                                <td class="fb-comments-comment-actions">
-                                  <like>Curtir</like> · <reply>Responder</reply> · <likes>66</likes> <date>1 h</date>
-                                </td>
-                              </tr>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </section>
-          </div>
-
-          <div class="esconder"></div>
-
-          <!-- Disclaimer -->
-          <div class="disclaimer" style="font-size: 12px; color: silver; text-align: center; padding: 40px 20px; line-height: 1.5; background-color: #FFFFFF;">
-            This site is not part of the Facebook website or Meta Platforms, Inc. and is NOT endorsed by Facebook in any way. Facebook is a trademark of Meta Platforms, Inc.<br><br>
-            The reproduction, distribution, or modification of this website and related materials, in whole or in part, is strictly prohibited. This website and all its contents are protected by the copyright and intellectual property laws of all countries. The author reserves the right to claim damages if these conditions are not respected.<br><br>
-            Every effort has been made to accurately represent this program. There is no guarantee that you will achieve the desired abundance.
-          </div>
-
-          <link rel="prerender" href="https://pay.hotmart.com/O102309307Y?checkoutMode=10"/>
-        `;
-        
-        document.body.insertAdjacentHTML('beforeend', restOfPage);
-        
-        // Carrega CSS
-        var cssFiles = [
-          'https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,400;1,700&family=Montserrat:wght@600&family=Roboto&display=swap',
-          'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css',
-          './assets/css/comsas.css'
-        ];
-        cssFiles.forEach(function(href) {
-          var link = document.createElement('link');
-          link.rel = 'stylesheet';
-          link.href = href;
-          document.head.appendChild(link);
-        });
-        
-        // Carrega Scripts
-        var scripts = [
-          'https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js',
-          'https://code.jquery.com/jquery-3.3.1.slim.min.js',
-          'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js',
-          'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js',
-          './assets/js/comsas.js',
-          'https://cdn.utmify.com.br/scripts/utms/latest.js',
-          'https://cdn.utmify.com.br/scripts/pixel/pixel.js'
-        ];
-        
-        scripts.forEach(function(src) {
-          var script = document.createElement('script');
-          script.src = src;
-          script.async = true;
-          document.body.appendChild(script);
-        });
-        
-        // Scripts inline
-        setTimeout(function() {
-          // IPInfo
-          fetch("https://ipinfo.io/json")
-            .then(r => r.json())
-            .then(data => {
-              var el = document.getElementById("address");
-              if(el) el.innerHTML = data.city;
-            });
-          
-          // UTM params
-          let prefix = ["https://pay.hotmart.com/O102309307Y?checkoutMode=10"];
-          var t = new URLSearchParams(window.location.search);
-          if(t.toString()) {
-            document.querySelectorAll("a").forEach(function(e) {
-              prefix.forEach(function(p) {
-                if(e.href.indexOf(p) !== -1) {
-                  e.href += (e.href.indexOf("?") === -1 ? "?" : "&") + t.toString();
-                }
-              });
-            });
-          }
-          
-          // Back redirect
-          var back_redirect_back_link = "" + location.search;
-          history.pushState({}, "", location.href);
-          history.pushState({}, "", location.href);
-          window.addEventListener("popstate", function(event) {
-            if(event.state) {
-              setTimeout(function() { location.href = back_redirect_back_link; }, 1);
-            }
-          }, false);
-          
-          // Proteção
-          document.addEventListener("contextmenu", function(e){ e.preventDefault(); }, false);
-          document.onkeypress = document.onmousedown = document.onkeydown = function(event) {
-            event = (event || window.event);
-            var codes = [123, 93, 85, 80, 44, 73];
-            if(codes.indexOf(event.keyCode) !== -1) return false;
-          };
-          
-          // Pixel
-          window.pixelId = "68e9418a7a5f298d529fb9db";
-          
-          // LoadMore function
-          window.loadMore = function() {
-            var more = document.getElementById('more');
-            if(more) more.style.display = 'block';
-          };
-          
-        }, 500);
-        
-      }, 100); // Aguarda 100ms após o load para garantir que o vídeo iniciou
-    });
-  </script>
-
+    <script>
+        function redirect(event) {
+            event.preventDefault(); // Evita o envio real do form
+            window.location.href = "https://vcbemcomseucorpo.site/home-acesso-cancion-latam/";
+        }
+    </script>
 </body>
 </html>
