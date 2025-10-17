@@ -55,6 +55,8 @@
 
 
 
+<div class="esconder">
+
 
                 
                 <!-- BOTÃO CTA -->
@@ -128,6 +130,8 @@
 </div>
 
 
+</div>
+    
 <!-- SECTION 4 -->
 <div class="fundo-2 py-4">
     <div class="container">
@@ -170,60 +174,24 @@
     
 
 
-    <!-- DELAY -->
-    <script>
-        // SCRIPT PARA FAZER O BOTÃO APARECER CONFORME O VÍDEO
-        document.addEventListener("DOMContentLoaded", function() {
-            /* ALTERE O VALOR 10 PARA OS SEGUNDOS EM QUE AS SEÇÕES VÃO APARECER */
-            var SECONDS_TO_DISPLAY = 335;
-            var CLASS_TO_DISPLAY = ".esconder";
-            /* DAQUI PARA BAIXO NAO PRECISA ALTERAR */
-            var attempts = 0;
-            var elsHiddenList = [];
-            var elsDisplayed = false;
-            var elsHidden = document.querySelectorAll(CLASS_TO_DISPLAY);
-            var alreadyDisplayedKey = "alreadyElsDisplayed" + SECONDS_TO_DISPLAY;
-            var alreadyElsDisplayed = null;
-            try {
-                alreadyElsDisplayed = localStorage.getItem(alreadyDisplayedKey);
-            } catch (e) {
-                console.warn('Failed to read data from localStorage: ', e);
-            }
-            setTimeout(function() {
-                elsHiddenList = Array.prototype.slice.call(elsHidden);
-            }, 0);
-            var showHiddenElements = function() {
-                elsDisplayed = true;
-                elsHiddenList.forEach((e) => e.style.setProperty("display", "block", "important"));
-                try {
-                    localStorage.setItem(alreadyDisplayedKey, true);
-                } catch (e) {
-                    console.warn('Failed to save data in localStorage: ', e);
-                }
-            }
-            var startWatchVideoProgress = function() {
-                if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
-                    if (attempts >= 10) return;
-                    attempts += 1;
-                    return setTimeout(function() {
-                        startWatchVideoProgress()
-                    }, 1000);
-                }
-                smartplayer.instances[0].on('timeupdate', () => {
-                    if (elsDisplayed || smartplayer.instances[0].smartAutoPlay) return;
-                    if (smartplayer.instances[0].video.currentTime < SECONDS_TO_DISPLAY) return;
-                    showHiddenElements();
-                })
-            }
-            if (alreadyElsDisplayed === 'true') {
-                setTimeout(function() {
-                    showHiddenElements();
-                }, 100);
-            } else {
-                startWatchVideoProgress()
-            }
-        });
-    </script>
+
+    <style>
+  .esconder {
+    display: none;
+  }
+</style>
+
+<script>
+  var delaySeconds = 327;
+  var player = document.querySelector("vturb-smartplayer");
+  player.addEventListener("player:ready", function() {
+    player.displayHiddenElements(delaySeconds, [".esconder"], {
+      persist: true
+    });
+  });
+</script>
+
+   
 
 
 
