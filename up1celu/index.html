@@ -199,8 +199,9 @@
 
   
   <!-- CART - Sales Funnel Widget -->
-<!-- Botão "ACELERA 10X" -->
+<!-- Botão "ACELERA 10X" com animação pulsante -->
 <a href="https://blackpay.mycartpanda.com/ex-ocu/next-offer/3e2ZD0mYgb?accepted=yes" 
+   class="smartplayer-scroll-event pulsate-button"
    style="
       display: inline-block;
       background-color: #28a745; /* verde */
@@ -210,6 +211,7 @@
       border-radius: 8px; /* borda levemente arredondada */
       font-weight: bold;
       font-size: 16px;
+      margin-top: 10px; /* pequena margem acima */
    ">
    ACELERA 10X
 </a>
@@ -222,11 +224,25 @@
    no
 </a>
 
+<!-- Animação CSS para pulsar -->
+<style>
+.pulsate-button {
+  animation: pulsate 1.2s infinite;
+}
+
+@keyframes pulsate {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(40, 167, 69, 0.7); }
+  50% { transform: scale(1.05); box-shadow: 0 0 10px rgba(40, 167, 69, 0.7); }
+  100% { transform: scale(1); box-shadow: 0 0 0 rgba(40, 167, 69, 0.7); }
+}
+</style>
+
 <!-- Scripts da CartPanda -->
 <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
 <script>
    new OcuExternal();
 </script>
+
 <!-- CART - Sales Funnel Widget -->
 
   
@@ -292,6 +308,7 @@
   
 </body>
 </html>
+
 
 
 
