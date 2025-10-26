@@ -1,208 +1,44 @@
 <!DOCTYPE html>
-<html lang="ES">
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>(1) MIRA ESTO</title>
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://bicarbonatofuerte.online/">
-  <meta property="og:title" content="Safe Site">
-  <meta property="og:description" content="Safe Site">
-  <meta property="og:image" content="https://img.imageboss.me/atm/cdn/format:auto/u/umsGbYu2QNOfeAn5fEqSwCDI4VE3/l/rBhIAv7621085.png">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="description" content="Conteúdo Exclusivo">
-  <!-- Google Fonts for Poppins, Montserrat, and Roboto -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,400;1,700&family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
-  <!-- Bootstrap for comments section -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-  <!-- Original comsas.css for comments styling -->
-  <link rel="stylesheet" href="./assets/css/comsas.css">
-  <style>
-    body {
-      margin: 0;
-      background-color: #000000;
-      color: silver;
-      font-family: Roboto, sans-serif;
-      overflow-x: hidden; /* Prevent horizontal scrolling */
-    }
-    .video-container {
-      width: 100%;
-      max-width: 800px;
-      margin: 0 auto;
-      padding-top: 30px;
-      background-color: #000000; /* Explicit black background for VSL */
-    }
-    .disclaimer {
-      font-size: 12px;
-      color: silver;
-      text-align: center;
-      padding: 40px 20px;
-      line-height: 1.5;
-      background-color: #000000; /* Black background for disclaimer */
-    }
-    @keyframes pulse {
-      0% { box-shadow: 0 0 10px #ffff00; transform: scale(1); }
-      50% { box-shadow: 0 0 20px #ffff00; transform: scale(1.05); }
-      100% { box-shadow: 0 0 10px #ffff00; transform: scale(1); }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player</title>
+    <style>
+        body {
+            /* Define o fundo da página como branco */
+            background-color: white; 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center; /* Centraliza o conteúdo horizontalmente */
+            align-items: flex-start; /* Alinha o conteúdo ao topo */
+            min-height: 100vh; /* Garante que a altura mínima seja 100% da viewport */
+        }
+        .video-container {
+            /* Opcional: Adiciona um pouco de estilo ao redor do player */
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Sombra suave para destacar */
+            background-color: #f9f9f9; /* Fundo levemente cinza na área do container */
+            padding: 10px;
+            border-radius: 8px;
+        }
+    </style>
 </head>
-
-
-
-  
 <body>
 
-  <body>
-
-
-
-
-  <div class="video-container">
-<vturb-smartplayer id="vid-68ed4b2f085e4cbc564d8d95" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/68ed4b2f085e4cbc564d8d95/v4/player.js", s.async=!0,document.head.appendChild(s); </script>        
-    
-</div>
-
-<style>
-.video-container {
-  width: 90%;             /* Largura reduzida */
-  max-width: 700px;       /* Limita o tamanho máximo */
-  margin: 30px auto;      /* Margem superior/inferior e centralizado */
-  padding: 10px;          /* Espaço interno menor, mais próximo da borda */
-  background-color: #000000; /* Fundo preto */
-  box-sizing: border-box;     /* Inclui padding na largura */
-  border-radius: 10px;        /* Cantos arredondados */
-}
-</style>
-
-
-
-
-  
-
+    <div class="video-container">
+        <vturb-smartplayer id="vid-688d663692c9d55c9d465340" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
     </div>
 
-
-  
-  <!-- Footer -->
-  <footer class="bg-white py-3 text-center">
-    <script>
-      let prefix = ["https://go.centerpag.com/PPU38CQ1FRC?upsell=true", "https://go.centerpag.com/PPU38CQ1FRC?upsell=true", "https://go.centerpag.com/PPU38CQ1FRC?upsell=true"];
-      function getParams() {
-        let t = "",
-            e = window.top.location.href,
-            r = new URL(e);
-        if (null != r) {
-          let a = r.searchParams.get("utm_source"),
-              n = r.searchParams.get("utm_medium"),
-              o = r.searchParams.get("utm_campaign"),
-              m = r.searchParams.get("utm_term"),
-              c = r.searchParams.get("utm_content");
-          -1 !== e.indexOf("?") && (t = `&sck=${a}|${n}|${o}|${m}|${c}`);
-          console.log(t);
-        }
-        return t;
-      }
-      !function() {
-        var t = new URLSearchParams(window.location.search);
-        t.toString() && document.querySelectorAll("a").forEach(function(e) {
-          for (let r = 0; r < prefix.length; r++)
-            -1 !== e.href.indexOf(prefix[r]) && (-1 === e.href.indexOf("?") ? e.href += "?" + t.toString() + getParams() : e.href += "&" + t.toString() + getParams());
-        });
-      }();
+    <script type="text/javascript"> 
+        var s=document.createElement("script"); 
+        s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/688d663692c9d55c9d465340/v4/player.js", 
+        s.async=!0,
+        document.head.appendChild(s); 
     </script>
-    
-   
-  </footer>
 
-
-    
-  
-
-  <!-- Scripts -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  <script src="./assets/js/comsas.js"></script>
-
-</div>
-  
-  <!-- Disclaimer -->
-<div class="disclaimer" style="color: #333; font-size: 14px; line-height: 1.6;">
-  This site is not part of the Facebook website or Meta Platforms, Inc. and is NOT endorsed by Facebook in any way. Facebook is a trademark of Meta Platforms, Inc.<br><br>
-  The reproduction, distribution, or modification of this website and related materials, in whole or in part, is strictly prohibited. This website and all its contents are protected by the copyright and intellectual property laws of all countries. The author reserves the right to claim damages if these conditions are not respected.<br><br>
-  Every effort has been made to accurately represent this program. There is no guarantee that you will achieve the desired abundance.
-</div>
-
-
-  <link rel="prerender" href="https://go.centerpag.com/PPU38CQ1FRC?upsell=true"/>
-  <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
-  
-
-
-
-<script>
-document.addEventListener("contextmenu", function (e){
-    e.preventDefault();
-}, false);
-</script>
-
-<script>
-document.onkeypress = function (event) {
-event = (event || window.event);
-if (event.keyCode == 123) {return false;}
-if (event.keyCode == 93) {return false;}
-if (event.keyCode == 85) {return false;}
-if (event.keyCode == 80) {return false;}
-if (event.keyCode == 44) {return false;}
-if (event.keyCode == 73) {return false;}
-}
-document.onmousedown = function (event) {
-event = (event || window.event);
-if (event.keyCode == 123) {return false;}
-if (event.keyCode == 93) {return false;}
-if (event.keyCode == 85) {return false;}
-if (event.keyCode == 80) {return false;}
-if (event.keyCode == 44) {return false;}
-if (event.keyCode == 73) {return false;}
-}
-document.onkeydown = function (event) {
-event = (event || window.event);
-if (event.keyCode == 123) {return false;}
-if (event.keyCode == 93) {return false;}
-if (event.keyCode == 85) {return false;}
-if (event.keyCode == 80) {return false;}
-if (event.keyCode == 44) {return false;}
-if (event.keyCode == 73) {return false;}
-}
-</script>
-
-
-
-
-    <script>
-  window.pixelId = "68ed5621a46cee0a2221e35a";
-  var a = document.createElement("script");
-  a.setAttribute("async", "");
-  a.setAttribute("defer", "");
-  a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-  document.head.appendChild(a);
-</script>
-
-
-  <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
-
-  
 </body>
 </html>
-
-
-
-
-
-
