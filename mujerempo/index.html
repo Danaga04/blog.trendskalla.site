@@ -1,104 +1,319 @@
-<!DOCTYPE html><html lang="es">
-      <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" type="text/css" href="css/personalizado.css">
-    <link rel="stylesheet" type="text/css" href="css/personalizado_02.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-      <title>(1) El ángel te llama</title>
-      <link rel="stylesheet" type="text/css" href="css/index.css">
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <link rel="stylesheet" href="css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-      <link href="https://fonts.googleapis.com/css2?family=REM:wght@300;400;500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="css/groove.css">
-      <style type="text/css">
-        @media (min-width: 996px) {
-          .card-bottle {
-            margin: 0 auto;
-            min-width: 400px;
-            margin-bottom: 30px !important;
-          }
-        }
-      </style>
-      
-    
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Oración Perdida de Zion</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      color: #000;
+    }
 
+    .header {
+      background-color: #ff0000;
+      color: #ffffff;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 30px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
 
-      <script>document.addEventListener('contextmenu', event => event.preventDefault());</script>   
-      <script src="js/latest.js" data-utmify-prevent-subids="" data-utmify-fast-start="" async="" defer=""></script> 
-         
-   
+    .alert {
+      background-color: #000000;
+      color: #ffffff;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 16px;
+      line-height: 1.5;
+    }
 
-   </head>
-  
-         <section class="principal">
-            
-            <div class="area_video">
-            <!-- Vídeo vturb -->
-            <vturb-smartplayer id="ab-68fdf0e4e722b92b0b09ffd9" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/68fdf0e4e722b92b0b09ffd9/player.js", s.async=!0,document.head.appendChild(s); </script>
+    .content {
+      padding: 25px 15px;
+      font-size: 16px;
+      line-height: 1.7;
+    }
 
-<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/68fdf0e4e722b92b0b09ffd9/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://api.vturb.com.br">
-                  
-          
-            <div class="icons_div">
-  <img src="https://i.postimg.cc/vT1G6M01/Texto-do-seu-par-grafo.png" alt="">
-</div>
+    h2, h3 {
+      text-align: center;
+    }
 
-<style>
-.icons_div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-}
+    .highlight {
+      background-color: #ffd700;
+      padding: 15px;
+      margin: 20px 0;
+      border-left: 5px solid #ff0000;
+      font-weight: 600;
+    }
 
-.icons_div img {
-  max-width: 80%;
-  height: auto;
-}
-</style>
+    .bonus-section {
+      background-color: #f0f0f0;
+      padding: 20px;
+      margin: 20px 0;
+      border-radius: 10px;
+    }
 
+    .bonus-item {
+      margin: 10px 0;
+      padding-left: 20px;
+    }
 
-      
-            <P></P>
+    .price-section {
+      text-align: center;
+      background-color: #ffd700;
+      padding: 25px 15px;
+      margin: 30px 0;
+      font-size: 20px;
+      font-weight: 700;
+      border-radius: 10px;
+    }
 
-      
+    .strike {
+      text-decoration: line-through;
+      color: #666;
+    }
 
-                           <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
+    .countdown {
+      text-align: center;
+      font-weight: 700;
+      font-size: 20px;
+      color: #ff0000;
+      background: #fff5f5;
+      padding: 10px;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
 
+    .button-container {
+      text-align: center;
+      margin: 25px 0;
+    }
 
+    .btn-accept {
+      display: inline-block;
+      background-color: #008000;
+      color: #ffffff;
+      padding: 18px 35px;
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+      border-radius: 8px;
+      text-transform: uppercase;
+      animation: pulse 2s infinite;
+      transition: transform 0.2s;
+    }
 
+    .btn-accept:hover {
+      transform: scale(1.05);
+    }
 
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1448657269552319');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1448657269552319&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-                           
-</body> </html>
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 0 0 0 rgba(0, 128, 0, 0.6);
+      }
+      70% {
+        box-shadow: 0 0 0 20px rgba(0, 128, 0, 0);
+      }
+      100% {
+        box-shadow: 0 0 0 0 rgba(0, 128, 0, 0);
+      }
+    }
+
+    .link-decline {
+      display: block;
+      text-align: center;
+      margin-top: 15px;
+      color: #555;
+      font-size: 15px;
+      text-decoration: underline;
+    }
+
+    .link-decline:hover {
+      color: #000;
+    }
+
+    .guarantee {
+      background-color: #e8f5e9;
+      padding: 20px;
+      margin: 20px 0;
+      border: 3px solid #4caf50;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 600;
+    }
+
+    .warning {
+      background-color: #ff0000;
+      color: #ffffff;
+      padding: 20px;
+      margin: 30px 0;
+      text-align: center;
+      font-weight: 700;
+      font-size: 18px;
+      border-radius: 10px;
+    }
+
+    @media (max-width: 480px) {
+      .header {
+        font-size: 26px;
+        padding: 15px;
+      }
+      .btn-accept {
+        width: 90%;
+        font-size: 17px;
+      }
+      .price-section {
+        font-size: 18px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="header">¡ESPERA!</div>
+
+  <div class="alert">
+    No presiones el botón de retroceso y no salgas de esta página.<br /><br />
+    Porque esto puede causar un error en tu compra.
+  </div>
+
+  <div class="content">
+    <h2 style="color: #ff0000;">Tu Ángel tiene un mensaje URGENTE para ti...</h2>
+
+    <p>Felicitaciones por tu conexión con el Arcángel Miguel. Pero hay una verdad que NO pude incluir en el Viaje con Mi Ángel...</p>
+
+    <p><strong>Una oración BORRADA de la Biblia hace 1.700 años.</strong></p>
+
+    <p>La misma que hizo que el Rey David venciera batallas imposibles. La que desbloqueó los tesoros de los reinos más prósperos. Y la que las familias más ricas del mundo TODAVÍA usan en secreto.</p>
+
+    <div class="highlight">
+      <h3>El Poder Más Allá de los Ángeles</h3>
+    </div>
+
+    <p>Tu Ángel ya está trabajando para ti. Pero ¿y si existiera una oración ANTERIOR a los propios ángeles? Una conexión DIRECTA con el Creador. Sin intermediarios.</p>
+
+    <p><strong>El CÓDIGO DE ZION - 24 palabras que Constantine ordenó ERRADICAR de la historia.</strong></p>
+
+    <p>Porque los ángeles son mensajeros poderosos, pero NO tienen el poder ABSOLUTO de crear desde cero. Ese poder pertenece solo a UNO.</p>
+
+    <p>¿Por qué las familias Rothschild y Rockefeller acumulan riqueza durante GENERACIONES? No es suerte. No es inteligencia. Ellos tienen acceso al CÓDIGO DE ZION.</p>
+
+    <p>La oración deliberadamente ESCONDIDA de personas comunes. La que Constantine ordenó QUEMAR. La que sociedades secretas usan para multiplicar inversiones por 10x y transmitir prosperidad a sus descendientes.</p>
+
+    <div class="highlight">
+      <p>Aquí está la verdad impactante: <strong>La oración del Padre Pío representa solo el 40% del poder original.</strong></p>
+    </div>
+
+    <p>El Arcángel Miguel te conecta con uno de los siete arcángeles. El Código de Zion te conecta con QUIEN CREÓ A LOS SIETE.</p>
+
+    <p><strong>Es hablar con el gerente versus hablar con el DUEÑO.</strong></p>
+
+    <h3>La Prueba que lo Cambió Todo</h3>
+
+    <p>Cuando reuní las 24 palabras completas y las probé por primera vez:</p>
+
+    <ul>
+      <li><strong>3 días:</strong> Cliente antiguo apareció con contrato de $48,000</li>
+      <li><strong>5 días:</strong> Oferta de terreno con 70% de descuento</li>
+      <li><strong>7 días:</strong> Cuenta bancaria TRIPLICADA</li>
+    </ul>
+
+    <p>No mejoras graduales. <strong>MULTIPLICACIÓN SOBRENATURAL.</strong></p>
+
+    <p>Jeffrey - el hombre que casi se quitó la vida - con SOLO LA MITAD de la oración: consiguió empleo, pagó deudas, compró casa. Con las 24 palabras COMPLETAS: se volvió MILLONARIO.</p>
+
+    <div class="highlight">
+      <p>El Arcángel Miguel abre puertas. <strong>El Código de Zion ROMPE PAREDES.</strong></p>
+      <p>El Arcángel Miguel trae oportunidades. <strong>El Código de Zion CREA REALIDADES.</strong></p>
+    </div>
+
+    <h3>Tu Elección AHORA MISMO</h3>
+
+    <p><strong>CAMINO 1:</strong> Continúas solo con el Arcángel Miguel. Verás mejoras y bendiciones.</p>
+    <p><strong>CAMINO 2:</strong> Añades el Código de Zion HOY. Experimentas MULTIPLICACIÓN SOBRENATURAL de todo lo bueno.</p>
+
+    <div class="price-section">
+      <p>Recibí ofertas para vender esto por $5,000.</p>
+      <p>El precio original era <span class="strike">$997</span></p>
+      <p style="font-size: 32px; color: #ff0000;">Tu inversión HOY: Solo $47</p>
+      <p style="font-size: 15px; font-weight: 400;">Menos que un fin de semana cualquiera. Pero SOLO si actúas AHORA.</p>
+    </div>
+
+    <div class="guarantee">
+      <h3 style="color: #4caf50;">Garantía Imposible de Rechazar</h3>
+      <p>Garantía INCONDICIONAL DE POR VIDA. No 30 días. PARA SIEMPRE.</p>
+      <p><strong>O GANAS TODO... O GANAS AÚN MÁS.</strong></p>
+    </div>
+
+    <div class="bonus-section">
+      <h3 style="text-align: center;">BONOS GRATIS (Valor: $1,688)</h3>
+      <div class="bonus-item">✓ Ritual de Multiplicación de Zion ($497)</div>
+      <div class="bonus-item">✓ Los 7 Sellos de Prosperidad ($397)</div>
+      <div class="bonus-item">✓ Portal de Manifestación Instantánea ($297)</div>
+      <div class="bonus-item">✓ Frecuencia de Abundancia Infinita ($497)</div>
+      <p style="text-align: center; margin-top: 20px; font-weight: 700; font-size: 20px;">
+        VALOR TOTAL: <span class="strike">$2,685</span> → TU INVERSIÓN: <span style="color: #ff0000;">$47</span>
+      </p>
+    </div>
+
+    <!-- CONTADOR REGRESSIVO -->
+    <div class="countdown">
+      Oferta expira en: <span id="timer">05:00</span>
+    </div>
+
+    <!-- BOTÕES / LINKS -->
+    <div class="button-container">
+      <a
+        href="https://blackpay.mycartpanda.com/ex-ocu/next-offer/3e2ZD0mYgb?accepted=yes"
+        class="btn-accept"
+        >SÍ, QUIERO EL CÓDIGO DE ZION POR $47</a
+      >
+      <a
+        href="https://blackpay.mycartpanda.com/ex-ocu/next-offer/3e2ZD0mYgb?accepted=no"
+        class="link-decline"
+        >No, prefiero continuar solo con el Arcángel Miguel</a
+      >
+    </div>
+
+    <!-- ÚLTIMA ADVERTENCIA -->
+    <div class="warning">
+      <p>⚠️ ÚLTIMA ADVERTENCIA ⚠️</p>
+      <p>Esta página puede ser SACADA DEL AIRE en cualquier momento. Las presiones son REALES.</p>
+      <p>No te quedes con la pregunta: "¿Y si hubiera dicho sí?"</p>
+      <p>Las primeras 25 personas reciben sesión de mentoría PRIVADA conmigo.</p>
+    </div>
+  </div>
+
+  <!-- UTMify -->
+  <script
+    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+    data-utmify-prevent-xcod-sck
+    data-utmify-prevent-subids
+    async
+    defer
+  ></script>
+
+  <!-- CartPanda External Script -->
+  <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+  <script>
+    new OcuExternal();
+  </script>
+
+  <!-- Contador Regressivo -->
+  <script>
+    let time = 5 * 60;
+    const timerEl = document.getElementById('timer');
+    const interval = setInterval(() => {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+      timerEl.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+      if (time <= 0) clearInterval(interval);
+      time--;
+    }, 1000);
+  </script>
+</body>
+</html>
