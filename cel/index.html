@@ -227,6 +227,8 @@ function generate(){number=Math.floor(Math.random()*1143)+1578;document.getEleme
 generate();
 </script>
 
+    <div class="esconder">
+
 <!-- ✅ BLOCO DE PREÇO -->
 <div class="pricing-section">
 
@@ -309,6 +311,8 @@ const observer = new IntersectionObserver((entries) => {
 observer.observe(target);
 </script>
 
+        </div>
+
 <!-- ✅ RODAPÉ -->
 <footer class="footer">
   <p>Copyright 2025 - Divine Script ®<br>
@@ -333,10 +337,27 @@ fbq('init', '1448657269552319');
 fbq('track', 'PageView');
 </script>
 
+    <style>
+  .esconder {
+    display: none;
+  }
+</style>
+
+<script>
+  var delaySeconds = 10;
+  var player = document.querySelector("vturb-smartplayer");
+  player.addEventListener("player:ready", function() {
+    player.displayHiddenElements(delaySeconds, [".esconder"], {
+      persist: true
+    });
+  });
+</script>
+
 <noscript>
 <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1448657269552319&ev=PageView&noscript=1"/>
 </noscript>
 
 </body>
 </html>
+
 
