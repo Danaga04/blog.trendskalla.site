@@ -198,6 +198,7 @@
 
 <script>document.addEventListener('contextmenu', event => event.preventDefault());</script>
 <script src="js/latest.js" async defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -259,13 +260,13 @@ generate();
 
 <!-- ✅ COUNTDOWN AQUI -->
 <section class="countdown-section" id="countdownBox" style="opacity:0;">
-  <div class="countdown-title">
-    Don't let this door close, the 200 spots will end in:
+  <div class="countdown-title" id="spotsText">
+    Don't let this door close in <span id="cityName">your city</span>, the <span id="spots">200</span> spots will end in:
   </div>
 
   <div class="countdown-box">
     <div class="count-block">
-      <div id="minutes" class="count-number">19</div>
+      <div id="minutes" class="count-number">12</div>
       <div class="count-label">Minutes</div>
     </div>
     <div class="count-block">
@@ -283,6 +284,8 @@ generate();
 let totalSeconds = (19 * 60) + 43;
 let timer;
 let countdownStarted = false;
+let spots = 200; // valor inicial
+let spotTimer;
 
 function updateCountdown() {
   let minutes = Math.floor(totalSeconds / 60);
@@ -295,6 +298,16 @@ function updateCountdown() {
   else clearInterval(timer);
 }
 
+function updateSpots() {
+  const spotsEl = document.getElementById("spots");
+  if (spots > 10) {
+    spots--;
+    spotsEl.textContent = spots;
+  } else {
+    clearInterval(spotTimer);
+  }
+}
+
 const target = document.getElementById("countdownBox");
 
 const observer = new IntersectionObserver((entries) => {
@@ -304,11 +317,21 @@ const observer = new IntersectionObserver((entries) => {
       target.style.opacity = 1;
       timer = setInterval(updateCountdown, 1000);
       updateCountdown();
+      spotTimer = setInterval(updateSpots, 6300);
     }
   });
 },{threshold:0.5});
 
 observer.observe(target);
+</script>
+
+<!-- ✅ GEOLOCALIZAÇÃO -->
+<script>
+$.get("https://ipinfo.io/json", function (response) {
+  if (response && response.city) {
+    document.getElementById("cityName").textContent = response.city;
+  }
+}, "jsonp");
 </script>
 
         </div>
@@ -359,7 +382,3 @@ fbq('track', 'PageView');
 
 </body>
 </html>
-
-
-
-
