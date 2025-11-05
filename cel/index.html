@@ -147,6 +147,35 @@
     font-size: 18px;
   }
 }
+
+/* Countdown Style */
+.countdown-section {
+  text-align:center;
+  font-family:"Roboto",sans-serif;
+  margin-top:20px;
+}
+.countdown-title {
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.countdown-box {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+.count-block {
+  text-align:center;
+}
+.count-number {
+  font-size:38px;
+  font-weight:700;
+}
+.count-label {
+  font-size:14px;
+  font-weight:400;
+  text-transform:uppercase;
+}
 </style>
 
 <script>document.addEventListener('contextmenu', event => event.preventDefault());</script>
@@ -180,7 +209,7 @@ function generate(){number=Math.floor(Math.random()*1143)+1578;document.getEleme
 generate();
 </script>
 
-<!-- ✅ BLOCO DE PREÇO INSERIDO AQUI -->
+<!-- ✅ BLOCO DE PREÇO -->
 <div class="pricing-section">
 
 <div class="normal-price">
@@ -207,8 +236,60 @@ generate();
   🔒 Your information is safe and secure. The entire transaction will take place on a secure server using SSL technology.
 </div>
 
+
+<!-- ✅ COUNTDOWN AQUI -->
+<section class="countdown-section" id="countdownBox" style="opacity:0;">
+  <div class="countdown-title">
+    Get The Divine Script Before We Close Our Doors
+  </div>
+
+  <div class="countdown-box">
+    <div class="count-block">
+      <div id="minutes" class="count-number">12</div>
+      <div class="count-label">Minutes</div>
+    </div>
+    <div class="count-block">
+      <div id="seconds" class="count-number">43</div>
+      <div class="count-label">Seconds</div>
+    </div>
+  </div>
+</section>
+
 </div>
-<!-- ✅ FIM DO BLOCO DE PREÇO -->
+<!-- ✅ FIM BLOCO PREÇO -->
+
+<!-- ✅ SCRIPT: inicia o contador só quando aparecer -->
+<script>
+let totalSeconds = (12 * 60) + 43;
+let timer;
+let countdownStarted = false;
+
+function updateCountdown() {
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = totalSeconds % 60;
+
+  document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+  document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+  if (totalSeconds > 0) totalSeconds--;
+  else clearInterval(timer);
+}
+
+const target = document.getElementById("countdownBox");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !countdownStarted) {
+      countdownStarted = true;
+      target.style.opacity = 1;
+      timer = setInterval(updateCountdown, 1000);
+      updateCountdown();
+    }
+  });
+},{threshold:0.5});
+
+observer.observe(target);
+</script>
 
 <!-- UTMIFY -->
 <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
