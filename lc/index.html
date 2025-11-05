@@ -76,23 +76,77 @@
             background-size: cover;
             opacity: 0.1;
         }
+
+        .lang-select {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
     </style>
 </head>
 <body>
+
+    <!-- Seletor idiomas -->
+    <select class="lang-select" onchange="changeLang(this.value)">
+        <option value="es">🇪🇸 Español</option>
+        <option value="en">🇺🇸 English</option>
+    </select>
+
     <div class="login-container">
         <div class="angel-bg"></div>
-        <h1>La JORNADA CON MI ÁNGEL</h1>
+        <h1 id="title">La JORNADA CON MI ÁNGEL</h1>
         <form onsubmit="redirect(event)">
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="password" placeholder="Contraseña" required>
-            <button type="submit">Ingresar</button>
+            <input id="email" type="email" placeholder="Correo electrónico" required>
+            <input id="password" type="password" placeholder="Contraseña" required>
+            <button id="btn" type="submit">Ingresar</button>
         </form>
     </div>
 
     <script>
+        const texts = {
+            es: {
+                title: "La JORNADA CON MI ÁNGEL",
+                email: "Correo electrónico",
+                password: "Contraseña",
+                button: "Ingresar"
+            },
+            en: {
+                title: "THE JOURNEY WITH MY ANGEL",
+                email: "Email",
+                password: "Password",
+                button: "Login"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.getElementById("title").innerText = texts[lang].title;
+            document.getElementById("email").placeholder = texts[lang].email;
+            document.getElementById("password").placeholder = texts[lang].password;
+            document.getElementById("btn").innerText = texts[lang].button;
+            document.querySelector(".lang-select").value = lang;
+            localStorage.setItem("lang", lang);
+        }
+
+        // Detecta idioma
+        const storedLang = localStorage.getItem("lang");
+        const browserLang = navigator.language.startsWith("es") ? "es" : "en";
+        const currentLang = storedLang || browserLang;
+        setLanguage(currentLang);
+
+        function changeLang(lang) {
+            setLanguage(lang);
+        }
+
         function redirect(event) {
-            event.preventDefault(); // Evita o envio real do form
-            window.location.href = "https://vcbemcomseucorpo.site/home-acesso-cancion-latam/";
+            event.preventDefault();
+
+            const lang = localStorage.getItem("lang") || browserLang;
+            
+            if (lang === "en") {
+                window.location.href = "https://vcbemcomseucorpo.site/home-acc-song-in/";
+            } else {
+                window.location.href = "https://vcbemcomseucorpo.site/home-acesso-cancion-latam/";
+            }
         }
     </script>
 </body>
