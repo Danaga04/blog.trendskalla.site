@@ -1,96 +1,358 @@
-<!DOCTYPE html><html lang="en">
-      <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link rel="stylesheet" type="text/css" href="css/personalizado.css">
-    <link rel="stylesheet" type="text/css" href="css/personalizado_02.css">
-    <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-      <title>(1) Guardian Angel</title>
-      <link rel="stylesheet" type="text/css" href="css/index.css">
-      <link rel="stylesheet" type="text/css" href="css/style.css">
-      <link rel="stylesheet" href="css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-      <link href="https://fonts.googleapis.com/css2?family=REM:wght@300;400;500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-      <link rel="stylesheet" type="text/css" href="css/groove.css">
-      <style type="text/css">
-        @media (min-width: 996px) {
-          .card-bottle {
-            margin: 0 auto;
-            min-width: 400px;
-            margin-bottom: 30px !important;
-          }
-        }
-      </style>
-      
-    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>(1) Guardian Angel</title>
 
+<!-- CSS -->
+<link rel="stylesheet" type="text/css" href="css/personalizado.css">
+<link rel="stylesheet" type="text/css" href="css/personalizado_02.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" href="css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=REM:wght@300;400;500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="css/groove.css">
 
-      <script>document.addEventListener('contextmenu', event => event.preventDefault());</script>   
-      <script src="js/latest.js" data-utmify-prevent-subids="" data-utmify-fast-start="" async="" defer=""></script> 
-         
-   
+<style>
+@media (min-width: 996px) {
+    .card-bottle {
+        margin: 0 auto;
+        min-width: 400px;
+        margin-bottom: 30px !important;
+    }
+}
 
-   </head>
-  
-         <section class="principal">
-            
-            <div class="area_video">
-            <!-- Vídeo vturb -->
-            <vturb-smartplayer id="ab-690a7a28202342a9862b7288" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/690a7a28202342a9862b7288/player.js", s.async=!0,document.head.appendChild(s); </script>
+/* Container */
+.pricing-section {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  margin-top: 20px;
+  padding: 20px;
+}
 
-                  <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/690a7a28202342a9862b7288/player.js" as="script">
+/* Normally */
+.pricing-section .normal-price {
+  font-size: 38px;
+  font-weight: 700;
+  color: #000;
+  margin-bottom: 10px;
+}
+
+/* $7,500 riscado */
+.pricing-section .normal-price span {
+  color: red;
+  text-decoration: line-through;
+  font-weight: 700;
+  font-size: 38px;
+}
+
+/* Today Just */
+.pricing-section .today-price {
+  font-size: 30px;
+  font-weight: 400;
+  color: #000;
+  margin-bottom: 20px;
+}
+
+/* $37 One Time */
+.pricing-section .today-price strong {
+  color: #42b99f;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+/* Botão */
+.pricing-section .buy-btn {
+  display: inline-block;
+  background: #14c764;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 700;
+  font-family: "Montserrat", sans-serif;
+  padding: 22px 30px;
+  border-radius: 12px;
+  text-decoration: none;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
+  margin-bottom: 15px;
+  max-width: 90%;
+  line-height: 1.3;
+}
+
+/* Hover */
+.pricing-section .buy-btn:hover {
+  opacity: 0.92;
+}
+
+/* Pulse Animation */
+.pulse {
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.06); }
+  100% { transform: scale(1); }
+}
+
+/* Link */
+.pricing-section .access-link {
+  font-size: 20px;
+  font-weight: 400;
+  color: #0000ff;
+  text-decoration: underline;
+  display: block;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+/* Cards */
+.pricing-section .cards img {
+  max-width: 290px;
+  width: 90%;
+  margin: 0 auto;
+  display: block;
+  margin-top: 15px;
+}
+
+/* Texto de segurança */
+.pricing-section .secure-text {
+  color: #9c9c9c;
+  font-size: 12px;
+  margin-top: 15px;
+  padding: 0 10px;
+  text-align: center;
+}
+
+/* Mobile */
+@media(max-width: 480px) {
+  .pricing-section .normal-price,
+  .pricing-section .normal-price span {
+    font-size: 30px;
+  }
+
+  .pricing-section .today-price,
+  .pricing-section .today-price strong {
+    font-size: 26px;
+  }
+
+  .pricing-section .buy-btn {
+    font-size: 20px;
+    padding: 18px 22px;
+  }
+
+  .pricing-section .access-link {
+    font-size: 18px;
+  }
+}
+
+/* Countdown Style */
+.countdown-section {
+  text-align:center;
+  font-family:"Roboto",sans-serif;
+  margin-top:20px;
+}
+.countdown-title {
+  font-size:22px;
+  font-weight:700;
+  margin-bottom:12px;
+}
+.countdown-box {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+}
+.count-block {
+  text-align:center;
+}
+.count-number {
+  font-size:38px;
+  font-weight:700;
+}
+.count-label {
+  font-size:14px;
+  font-weight:400;
+  text-transform:uppercase;
+}
+
+/* Rodapé */
+.footer {
+  background-color: #f5f5f5;
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 13px;
+  color: #777;
+  padding: 25px 10px;
+  line-height: 1.6;
+}
+.footer a {
+  color: #777;
+  text-decoration: underline;
+}
+.footer a:hover {
+  color: #000;
+}
+</style>
+
+<script>document.addEventListener('contextmenu', event => event.preventDefault());</script>
+<script src="js/latest.js" async defer></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<body>
+
+<section class="principal">
+<div class="area_video">
+
+<!-- Vídeo Vturb -->
+<vturb-smartplayer id="vid-690a73cdc09c55b5bc8bbb02" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/690a73cdc09c55b5bc8bbb02/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+
+    <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/690a73cdc09c55b5bc8bbb02/v4/player.js" as="script">
 <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/690a71f10b59cc83aeb5d141/main.m3u8" as="fetch">
 <link rel="dns-prefetch" href="https://cdn.converteai.net">
 <link rel="dns-prefetch" href="https://scripts.converteai.net">
 <link rel="dns-prefetch" href="https://images.converteai.net">
 <link rel="dns-prefetch" href="https://api.vturb.com.br">
-          
-         <div style="display: flex; justify-content: center; align-items: center; width: 100%; margin-top: 20px;">
-  <p style="font-family: 'Poppins', sans-serif; font-size: 18px; color: #000; text-align: center;">
-    <span id="number"></span> people are watching this video right now 🔥
-  </p>
+
+<!-- Contador de pessoas -->
+<div style="display:flex;justify-content:center;align-items:center;width:100%;margin-top:20px;">
+<p style="font-family:'Poppins',sans-serif;font-size:18px;color:#000;text-align:center;">
+<span id="number"></span> people watching now
+</p>
 </div>
 
 <script>
-  function add() {
-    number += Math.floor((Math.random() * 6) + 1);
-    document.getElementById("number").innerHTML = number;
-    setTimeout(add, 10000);
-  }        
-
-  function generate() {
-    number = Math.floor(Math.random() * 1143) + 1578;
-    document.getElementById("number").innerHTML = number;
-    add();
-  }
-
-  generate();
+function add(){number+=Math.floor((Math.random()*6)+1);document.getElementById("number").innerHTML=number;setTimeout(add,10000);}
+function generate(){number=Math.floor(Math.random()*1143)+1578;document.getElementById("number").innerHTML=number;add();}
+generate();
 </script>
 
-<!-- Fonte Poppins -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <div class="esconder">
 
-      
-            <P></P>
+<!-- ✅ BLOCO DE PREÇO -->
+<div class="pricing-section">
 
-      
+<div class="normal-price">
+  Normally: <span>$1,200</span>
+</div>
 
-                           <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
+<div class="today-price">
+  Today Just: <strong>$19 One Time</strong>
+</div>
+
+<a href="https://blackpay.mycartpanda.com/ckt/gNLN9Y" class="buy-btn pulse smartplayer-scroll-event">
+  Yes, I want to sign up with an 87% discount!
+</a>
+
+<a href="https://blackpay.mycartpanda.com/ckt/gNLN9Y" class="access-link smartplayer-scroll-event">
+  Click Here To Get Instant Access >
+</a>
+
+<div class="cards">
+  <img src="https://i.postimg.cc/tJT5MD3y/gdegbo6498420.png">
+</div>
+
+<div class="secure-text">
+  🔒 Your information is safe and secure. The entire transaction will take place on a secure server using SSL technology.
+</div>
 
 
+<!-- ✅ COUNTDOWN AQUI -->
+<section class="countdown-section" id="countdownBox" style="opacity:0;">
+  <div class="countdown-title" id="spotsText">
+    Don't let this door close in <span id="cityName">your city</span>, the <span id="spots">200</span> spots will end in:
+  </div>
 
+  <div class="countdown-box">
+    <div class="count-block">
+      <div id="minutes" class="count-number">12</div>
+      <div class="count-label">Minutes</div>
+    </div>
+    <div class="count-block">
+      <div id="seconds" class="count-number">43</div>
+      <div class="count-label">Seconds</div>
+    </div>
+  </div>
+</section>
 
-<!-- Meta Pixel Code -->
+</div>
+<!-- ✅ FIM BLOCO PREÇO -->
+
+<!-- ✅ SCRIPT: inicia o contador só quando aparecer -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+let totalSeconds = (19 * 60) + 43;
+let timer;
+let countdownStarted = false;
+let spots = 200; // valor inicial
+let spotTimer;
+
+function updateCountdown() {
+  let minutes = Math.floor(totalSeconds / 60);
+  let seconds = totalSeconds % 60;
+
+  document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+  document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+
+  if (totalSeconds > 0) totalSeconds--;
+  else clearInterval(timer);
+}
+
+function updateSpots() {
+  const spotsEl = document.getElementById("spots");
+  if (spots > 10) {
+    spots--;
+    spotsEl.textContent = spots;
+  } else {
+    clearInterval(spotTimer);
+  }
+}
+
+const target = document.getElementById("countdownBox");
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !countdownStarted) {
+      countdownStarted = true;
+      target.style.opacity = 1;
+      timer = setInterval(updateCountdown, 1000);
+      updateCountdown();
+      spotTimer = setInterval(updateSpots, 6300);
+    }
+  });
+},{threshold:0.5});
+
+observer.observe(target);
+</script>
+
+<!-- ✅ GEOLOCALIZAÇÃO -->
+<script>
+$.get("https://ipinfo.io/json", function (response) {
+  if (response && response.city) {
+    document.getElementById("cityName").textContent = response.city;
+  }
+}, "jsonp");
+</script>
+
+        </div>
+
+<!-- ✅ RODAPÉ -->
+<footer class="footer">
+  <p>Copyright 2025 - Divine Script ®<br>
+  All rights reserved<br>
+  <a href="#">Terms of use</a> · <a href="#">Privacy</a><br><br>
+  This website is not a part of Facebook or Facebook Inc. Additionally, this site is not endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK Inc.</p>
+</footer>
+
+<!-- UTMIFY -->
+<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
 n.callMethod.apply(n,arguments):n.queue.push(arguments)};
 if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
 n.queue=[];t=b.createElement(e);t.async=!0;
@@ -100,67 +362,27 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', '1448657269552319');
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1448657269552319&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-                           
-</body> </html>
 
-                  
-
-
-<style>
-.icons_div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-}
-
-.icons_div img {
-  max-width: 80%;
-  height: auto;
-}
+    <style>
+  .esconder {
+    display: none;
+  }
 </style>
 
-
-      
-            <P></P>
-
-      
-
-                           <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
-
-
-
-
-<!-- Meta Pixel Code -->
 <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1448657269552319');
-fbq('track', 'PageView');
+  var delaySeconds = 1671;
+  var player = document.querySelector("vturb-smartplayer");
+  player.addEventListener("player:ready", function() {
+    player.displayHiddenElements(delaySeconds, [".esconder"], {
+      persist: true
+    });
+  });
 </script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1448657269552319&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-                           
 
-</body> </html>
+<noscript>
+<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1448657269552319&ev=PageView&noscript=1"/>
+</noscript>
 
-
+</body>
+</html>
 
