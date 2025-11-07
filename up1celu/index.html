@@ -189,19 +189,43 @@
 
 
   
-  <!-- hot - Sales Funnel Widget -->
-<!-- HOTMART - Sales Funnel Widget -->
-<!--- sales funnel container --->
-<div id="hotmart-sales-funnel"></div>
+  <!-- CART - Sales Funnel Widget -->
+<!-- Botão "ACELERA 10X" com animação pulsante -->
+<a href="https://go.centerpag.com/PPU38CQ2OUS?upsell=true" 
+   class="smartplayer-scroll-event pulsate-button"
+   style="
+      display: inline-block;
+      background-color: #28a745; /* verde */
+      color: white;
+      padding: 12px 24px;
+      text-decoration: none;
+      border-radius: 8px; /* borda levemente arredondada */
+      font-weight: bold;
+      font-size: 16px;
+      margin-top: 10px; /* pequena margem acima */
+   ">
+   ACELERAR 10X Y ACCEDER
+</a>
 
-<!--- script load and setup --->
-<script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
-<script>
-checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
-</script>
-<!-- HOTMART - Sales Funnel Widget -->
+<br><br>
 
-<!-- hot - Sales Funnel Widget -->
+
+<!-- Animação CSS para pulsar -->
+<style>
+.pulsate-button {
+  animation: pulsate 1.2s infinite;
+}
+
+@keyframes pulsate {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(40, 167, 69, 0.7); }
+  50% { transform: scale(1.05); box-shadow: 0 0 10px rgba(40, 167, 69, 0.7); }
+  100% { transform: scale(1); box-shadow: 0 0 0 rgba(40, 167, 69, 0.7); }
+}
+</style>
+
+
+
+<!-- CART - Sales Funnel Widget -->
 
   
 
@@ -270,8 +294,6 @@ checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
   
 </body>
 </html>
-
-
 
 
 
