@@ -80,47 +80,29 @@ generate();
 
 
 <script>
-function getUTMs() {
-  // Pega as UTMs da URL atual
-  const urlParams = new URLSearchParams(window.location.search);
-  const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
-  let query = '';
+  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
+  const link = 'https://blog.trendskalla.site/bccs/';
 
-  utmParams.forEach(param => {
-    const value = urlParams.get(param);
-    if (value) {
-      query += `${param}=${encodeURIComponent(value)}&`;
-    }
-  });
+  function setBackRedirect(url) {
+    let urlBackRedirect = url;
+    urlBackRedirect = urlBackRedirect =
+      urlBackRedirect.trim() +
+      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+      document.location.search.replace('?', '').toString();
 
-  // Remove último "&"
-  return query.slice(0, -1);
-}
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
 
-function setBackRedirect(baseUrl) {
-  const utms = getUTMs();
-  let urlBackRedirect = baseUrl;
-
-  // Adiciona as UTMs somente se existirem
-  if (utms) {
-    urlBackRedirect += (baseUrl.includes('?') ? '&' : '?') + utms;
+    window.addEventListener('popstate', () => {
+      console.log('onpopstate', urlBackRedirect);
+      setTimeout(() => {
+        location.href = urlBackRedirect;
+      }, 1);
+    });
   }
 
-  // Cria o gancho do botão "voltar"
-  history.pushState({}, '', location.href);
-  history.pushState({}, '', location.href);
-  history.pushState({}, '', location.href);
-
-  window.addEventListener('popstate', () => {
-    console.log('BackRedirect →', urlBackRedirect);
-    setTimeout(() => {
-      window.location.href = urlBackRedirect;
-    }, 1);
-  });
-}
-
-// Chama o redirecionamento com UTMs
-setBackRedirect('https://pay.hotmart.com/I101885321D?checkoutMode=10');
+  setBackRedirect(link);
 </script>
 
   
