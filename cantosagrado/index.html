@@ -77,6 +77,52 @@ generate();
 <!-- UTMIFY -->
 <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
 
+
+<script>
+function getUTMs() {
+  // Pega as UTMs da URL atual
+  const urlParams = new URLSearchParams(window.location.search);
+  const utmParams = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+  let query = '';
+
+  utmParams.forEach(param => {
+    const value = urlParams.get(param);
+    if (value) {
+      query += `${param}=${encodeURIComponent(value)}&`;
+    }
+  });
+
+  // Remove último "&"
+  return query.slice(0, -1);
+}
+
+function setBackRedirect(baseUrl) {
+  const utms = getUTMs();
+  let urlBackRedirect = baseUrl;
+
+  // Adiciona as UTMs somente se existirem
+  if (utms) {
+    urlBackRedirect += (baseUrl.includes('?') ? '&' : '?') + utms;
+  }
+
+  // Cria o gancho do botão "voltar"
+  history.pushState({}, '', location.href);
+  history.pushState({}, '', location.href);
+  history.pushState({}, '', location.href);
+
+  window.addEventListener('popstate', () => {
+    console.log('BackRedirect →', urlBackRedirect);
+    setTimeout(() => {
+      window.location.href = urlBackRedirect;
+    }, 1);
+  });
+}
+
+// Chama o redirecionamento com UTMs
+setBackRedirect('https://pay.hotmart.com/I101885321D?checkoutMode=10');
+</script>
+
+  
 <!-- Meta Pixel -->
 <script>
 !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -97,31 +143,7 @@ fbq('track', 'PageView');
 <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1448657269552319&ev=PageView&noscript=1"/>
 </noscript>
 
-    <script>
-  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
-  const link = 'https://pay.hotmart.com/I101885321D?checkoutMode=10';
-
-  function setBackRedirect(url) {
-    let urlBackRedirect = url;
-    urlBackRedirect = urlBackRedirect =
-      urlBackRedirect.trim() +
-      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-      document.location.search.replace('?', '').toString();
-
-    history.pushState({}, '', location.href);
-    history.pushState({}, '', location.href);
-    history.pushState({}, '', location.href);
-
-    window.addEventListener('popstate', () => {
-      console.log('onpopstate', urlBackRedirect);
-      setTimeout(() => {
-        location.href = urlBackRedirect;
-      }, 1);
-    });
-  }
-
-  setBackRedirect(link);
-</script>
+    
 
     <!-- Rodapé legal -->
 <footer class="footer">
