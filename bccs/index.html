@@ -22,12 +22,54 @@
     .flex{display:flex}
     .justify-center{justify-content:center}
     html{scroll-behavior:smooth;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
-    body{background-color:#fff;overflow-x:hidden;line-height:1;margin:0;font-family:Roboto,sans-serif}
-    img{max-width:100%}
+    body{background-color:#fff;overflow-x:hidden;line-height:1.4;margin:0;font-family:Roboto,sans-serif}
+    img{max-width:100%;height:auto}
     h1,h2,h3{font-family:Poppins,sans-serif}
     a{text-decoration:none;font-family:Montserrat,sans-serif}
     .zooming{animation:zooming 1.25s ease infinite}
     @keyframes zooming{0%{transform:scale(1,1)}50%{transform:scale(1.1,1.1)}100%{transform:scale(1,1)}}
+
+    /* ======== RESPONSIVIDADE MOBILE ======== */
+    @media (max-width:768px){
+      body { font-size: 16px; }
+      h2 { font-size: 1.1em; line-height: 1.4em; }
+      div[style*="padding:3vh 20vw"] {
+        padding: 3vh 6vw !important;
+      }
+      a.btn {
+        font-size: 1.1em !important;
+        padding: 14px 20px !important;
+        width: 90% !important;
+      }
+      img[alt="Canción Sagrada"] {
+        max-width: 100% !important;
+        margin: 0 auto !important;
+      }
+      #snackbar {
+        width: 90%;
+        right: 5%;
+        font-size: 0.9em;
+        padding: 10px;
+        bottom: 20px;
+      }
+      .zooming {
+        animation: zooming 1.5s ease infinite;
+      }
+    }
+
+    @media (max-width:480px){
+      h2 { font-size: 1em !important; }
+      div[style*="padding:3vh 20vw"] {
+        padding: 4vh 5vw !important;
+      }
+      a.btn {
+        font-size: 1em !important;
+        padding: 12px 18px !important;
+      }
+      img {
+        width: 100% !important;
+      }
+    }
   </style>
 </head>
 
@@ -103,47 +145,24 @@
 ></script>
 
   <script>
-  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
   const link = 'https://pay.hotmart.com/I101885321D?checkoutMode=10';
-
   function setBackRedirect(url) {
     let urlBackRedirect = url;
-    urlBackRedirect = urlBackRedirect =
-      urlBackRedirect.trim() +
+    urlBackRedirect = urlBackRedirect.trim() +
       (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
       document.location.search.replace('?', '').toString();
-
     history.pushState({}, '', location.href);
     history.pushState({}, '', location.href);
     history.pushState({}, '', location.href);
-
     window.addEventListener('popstate', () => {
-      console.log('onpopstate', urlBackRedirect);
-      setTimeout(() => {
-        location.href = urlBackRedirect;
-      }, 1);
+      setTimeout(() => { location.href = urlBackRedirect; }, 1);
     });
   }
-
   setBackRedirect(link);
-</script>
+  </script>
 
-
-  <!-- Fecha dinámica -->
   <script>
     const fechaEl = document.getElementById('fecha');
     const hoy = new Date();
     const opciones = { day: '2-digit', month: '2-digit', year: 'numeric' };
-    fechaEl.textContent = hoy.toLocaleDateString('es-ES', opciones);
-  </script>
-
-  <script src="/bkhtfb/js/dhooNA2564370.js" charset="utf-8"></script>
-  <script type="text/javascript" defer>
-    document.body.appendChild(Object.assign(document.createElement("script"),{
-      src:"https://cdn.atomicatpages.net/cdn/a.js?cache="+Math.floor(1e5*Math.random()),
-      async:!0
-    }))
-  </script>
-</body>
-</html>
-
+    fecha
