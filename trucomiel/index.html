@@ -1,0 +1,139 @@
+<html lang="es"> 
+<head> 
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1"> 
+  <title>Salud</title> 
+  <style> 
+    body { 
+      font-family: Arial, sans-serif; 
+      background-color: #fff; 
+      margin: 0; 
+      padding: 0; 
+      color: #111; 
+    } 
+    .header { 
+      background-color: #b30000; 
+      color: white; 
+      text-align: center; 
+      font-size: 1.4em; 
+      font-weight: bold; 
+      padding: 10px 0; 
+    } 
+    .container { 
+      padding: 20px; 
+      max-width: 600px; 
+      margin: auto; 
+    } 
+    .timer { 
+      color: #666; 
+      font-size: 0.9em; 
+      text-transform: uppercase; 
+      letter-spacing: 0.5px; 
+      margin-bottom: 10px; 
+    } 
+    .urgent { 
+      color: #b30000; 
+      font-weight: bold; 
+      font-size: 1.1em; 
+    } 
+    h1 { 
+      font-size: 1.3em; 
+      margin: 10px 0; 
+      line-height: 1.4em; 
+    } 
+    .subtitle { 
+      color: #333; 
+      font-size: 1em; 
+      margin-top: 5px; 
+    } 
+    .author { 
+      font-size: 0.9em; 
+      margin-top: 15px; 
+    } 
+    .author strong { 
+      color: #000; 
+    } 
+    .date { 
+      color: #777; 
+      font-size: 0.85em; 
+    } 
+    .video { 
+      margin-top: 20px; 
+      text-align: center; 
+    } 
+    footer {
+      text-align: center;
+      font-size: 0.85em;
+      color: #666;
+      margin-top: 30px;
+      padding: 15px 0;
+      border-top: 1px solid #ddd;
+    }
+  </style> 
+</head> 
+<body> 
+  <div class="header">Salud</div> 
+  <div class="container"> 
+    <div class="timer">ESTE VIDEO SE DESACTIVARÁ EN <strong id="countdown">54:14</strong></div> 
+    <h1><span class="urgent">URGENTE:</span> Científicos descubren una cura natural para la pérdida de memoria que puede hacerse en casa</h1> 
+    <p class="subtitle">Más de 15.000 estadounidenses ya han revertido el Alzheimer por menos de 45 $</p> 
+    <p class="author">Por <strong>Dr. Sunjay Gupta</strong></p> 
+    <p class="date" id="current-date"></p> 
+    <div class="video"> 
+      <vturb-smartplayer id="vid-691364415119e37da0212b65" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> 
+    </div> 
+
+    <!-- Contador de personas -->
+    <div style="display:flex;justify-content:center;align-items:center;width:100%;margin-top:20px;">
+      <p style="font-family:'Poppins',sans-serif;font-size:18px;color:#000;text-align:center;">
+        <span id="number"></span> personas viendo ahora
+      </p>
+    </div>
+
+    <script>
+      function add(){
+        number+=Math.floor((Math.random()*6)+1);
+        document.getElementById("number").innerHTML=number;
+        setTimeout(add,10000);
+      }
+      function generate(){
+        number=Math.floor(Math.random()*1143)+1578;
+        document.getElementById("number").innerHTML=number;
+        add();
+      }
+      generate();
+    </script>
+
+  </div> 
+
+  <footer>All Rights Reserved © 2025</footer>
+
+  <script type="text/javascript"> 
+    // Script del video 
+    var s = document.createElement("script"); 
+    s.src = "https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/691364415119e37da0212b65/v4/player.js"; 
+    s.async = true; 
+    document.head.appendChild(s); 
+
+    // Contador regresivo (54:14 → 0:00) 
+    let totalSeconds = 54 * 60 + 14; 
+    const countdownElement = document.getElementById('countdown'); 
+    function updateCountdown() { 
+      let minutes = Math.floor(totalSeconds / 60); 
+      let seconds = totalSeconds % 60; 
+      countdownElement.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`; 
+      if (totalSeconds > 0) totalSeconds--; 
+    } 
+    updateCountdown(); 
+    setInterval(updateCountdown, 1000); 
+
+    // Fecha actual automática (DD/MM/YYYY) 
+    const dateElement = document.getElementById('current-date'); 
+    const today = new Date(); 
+    const day = String(today.getDate()).padStart(2, '0'); 
+    const month = String(today.getMonth() + 1).padStart(2, '0'); 
+    const year = today.getFullYear(); 
+    dateElement.textContent = `${day}/${month}/${year}`; 
+  </script> 
+</body> 
+</html>
