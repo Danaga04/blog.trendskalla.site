@@ -3,77 +3,184 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ATTENCION</title>
+  <title>TRUCO DE L.WHT.S.: Como Tocar Baixo</title>
   <style>
     body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f4f9f6;
-      color: #222;
-      text-align: center;
-      padding: 40px 20px;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
     }
-    h1 {
-      color: #047857;
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1.2em;
-      line-height: 1.6;
-      margin-bottom: 25px;
-    }
-    .alerta {
-      background-color: #dcfce7;
-      border: 2px solid #16a34a;
-      border-radius: 12px;
-      padding: 25px;
+
+    .mobile-btn-aceitar {
       display: inline-block;
-      margin-bottom: 35px;
-      max-width: 600px;
-    }
-    .boton {
-      background-color: #22c55e;
+      padding: 20px 40px;
+      margin: 20px 10px;
+      text-decoration: none;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 18px;
+      text-align: center;
+      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
       color: white;
-      padding: 18px 40px;
-      font-size: 1.3em;
       border: none;
-      border-radius: 10px;
       cursor: pointer;
-      transition: 0.3s;
+      position: relative;
+      overflow: hidden;
+      animation: pulse 2s infinite;
+      box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      min-width: 280px;
     }
-    .boton:hover {
-      background-color: #16a34a;
-      transform: scale(1.05);
+
+    .mobile-btn-aceitar:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(40, 167, 69, 0.6);
     }
-    img {
-      width: 160px;
-      margin-bottom: 20px;
+
+    @keyframes pulse {
+      0% {
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+      }
+      50% {
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.8), 0 0 0 15px rgba(40, 167, 69, 0.1);
+        transform: scale(1.02);
+      }
+      100% {
+        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+      }
+    }
+
+    .mobile-link-recusar {
+      display: inline-block;
+      margin: 15px 10px;
+      color: #666;
+      font-size: 14px;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.3s ease;
+      line-height: 1.4;
+      max-width: 300px;
+      text-align: center;
+    }
+
+    .mobile-link-recusar:hover {
+      color: #333;
+      text-decoration: none;
+    }
+
+    .top-banner {
+      background: red;
+      color: white;
+      font-weight: bold;
+      padding: 10px;
+      font-size: 16px;
+      text-align: center;
+    }
+
+    .container {
+      padding: 40px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .logo {
+      max-width: 200px;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .progress-container {
+      background: #eee;
+      border-radius: 10px;
+      height: 15px;
+      width: 100%;
+      margin: 10px auto;
+    }
+
+    .progress-bar {
+      background: #1fa61f;
+      height: 15px;
+      width: 20%;
+      border-radius: 10px;
+    }
+
+    .price-circle {
+      font-size: 28px;
+      color: #1fa61f;
+      font-weight: bold;
+      border: 2px solid #1fa61f;
+      border-radius: 10px;
+      display: inline-block;
+      padding: 5px 20px;
+      margin: 20px 0;
+    }
+
+    .faq-title {
+      font-weight: bold;
+      font-size: 20px;
+      margin-top: 40px;
+      color: #333;
+    }
+
+    .faq-item {
+      color: #1fa61f;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
+    .faq-text {
+      font-size: 13px;
+      color: #333;
+      margin: 10px 0;
     }
   </style>
 </head>
 <body>
 
-  <img src="https://i.postimg.cc/W3hNtK7Y/2142695.png" alt="Soporte Premium">
+<!-- CONTEÚDO MOBILE -->
+<div id="mobile-content">
+  <div class="top-banner">¡NO ABANDONES ESTA PÁGINA, PUEDE CAUSAR UN ERROR EN TU COMPRA!</div>
 
-  <h1>¡Activa tu Soporte Premium!</h1>
+  <div class="container">
+    <img src="https://i.postimg.cc/s2hWrVKw/What-Spy-Logo-PNG-WEBP.webp" alt="SPYY APP" class="logo">
 
-  <div class="alerta">
-    <p>Para garantizar tu <strong>derecho a reembolso</strong> y recibir <strong>soporte prioritario por correo electrónico</strong>, necesitas activar tu <strong>Soporte Premium</strong> ahora mismo.</p>
-    <p>Haz clic en el <strong>botón verde</strong> a continuación para completar tu activación y proteger tu compra.</p>
-  </div>
+    <h2>¡FELICIDADES!</h2>
 
-  <!-- HOTMART - Sales Funnel Widget -->
-  <div id="hotmart-sales-funnel"></div>
-  <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
-  <script>
-    checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
-  </script>
-  <!-- HOTMART - Sales Funnel Widget -->
+    <!-- SEÇÃO SOLICITADA SUBSTITUÍDA AQUI -->
+    <h3>⚠️ Es obligatorio el pago de una pequeña tasa de validación para completar tu compra y activar tu Garantía de Reembolso Vitalicia.</h3>
 
-  <p style="margin-top:40px; font-size:1em; color:#555;">
-    Una vez activado, recibirás un correo con todos los datos de contacto de tu soporte premium y los pasos para hacer valer tu garantía de reembolso.
-  </p>
+    <div class="progress-container">
+      <div class="progress-bar"></div>
+    </div>
+
+    <p><strong>¿Esta tasa única permite validar tu acceso y asegurar que tu compra esté protegida de por vida, garantizando soporte y reembolso completo en cualquier momento futuro.</strong></p>
+
+
+    <div class="price-circle">$ 14,93</div>
+
+    
+ 
+    <!-- HOTMART - Sales Funnel Widget -->
+    <div id="hotmart-sales-funnel"></div>
+    <script src="https://checkout.hotmart.com/lib/hotmart-checkout-elements.js"></script>
+    <script>
+      checkoutElements.init('salesFunnel').mount('#hotmart-sales-funnel')
+    </script>
+
+    <p style="font-size: 14px; color: #555; margin-top: 10px;">
+      Si intentaste comprar y por algún motivo falló, por favor inténtalo de nuevo al menos 3 veces más para que nuestro sistema cambie automáticamente de proveedor y funcione correctamente. ¡Gracias!
+    </p>
+
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
 
 </body>
 </html>
-
