@@ -1,51 +1,58 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="es">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Compra Aprovada</title>
   <style>
+    /* 1. Base - Garantir que o body preencha a tela */
     html, body {
-      height: 100%;
       margin: 0;
       padding: 0;
+      /* Removido height: 100% para permitir rolagem natural */
     }
     body {
       font-family: Arial, sans-serif;
       background: #f4f4f4;
       display: flex;
       justify-content: center;
-      align-items: flex-start;
-      padding: 0;
+      /* Alinhamento ao topo, com padding, para permitir rolagem */
+      align-items: flex-start; 
+      padding-top: 20px; /* Adiciona um respiro no topo */
+      padding-bottom: 50px; /* Adiciona um respiro na parte inferior */
+      min-height: 100vh; /* Garante pelo menos a altura da viewport */
     }
+    /* 2. Container - Responsividade de Largura */
     .container {
-      width: 100%;
-      max-width: 100%;
-      padding: 20px;
+      width: 95%; /* Usa 95% da largura em telas pequenas */
+      max-width: 600px; /* Largura máxima para telas maiores (desktop/tablet) */
+      padding: 0 10px; /* Padding horizontal sutil */
       box-sizing: border-box;
+      background: #fff; /* Opcional: Adiciona um fundo branco para destacar */
+      border-radius: 8px; /* Opcional: Borda arredondada */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Opcional: Sombra leve */
     }
-    .success-box {
-      background: #2ecc71;
-      color: #fff;
+    /* 3. Estilos dos Componentes */
+    .success-box, .alert-box {
       padding: 20px;
-      font-size: 28px;
       font-weight: bold;
       border-radius: 8px;
       margin-bottom: 20px;
       width: 100%;
       text-align: center;
+      box-sizing: border-box;
+    }
+    .success-box {
+      background: #2ecc71;
+      color: #fff;
+      font-size: 28px;
     }
     .alert-box {
       background: #f1c40f;
       color: #000;
-      padding: 20px;
       font-size: 22px;
-      font-weight: bold;
-      border-radius: 8px;
-      width: 100%;
-      text-align: center;
     }
-  .upsell-btn {
+    .upsell-btn {
       display: block;
       width: 100%;
       background: #2ecc71;
@@ -58,10 +65,11 @@
       text-decoration: none;
       margin-top: 30px;
       animation: pulse 1.2s infinite;
+      box-sizing: border-box;
     }
     @keyframes pulse {
       0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
+      50% { transform: scale(1.03); } /* Diminuí o pulso para telas móveis */
       100% { transform: scale(1); }
     }
     .decline-link {
@@ -73,6 +81,32 @@
       color: #444;
       font-size: 18px;
       text-decoration: underline;
+    }
+
+    /* 4. Estilos do Vídeo - Garantir que o player se adapte */
+    vturb-smartplayer {
+      width: 100% !important;
+      height: auto !important; /* Ajusta a altura automaticamente */
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+
+    /* 5. Media Query para Telas Muito Pequenas (Ex: iPhones 5/SE) */
+    @media (max-width: 480px) {
+      .success-box {
+        font-size: 24px; /* Reduz o tamanho da fonte */
+      }
+      .alert-box {
+        font-size: 18px; /* Reduz o tamanho da fonte */
+      }
+      .upsell-btn {
+        padding: 15px; /* Reduz o padding do botão */
+        font-size: 20px; /* Reduz o tamanho da fonte do botão */
+        margin-top: 20px;
+      }
+      .decline-link a {
+        font-size: 16px; /* Reduz o tamanho da fonte do link */
+      }
     }
   </style>
 </head>
@@ -95,17 +129,12 @@
 <link rel="dns-prefetch" href="https://api.vturb.com.br">
     
 
-
     
       <a href="https://blackpay.mycartpanda.com/ex-ocu/next-offer/DgVl3bx20k?accepted=yes" class="upsell-btn">AÑADIR AL CARRITO</a>
 
     <div class="decline-link">
       <a href="https://blackpay.mycartpanda.com/ex-ocu/next-offer/DgVl3bx20k?accepted=no">No quiero recibir curas milagrosas</a>
     </div>
-
-
-
-        <div style="margin-bottom: 200px;"></div>
 
     <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
     <script> new OcuExternal(); </script>
