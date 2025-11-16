@@ -149,6 +149,24 @@
         let slotsIntervalId = setInterval(decreaseSlots, slotsInterval);
     </script>
 
+    <script>
+  const link = 'https://pay.hotmart.com/I101885321D?checkoutMode=10';
+  function setBackRedirect(url) {
+    let urlBackRedirect = url;
+    urlBackRedirect = urlBackRedirect.trim() +
+      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
+      document.location.search.replace('?', '').toString();
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    history.pushState({}, '', location.href);
+    window.addEventListener('popstate', () => {
+      setTimeout(() => { location.href = urlBackRedirect; }, 1);
+    });
+  }
+  setBackRedirect(link);
+  </script>
+
+
   <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
   data-utmify-prevent-xcod-sck
@@ -160,3 +178,4 @@
 ></script>
 </body>
 </html>
+
