@@ -1,228 +1,429 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>(1) .3</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Arial", sans-serif;
-      background-color: #fff;
-      color: #222;
-      line-height: 1.6;
-      -webkit-text-size-adjust: 100%;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡ESPERE! NO SALGA AÚN!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden; /* Evita barras de desplazamiento horizontales */
+        }
 
-    .top-banner {
-      background: #d00;
-      color: white;
-      font-weight: bold;
-      padding: 10px;
-      font-size: 16px;
-      text-align: center;
-    }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
 
-    .container {
-      padding: 25px 20px;
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: center;
-    }
+        /* TSL Style for Titles (Text-Shadow-Like, Centralized, Strong Bold) */
+        h1, h2, h3 {
+            text-align: center;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            padding: 0 5px;
+        }
 
-    .logo {
-      width: 100%;
-      max-width: 180px;
-      margin: 0 auto 20px;
-      display: block;
-    }
+        h1 {
+            font-size: 24px;
+            color: #ff0000; /* Color de alerta para el título principal */
+            text-transform: uppercase;
+        }
 
-    h2 {
-      font-size: 22px;
-      margin-top: 10px;
-      color: #111;
-    }
+        h2 {
+            font-size: 20px;
+            color: #000000;
+        }
 
-    p {
-      font-size: 16px;
-      margin-bottom: 15px;
-    }
+        h3 {
+            font-size: 18px;
+            color: #000000;
+        }
 
-    .price-circle {
-      font-size: 26px;
-      color: #1fa61f;
-      font-weight: bold;
-      border: 2px solid #1fa61f;
-      border-radius: 10px;
-      display: inline-block;
-      padding: 5px 25px;
-      margin: 15px 0 25px;
-    }
+        /* Text and Lists */
+        p {
+            margin-bottom: 15px;
+        }
 
-    .mobile-btn-aceitar {
-      display: inline-block;
-      padding: 18px 40px;
-      margin: 10px 0 15px;
-      text-decoration: none;
-      border-radius: 12px;
-      font-weight: bold;
-      font-size: 18px;
-      text-align: center;
-      background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-      color: white;
-      border: none;
-      cursor: pointer;
-      animation: pulse 2s infinite;
-      box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      width: 100%;
-      max-width: 320px;
-    }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
 
-    .mobile-btn-aceitar:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 35px rgba(40, 167, 69, 0.6);
-    }
+        ul li {
+            margin-bottom: 10px;
+            padding-left: 1.2em;
+            position: relative;
+        }
 
-    @keyframes pulse {
-      0% {
-        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
-      }
-      50% {
-        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.8), 0 0 0 15px rgba(40, 167, 69, 0.1);
-        transform: scale(1.02);
-      }
-      100% {
-        box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
-      }
-    }
+        ul li::before {
+            content: '✅'; /* Un checkmark simple para las listas */
+            position: absolute;
+            left: 0;
+        }
 
-    .mobile-link-recusar {
-      display: inline-block;
-      margin: 10px 0;
-      color: #666;
-      font-size: 15px;
-      text-decoration: underline;
-      transition: color 0.3s ease;
-    }
+        /* Buttons and CTAs */
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
 
-    .mobile-link-recusar:hover {
-      color: #333;
-      text-decoration: none;
-    }
+        .cta-button {
+            display: block; /* Ocupa todo el ancho en móvil */
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 20px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: background-color 0.3s ease;
+            margin-bottom: 15px; /* Espaço entre botões */
+        }
 
-    .garantia {
-      font-size: 14px;
-      color: #555;
-      margin-top: 20px;
-      line-height: 1.4;
-    }
+        .accept-button {
+            background-color: #4CAF50; /* Verde vibrante */
+            color: #ffffff;
+        }
 
-    /* --- Responsividade --- */
-    @media (max-width: 480px) {
-      h2 {
-        font-size: 20px;
-      }
-      p {
-        font-size: 15px;
-      }
-      .mobile-btn-aceitar {
-        font-size: 16px;
-        padding: 15px 30px;
-      }
-      .price-circle {
-        font-size: 22px;
-        padding: 5px 20px;
-      }
-    }
+        .accept-button:hover {
+            background-color: #45a049;
+        }
 
-    @media (max-width: 350px) {
-      h2 {
-        font-size: 18px;
-      }
-      .mobile-btn-aceitar {
-        font-size: 15px;
-        padding: 14px 20px;
-      }
-      .price-circle {
-        font-size: 20px;
-      }
-    }
-  </style>
+        .decline-button {
+            background-color: #f44336; /* Rojo para rechazar */
+            color: #ffffff;
+            text-transform: none; /* Deixando o texto de recusar sem uppercase */
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 20px;
+        }
+
+        .decline-button:hover {
+            background-color: #e53935;
+        }
+
+        /* Highlights and Testimonials */
+        .highlight {
+            background-color: #f0f8ff;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+
+        .testimonial {
+            border: 1px dashed #ccc;
+            padding: 15px;
+            margin: 15px 0;
+            background-color: #fffacd;
+            border-radius: 5px;
+        }
+
+        .countdown {
+            text-align: center;
+            font-size: 24px;
+            font-weight: 700;
+            color: #ff0000;
+            margin: 20px 0;
+            padding: 10px;
+            border: 2px solid #ff0000;
+            border-radius: 5px;
+        }
+
+        /* Responsive Adjustments */
+        @media (min-width: 480px) {
+            h1 {
+                font-size: 28px;
+            }
+            h2 {
+                font-size: 24px;
+            }
+            .cta-button {
+                width: 80%; /* Más estrecho en pantallas medianas */
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (min-width: 600px) {
+            h1 {
+                font-size: 32px;
+            }
+            h2 {
+                font-size: 28px;
+            }
+            .cta-button {
+                width: 70%; /* Aún más estrecho en escritorio */
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="top-banner">¡NO ABANDONES ESTA PÁGINA! PODRÍA CAUSAR UN ERROR EN TU COMPRA.</div>
+    <div class="container">
 
-  <div class="container">
-    <img src="https://i.postimg.cc/W3hNtK7Y/2142695.png" alt="Oración Arcángel Miguel" class="logo" />
+        <h1>¡ESPERE! NO SALGA AÚN!</h1>
 
-    <h2>¡Felicidades! Has dado el primer paso para transformar tu vida financiera y espiritual.</h2>
+        <p>Su pedido está siendo procesado, pero antes de liberar su acceso completo, necesito alertarle sobre algo que el 94% de las personas que compraron el Canto Sagrado y el Blindaje descubrieron tarde demasiado tarde.</p>
 
-    <p><strong>Pero debo advertirte algo urgente que ocurrirá en los próximos días.</strong></p>
+        <p><strong>No toque el botón de volver. No cierre esta ventana. No salga de esta página.</strong></p>
 
-    <p>Cuando las bendiciones financieras de la Canción del Padre Pío comiencen a manifestarse en tu vida —y lo harán en los próximos días—, algo peligroso vendrá junto con ellas.</p>
+        <p>Lo que voy a revelarle en los próximos minutos puede ser la diferencia entre recibir <strong>UN milagro</strong>... o recibir <strong>SIETE milagros SIMULTÁNEOS</strong> en las próximas 72 horas.</p>
 
-    <p><strong>La envidia. El mal de ojo. La energía negativa de las personas a tu alrededor.</strong></p>
+        <hr>
 
-    <p>Las personas notarán tu prosperidad repentina. Y no todas estarán felices por ti. Algunas te maldecirán sin que lo notes, enviando energías destructivas que causan enfermedades repentinas e inexplicables, fatiga crónica, ansiedad incontrolable e incluso bloquean la continuidad de tus bendiciones.</p>
+        <h2>Déjeme explicarle una verdad que ni el Padre Pío pudo revelar públicamente en vida.</h2>
 
-    <p><strong>No mereces sufrir por estar siendo bendecida.</strong></p>
+        <p><strong>San Miguel Arcángel NO trabaja solo.</strong></p>
+        <p>Él es el <strong>COMANDANTE</strong> de un ejército celestial de <strong>7 Arcángeles Supremos.</strong></p>
+        <p>Cada uno responsable por un área <strong>ESPECÍFICA</strong> de su vida:</p>
 
-    <p>Por eso el Arcángel Miguel fue elegido como tu Ángel Guardián. Él es el guerrero celestial más poderoso, el protector supremo contra fuerzas oscuras y el sanador de enfermedades que parecen imposibles de curar.</p>
+        <ul>
+            <li><strong>San Miguel</strong> - Protección Financiera y Milagros de Dinero</li>
+            <li><strong>San Rafael</strong> - Curación Total del Cuerpo y Mente</li>
+            <li><strong>San Gabriel</strong> - Amor Verdadero y Relaciones</li>
+            <li><strong>San Uriel</strong> - Sabiduría y Decisiones Correctas</li>
+            <li><strong>San Jofiel</strong> - Familia Unida y Armonía en el Hogar</li>
+            <li><strong>San Chamuel</strong> - Trabajo, Empleo y Carrera</li>
+            <li><strong>San Zadquiel</strong> - Perdón y Liberación de Culpas</li>
+        </ul>
 
-    <p>Y tiene una <strong>Oración de Sanación y Protección especialmente para ti.</strong></p>
+        <p>Cuando usted activó el Canto Sagrado, llamó a San Miguel.</p>
+        <p>Cuando usted blindó con el Canción de Dios, <strong>PROTEGIÓ</strong> el canal.</p>
+        <p>Pero hay un problema <strong>GRAVE</strong> que el 94% de las personas no sabe.</p>
 
-    <p>La Canción Sagrada del Padre Pío que ya adquiriste atrae bendiciones financieras y prosperidad a tu vida. La Oración de Sanación del Arcángel Miguel protege tu salud y cura cualquier enfermedad, incluso las más graves.</p>
+        <h2>Usted abrió UNA puerta... pero existen SIETE puertas esperando ser abiertas.</h2>
 
-    <p><strong>Juntas, estas dos oraciones forman un escudo espiritual impenetrable.</strong></p>
+        <p>Es como tener una casa de 7 habitaciones y vivir solo en la sala.</p>
+        <p>Usted está recibiendo <strong>14% del poder</strong> que <strong>DEBERÍA</strong> recibir.</p>
 
-    <p>En los próximos días, mientras las bendiciones financieras se manifiestan, la Oración del Arcángel Miguel sanará cualquier enfermedad física o emocional que cargues, e incluso a miembros de tu familia.</p>
+        <div class="highlight">
+            <p>En los últimos 21 días, analizamos los resultados de 847 personas que compraron solo el Canto Sagrado y el Blindaje. Los números son aterradores:</p>
+            <ul>
+                <li>67% recibieron dinero, pero la <strong>SALUD empeoró</strong></li>
+                <li>54% mejoraron financieramente, pero el <strong>MATRIMONIO entró en crisis</strong></li>
+                <li>48% prosperaron, pero <strong>PERDIERON el empleo</strong></li>
+                <li>71% relataron milagro en una área, pero <strong>BLOQUEO en las otras</strong></li>
+                <li>89% dijeron: "Funciona, pero siento que podría ser <strong>MUCHO MÁS POTENTE</strong>"</li>
+            </ul>
+        </div>
 
-    <p>Te protegerá de toda envidia y mal de ojo. Creará una barrera divina contra las energías negativas. Y asegurará que nada interrumpa el flujo de bendiciones en tu vida.</p>
+        <p>¿Sabe por qué?</p>
+        <p>Porque San Miguel cuida del <strong>DINERO.</strong></p>
+        <p>Pero, ¿quién cuida de su <strong>SALUD</strong> cuando el milagro financiero llega?</p>
+        <p>¿Quién protege su <strong>MATRIMONIO</strong> cuando la envidia de los demás aumenta?</p>
+        <p>¿Quién garantiza su <strong>EMPLEO</strong> cuando usted comienza a prosperar?</p>
+        <p>¿Quién blinda a su <strong>FAMILIA</strong> de accidentes y enfermedades?</p>
+        <p>La respuesta es: <strong>LOS OTROS 6 ARCÁNGELES.</strong></p>
+        <p>Y ellos están <strong>ESPERANDO</strong> que usted los active <strong>AHORA MISMO.</strong></p>
 
-    <p><strong>Esta es tu única oportunidad de completar tu protección espiritual.</strong></p>
+        <hr>
 
-    <p>Sin la Oración del Arcángel Miguel, quedarás vulnerable. Las bendiciones llegarán, pero tu salud podría pagar el precio.</p>
+        <h2>La Verdad Que la Iglesia Escondió Por 900 Años</h2>
 
-    <p>El Arcángel Miguel te eligió. Está esperando que aceptes su protección.</p>
+        <p>En 1139, en el Concilio de Letrán, la Iglesia Católica <strong>PROHIBIÓ</strong> la enseñanza pública sobre los 7 Arcángeles.</p>
+        <p>¿Por qué?</p>
+        <p>Porque el ritual completo le daba <strong>DEMASIADO PODER</strong> al pueblo.</p>
+        <p>Reyes y papas lo usaban en secreto.</p>
+        <p>Familias nobles lo pasaban de generación en generación.</p>
+        <p>¿Pero el pueblo común? Nunca lo supo.</p>
+        <p><strong>Hasta AHORA.</strong></p>
 
-    <p><strong>Es tu deber espiritual tener esta oración para escucharla cada noche antes de dormir. Una oración que comunica directamente con el Arcángel Miguel, el ángel que te eligió, para que todas las bendiciones de sanación se manifiesten en tu vida, incluso las que parecen imposibles.</strong></p>
+        <p>Después de 14 años de investigación en monasterios de Italia, Portugal y España...</p>
+        <p>Encontré el ritual <strong>COMPLETO</strong> escondido en un manuscrito de 1387 en Asís, Italia.</p>
+        <p>El mismo ritual que San Francisco de Asís usaba para:</p>
 
-    <p>Es imposible que tus peticiones no se cumplan cuando tienes las dos oraciones más poderosas trabajando a tu favor.</p>
+        <ul>
+            <li>Curar leprosos instantáneamente</li>
+            <li>Recibir donaciones millonarias de la nada</li>
+            <li>Convertir reyes y reinas</li>
+            <li>Proteger su orden de ataques</li>
+            <li>Vivir 44 años en paz absoluta incluso siendo perseguido</li>
+        </ul>
 
-    <p><strong>No esperes a enfermarte. No esperes a que el mal de ojo te alcance.</strong></p>
+        <p>Ese ritual se llama <strong>"Ritual de Abundancia de los 7 Arcángeles".</strong></p>
+        <p>Y hoy, en esta página, usted tiene la oportunidad de activarlo <strong>ANTES</strong> que el sistema bloquee su oferta para siempre.</p>
 
-    <p><strong>Haz clic en el botón verde de abajo y asegura ahora la Oración de Sanación del Arcángel Miguel por solo 97 dólares.</strong></p>
+        <hr>
 
-    <div class="price-circle">$ 97</div>
+        <h2>Lo Que Sucede Cuando Usted Activa los 7 Arcángeles Simultáneamente</h2>
 
-    <a href="https://blackpay.mycartpanda.com/ex-ocu/next-offer/DgVl3bx20k?accepted=yes" class="mobile-btn-aceitar">
-      ACCESAR CONTENIDO
-    </a>
+        <p>Voy a mostrarle <strong>EXACTAMENTE</strong> lo que sucedió con personas que activaron el ritual completo:</p>
 
-    <br />
-    <a href="https://blackpay.mycartpanda.com/ex-ocu/next-offer/DgVl3bx20k?accepted=no" class="mobile-link-recusar">no, gracias</a>
+        <div class="testimonial">
+            <strong>TESTIMONIO - CARLOS, 52 AÑOS:</strong>
+            <p>"Yo había activado el Canto Sagrado y recibí 8 mil dólares en 9 días. ¡Increíble! Pero mi presión arterial se disparó, casi tuve un derrame cerebral. Cuando activé a San Rafael en el Ritual de los 7 Arcángeles, en 4 días mi presión se normalizó SIN medicamentos. Ahora tengo dinero Y salud."</p>
+        </div>
 
-    <p class="garantia">
-      🔒 Garantía de por vida: si por cualquier motivo no quedas completamente satisfecha, puedes solicitar el reembolso total en cualquier momento. Tu satisfacción y bienestar están 100% protegidos.
-    </p>
+        <div class="testimonial">
+            <strong>TESTIMONIO - PATRICIA, 38 AÑOS:</strong>
+            <p>"El milagro financiero vino, pero mi marido pidió el divorcio de la nada. Dijo que yo estaba 'cambiada'. Activé a San Gabriel y San Jofiel del Ritual y en 11 días él VOLVIÓ pidiendo perdón, diciendo que tuvo un sueño conmigo y los ángeles. Hoy estamos más unidos que nunca."</p>
+        </div>
+
+        <div class="testimonial">
+            <strong>TESTIMONIO - ROBERTO, 61 AÑOS:</strong>
+            <p>"Recibí 34 mil dólares de herencia con el Canto Sagrado. ¡Maravilloso! Pero fui DESPEDIDO 5 días después. Me desesperé. Activé a San Chamuel y San Uriel, y en 8 días recibí TRES propuestas de empleo, la mejor pagando el DOBLE de lo que ganaba. Los ángeles no dejan nada incompleto."</p>
+        </div>
+
+        <p>¿Vio el patrón?</p>
+        <p>El milagro <strong>LLEGA</strong>... pero otra área de la vida <strong>SE DERRUMBA.</strong></p>
+        <p>Porque usted activó <strong>UN</strong> arcángel, pero no activó los <strong>SIETE.</strong></p>
+        <p>Es como construir una casa con solo <strong>UNA</strong> pared. Se desploma.</p>
+
+        <hr>
+
+        <h2>¿Cómo Funciona el Ritual de los 7 Arcángeles?</h2>
+
+        <p>Es muy simple.</p>
+        <p>Son 7 oraciones específicas, una para cada Arcángel.</p>
+
+        <ul>
+            <li>Cada oración dura entre 3 a 5 minutos.</li>
+            <li>Usted escucha <strong>UNA VEZ por semana</strong> durante 7 semanas.</li>
+            <li>O puede hacer el "Ritual Relámpago" y escuchar todas en el mismo día para <strong>activación instantánea.</strong></li>
+        </ul>
+
+        <h3>Lo que cada Arcángel hace específicamente:</h3>
+
+        <ul>
+            <li>🔥 <strong>San Miguel (Domingo)</strong> - Atrae dinero, rompe bloqueos financieros, protege contra ladrones y estafas</li>
+            <li>💚 <strong>San Rafael (Lunes)</strong> - Cura enfermedades crónicas, elimina dolores, restaura energía vital, rejuvenece</li>
+            <li>💗 <strong>San Gabriel (Martes)</strong> - Atrae amor verdadero, reconcilia matrimonios, protege gestaciones, une familias</li>
+            <li>💛 <strong>San Uriel (Miércoles)</strong> - Da sabiduría en decisiones, revela caminos, ilumina el futuro, evita trampas</li>
+            <li>💙 <strong>San Jofiel (Jueves)</strong> - Armoniza familia, protege hijos, trae paz en el hogar, aleja peleas</li>
+            <li>🤍 <strong>San Chamuel (Viernes)</strong> - Garantiza empleo, promociones, éxito profesional, reconocimiento</li>
+            <li>💜 <strong>San Zadquiel (Sábado)</strong> - Perdona deudas kármicas, libera culpas, limpia pecados, abre caminos bloqueados</li>
+        </ul>
+
+        <p>Cuando usted <strong>ACTIVA</strong> los 7 simultáneamente...</p>
+        <p>La vida <strong>EXPLOTA</strong> en todas las direcciones.</p>
+        <p>No es un milagro. <strong>Son SIETE MILAGROS al mismo tiempo.</strong></p>
+
+        <hr>
+
+        <h2>¿Por Qué el 94% de las Personas Que Compraron el Canto Sagrado Volvieron Para Comprar Este Ritual?</h2>
+
+        <p>Porque ellas percibieron en la práctica lo que le estoy alertando ahora:</p>
+        <p>Tener solo a San Miguel es <strong>PELIGROSO.</strong></p>
+        <p>Es como encender una vela en una habitación y dejar las otras 6 en la oscuridad.</p>
+        <p>Los demonios, la envidia, las enfermedades, los bloqueos...</p>
+        <p>Ellos <strong>ATACAN</strong> las áreas que usted <strong>NO</strong> protegió.</p>
+        <p>Por eso:</p>
+
+        <ul>
+            <li>Usted recibe dinero, pero se enferma</li>
+            <li>Usted cura, pero el matrimonio se acaba</li>
+            <li>Usted prospera, pero pierde el empleo</li>
+            <li>Usted gana, pero la familia se desmorona</li>
+        </ul>
+
+        <p>Es un juego del gato y el ratón. Usted <strong>NECESITA</strong> cerrar las 7 puertas. Activar los 7 guardianes. Blindar las 7 áreas de su vida <strong>SIMULTÁNEAMENTE.</strong></p>
+        <p>Si no, el enemigo siempre encuentra una brecha.</p>
+
+        <hr>
+
+        <h2>¿Cuánto Vale Proteger TODAS las Áreas de Su Vida?</h2>
+
+        <p>Espiritualmente hablando, este ritual no tiene precio. Papas y reyes pagaban <strong>FORTUNAS</strong> por esa información.</p>
+        <p>En sesiones privadas, cobramos <strong>$1.497 dólares</strong> para enseñar este ritual individualmente.</p>
+        <p>Pero usted no está aquí por casualidad. Ya dio el primer paso con el Canto Sagrado. Ya blindó con el Canción de Dios.</p>
+        <p>Ahora solo falta la <strong>MULTIPLICACIÓN INFINITA.</strong></p>
+
+        <p>Por eso, <strong>SOLO</strong> en esta página, <strong>SOLO</strong> en los próximos 5 minutos...</p>
+
+        <p>Usted <strong>NO pagará $1.497 dólares.</strong></p>
+        <p><strong>Ni $697 dólares.</strong></p>
+        <p><strong>Ni $247 dólares.</strong></p>
+
+        <div class="highlight" style="text-align: center; background-color: #ffe0b2; border-color: #ff9800;">
+            <p style="font-size: 20px; font-weight: 700;">Usted accede al Ritual Completo de los 7 Arcángeles por solo</p>
+            <p style="font-size: 40px; font-weight: 700; color: #ff0000;">$47 DÓLARES.</p>
+        </div>
+
+        <div class="button-container" style="margin-top: 5px;">
+            <a href="https://cantosagrado7.mycartpanda.com/ex-ocu/next-offer/nNjXQ4E2kl?accepted=yes" class="cta-button accept-button">
+                [SÍ, QUIERO ACTIVAR LOS 7 ARCÁNGELES AHORA POR $47 DÓLARES]
+            </a>
+            <a href="https://cantosagrado7.mycartpanda.com/ex-ocu/next-offer/nNjXQ4E2kl?accepted=no" class="cta-button decline-button" style="margin-top: -5px;">
+                No, deseo continuar solo con San Miguel y arriesgarme.
+            </a>
+        </div>
+        <p>Menos de 7 dólares por Arcángel. Menos que una consulta con un sacerdote.</p>
+
+        <h3>¡Pero hay más!</h3>
+
+        <p>Si usted hace clic en el botón verde <strong>AHORA</strong>, en los próximos 3 minutos...</p>
+        <p>Voy a incluir <strong>3 BONOS SECRETOS</strong> que NUNCA fueron revelados públicamente:</p>
+
+        <div class="highlight" style="background-color: #e8f5e9; border-color: #388e3c;">
+            <p>🎁 <strong>BONO 1: "Oración de Emergencia Angélica"</strong> (Valor: $97 dólares)</p>
+            <p>Oración de 90 segundos para llamar a <strong>LOS 7 ARCÁNGELES</strong> simultáneamente en momentos de <strong>CRISIS EXTREMA.</strong></p>
+        </div>
+
+        <div class="highlight" style="background-color: #e8f5e9; border-color: #388e3c;">
+            <p>🎁 <strong>BONO 2: "Mapa de Activación Celestial"</strong> (Valor: $67 dólares)</p>
+            <p>Calendario personalizado mostrando <strong>EXACTAMENTE</strong> cuándo escuchar cada oración para potencia <strong>MÁXIMA.</strong></p>
+        </div>
+
+        <div class="highlight" style="background-color: #e8f5e9; border-color: #388e3c;">
+            <p>🎁 <strong>BONO 3: "Selo de Protección Familiar"</strong> (Valor: $127 dólares)</p>
+            <p>Oración para extender la protección de los 7 Arcángeles a <strong>TODA</strong> su familia.</p>
+        </div>
+
+        <hr>
+
+        <h2>Garantía Celestial de 90 Días Completos</h2>
+
+        <p>No quiero que usted decida ahora si va a funcionar o no.</p>
+        <p>Quiero que usted <strong>SIENTA</strong> los 7 Arcángeles trabajando en su vida.</p>
+        <p>Por eso, usted tiene <strong>90 DÍAS COMPLETOS</strong> para activar el ritual.</p>
+
+        <p>Si en <strong>CUALQUIER</strong> momento usted cree que no valió la pena... que no funcionó... que no fue lo que esperaba...</p>
+
+        <p>Es solo enviarme <strong>UN</strong> correo electrónico.</p>
+        <p><strong>Yo devuelvo CADA CENTAVO.</strong></p>
+        <p>Sin preguntas. Sin burocracia. Sin drama.</p>
+        <p>Usted se queda con <strong>TODO</strong> y aún recibe su dinero de vuelta. <strong>CERO riesgo.</strong></p>
+
+        <hr>
+
+        <h2>Esta Oferta Expira en 5 Minutos</h2>
+
+        <p>El sistema está configurado para remover automáticamente esta página en 5 minutos.</p>
+        <p>Entonces, usted tiene <strong>DOS</strong> opciones ahora mismo:</p>
+
+        <p><strong>OPCIÓN 1:</strong> Usted hace clic en el botón verde de abajo, confirma por solo $47 dólares, y activa los 7 Arcángeles en las próximas horas, blindando <strong>TODAS</strong> las áreas de su vida para recibir <strong>SIETE MILAGROS SIMULTÁNEOS.</strong></p>
+        <p><strong>OPCIÓN 2:</strong> Usted sale de esta página, continúa solo con San Miguel, y <strong>REZA</strong> para que las otras 6 áreas de su vida no se derrumben mientras el milagro financiero llega.</p>
+
+        <p><strong>¿Cuál escoge?</strong></p>
+
+        <p>Recuerde: 94% de las personas que vieron esta página volvieron para comprar. Pero cuando volvieron, la oferta ya había expirado. Y ellas tuvieron que pagar el valor <strong>INTEGRAL de $1.497 dólares.</strong></p>
+
+        <p>No sea esa persona. No deje que el arrepentimiento lo consuma.</p>
+
+        <p style="text-align: center; margin-top: 30px;">Esta oferta es limitada a los próximos 9 clientes. 6 cupos ya fueron llenados.</p>
+
+        <div class="countdown">
+            <p>Tiempo restante: 4 minutos y 47 segundos.</p>
+            <p style="font-size: 16px; font-weight: 400;">Después de ese tiempo, el descuento expira y el sistema vuelve al valor integral de $1.497 dólares.</p>
+        </div>
+
+        <p style="text-align: center;">Que los 7 Arcángeles bendigan cada área de su vida. Y que ninguna fuerza de la oscuridad consiga jamás derribarlo. Amén.</p>
+
+    </div>
 
     <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
     <script> new OcuExternal(); </script>
-  </div>
-
-
-
-  <script
-    src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-    data-utmify-prevent-xcod-sck
-    data-utmify-prevent-subids
-    async
-    defer
-  ></script>
 </body>
 </html>
-
-
