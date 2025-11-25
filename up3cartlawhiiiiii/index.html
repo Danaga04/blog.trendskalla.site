@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complemente Su Pedido</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #ffffff;
+            color: #000000;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #e0e0e0; /* Borda sutil para parecer limpo */
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        /* Titles - Simple, Professional */
+        h1 {
+            text-align: center;
+            font-weight: 700;
+            font-size: 24px;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #f0f0f0;
+            padding-bottom: 10px;
+        }
+        
+        h2 {
+            text-align: center;
+            font-weight: 600;
+            font-size: 18px;
+            color: #333333;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+
+        /* Text and Lists - Factual Tone */
+        p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        
+        .disclaimer {
+            font-size: 12px;
+            color: #777777;
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            border-top: 1px solid #f0f0f0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin-bottom: 8px;
+            padding-left: 1.2em;
+            position: relative;
+            font-weight: 500;
+        }
+
+        ul li::before {
+            content: '•'; /* Bullet point simples e neutro */
+            position: absolute;
+            left: 0;
+            color: #007bff; /* Cor institucional suave */
+            font-weight: 700;
+        }
+
+        /* Price Box - Neutral */
+        .price-box {
+            text-align: center;
+            background-color: #f8f8f8;
+            padding: 15px;
+            margin: 20px 0;
+            border: 1px dashed #cccccc;
+            border-radius: 4px;
+        }
+        
+        .price-box p {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333333;
+            margin: 0;
+        }
+
+        .price-box strong {
+            font-size: 32px;
+            color: #0056b3; /* Azul profissional */
+            display: block;
+            margin-top: 5px;
+        }
+
+        /* Buttons and CTAs - Simple and Functional */
+        .button-container {
+            text-align: center;
+            margin: 30px 0 10px 0;
+        }
+
+        .cta-button {
+            display: block; 
+            width: 100%;
+            padding: 15px 20px;
+            font-size: 18px;
+            font-weight: 700;
+            text-decoration: none;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .accept-button {
+            background-color: #28a745; /* Verde de confirmação neutro */
+            color: #ffffff;
+        }
+
+        .decline-button {
+            background-color: #e9ecef; /* Cinza claro, discreto */
+            color: #495057;
+            text-transform: none;
+            font-size: 16px;
+            font-weight: 600;
+            padding: 12px 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <h1>¡OFERTA ADICIONAL!</h1>
+        <h2>Complete su adquisición con el Paquete de Activación de los 7 Arcángeles.</h2>
+
+        <p>Su pedido original incluye el Canto Sagrado enfocado en San Miguel Arcángel. Este es un complemento opcional diseñado para ofrecer una cobertura integral en otras áreas de su vida:</p>
+
+        <ul>
+            <li><strong>7 Oraciones de Activación:</strong> Una para cada Arcángel Supremo.</li>
+            <li><strong>Cobertura Total:</strong> Dirigido a áreas como salud, relaciones, empleo, familia y guía.</li>
+            <li><strong>Protección Ampliada:</strong> Complementa la protección financiera de San Miguel.</li>
+            <li><strong>Acceso Instantáneo:</strong> Reciba el contenido inmediatamente después de la confirmación.</li>
+        </ul>
+        
+        <p>Este paquete es recomendado para quienes buscan una activación y cobertura más amplia más allá del enfoque del Arcángel inicial.</p>
+
+        <div class="price-box">
+            <p>Precio de Adquisición Única:</p>
+            <strong>$47 DÓLARES</strong>
+        </div>
+
+        <p style="text-align: center;">Haga clic en una de las opciones a continuación para finalizar su pedido:</p>
+
+        <div class="button-container">
+            <a href="https://cantosagrado7.mycartpanda.com/ex-ocu/next-offer/nNjXQ4E2kl?accepted=yes" class="cta-button accept-button">
+                SÍ, QUIERO EL PAQUETE COMPLETO POR $47 DÓLARES
+            </a>
+            <a href="https://cantosagrado7.mycartpanda.com/ex-ocu/next-offer/nNjXQ4E2kl?accepted=no" class="cta-button decline-button">
+                No, gracias. Prefiero continuar solo con mi pedido original.
+            </a>
+        </div>
+        <p class="disclaimer">Esta es una oferta única para complementar su compra. La adición de este producto no garantiza resultados específicos o promesas financieras. Los términos y condiciones de la garantía son aplicables.</p>
+
+    </div>
+
+    <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+    <script> new OcuExternal(); </script>
+</body>
+</html>
