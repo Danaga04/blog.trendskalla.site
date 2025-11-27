@@ -196,44 +196,85 @@
 <link rel="dns-prefetch" href="https://images.converteai.net">
 <link rel="dns-prefetch" href="https://api.vturb.com.br">
   
-  
-<div style="margin-top: 20px; text-align: center;">
-  <a href="https://go.centerpag.com/PPU38CQ2P06?upsell=true" target="_blank" class="botao-pulsante">
-    Acelerar 10x y acceder
+  <!-- BOTÕES UPSELL -->
+<div class="upsell-container">
+  <a href="https://trend4u.mycartpanda.com/ex-ocu/next-offer/q7YE1k9YMp?accepted=yes" class="btn-aceitar">
+    🚀 ACELERAR 10X Y ACCEDER
+  </a>
+
+  <a href="https://trend4u.mycartpanda.com/ex-ocu/next-offer/q7YE1k9YMp?accepted=no" class="link-recusar">
+    No acceder y pagar el valor total
   </a>
 </div>
 
 <style>
-.botao-pulsante {
-  background: #00c853;
-  color: #ffffff;
-  padding: 16px 38px;
-  font-size: 20px;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 50px;
-  display: inline-block;
-  animation: pulsar 1.5s infinite;
-  box-shadow: 0 0 0 rgba(0, 200, 83, 0.7);
-  transition: all 0.3s ease;
+.upsell-container {
+  max-width: 100%;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
 }
 
-.botao-pulsante:hover {
+.btn-aceitar {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 0 auto 15px auto;
+  padding: 18px 20px;
+  background: #00c853;
+  color: #fff;
+  font-size: 18px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 0 rgba(0, 200, 83, 0.7);
+  transition: transform 0.2s ease;
+}
+
+.btn-aceitar:hover {
   transform: scale(1.05);
 }
 
-@keyframes pulsar {
+@keyframes pulse {
   0% {
     box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7);
   }
   70% {
-    box-shadow: 0 0 0 20px rgba(0, 200, 83, 0);
+    box-shadow: 0 0 0 18px rgba(0, 200, 83, 0);
   }
   100% {
     box-shadow: 0 0 0 0 rgba(0, 200, 83, 0);
   }
 }
+
+.link-recusar {
+  display: block;
+  margin-top: 8px;
+  font-size: 14px;
+  color: #666;
+  text-decoration: underline;
+}
+
+/* MOBILE AJUSTE */
+@media (max-width: 480px) {
+  .btn-aceitar {
+    font-size: 16px;
+    padding: 16px;
+  }
+
+  .link-recusar {
+    font-size: 13px;
+  }
+}
 </style>
+
+<!-- SCRIPT CARTPANDA -->
+<script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+<script>
+  new OcuExternal();
+</script>
 
 
   
@@ -305,6 +346,7 @@
   
 </body>
 </html>
+
 
 
 
