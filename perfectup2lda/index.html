@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>compra en análisis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.4;
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+    .header {
+      background: linear-gradient(90deg, #d80000, #7a0000);
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    .header span {
+      background: #fff;
+      color: #d80000;
+      font-weight: 800;
+      font-size: 22px;
+      padding: 5px 10px;
+      display: inline-block;
+    }
+    .header p {
+      margin-top: 10px;
+      font-size: 16px;
+      font-style: italic;
+    }
+    .step {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 20px 0 10px;
+    }
+    .progress {
+      width: 90%;
+      margin: 0 auto;
+      height: 30px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      width: 75%;
+      height: 100%;
+      background: linear-gradient(90deg, #16a34a, #0d6b3a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+    }
+    .warning {
+      font-size: 14px;
+      margin: 10px 0;
+      text-align: center;
+    }
+    .warning span {
+      color: #ffcc00;
+      font-size: 18px;
+    }
+
+    .upsell-container {
+      max-width: 100%;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .btn-aceitar {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      margin: 0 auto 15px auto;
+      padding: 18px 20px;
+      background: #00c853;
+      color: #fff;
+      font-size: 18px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 0 rgba(0, 200, 83, 0.7);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-aceitar:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); }
+      70% { box-shadow: 0 0 0 18px rgba(0, 200, 83, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+    }
+
+    @media (max-width: 480px) {
+      .btn-aceitar {
+        font-size: 16px;
+        padding: 16px;
+      }
+    }
+
+    #confetti {
+      position: fixed;
+      height: 100%;
+      width: 100%;
+      top: 0px;
+      left: 0px;
+      z-index: 999;
+      pointer-events: none;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="header">
+    <span>IMPORTANTE:</span>
+    <p>No solicite un chargeback, su acceso estará en la siguiente página.</p>
+  </div>
+
+  <div class="step">PASO 3 DE 4</div>
+
+  <div class="progress">
+    <div class="progress-bar">75%</div>
+  </div>
+
+  <div class="warning">
+    <span>⚠</span> Vea el vídeo a continuación 👇 el acceso se enviará a su correo electrónico.
+  </div>
+
+  <!-- VIDEO -->
+  <vturb-smartplayer id="vid-6917821898db0a5ed75f49b1" style="display:block;margin:0 auto;width:100%;"></vturb-smartplayer>
+  <script>
+    var s=document.createElement("script");
+    s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6917821898db0a5ed75f49b1/v4/player.js";
+    s.async=true;
+    document.head.appendChild(s);
+  </script>
+
+  <!-- BOTÃO ÚNICO -->
+  <div class="upsell-container">
+    <a href="https://go.centerpag.com/PPU38CQ2OD9?upsell=true" class="btn-aceitar">
+      ACELERAR 10X Y ACCEDER
+    </a>
+  </div>
+
+  <canvas id="confetti"></canvas>
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  <script>
+    const jsConfetti = new JSConfetti({ canvasId: 'confetti' });
+    window.onload = () => {
+      jsConfetti.addConfetti();
+    };
+  </script>
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+</body>
+</html>
