@@ -1,30 +1,11 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Video Presentation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body style="margin:0; padding:0; display:flex; justify-content:center; align-items:center; min-height:100vh; background-color:#000;">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Video Only — Responsive</title>
 
-  <vturb-smartplayer 
-    id="vid-692e1e296dedb537b9462b7d" 
-    style="display: block; margin: 0 auto; width: 100%; max-width: 400px;">
-  </vturb-smartplayer>
-
-  <script type="text/javascript">
-    var s=document.createElement("script");
-    s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/692e1e296dedb537b9462b7d/v4/player.js";
-    s.async=!0;
-    document.head.appendChild(s);
-  </script>
-
-  <script>
-    !function(i,n){
-      i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())
-    }(window,performance);
-  </script>
-
+  <!-- Preloads (kept as provided) -->
   <link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/692e1e296dedb537b9462b7d/v4/player.js" as="script">
   <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
   <link rel="preload" href="https://cdn.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/692e1e12ef5ffe7c2d1eb0a3/main.m3u8" as="fetch">
@@ -32,6 +13,66 @@
   <link rel="dns-prefetch" href="https://scripts.converteai.net">
   <link rel="dns-prefetch" href="https://images.converteai.net">
   <link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+  <style>
+    /* White background, centered content, no extra elements */
+    html, body {
+      height: 100%;
+      margin: 0;
+      background: #ffffff; /* white */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    .player-wrapper {
+      min-height: 100vh; /* full viewport height */
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px; /* small padding so mobile controls don't touch edges */
+      box-sizing: border-box;
+    }
+
+    /* Make the provided custom element responsive */
+    vturb-smartplayer {
+      display: block;
+      width: 100%;
+      max-width: 400px; /* keeps the same max width provided */
+      margin: 0 auto;
+    }
+
+    /* Ensure embedded iframe/video inside the webcomponent scales correctly */
+    vturb-smartplayer > * {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Small screens: reduce max-width slightly if desired */
+    @media (max-width: 360px) {
+      vturb-smartplayer {
+        max-width: 360px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="player-wrapper">
+    <!-- The exact player markup you provided (only the video element) -->
+    <vturb-smartplayer id="vid-692e1e296dedb537b9462b7d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+
+    <script type="text/javascript">
+      var s=document.createElement("script");
+      s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/692e1e296dedb537b9462b7d/v4/player.js";
+      s.async=!0;document.head.appendChild(s);
+    </script>
+
+    <script>
+      !function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);
+    </script>
+  </main>
+
+
 
 
 <script
@@ -44,3 +85,4 @@
 
 </body>
 </html>
+
