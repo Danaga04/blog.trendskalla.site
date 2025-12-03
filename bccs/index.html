@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>¡Oferta Única y Exclusiva!</title>
+    <title>Exclusive One-Time Offer!</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -12,7 +12,7 @@
             padding: 20px;
         }
         .green-box {
-            background-color: #4CAF50; /* Verde vibrante */
+            background-color: #4CAF50;
             color: white;
             padding: 15px;
             margin-bottom: 30px;
@@ -32,7 +32,7 @@
             max-width: 400px;
             margin: 30px auto;
             padding: 20px;
-            background-color: #FF0000; /* Rojo llamativo */
+            background-color: #FF0000;
             color: white;
             font-size: 1.8em;
             font-weight: bold;
@@ -42,7 +42,7 @@
             cursor: pointer;
             box-shadow: 0 5px #c00;
             transition: all 0.1s;
-            animation: pulse 1.5s infinite; /* Efecto pulsante */
+            animation: pulse 1.5s infinite;
         }
         .cta-button:hover {
             background-color: #e60000;
@@ -63,7 +63,7 @@
         }
         #countdown {
             font-size: 3em;
-            color: #d35400; /* Naranja para urgencia */
+            color: #d35400;
             font-weight: bold;
             margin-bottom: 10px;
         }
@@ -82,30 +82,29 @@
 <body>
 
     <div class="green-box">
-        ¿El precio es un problema para ti?
+        Is the price a problem for you?
         <br>
-        Aprovecha el nuevo precio especial con un 52 % de descuento de fin de año.
+        Take advantage of the new special price with a 52% year-end discount.
     </div>
 
-    <img src="https://i.postimg.cc/PrYdjFfp/red-gift-box-and-gold-ribbon-chinese-new-year-elements-icon-3d-rendering-png.png" alt="Caja de Regalo Roja" class="gift-image">
+    <img src="https://i.postimg.cc/PrYdjFfp/red-gift-box-and-gold-ribbon-chinese-new-year-elements-icon-3d-rendering-png.png" alt="Red Gift Box" class="gift-image">
 
-    <a href="https://checkout.centerpag.com/pay/PPU38CQ3HF6?lang=es" class="cta-button">
-        HAZ CLIC AQUÍ PARA OBTENER EL DESCUENTO
+    <a href="https://go.centerpag.com/PPU38CQ2OUS" class="cta-button">
+        CLICK HERE TO GET THE DISCOUNT
     </a>
 
     <div class="timer-section">
-        <h2>⏱️ ¡Tiempo Limitado!</h2>
+        <h2>⏱️ Limited Time!</h2>
         <div id="countdown"></div>
         
         <div class="slots-info">
-            Quedan <span id="slots-count">10</span> cupos disponibles.
+            Only <span id="slots-count">10</span> spots left.
         </div>
     </div>
 
     <script>
-        // --- SCRIPT DE CUENTA REGRESIVA ---
+        // --- COUNTDOWN SCRIPT ---
         const countdownElement = document.getElementById('countdown');
-        // Define el tiempo final (Ejemplo: 30 minutos desde la carga de la página)
         const endTime = new Date().getTime() + 30 * 60 * 1000; 
 
         function updateCountdown() {
@@ -114,7 +113,7 @@
 
             if (distance < 0) {
                 clearInterval(countdownInterval);
-                countdownElement.innerHTML = "¡Oferta Expirada!";
+                countdownElement.innerHTML = "Offer Expired!";
                 return;
             }
 
@@ -126,20 +125,20 @@
         }
 
         const countdownInterval = setInterval(updateCountdown, 1000);
-        updateCountdown(); // Llamar una vez para evitar el parpadeo inicial
+        updateCountdown();
 
-        // --- SCRIPT DE CUPOS DISMINUYENDO (VAGAS) ---
+        // --- SLOTS DECREASING SCRIPT ---
         const slotsCountElement = document.getElementById('slots-count');
-        let currentSlots = 10; // Empezamos con 10 cupos
-        const slotsInterval = 30000; // Un cupo cada 30 segundos
+        let currentSlots = 10;
+        const slotsInterval = 30000;
 
         function decreaseSlots() {
-            if (currentSlots > 3) { // Disminuye lentamente hasta 3
+            if (currentSlots > 3) {
                 currentSlots--;
-            } else if (currentSlots > 0) { // Disminuye más rápido de 3 a 0
-                currentSlots = Math.max(0, currentSlots - 1); // Asegura que no sea negativo
+            } else if (currentSlots > 0) {
+                currentSlots = Math.max(0, currentSlots - 1);
                 clearInterval(slotsIntervalId);
-                slotsIntervalId = setInterval(decreaseSlots, 10000); // Cambia a 10 segundos
+                slotsIntervalId = setInterval(decreaseSlots, 10000);
             } else {
                 clearInterval(slotsIntervalId);
             }
@@ -149,38 +148,17 @@
         let slotsIntervalId = setInterval(decreaseSlots, slotsInterval);
     </script>
 
-    <script>
-  const link = 'https://pay.kiwify.com/BHdqejb';
-  function setBackRedirect(url) {
-    let urlBackRedirect = url;
-    urlBackRedirect = urlBackRedirect.trim() +
-      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-      document.location.search.replace('?', '').toString();
-    history.pushState({}, '', location.href);
-    history.pushState({}, '', location.href);
-    history.pushState({}, '', location.href);
-    window.addEventListener('popstate', () => {
-      setTimeout(() => { location.href = urlBackRedirect; }, 1);
-    });
-  }
-  setBackRedirect(link);
-  </script>
+   
 
+    <script
+      src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-xcod-sck
+      data-utmify-prevent-subids
+      data-utmify-ignore-iframe
+      data-utmify-is-cartpanda
+      async
+      defer
+    ></script>
 
-  <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  data-utmify-ignore-iframe
-  data-utmify-is-cartpanda
-  async
-  defer
-></script>
 </body>
 </html>
-
-
-
-
-
-
