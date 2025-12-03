@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Confirmación de compra</title>
+  <title>purchase under review</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
     body {
@@ -15,20 +15,17 @@
       line-height: 1.4;
       text-align: center;
     }
-
     img {
       max-width: 100%;
       display: block;
-      margin: 25px auto;
+      margin: 0 auto;
     }
-
     .header {
       background: linear-gradient(90deg, #d80000, #7a0000);
       color: #fff;
       text-align: center;
       padding: 20px 10px;
     }
-
     .header span {
       background: #fff;
       color: #d80000;
@@ -37,20 +34,17 @@
       padding: 5px 10px;
       display: inline-block;
     }
-
     .header p {
       margin-top: 10px;
       font-size: 16px;
       font-style: italic;
     }
-
     .step {
       text-align: center;
       font-size: 18px;
       font-weight: 700;
       margin: 20px 0 10px;
     }
-
     .progress {
       width: 90%;
       margin: 0 auto;
@@ -59,7 +53,6 @@
       border-radius: 5px;
       overflow: hidden;
     }
-
     .progress-bar {
       width: 75%;
       height: 100%;
@@ -70,18 +63,17 @@
       color: #fff;
       font-weight: 700;
     }
-
     .warning {
       font-size: 14px;
       margin: 10px 0;
       text-align: center;
     }
-
     .warning span {
       color: #ffcc00;
       font-size: 18px;
     }
 
+    /* ===== NOVO BOTÃO (DO SEGUNDO MODELO) ===== */
     .upsell-container {
       max-width: 100%;
       width: 100%;
@@ -125,47 +117,41 @@
 
 <body>
 
-  <!-- Header -->
   <div class="header">
-    <span>IMPORTANTE:</span>
-    <p>No solicite un chargeback, su acceso estará en la siguiente página.</p>
+    <span>IMPORTANT:</span>
+    <p>Do not request a chargeback, your access will be on the next page.</p>
   </div>
 
-  <!-- Step -->
-  <div class="step">PASO 3 DE 4</div>
+  <div class="step">STEP 3 OF 4</div>
 
-  <!-- Progress -->
   <div class="progress">
-    <div class="progress-bar">99%</div>
+    <div class="progress-bar">75%</div>
   </div>
 
-  <!-- Warning -->
   <div class="warning">
-    <span>⚠</span> Confirme abajo para acceder inmediatamente.
+    <span>⚠</span> Watch the video below 👇 access will be sent to your email.
   </div>
 
-  <!-- IMAGEM -->
-  <img src="https://i.postimg.cc/NFtPCqT9/Texto-do-seu-paragrafo-(4).png" alt="Confirmación">
+  <vturb-smartplayer id="vid-692ee33945aa9c385637d0a9" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
 
-  <!-- BOTÃO -->
+  <script type="text/javascript">
+    var s=document.createElement("script");
+    s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/692ee33945aa9c385637d0a9/v4/player.js";
+    s.async=!0;
+    document.head.appendChild(s);
+  </script>
+
+  <!-- NOVO BOTÃO APLICADO -->
   <div class="upsell-container">
-    <a href="https://checkout.centerpag.com/pay/PPU38CQ2P06?upsell=true" class="btn-confirmar">
-      CONFIRMAR Y ACCEDER
+    <a href="https://always-healthy.mycartpanda.com/ex-ocu/next-offer/7rVqgM4jDP?accepted=yes" class="btn-confirmar">
+      CONFIRM AND ACCESS
     </a>
   </div>
 
-  <!-- Margem grande abaixo -->
   <div class="margin-grande"></div>
 
-  <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
+  <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+  <script> new OcuExternal(); </script>
 
 </body>
 </html>
-
-
