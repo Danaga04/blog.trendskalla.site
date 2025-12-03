@@ -1,86 +1,24 @@
-<!DOCTYPE html>
-<html lang="es">
+<!doctype html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>compra en análisis</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Don't Leave This Page — Access</title>
   <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Poppins", sans-serif;
-      background: #000;
-      color: #fff;
-      line-height: 1.4;
-      text-align: center;
-    }
-    img {
-      max-width: 100%;
-      display: block;
-      margin: 0 auto;
-    }
-    .header {
-      background: linear-gradient(90deg, #d80000, #7a0000);
-      color: #fff;
-      text-align: center;
-      padding: 20px 10px;
-    }
-    .header span {
-      background: #fff;
-      color: #d80000;
-      font-weight: 800;
-      font-size: 22px;
-      padding: 5px 10px;
-      display: inline-block;
-    }
-    .header p {
-      margin-top: 10px;
-      font-size: 16px;
-      font-style: italic;
-    }
-    .step {
-      text-align: center;
-      font-size: 18px;
-      font-weight: 700;
-      margin: 20px 0 10px;
-    }
-    .progress {
-      width: 90%;
-      margin: 0 auto;
-      height: 30px;
-      border: 1px solid #000;
-      border-radius: 5px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      width: 75%;
-      height: 100%;
-      background: linear-gradient(90deg, #16a34a, #0d6b3a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 700;
-    }
-    .warning {
-      font-size: 14px;
-      margin: 10px 0;
-      text-align: center;
-    }
-    .warning span {
-      color: #ffcc00;
-      font-size: 18px;
-    }
+    :root{--green:#28c76f;--gray:#9aa0a6}
+    html,body{height:100%;margin:0;background:#ffffff;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    .wrap{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:32px 16px 220px;box-sizing:border-box}
+    .container{max-width:900px;width:100%;text-align:center}
+    h1{font-size:22px;line-height:1.15;margin:10px 0 22px;font-weight:700;color:#0b1220;text-transform:uppercase}
+    .subtitle{font-size:16px;color:#333;margin-bottom:18px}
 
-    .upsell-container {
-      max-width: 100%;
-      width: 100%;
-      padding: 20px;
-      text-align: center;
-      box-sizing: border-box;
-    }
+    .video-wrap{width:100%;display:block;margin:0 auto 26px}
+    vturb-smartplayer{display:block;width:100%;height:0;padding-bottom:56.25%;position:relative}
+    vturb-smartplayer > iframe, vturb-smartplayer > video{position:absolute;top:0;left:0;width:100%;height:100%}
 
+    .actions{display:flex;gap:16px;align-items:center;justify-content:center;flex-wrap:wrap}
+
+    /* ESTILO ORIGINAL DO BOTÃO DA PERFECTPAY */
     .btn-aceitar {
       display: block;
       width: 100%;
@@ -93,7 +31,7 @@
       font-weight: bold;
       text-decoration: none;
       border-radius: 10px;
-      animation: pulse 1.5s infinite;
+      animation: pulsepp 1.5s infinite;
       box-shadow: 0 0 0 rgba(0, 200, 83, 0.7);
       transition: transform 0.2s ease;
     }
@@ -102,72 +40,52 @@
       transform: scale(1.05);
     }
 
-    @keyframes pulse {
+    @keyframes pulsepp {
       0% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); }
       70% { box-shadow: 0 0 0 18px rgba(0, 200, 83, 0); }
       100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
     }
 
-    @media (max-width: 480px) {
-      .btn-aceitar {
-        font-size: 16px;
-        padding: 16px;
-      }
-    }
+    .spacer{height:220px;width:100%}
 
-    #confetti {
-      position: fixed;
-      height: 100%;
-      width: 100%;
-      top: 0px;
-      left: 0px;
-      z-index: 999;
-      pointer-events: none;
+    @media (max-width:520px){
+      h1{font-size:18px}
+      .btn-aceitar{font-size:16px;padding:16px}
     }
   </style>
 </head>
-
 <body>
+  <div class="wrap">
+    <div class="container">
+      <h1>DON'T LEAVE THIS PAGE — YOUR ACCESS IS AFTER IT.</h1>
+      <p class="subtitle">Touch play on the video below.</p>
 
-  <div class="header">
-    <span>IMPORTANTE:</span>
-    <p>No solicite un chargeback, su acceso estará en la siguiente página.</p>
+      <div class="video-wrap">
+        <vturb-smartplayer id="vid-692f09c9532f54020692ae4b" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>
+        <script type="text/javascript">
+          var s=document.createElement("script");
+          s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/692f09c9532f54020692ae4b/v4/player.js";
+          s.async=!0;
+          document.head.appendChild(s);
+        </script>
+      </div>
+
+      <div class="actions" role="navigation" aria-label="access actions">
+
+        <!-- APENAS O BOTÃO DE ACEITAR (PERFECTPAY) -->
+        <a href="https://go.centerpag.com/PPU38CQ2OD9?upsell=true" class="btn-aceitar">
+           ACCESS COMPLETE NOW
+        </a>
+
+      </div>
+
+      <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+      <script> new OcuExternal(); </script>
+
+    </div>
+
+    <div class="spacer" aria-hidden="true"></div>
   </div>
-
-  <div class="step">PASO 3 DE 4</div>
-
-  <div class="progress">
-    <div class="progress-bar">75%</div>
-  </div>
-
-  <div class="warning">
-    <span>⚠</span> Vea el vídeo a continuación 👇 el acceso se enviará a su correo electrónico.
-  </div>
-
-  <!-- VIDEO -->
-  <vturb-smartplayer id="vid-6917821898db0a5ed75f49b1" style="display:block;margin:0 auto;width:100%;"></vturb-smartplayer>
-  <script>
-    var s=document.createElement("script");
-    s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6917821898db0a5ed75f49b1/v4/player.js";
-    s.async=true;
-    document.head.appendChild(s);
-  </script>
-
-  <!-- BOTÃO ÚNICO -->
-  <div class="upsell-container">
-    <a href="https://go.centerpag.com/PPU38CQ2OD9?upsell=true" class="btn-aceitar">
-      ACELERAR 10X Y ACCEDER
-    </a>
-  </div>
-
-  <canvas id="confetti"></canvas>
-  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-  <script>
-    const jsConfetti = new JSConfetti({ canvasId: 'confetti' });
-    window.onload = () => {
-      jsConfetti.addConfetti();
-    };
-  </script>
 
 <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
