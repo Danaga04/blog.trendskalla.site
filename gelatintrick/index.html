@@ -1,105 +1,335 @@
-<!doctype html>
-<html lang="en">
+
+<!DOCTYPE html>
+<html lang="fr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Video Only — Responsive</title>
+<!-- Google Tag Manager -->
+<script>!function(){"use strict";function l(e){for(var t=e,r=0,n=document.cookie.split(";");r<n.length;r++){var o=n[r].split("=");if(o[0].trim()===t)return o[1]}}function s(e){return localStorage.getItem(e)}function u(e){return window[e]}function A(e,t){e=document.querySelector(e);return t?null==e?void 0:e.getAttribute(t):null==e?void 0:e.textContent}var e=window,t=document,r="script",n="dataLayer",o="https://track.bienetreviesalud.com",a="",i="ekhyzaids",c="eugdb1hu=GgBUJi40RSVAUF0nNzMjTQVZW09LXwwFTgYABBQcHBkWEgAECRgEHhdKCg4X",g="stapeUserId",v="",E="",d=!1;try{var d=!!g&&(m=navigator.userAgent,!!(m=new RegExp("Version/([0-9._]+)(.*Mobile)?.*Safari.*").exec(m)))&&16.4<=parseFloat(m[1]),f="stapeUserId"===g,I=d&&!f?function(e,t,r){void 0===t&&(t="");var n={cookie:l,localStorage:s,jsVariable:u,cssSelector:A},t=Array.isArray(t)?t:[t];if(e&&n[e])for(var o=n[e],a=0,i=t;a<i.length;a++){var c=i[a],c=r?o(c,r):o(c);if(c)return c}else console.warn("invalid uid source",e)}(g,v,E):void 0;d=d&&(!!I||f)}catch(e){console.error(e)}var m=e,g=(m[n]=m[n]||[],m[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"}),t.getElementsByTagName(r)[0]),v=I?"&bi="+encodeURIComponent(I):"",E=t.createElement(r),f=(d&&(i=8<i.length?i.replace(/([a-z]{8}$)/,"kp$1"):"kp"+i),!d&&a?a:o);E.async=!0,E.src=f+"/"+i+".js?"+c+v,null!=(e=g.parentNode)&&e.insertBefore(E,g)}();</script>
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation Exclusive</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Estilo da Headline para leitura escaneável */
+        .headline {
+            letter-spacing: -0.02em;
+            line-height: 1.1; 
+        }
+        
+        /* Animação suave para a mudança de números */
+        .fade-num {
+            transition: opacity 0.5s ease-in-out;
+        }
 
-  <!-- Preloads (kept as provided) -->
-  <link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/692e1e296dedb537b9462b7d/v4/player.js" as="script">
-  <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-  <link rel="preload" href="https://cdn.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/692e1e12ef5ffe7c2d1eb0a3/main.m3u8" as="fetch">
-  <link rel="dns-prefetch" href="https://cdn.converteai.net">
-  <link rel="dns-prefetch" href="https://scripts.converteai.net">
-  <link rel="dns-prefetch" href="https://images.converteai.net">
-  <link rel="dns-prefetch" href="https://api.vturb.com.br">
-
-  <style>
-    /* White background, centered content, no extra elements */
-    html, body {
-      height: 100%;
-      margin: 0;
-      background: #ffffff; /* white */
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    .player-wrapper {
-      min-height: 100vh; /* full viewport height */
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px; /* small padding so mobile controls don't touch edges */
-      box-sizing: border-box;
-    }
-
-    /* Make the provided custom element responsive */
-    vturb-smartplayer {
-      display: block;
-      width: 100%;
-      max-width: 400px; /* keeps the same max width provided */
-      margin: 0 auto;
-    }
-
-    /* Ensure embedded iframe/video inside the webcomponent scales correctly */
-    vturb-smartplayer > * {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    /* Small screens: reduce max-width slightly if desired */
-    @media (max-width: 360px) {
-      vturb-smartplayer {
-        max-width: 360px;
-      }
-    }
-  </style>
+        /* Estilização específica para a seção de comentários parecer nativa do FB */
+        .fb-comment-bg {
+            background-color: #f0f2f5;
+        }
+        .fb-name {
+            color: #050505;
+            font-weight: 600;
+        }
+        .fb-text {
+            color: #050505;
+        }
+        .fb-meta {
+            color: #65676b;
+        }
+        .fb-link {
+            color: #65676b;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .fb-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
-<body>
-  <main class="player-wrapper">
-    <!-- The exact player markup you provided (only the video element) -->
-    <vturb-smartplayer id="vid-692e1e296dedb537b9462b7d" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer>
+<body class="bg-white min-h-screen flex flex-col items-center font-sans text-gray-900">
 
-    <script type="text/javascript">
-      var s=document.createElement("script");
-      s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/692e1e296dedb537b9462b7d/v4/player.js";
-      s.async=!0;document.head.appendChild(s);
-    </script>
+    <!-- 
+      BARRA DE ESCASSEZ E PROVA SOCIAL (ESTILO FAIXA VERMELHA)
+      Posicionada fora do container principal para ocupar 100% da largura
+      AUMENTADA: Padding maior (py-5) e texto maior (text-base/text-lg) para máximo destaque
+    -->
+    <div class="w-full bg-[#cc0000] text-white text-center py-5 px-4 shadow-md relative z-50">
+        <p class="text-base md:text-lg font-medium leading-snug">
+            <span id="viewer-count" class="font-bold text-[#ffcc00] text-xl">1 467</span> 
+            personnes regardent cette présentation. En raison de la forte demande, elle n'est disponible que jusqu'au 
+            <span id="current-date" class="font-bold text-[#ffcc00]"></span>
+        </p>
+    </div>
 
+    <!-- Aumentei o container principal para max-w-6xl para permitir que os comentários cresçam mais -->
+    <main class="w-full max-w-6xl flex flex-col items-center pt-8 md:pt-12 px-4">
+        
+        <!-- VSL CONTAINER -->
+   <vturb-smartplayer id="vid-693582c9e212f51b19a26f40" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/693582c9e212f51b19a26f40/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+
+      <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+<link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/693582c9e212f51b19a26f40/v4/player.js" as="script">
+<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+<link rel="preload" href="https://cdn.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/693580b9332125736afe4fcb/main.m3u8" as="fetch">
+<link rel="dns-prefetch" href="https://cdn.converteai.net">
+<link rel="dns-prefetch" href="https://scripts.converteai.net">
+<link rel="dns-prefetch" href="https://images.converteai.net">
+<link rel="dns-prefetch" href="https://api.vturb.com.br">
+
+      
+        <!-- Aviso de Som (Francês) -->
+        <p class="mt-6 text-center text-gray-600 text-sm md:text-base flex items-center justify-center gap-2 font-medium">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+            </svg>
+            Vérifiez que votre son est activé
+        </p>
+
+        <!-- PROVA SOCIAL DE MÍDIA -->
+        <div class="mt-8 flex justify-center w-full px-4">
+            <img 
+                src="https://i.ibb.co/21Y3KWnz/midias.webp" 
+                alt="Vu dans les grands médias" 
+                class="w-full max-w-[500px] md:max-w-[600px] object-contain opacity-80 grayscale hover:grayscale-0 transition-all duration-500"
+            >
+        </div>
+
+        <!-- SEÇÃO DE COMENTÁRIOS FACEBOOK (LARGURA e TÍTULO AUMENTADOS) -->
+        <!-- Aumentado de max-w-4xl para max-w-5xl para dominar a tela -->
+        <div class="mt-12 w-full max-w-5xl bg-white rounded-lg p-3 md:p-8 shadow-sm border border-gray-100">
+            <!-- Título aumentado para text-2xl e mais escuro para destaque -->
+            <p class="text-2xl text-gray-800 mb-8 border-b pb-4 font-bold px-2">23 Commentaires</p>
+
+            <div class="flex flex-col space-y-6">
+
+                <!-- Comentário 1: Johann Meier (Pessoa 1) -->
+                <div class="flex items-start space-x-3">
+                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/1tRGh9wN/pessoa-1.jpg" alt="User">
+                    <div class="flex-1">
+                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
+                            <div class="fb-name text-[15px] leading-tight mb-1">Johann Meier</div>
+                            <div class="fb-text text-[15px] leading-snug">
+                                Au début, j'étais sceptique, mais après avoir essayé, je suis ravie ! J'ai enfin atteint mon poids idéal et cela m'a aidée à réaliser mes objectifs.
+                                <!-- Imagem Real Adicionada -->
+                                <img src="https://i.ibb.co/Z1cT1HTG/foto1.webp" alt="foto1" class="mt-3 rounded-lg w-full max-w-sm object-cover border border-gray-300 shadow-sm">
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
+                            <span class="fb-link">J'aime</span>
+                            <span class="fb-link">Répondre</span>
+                            <span>4 min</span>
+                             <div class="flex items-center space-x-1 ml-auto">
+                                <div class="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center border border-white shadow-sm"><svg class="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/></svg></div>
+                                <span>12</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comentário 2: Felix Braun (Pessoa 2) -->
+                <div class="flex items-start space-x-3">
+                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/ycPTgm0m/pessoa-2.jpg" alt="User">
+                    <div class="flex-1">
+                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
+                            <div class="fb-name text-[15px] leading-tight mb-1">Felix Braun</div>
+                            <div class="fb-text text-[15px] leading-snug">La base scientifique de cette approche m'impressionne. Cela semble bien plus efficace que les méthodes miracles habituelles.</div>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
+                            <span class="fb-link">J'aime</span>
+                            <span class="fb-link">Répondre</span>
+                            <span>9 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comentário 3: Lea Schneider (Pessoa 3) -->
+                <div class="flex items-start space-x-3">
+                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/3mMJ5Wv5/pessoa-3.jpg" alt="User">
+                    <div class="flex-1">
+                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
+                            <div class="fb-name text-[15px] leading-tight mb-1">Lea Schneider</div>
+                            <div class="fb-text text-[15px] leading-snug">J'avais tout essayé pour perdre du poids, mais rien ne marchait. Après avoir regardé cette vidéo, l'espoir est revenu.</div>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
+                            <span class="fb-link">J'aime</span>
+                            <span class="fb-link">Répondre</span>
+                            <span>18 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comentário 4: Nikolas Vogel (Pessoa 4) -->
+                <div class="flex items-start space-x-3">
+                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/xdt0HxM/pessoa-4.jpg" alt="User">
+                    <div class="flex-1">
+                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
+                            <div class="fb-name text-[15px] leading-tight mb-1">Nikolas Vogel</div>
+                            <div class="fb-text text-[15px] leading-snug">
+                                Enfin un programme de perte de poids qui fonctionne vraiment ! Après d'innombrables régimes et compléments, c'est le seul qui m'a donné de vrais résultats.
+                                <!-- Imagem Real Adicionada -->
+                                <img src="https://i.ibb.co/HfwDdDDs/foto-2.webp" alt="foto-2" class="mt-3 rounded-lg w-full max-w-sm object-cover border border-gray-300 shadow-sm">
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
+                            <span class="fb-link">J'aime</span>
+                            <span class="fb-link">Répondre</span>
+                            <span>20 min</span>
+                             <div class="flex items-center space-x-1 ml-auto">
+                                <div class="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center border border-white shadow-sm"><svg class="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/></svg></div>
+                                <span>24</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comentário 5: Miriam Hoffmann (Pessoa 5) -->
+                <div class="flex items-start space-x-3">
+                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/3ydHvhSL/pessoa-5.jpg" alt="User">
+                    <div class="flex-1">
+                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
+                            <div class="fb-name text-[15px] leading-tight mb-1">Miriam Hoffmann</div>
+                            <div class="fb-text text-[15px] leading-snug">Enfin une solution réaliste et réalisable pour perdre du poids.</div>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
+                            <span class="fb-link">J'aime</span>
+                            <span class="fb-link">Répondre</span>
+                            <span>26 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comentário 6: Laura Fischer (Pessoa 6) -->
+                <div class="flex items-start space-x-3">
+                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/rKmN1k3k/pessoa-6.jpg" alt="User">
+                    <div class="flex-1">
+                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
+                            <div class="fb-name text-[15px] leading-tight mb-1">Laura Fischer</div>
+                            <div class="fb-text text-[15px] leading-snug">J'avais peur des effets secondaires possibles, mais l'astuce montrée dans la vidéo est douce pour l'estomac et n'a causé aucune réaction indésirable.</div>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
+                            <span class="fb-link">J'aime</span>
+                            <span class="fb-link">Répondre</span>
+                            <span>31 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comentário 7: Frieda Keller (Pessoa 7) -->
+                <div class="flex items-start space-x-3">
+                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/1GW0Fd3W/pessoa-7.jpg" alt="User">
+                    <div class="flex-1">
+                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
+                            <div class="fb-name text-[15px] leading-tight mb-1">Frieda Keller</div>
+                            <div class="fb-text text-[15px] leading-snug">L'hyperphagie était un problème pour moi, mais cette vidéo m'a montré comment la contrôler et atteindre mes objectifs de perte de poids.</div>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
+                            <span class="fb-link">J'aime</span>
+                            <span class="fb-link">Répondre</span>
+                            <span>47 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comentário 8: Sofia Neumann (Pessoa 8) -->
+                <div class="flex items-start space-x-3">
+                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/YTQDxxyk/pessoa-8.jpg" alt="User">
+                    <div class="flex-1">
+                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
+                            <div class="fb-name text-[15px] leading-tight mb-1">Sofia Neumann</div>
+                            <div class="fb-text text-[15px] leading-snug">J'adore cette astuce — c'est super simple. Chaque matin, je l'ajoute à mon eau et je suis prête pour la journée.</div>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
+                            <span class="fb-link">J'aime</span>
+                            <span class="fb-link">Répondre</span>
+                            <span>50 min</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Comentário 9: Klara Wolf (Pessoa 9) -->
+                <div class="flex items-start space-x-3">
+                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/CsDKX9c0/pessoa-9.jpg" alt="User">
+                    <div class="flex-1">
+                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
+                            <div class="fb-name text-[15px] leading-tight mb-1">Klara Wolf</div>
+                            <div class="fb-text text-[15px] leading-snug">L'astuce est fantastique ! Elle a débloqué mon palier de perte de poids et les kilos ont disparu pour de bon.</div>
+                        </div>
+                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
+                            <span class="fb-link">J'aime</span>
+                            <span class="fb-link">Répondre</span>
+                            <span>55 min</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </div>
+
+        <!-- ESPAÇO PARA O BOTÃO (DELAY) -->
+        <div class="mt-10 mb-24 w-full text-center hidden">
+            <!-- Placeholder do botão futuro -->
+        </div>
+
+    </main>
+
+    <!-- RODAPÉ SIMPLES (FRANCÊS) -->
+    <footer class="w-full mt-auto py-8 border-t border-gray-100 bg-gray-50">
+        
+        <!-- DISCLAIMER LEGAL -->
+        <div class="max-w-5xl mx-auto px-4 mb-6 text-center border-b border-gray-200 pb-6">
+            <p class="text-xs text-gray-500 leading-relaxed max-w-4xl mx-auto">
+                Les résultats de ce contenu peuvent varier d'une personne à l'autre, selon chaque organisme. La copie ou la reproduction de toutes les images et textes de ce site est expressément interdite, les contrevenants étant passibles de sanctions appropriées. Les informations contenues sur ce site ou dans les e-mails envoyés ont été élaborées uniquement à des fins éducatives. Elles ne prétendent pas remplacer les conseils ou traitements de professionnels du domaine. Certains témoignages ou évaluations peuvent être fictifs.
+            </p>
+        </div>
+
+        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-gray-500">
+            <p>&copy; 2025 Votre Entreprise. Tous droits réservés.</p>
+            <div class="flex gap-6 mt-3 md:mt-0">
+                <a href="#" class="hover:text-gray-800 hover:underline">Conditions d'utilisation</a>
+                <a href="#" class="hover:text-gray-800 hover:underline">Confidentialité</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT DE ESCASSEZ E PROVA SOCIAL -->
     <script>
-      !function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);
+        document.addEventListener('DOMContentLoaded', function() {
+            // 1. CONFIGURAÇÃO DA DATA (Fuso Horário da França)
+            const dateElement = document.getElementById('current-date');
+            
+            // Usa 'Europe/Paris' e 'fr-FR' para formatação correta (dd/mm/yyyy)
+            const options = { timeZone: 'Europe/Paris', day: '2-digit', month: '2-digit', year: 'numeric' };
+            const formattedDate = new Date().toLocaleDateString('fr-FR', options);
+            
+            dateElement.textContent = formattedDate;
+
+            // 2. CONFIGURAÇÃO DO CONTADOR DE VISUALIZADORES
+            const viewerElement = document.getElementById('viewer-count');
+            let currentViewers = 1467; 
+            
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+
+            function updateViewers() {
+                // Variação ajustada para números maiores (flutuação mais dinâmica)
+                const change = getRandomInt(-12, 18); 
+                currentViewers += change;
+
+                // Limites ajustados para a escala de 1400+
+                if (currentViewers < 1380) currentViewers = 1410;
+                if (currentViewers > 1650) currentViewers = 1620;
+
+                // .toLocaleString('fr-FR') usa o espaço como separador de milhar (ex: 1 467)
+                viewerElement.textContent = currentViewers.toLocaleString('fr-FR');
+                
+                const nextUpdate = getRandomInt(2500, 5000); 
+                setTimeout(updateViewers, nextUpdate);
+            }
+
+            setTimeout(updateViewers, 3000);
+        });
     </script>
-  </main>
-
-<!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2023045045196671');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2023045045196671&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-
-<script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
 
 </body>
 </html>
-
-
