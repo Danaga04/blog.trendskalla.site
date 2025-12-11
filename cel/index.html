@@ -1,415 +1,66 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>(1) Ángel Guardián</title>
-
-<!-- CSS -->
-<link rel="stylesheet" type="text/css" href="css/personalizado.css">
-<link rel="stylesheet" type="text/css" href="css/personalizado_02.css">
-<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
-<link rel="stylesheet" type="text/css" href="css/index.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
-<link rel="stylesheet" href="css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=REM:wght@300;400;500&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" type="text/css" href="css/groove.css">
-
-<style>
-@media (min-width: 996px) {
-    .card-bottle {
-        margin: 0 auto;
-        min-width: 400px;
-        margin-bottom: 30px !important;
-    }
-}
-
-/* Container */
-.pricing-section {
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  margin-top: 20px;
-  padding: 20px;
-}
-
-/* Normalmente */
-.pricing-section .normal-price {
-  font-size: 38px;
-  font-weight: 700;
-  color: #000;
-  margin-bottom: 10px;
-}
-
-/* $7,500 tachado */
-.pricing-section .normal-price span {
-  color: red;
-  text-decoration: line-through;
-  font-weight: 700;
-  font-size: 38px;
-}
-
-/* Hoy solo */
-.pricing-section .today-price {
-  font-size: 30px;
-  font-weight: 400;
-  color: #000;
-  margin-bottom: 20px;
-}
-
-/* $37 Una vez */
-.pricing-section .today-price strong {
-  color: #42b99f;
-  font-size: 30px;
-  font-weight: 700;
-}
-
-/* Botón */
-.pricing-section .buy-btn {
-  display: inline-block;
-  background: #14c764;
-  color: #fff;
-  font-size: 24px;
-  font-weight: 700;
-  font-family: "Montserrat", sans-serif;
-  padding: 22px 30px;
-  border-radius: 12px;
-  text-decoration: none;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.25);
-  margin-bottom: 15px;
-  max-width: 90%;
-  line-height: 1.3;
-}
-
-/* Hover */
-.pricing-section .buy-btn:hover {
-  opacity: 0.92;
-}
-
-/* Animación de pulso */
-.pulse {
-  animation: pulse 2s infinite;
-}
-@keyframes pulse {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.06); }
-  100% { transform: scale(1); }
-}
-
-/* Enlace */
-.pricing-section .access-link {
-  font-size: 20px;
-  font-weight: 400;
-  color: #0000ff;
-  text-decoration: underline;
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 20px;
-}
-
-/* Tarjetas */
-.pricing-section .cards img {
-  max-width: 290px;
-  width: 90%;
-  margin: 0 auto;
-  display: block;
-  margin-top: 15px;
-}
-
-/* Texto de seguridad */
-.pricing-section .secure-text {
-  color: #9c9c9c;
-  font-size: 12px;
-  margin-top: 15px;
-  padding: 0 10px;
-  text-align: center;
-}
-
-/* Móvil */
-@media(max-width: 480px) {
-  .pricing-section .normal-price,
-  .pricing-section .normal-price span {
-    font-size: 30px;
-  }
-
-  .pricing-section .today-price,
-  .pricing-section .today-price strong {
-    font-size: 26px;
-  }
-
-  .pricing-section .buy-btn {
-    font-size: 20px;
-    padding: 18px 22px;
-  }
-
-  .pricing-section .access-link {
-    font-size: 18px;
-  }
-}
-
-/* Estilo del contador */
-.countdown-section {
-  text-align:center;
-  font-family:"Roboto",sans-serif;
-  margin-top:20px;
-}
-.countdown-title {
-  font-size:22px;
-  font-weight:700;
-  margin-bottom:12px;
-}
-.countdown-box {
-  display:flex;
-  justify-content:center;
-  gap:20px;
-}
-.count-block {
-  text-align:center;
-}
-.count-number {
-  font-size:38px;
-  font-weight:700;
-}
-.count-label {
-  font-size:14px;
-  font-weight:400;
-  text-transform:uppercase;
-}
-
-/* Pie de página */
-.footer {
-  background-color: #f5f5f5;
-  text-align: center;
-  font-family: "Roboto", sans-serif;
-  font-size: 13px;
-  color: #777;
-  padding: 25px 10px;
-  line-height: 1.6;
-}
-.footer a {
-  color: #777;
-  text-decoration: underline;
-}
-.footer a:hover {
-  color: #000;
-}
-</style>
-
-<script>document.addEventListener('contextmenu', event => event.preventDefault());</script>
-<script src="js/latest.js" async defer></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Como Correr Seus Primeiros 5km</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f5f5f5; }
+        header { background: #111; color: #fff; padding: 20px; text-align: center; }
+        .container { max-width: 900px; margin: auto; padding: 20px; }
+        .btn { display: inline-block; background: #28a745; color: #fff; padding: 15px 25px; font-size: 20px; border-radius: 8px; text-decoration: none; font-weight: bold; margin: 20px 0; text-align: center; }
+        .btn:hover { background: #1f8c39; }
+        .section { background: #fff; padding: 25px; margin-bottom: 25px; border-radius: 10px; box-shadow: 0 3px 10px rgba(0,0,0,0.1); }
+        h2 { margin-top: 0; }
+    </style>
 </head>
-
 <body>
 
-<section class="principal">
-<div class="area_video">
+<header>
+    <h1>Como Correr Seus Primeiros 5km</h1>
+</header>
 
-<!-- Vídeo Vturb -->
-<vturb-smartplayer id="vid-69066e6638a8c7d701deec82" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/69066e6638a8c7d701deec82/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+<div class="container">
 
-      <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/69066e6638a8c7d701deec82/v4/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/69066cb7f75bf038343b4b26/main.m3u8" as="fetch">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://api.vturb.com.br">
-      
-
-<!-- Contador de personas -->
-<div style="display:flex;justify-content:center;align-items:center;width:100%;margin-top:20px;">
-<p style="font-family:'Poppins',sans-serif;font-size:18px;color:#000;text-align:center;">
-<span id="number"></span> personas viendo ahora
-</p>
-</div>
-
-<script>
-function add(){number+=Math.floor((Math.random()*6)+1);document.getElementById("number").innerHTML=number;setTimeout(add,10000);}
-function generate(){number=Math.floor(Math.random()*1143)+1578;document.getElementById("number").innerHTML=number;add();}
-generate();
-</script>
-
-
-
-<!-- ✅ BLOQUE DE PRECIO -->
-<div class="pricing-section">
-
-<div class="normal-price">
-  Normalmente: <span>$1,200</span>
-</div>
-
-<div class="today-price">
-  Hoy solo: <strong>$19 Pago único</strong>
-</div>
-
-<a href="https://pay.hotmart.com/I101885321D?off=szevu2vh&checkoutMode=10" class="buy-btn pulse smartplayer-scroll-event smartplayer-click-event">
-  ¡Sí, quiero registrarme con un 87% de descuento!
-</a>
-
-<a href="https://pay.hotmart.com/I101885321D?off=szevu2vh&checkoutMode=10" class="access-link smartplayer-scroll-event">
-  Haz clic aquí para obtener acceso inmediato >
-</a>
-
-<div class="cards">
-  <img src="https://i.postimg.cc/tJT5MD3y/gdegbo6498420.png">
-</div>
-
-<div class="secure-text">
-  🔒 Tu información es segura. Toda la transacción se realizará en un servidor seguro utilizando tecnología SSL.
-</div>
-
-<!-- ✅ CUENTA REGRESIVA -->
-<section class="countdown-section" id="countdownBox" style="opacity:0;">
-  <div class="countdown-title" id="spotsText">
-    No dejes que esta puerta se cierre en <span id="cityName">tu ciudad</span>, los <span id="spots">200</span> cupos terminarán en:
-  </div>
-
-  <div class="countdown-box">
-    <div class="count-block">
-      <div id="minutes" class="count-number">19</div>
-      <div class="count-label">Minutos</div>
+    <div class="section">
+        <h2>Assista ao Vídeo</h2>
+        <div id="vid_67057d85d40b28000ba7e90a" style="position: relative; width: 100%; padding: 133.33333333333331% 0 0;">
+            <img id="thumb_67057d85d40b28000ba7e90a" src="https://images.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/67057d85d40b28000ba7e90a/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
+            <div id="backdrop_67057d85d40b28000ba7e90a" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div>
+        </div>
+        <script type="text/javascript" id="scr_67057d85d40b28000ba7e90a">
+            var s=document.createElement("script");
+            s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/67057d85d40b28000ba7e90a/player.js", s.async=!0,document.head.appendChild(s);
+        </script>
     </div>
-    <div class="count-block">
-      <div id="seconds" class="count-number">43</div>
-      <div class="count-label">Segundos</div>
+
+    <div class="section">
+        <h2>Você quer correr seus primeiros 5km, mas não sabe por onde começar?</h2>
+        <p>Se você sente que correr é algo impossível, cansativo demais ou simplesmente "não é pra você"... respira. Você só não teve o método certo até agora.</p>
+        <p>Correr 5km não é sobre ter preparo físico avançado. É sobre seguir um passo a passo simples, evolutivo, que qualquer pessoa consegue aplicar — mesmo que esteja começando do zero.</p>
     </div>
-  </div>
-</section>
 
+    <div class="section">
+        <h2>O que você vai aprender</h2>
+        <p>Dentro do programa, você vai descobrir exatamente como começar do nível mais iniciante possível, criar resistência sem se machucar e conquistar seus primeiros 5km de maneira leve, segura e motivadora.</p>
+        <p>Você não precisa de academia, não precisa de equipamentos caros... só precisa do seu corpo, de um tênis e do método certo.</p>
+    </div>
 
+    <div class="section" style="text-align:center;">
+        <a href="https://cheep-sc1.mycartpanda.com/checkout/204568313:1" class="btn">Quero Começar Agora por R$ 147</a>
+    </div>
 
-<!-- ✅ SCRIPT DEL CONTADOR -->
-<script>
-let totalSeconds = (19 * 60) + 43;
-let timer;
-let countdownStarted = false;
-let spots = 200;
-let spotTimer;
+    <div class="section">
+        <h2>Por que este método funciona?</h2>
+        <p>Porque ele foi criado no formato certo para quem nunca correu ou sempre desistiu. Não força além do necessário, não te deixa exausto, não exige performance. O objetivo é um só: te colocar pra correr seus primeiros 5km no tempo certo para você.</p>
+        <p>Você vai se surpreender com o quanto pode evoluir rapidamente — e sem sofrimento.</p>
+    </div>
 
-function updateCountdown() {
-  let minutes = Math.floor(totalSeconds / 60);
-  let seconds = totalSeconds % 60;
-
-  document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-  document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
-
-  if (totalSeconds > 0) totalSeconds--;
-  else clearInterval(timer);
-}
-
-function updateSpots() {
-  const spotsEl = document.getElementById("spots");
-  if (spots > 10) {
-    spots--;
-    spotsEl.textContent = spots;
-  } else {
-    clearInterval(spotTimer);
-  }
-}
-
-const target = document.getElementById("countdownBox");
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !countdownStarted) {
-      countdownStarted = true;
-      target.style.opacity = 1;
-      timer = setInterval(updateCountdown, 1000);
-      updateCountdown();
-      spotTimer = setInterval(updateSpots, 6300);
-    }
-  });
-},{threshold:0.5});
-
-observer.observe(target);
-</script>
-
-<!-- ✅ GEOLOCALIZACIÓN -->
-<script>
-$.get("https://ipinfo.io/json", function (response) {
-  if (response && response.city) {
-    document.getElementById("cityName").textContent = response.city;
-  }
-}, "jsonp");
-</script>
+    <div class="section" style="text-align:center;">
+        <a href="https://cheep-sc1.mycartpanda.com/checkout/204568313:1" class="btn">Garantir meu acesso por R$ 147</a>
+    </div>
 
 </div>
-
-<!-- ✅ PIE DE PÁGINA -->
-<footer class="footer">
-  <p>Copyright 2025 - Divine Script ®<br>
-  Todos los derechos reservados<br>
-  <a href="#">Términos de uso</a> · <a href="#">Privacidad</a><br><br>
-  Este sitio web no forma parte de Facebook ni de Facebook Inc. Además, este sitio no está avalado por Facebook de ninguna manera. FACEBOOK es una marca registrada de FACEBOOK Inc.</p>
-</footer>
-
-<!-- UTMIFY -->
-<script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
-
-<!-- Meta Pixel -->
-<script>
-!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1448657269552319');
-fbq('track', 'PageView');
-</script>
-
-<style>
-  .esconder {
-    display: none;
-  }
-</style>
-
-<script>
-  var delaySeconds = 1273;
-  var player = document.querySelector("vturb-smartplayer");
-  player.addEventListener("player:ready", function() {
-    player.displayHiddenElements(delaySeconds, [".esconder"], {
-      persist: true
-    });
-  });
-</script>
-
-<noscript>
-<img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1448657269552319&ev=PageView&noscript=1"/>
-</noscript>
-
-    <script>
-  // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
-  const link = 'https://blackpay.mycartpanda.com/ckt/eMeAvO';
-
-  function setBackRedirect(url) {
-    let urlBackRedirect = url;
-    urlBackRedirect = urlBackRedirect =
-      urlBackRedirect.trim() +
-      (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-      document.location.search.replace('?', '').toString();
-
-    history.pushState({}, '', location.href);
-    history.pushState({}, '', location.href);
-    history.pushState({}, '', location.href);
-
-    window.addEventListener('popstate', () => {
-      console.log('onpopstate', urlBackRedirect);
-      setTimeout(() => {
-        location.href = urlBackRedirect;
-      }, 1);
-    });
-  }
-
-  setBackRedirect(link);
-</script>
-
 
 </body>
 </html>
-
-
