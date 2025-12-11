@@ -1,143 +1,58 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>nrfrv2</title>
-
-    <!-- Fonte Poppins -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-
-    <!-- Preloads -->
-    <link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6900f04824bb6d6db5775061/v4/player.js" as="script">
-    <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-    <link rel="preload" href="https://cdn.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/6900f03300555d1efd2f4693/main.m3u8" as="fetch">
-
-    <!-- DNS Prefetch -->
-    <link rel="dns-prefetch" href="https://cdn.converteai.net">
-    <link rel="dns-prefetch" href="https://scripts.converteai.net">
-    <link rel="dns-prefetch" href="https://images.converteai.net">
-    <link rel="dns-prefetch" href="https://api.vturb.com.br">
-
+    <title>Obrigado pela compra!</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            padding: 0;
             margin: 0;
-            padding: 20px; /* espaço nas bordas */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #f9f9f9; /* cor de fundo suave */
-            font-family: 'Poppins', sans-serif;
-        }
-
-        .video-container {
-            width: 100%;
-            max-width: 400px;
-            box-sizing: border-box;
-            margin: 0 auto;
-        }
-
-        vturb-smartplayer {
-            display: block;
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .viewer-counter {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            margin-top: 20px;
-            font-size: 18px;
-            color: #000;
             text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 500px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #111;
+        }
+        p {
+            font-size: 18px;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 25px;
+            background: #0f72ff;
+            color: white;
+            padding: 16px 26px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #0058d4;
         }
     </style>
 </head>
 <body>
 
-    <!-- Vídeo -->
-    <div class="video-container">
-        <vturb-smartplayer id="vid-6900f04824bb6d6db5775061"></vturb-smartplayer>
-    </div>
+<div class="container">
+    <h1>Obrigado pela sua compra! 🎉</h1>
+    <p>Seu acesso já está liberado. Clique no botão abaixo para entrar.</p>
 
-    <!-- Contador de pessoas -->
-    <div class="viewer-counter">
-        <p><span id="number"></span> personnes regardent cette vidéo en ce moment 🔥</p>
-    </div>
-
-    <!-- Scripts -->
-    <script type="text/javascript">
-        var s = document.createElement("script");
-        s.src = "https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6900f04824bb6d6db5775061/v4/player.js";
-        s.async = true;
-        document.head.appendChild(s);
-
-        !function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);
-    </script>
-
-    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-subids async defer></script>
-
-    <script>
-        function add() {
-            number += Math.floor((Math.random() * 6) + 1);
-            document.getElementById("number").innerHTML = number;
-            setTimeout(add, 10000);
-        }        
-
-        function generate() {
-            number = Math.floor(Math.random() * 1143) + 1578;
-            document.getElementById("number").innerHTML = number;
-            add();
-        }
-
-        generate();
-    </script>
-
-    <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1365582805141023');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1365582805141023&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-
-        <!-- Meta Pixel Code -->
-<script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '1190010756337007');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=1190010756337007&ev=PageView&noscript=1"
-/></noscript>
-<!-- End Meta Pixel Code -->
-
-    
+    <a class="btn" href="https://appsell-software.com/login_app/sing-pro">
+        Acessar Agora
+    </a>
+</div>
 
 </body>
 </html>
-
-
-
