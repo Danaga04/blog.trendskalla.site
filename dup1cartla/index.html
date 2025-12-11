@@ -1,158 +1,63 @@
-<!doctype html>
-<html lang="es">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Downsell — Cuerpo Santo</title>
-  <style>
-    :root {
-      --bg: #f7fbf7;
-      --card: #ffffff;
-      --accent: #2f855a;
-      --muted: #6b7280;
-      --danger: #b91c1c;
-    }
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
-      background: var(--bg);
-      color: #111;
-    }
-    .container {
-      min-height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 32px;
-    }
-    .card {
-      width: 100%;
-      max-width: 720px;
-      background: var(--card);
-      border-radius: 16px;
-      box-shadow: 0 8px 40px rgba(16, 24, 40, 0.1);
-      padding: 40px 32px;
-      text-align: center;
-      position: relative;
-    }
-    .alert {
-      background: var(--danger);
-      color: #fff;
-      font-weight: 700;
-      padding: 12px 0;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      font-size: 16px;
-      border-radius: 10px 10px 0 0;
-      margin-bottom: 20px;
-    }
-    .eyebrow {
-      font-size: 14px;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 8px;
-      text-transform: uppercase;
-    }
-    h1 {
-      margin: 0 0 16px 0;
-      font-size: 30px;
-      line-height: 1.2;
-      font-weight: 700;
-    }
-    .price {
-      font-size: 22px;
-      color: var(--accent);
-      font-weight: 700;
-      margin: 8px 0 20px;
-    }
-    p.lead {
-      margin: 0 0 20px 0;
-      color: var(--muted);
-      font-size: 17px;
-      line-height: 1.6;
-    }
-    .actions {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-      margin-top: 24px;
-    }
-    .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px 20px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 16px;
-      border: none;
-      cursor: pointer;
-      transition: 0.25s all;
-    }
-    .btn-accept {
-      background: var(--accent);
-      color: white;
-    }
-    .btn-accept:hover {
-      background: #276749;
-    }
-    .btn-decline {
-      background: transparent;
-      border: 2px solid #e6e7ea;
-      color: #111;
-    }
-    .btn-decline:hover {
-      background: #f1f1f1;
-    }
-    .small {
-      font-size: 13px;
-      color: var(--muted);
-      margin-top: 18px;
-    }
-    @media (max-width: 480px) {
-      .card { padding: 24px; }
-      h1 { font-size: 24px; }
-      .price { font-size: 20px; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome! Your Access Is Ready</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            color: #333;
+        }
+        .container {
+            max-width: 550px;
+            margin: 80px auto;
+            background: #fff;
+            padding: 35px;
+            border-radius: 12px;
+            box-shadow: 0 4px 18px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1b1b1b;
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 18px;
+            line-height: 1.5;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 28px;
+            background: #28a745; /* green */
+            color: white;
+            padding: 18px 28px;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #1e7e34;
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <div class="card" role="main" aria-labelledby="titulo">
-      <div class="alert">⚠️ NO SALGAS DE ESTA PÁGINA</div>
 
-      <div class="eyebrow">Oferta Especial de Último Momento</div>
-      <h1 id="titulo">¿El precio es un problema para ti?</h1>
-      <div class="price">¿Qué tal si lo activas hoy por solo <span style="font-size:26px;">US$17</span>?</div>
+<div class="container">
+    <h1>Congratulations! 🎉</h1>
 
-      <p class="lead">
-        Queremos que tengas la oportunidad de acceder sin preocuparte por el precio. 
-      </p>
+    <p>Your access is now fully unlocked.</p>
+    <p>Just click the green button below and enter your email — the same one you used to complete your purchase — and you will instantly access all your unlocked content.</p>
 
-      <div class="actions" role="group" aria-label="Opciones">
-        <a class="btn btn-accept" href="https://trend4u.mycartpanda.com/ex-ocu/next-offer/q7YE1k9YMp?accepted=yes">
-          Sí, quiero activar la rutina — Agregar por US$17
-        </a>
-        <a class="btn btn-decline" href="https://trend4u.mycartpanda.com/ex-ocu/next-offer/q7YE1k9YMp?accepted=no">
-          No, gracias — Prefiero continuar sin esta guía espiritual
-        </a>
-      </div>
-
-      <p class="small">Al aceptar, la rutina del Cuerpo Santo se añadirá automáticamente a tu pedido actual.</p>
-    </div>
-  </div>
-
-  <script type="text/javascript" src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/cpsales.js"></script>
-  <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
-  <script>new OcuExternal();</script>
-
-              <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"> </script>
-            <script> new OcuExternal(); </script>
-          
+    <a class="btn" href="https://appsell-software.com/login_app/sacred-chant">
+        Access the App
+    </a>
+</div>
 
 </body>
 </html>
-
-
