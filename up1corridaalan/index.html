@@ -88,14 +88,11 @@
             <div class="small">Aulas em vídeo, guia prático, rotina de exercícios e correções de técnica.</div>
           </div>
 
-          <form id="checkoutForm" action="/checkout?product=dores-na-corrida" method="post" novalidate>
-            <!-- Substitua a action pela URL do seu checkout / pagamento -->
-            <input type="hidden" name="product_id" value="dores-na-corrida">
-            <button type="submit" class="btn btn-primary" aria-label="Adicionar upgrade - compra adicional">Sim, adicionar o upgrade — R$ 253,99</button>
+          <a href="https://cheep-sc1.mycartpanda.com/ex-ocu/next-offer/qJjMXdDYNl?accepted=yes" class="btn btn-primary" style="display:block;text-decoration:none; text-align:center; padding:12px 16px; border-radius:10px; font-weight:700;">Sim, adicionar o upgrade — R$ 253,99</a><button type="submit" class="btn btn-primary" aria-label="Adicionar upgrade - compra adicional">Sim, adicionar o upgrade — R$ 253,99</button>
           </form>
 
           <div style="display:flex;justify-content:center;margin-top:6px">
-            <a href="/thank-you" class="btn btn-secondary" style="text-decoration:none;padding:10px 12px;border-radius:10px">Não, obrigado. Continuar sem o upgrade</a>
+            <a href="https://cheep-sc1.mycartpanda.com/ex-ocu/next-offer/qJjMXdDYNl?accepted=no" class="btn btn-secondary" style="text-decoration:none;padding:10px 12px;border-radius:10px">Não, obrigado. Continuar sem o upgrade</a>
           </div>
 
           <div style="margin-top:10px;font-size:12px;color:var(--muted)">Sem cobrança oculta. A compra será processada apenas se você confirmar no botão acima.</div>
@@ -115,5 +112,7 @@
       // aqui deixamos o comportamento padrão para permitir integração direta.
     });
   </script>
+    <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+    <script> new OcuExternal(); </script>
 </body>
 </html>
