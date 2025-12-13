@@ -1,119 +1,156 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Upgrade Opcional — Dores na Corrida</title>
-  <style>
-    :root{--bg:#f6f7fb;--card:#ffffff;--accent:#16a34a;--muted:#6b7280;--max:980px}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#f8fafc, #f6f7fb);color:#111}
-    .wrap{max-width:var(--max);margin:28px auto;padding:20px}
-    .card{background:var(--card);border-radius:14px;box-shadow:0 6px 22px rgba(17,24,39,0.06);padding:28px}
-    header{display:flex;gap:16px;align-items:center}
-    .badge{background:#eefdf3;color:#065f46;padding:10px 14px;border-radius:999px;font-weight:600;font-size:14px}
-    h1{margin:0;font-size:20px}
-    p.lead{color:var(--muted);margin-top:8px}
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:24px;margin-top:20px}
-    .benefits ul{padding-left:18px;margin:8px 0 0;color:#111}
-    .benefits li{margin-bottom:8px}
-    .what{background:#fafafa;border-radius:10px;padding:16px;margin-top:12px;color:#111}
-    .price-card{background:linear-gradient(180deg,#ffffff,#fbfffb);border:1px solid #ecf9ee;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px;align-items:stretch}
-    .price{font-size:22px;font-weight:700;color:var(--accent)}
-    .small{font-size:13px;color:var(--muted)}
-    .btn{display:inline-block;text-align:center;padding:12px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
-    .btn-primary{background:var(--accent);color:white}
-    .btn-secondary{background:transparent;border:2px solid #e6e7ea;color:#111}
-    .center{display:flex;gap:12px}
-    footer{margin-top:18px;font-size:13px;color:var(--muted)}
-    @media (max-width:880px){
-      .grid{grid-template-columns:1fr;}
-      .price-card{order:2}
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>wait</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #ffffff;
+        margin: 0;
+        padding: 0;
+        line-height: 1.6;
+        color: #111;
     }
-  </style>
+
+    .container {
+        max-width: 750px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    h1, h2, h3, p {
+        margin-bottom: 18px;
+    }
+
+    .btn-green {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background: #1dbf4f;
+        padding: 18px;
+        color: white;
+        font-size: 22px;
+        font-weight: bold;
+        border-radius: 10px;
+        text-decoration: none;
+        animation: pulse 1.6s infinite;
+        margin-top: 25px;
+    }
+
+    .btn-red {
+        display: block;
+        width: 100%;
+        text-align: center;
+        background: #d93636;
+        padding: 16px;
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        border-radius: 10px;
+        text-decoration: none;
+        margin-top: 45px;
+        margin-bottom: 220px; /* MARGEM GRANDE AQUI */
+    }
+
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+</style>
 </head>
 <body>
-  <main class="wrap">
-    <div class="card" role="region" aria-labelledby="title">
-      <header>
-        <div class="badge" aria-hidden>Oferta Opcional</div>
-        <div>
-          <h1 id="title">Upgrade Opcional: "Dores na Corrida — Prevenção e Correção"</h1>
-          <p class="lead">Esta é uma <strong>compra adicional e opcional</strong>. Você pode continuar sem ela — o acesso ao curso de 5km já está garantido.</p>
-        </div>
-      </header>
+<div class="container">
 
-      <section class="grid" aria-label="Detalhes do upgrade">
-        <div class="benefits">
-          <h2 style="font-size:16px;margin-top:0">Por que este upgrade pode salvar sua jornada</h2>
-          <p class="small">Ao começar a correr, seu corpo enfrenta novas cargas e pequenos erros podem virar dores que interrompem seu progresso. Este pacote entrega correções práticas para você continuar evoluindo com segurança.</p>
+<img src="https://i.postimg.cc/bwrtFgC5/2o-ETAPA-LEIA-A-MENSAGEM-A-BAIXO.png" style="width:100%; height:auto; margin-bottom:15px;" />
+<img src="https://i.postimg.cc/TwM516Rz/Pressionar-o-botao-voltar-pode-resultar-em-uma-perda-dupla.png" style="width:100%; height:auto; margin-bottom:25px;" />
 
-          <div class="what">
-            <strong>As dores mais comuns que este upgrade aborda:</strong>
-            <ul>
-              <li>Dor no joelho</li>
-              <li>Canelite</li>
-              <li>Fascite plantar</li>
-              <li>Dores na lombar e quadril</li>
-              <li>Tornozelo sensível e travamentos</li>
-            </ul>
+<h1>⚠️ Your Family Is Not Protected Yet</h1>
 
-            <strong style="display:block;margin-top:10px">O que você recebe:</strong>
-            <ul>
-              <li>Vídeos práticos e diretos do Prof. Alan Danaga</li>
-              <li>Guia de prevenção e rotina de aquecimento</li>
-              <li>Exercícios rápidos para antes e depois da corrida</li>
-              <li>Ajustes de técnica e postura fáceis de aplicar</li>
-            </ul>
-          </div>
+<p>First, let me congratulate you. You did something rare — you took action to protect your spiritual life. Most people hesitate. You didn’t. Your prayers are already forming a sacred barrier around you. That alone is extraordinary.</p>
 
-          <p style="margin-top:12px" class="small"><strong>Importante:</strong> <em>esta é uma cobrança única e adicional</em>. Se não quiser, clique em “Não, obrigado” abaixo e continue normalmente com o seu curso de 5km.</p>
+<p>But there’s something you must understand. Something I found in Padre Pio’s private writings.</p>
 
-        </div>
+<p>Whenever someone becomes spiritually protected, darkness reacts. And when it can no longer reach <strong>you</strong> directly… it attacks the next open doorway: <strong>your family</strong>.</p>
 
-        <aside aria-label="Resumo da oferta" class="price-card">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <div class="small">Upgrade disponível apenas agora</div>
-              <div class="price">R$ 253,99</div>
-            </div>
-            <div style="text-align:right">
-              <div class="small">Compra adicional</div>
-              <div style="font-size:12px;color:var(--muted)">Cobrança única</div>
-            </div>
-          </div>
+<p>Padre Pio wrote in 1952: “When the child shields himself with faith, the enemy strikes the parents. When the father is protected, the children suffer. The family is the second battlefield of darkness.”</p>
 
-          <div style="margin-top:6px">
-            <strong>O que está incluso:</strong>
-            <div class="small">Aulas em vídeo, guia prático, rotina de exercícios e correções de técnica.</div>
-          </div>
+<p>Modern spiritual statistics confirm it: <strong>73% of people who activate personal protection report severe attacks on their family within five days.</strong></p>
 
-          <form id="checkoutForm" action="/checkout?product=dores-na-corrida" method="post" novalidate>
-            <!-- Substitua a action pela URL do seu checkout / pagamento -->
-            <input type="hidden" name="product_id" value="dores-na-corrida">
-            <button type="submit" class="btn btn-primary" aria-label="Adicionar upgrade - compra adicional">Sim, adicionar o upgrade — R$ 253,99</button>
-          </form>
+<p>The pattern always comes in waves:</p>
+<p>• Days 1–2: rising irritation at home, pointless arguments<br>
+• Days 3–4: sudden financial issues, unexpected illness, restless nights<br>
+• Days 5–7: emotional chaos, separation threats, painful distance between loved ones</p>
 
-          <div style="display:flex;justify-content:center;margin-top:6px">
-            <a href="/thank-you" class="btn btn-secondary" style="text-decoration:none;padding:10px 12px;border-radius:10px">Não, obrigado. Continuar sem o upgrade</a>
-          </div>
+<p>Marcos saw this firsthand. Four days after activating his protection, his wife asked for a divorce “out of nowhere,” his son had an accident, and his mother fell seriously sick. He called me in despair. I explained what had happened: he shielded himself… but his family remained exposed. And darkness attacked the unprotected doorway.</p>
 
-          <div style="margin-top:10px;font-size:12px;color:var(--muted)">Sem cobrança oculta. A compra será processada apenas se você confirmar no botão acima.</div>
-        </aside>
-      </section>
+<p>Once he completed the family protection, everything stabilized. Today his home is peaceful again.</p>
 
-      <footer>
-        <p><strong>Transparência:</strong> Este upgrade é opcional e trata-se de uma compra separada para adicionar materiais de prevenção e correção de dores. O seu acesso ao curso principal permanece independente desta compra.</p>
-      </footer>
-    </div>
-  </main>
+<h2>The Family Protection Prayer</h2>
 
-  <script>
-    // Script mínimo para demonstrar comportamento; substitua pelas integrações reais do checkout
-    document.getElementById('checkoutForm').addEventListener('submit', function(e){
-      // neste ponto, normalmente você chamaria seu checkout externo
-      // aqui deixamos o comportamento padrão para permitir integração direta.
-    });
-  </script>
+<p>That’s why Padre Pio revealed the <strong>18-Word Family Protection Prayer</strong> — created specifically to shield the people you love while you protect yourself.</p>
+
+<p>This prayer creates four layers of defense:</p>
+<p>✔ A spiritual shield around each family member<br>
+✔ Redirection and neutralization of incoming attacks<br>
+✔ Restoration of harmony and dissolution of tension<br>
+✔ A spiritual alert that lets you sense when someone is being targeted</p>
+
+<p>Today, you are receiving the <strong>Complete Family Protection Package</strong>: the 18-Word Prayer, the 3-Minute Shield Activation Ritual, the Guided Protection Audio with Padre Pio’s voice, the Family Attack Warning Map, and the Emergency Protection Prayer.</p>
+
+<p>You also receive exclusive bonuses: the Child Protection Prayer, the Home Shield Ritual, the Sleep Protection Audio, the List of 7 Family Attack Signs, the Pet Protection Blessing, and my direct support line for spiritual crises.</p>
+
+<h2>Your Two Choices</h2>
+
+<p>Choice one: do nothing. Stay protected alone and hope your family stays safe. The cost today is zero… but the price later may be devastating.</p>
+
+<p>Choice two: activate full family protection now for only <strong>$67</strong> — less than a family dinner, but capable of protecting your loved ones permanently.</p>
+
+<a class="btn-green" href="https://www.checkout-ds24.com/answer/yes?template=light">PROTECT & ACESS</a>
+
+<p>Antonio chose wrong. He protected only himself. Five days later, his daughter was injured, his wife fell into deep depression, and he lost his job. When he returned to protect his family, the damage had already been done.</p>
+
+<p>The real cost of not acting is enormous: months of therapy, legal fees, medical expenses, emotional pain… and the regret of knowing it could have been prevented.</p>
+
+<p>Protecting everyone today costs only $67 — and comes with the <strong>Triple Unbreakable Guarantee</strong>:</p>
+<p>• If any family member suffers a spiritual attack in 90 days — full refund + $50<br>
+• If your home doesn’t feel peaceful within 7 days — 200% refund<br>
+• If nothing improves — keep everything and still receive your money back</p>
+
+<p>I take all the risk. You take the protection.</p>
+
+<p>Every hour without family protection is an hour of vulnerability. Darkness looks for openings — and your loved ones are still exposed.</p>
+
+<p>Padre Pio said on his deathbed: “Protecting only yourself is like locking the front door and leaving all the windows open. A family is one spiritual body. Either all are safe, or none are.”</p>
+
+<p>The choice is now: secure your family today… or close this page and hope the next few days bring no spiritual attack.</p>
+
+<p>If something happened to your spouse, child, father, or mother — could you sleep knowing that all of it could have been prevented for just $67?</p>
+
+<p>Click the button below. Protect your family. Seal the final doorway.</p>
+
+<p>P.S.: Marcos called me yesterday and said, “Father, my family is finally at peace. It was worth every cent.” You deserve that peace too.</p>
+
+<p>To accept this blessing, click on the green button above. To decline, click the button below.</p>
+
+<!-- BOTÃO VERMELHO NO FINAL -->
+<a class="btn-red" href="https://www.checkout-ds24.com/answer/no">NO, THANKS — I DECLINE</a>
+
+</div>
+
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script><script>digistoreUpsell()</script>
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
 </body>
 </html>
+
