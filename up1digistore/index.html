@@ -1,119 +1,204 @@
-<!doctype html>
-<html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Upgrade Opcional — Dores na Corrida</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>purchase under review</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#f6f7fb;--card:#ffffff;--accent:#16a34a;--muted:#6b7280;--max:980px}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial; background:linear-gradient(180deg,#f8fafc, #f6f7fb);color:#111}
-    .wrap{max-width:var(--max);margin:28px auto;padding:20px}
-    .card{background:var(--card);border-radius:14px;box-shadow:0 6px 22px rgba(17,24,39,0.06);padding:28px}
-    header{display:flex;gap:16px;align-items:center}
-    .badge{background:#eefdf3;color:#065f46;padding:10px 14px;border-radius:999px;font-weight:600;font-size:14px}
-    h1{margin:0;font-size:20px}
-    p.lead{color:var(--muted);margin-top:8px}
-    .grid{display:grid;grid-template-columns:1fr 360px;gap:24px;margin-top:20px}
-    .benefits ul{padding-left:18px;margin:8px 0 0;color:#111}
-    .benefits li{margin-bottom:8px}
-    .what{background:#fafafa;border-radius:10px;padding:16px;margin-top:12px;color:#111}
-    .price-card{background:linear-gradient(180deg,#ffffff,#fbfffb);border:1px solid #ecf9ee;border-radius:12px;padding:18px;display:flex;flex-direction:column;gap:12px;align-items:stretch}
-    .price{font-size:22px;font-weight:700;color:var(--accent)}
-    .small{font-size:13px;color:var(--muted)}
-    .btn{display:inline-block;text-align:center;padding:12px 16px;border-radius:10px;font-weight:700;border:none;cursor:pointer}
-    .btn-primary{background:var(--accent);color:white}
-    .btn-secondary{background:transparent;border:2px solid #e6e7ea;color:#111}
-    .center{display:flex;gap:12px}
-    footer{margin-top:18px;font-size:13px;color:var(--muted)}
-    @media (max-width:880px){
-      .grid{grid-template-columns:1fr;}
-      .price-card{order:2}
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: "Poppins", sans-serif;
+      background: #000;
+      color: #fff;
+      line-height: 1.4;
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+      display: block;
+      margin: 0 auto;
+    }
+    .header {
+      background: linear-gradient(90deg, #d80000, #7a0000);
+      color: #fff;
+      text-align: center;
+      padding: 20px 10px;
+    }
+    .header span {
+      background: #fff;
+      color: #d80000;
+      font-weight: 800;
+      font-size: 22px;
+      padding: 5px 10px;
+      display: inline-block;
+    }
+    .header p {
+      margin-top: 10px;
+      font-size: 16px;
+      font-style: italic;
+    }
+    .step {
+      text-align: center;
+      font-size: 18px;
+      font-weight: 700;
+      margin: 20px 0 10px;
+    }
+    .progress {
+      width: 90%;
+      margin: 0 auto;
+      height: 30px;
+      border: 1px solid #000;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      width: 75%;
+      height: 100%;
+      background: linear-gradient(90deg, #16a34a, #0d6b3a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 700;
+    }
+    .warning {
+      font-size: 14px;
+      margin: 10px 0;
+      text-align: center;
+    }
+    .warning span {
+      color: #ffcc00;
+      font-size: 18px;
+    }
+
+    /* ===== NOVO BOTÃO (DO SEGUNDO MODELO) ===== */
+    .upsell-container {
+      max-width: 100%;
+      width: 100%;
+      padding: 20px;
+      text-align: center;
+      box-sizing: border-box;
+    }
+
+    .btn-confirmar {
+      display: block;
+      width: 100%;
+      max-width: 420px;
+      margin: 25px auto 20px auto;
+      padding: 20px 22px;
+      background: #00c853;
+      color: #fff;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 10px;
+      animation: pulse 1.5s infinite;
+      box-shadow: 0 0 0 rgba(0, 200, 83, 0.7);
+      transition: transform 0.2s ease;
+    }
+
+    .btn-confirmar:hover {
+      transform: scale(1.05);
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); }
+      70% { box-shadow: 0 0 0 18px rgba(0, 200, 83, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+    }
+
+    .margin-grande {
+      height: 450px;
     }
   </style>
 </head>
+
 <body>
-  <main class="wrap">
-    <div class="card" role="region" aria-labelledby="title">
-      <header>
-        <div class="badge" aria-hidden>Oferta Opcional</div>
-        <div>
-          <h1 id="title">Upgrade Opcional: "Dores na Corrida — Prevenção e Correção"</h1>
-          <p class="lead">Esta é uma <strong>compra adicional e opcional</strong>. Você pode continuar sem ela — o acesso ao curso de 5km já está garantido.</p>
-        </div>
-      </header>
 
-      <section class="grid" aria-label="Detalhes do upgrade">
-        <div class="benefits">
-          <h2 style="font-size:16px;margin-top:0">Por que este upgrade pode salvar sua jornada</h2>
-          <p class="small">Ao começar a correr, seu corpo enfrenta novas cargas e pequenos erros podem virar dores que interrompem seu progresso. Este pacote entrega correções práticas para você continuar evoluindo com segurança.</p>
+  <div class="header">
+    <span>IMPORTANT:</span>
+    <p>Do not request a chargeback, your access will be on the next page.</p>
+  </div>
 
-          <div class="what">
-            <strong>As dores mais comuns que este upgrade aborda:</strong>
-            <ul>
-              <li>Dor no joelho</li>
-              <li>Canelite</li>
-              <li>Fascite plantar</li>
-              <li>Dores na lombar e quadril</li>
-              <li>Tornozelo sensível e travamentos</li>
-            </ul>
+  <div class="step">STEP 3 OF 4</div>
 
-            <strong style="display:block;margin-top:10px">O que você recebe:</strong>
-            <ul>
-              <li>Vídeos práticos e diretos do Prof. Alan Danaga</li>
-              <li>Guia de prevenção e rotina de aquecimento</li>
-              <li>Exercícios rápidos para antes e depois da corrida</li>
-              <li>Ajustes de técnica e postura fáceis de aplicar</li>
-            </ul>
-          </div>
+  <div class="progress">
+    <div class="progress-bar">75%</div>
+  </div>
 
-          <p style="margin-top:12px" class="small"><strong>Importante:</strong> <em>esta é uma cobrança única e adicional</em>. Se não quiser, clique em “Não, obrigado” abaixo e continue normalmente com o seu curso de 5km.</p>
+  <div class="warning">
+    <span>⚠</span> Watch the video below 👇 access will be sent to your email.
+  </div>
 
-        </div>
+  <vturb-smartplayer id="vid-692ee33945aa9c385637d0a9" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
 
-        <aside aria-label="Resumo da oferta" class="price-card">
-          <div style="display:flex;justify-content:space-between;align-items:center">
-            <div>
-              <div class="small">Upgrade disponível apenas agora</div>
-              <div class="price">R$ 253,99</div>
-            </div>
-            <div style="text-align:right">
-              <div class="small">Compra adicional</div>
-              <div style="font-size:12px;color:var(--muted)">Cobrança única</div>
-            </div>
-          </div>
-
-          <div style="margin-top:6px">
-            <strong>O que está incluso:</strong>
-            <div class="small">Aulas em vídeo, guia prático, rotina de exercícios e correções de técnica.</div>
-          </div>
-
-          <form id="checkoutForm" action="/checkout?product=dores-na-corrida" method="post" novalidate>
-            <!-- Substitua a action pela URL do seu checkout / pagamento -->
-            <input type="hidden" name="product_id" value="dores-na-corrida">
-            <button type="submit" class="btn btn-primary" aria-label="Adicionar upgrade - compra adicional">Sim, adicionar o upgrade — R$ 253,99</button>
-          </form>
-
-          <div style="display:flex;justify-content:center;margin-top:6px">
-            <a href="/thank-you" class="btn btn-secondary" style="text-decoration:none;padding:10px 12px;border-radius:10px">Não, obrigado. Continuar sem o upgrade</a>
-          </div>
-
-          <div style="margin-top:10px;font-size:12px;color:var(--muted)">Sem cobrança oculta. A compra será processada apenas se você confirmar no botão acima.</div>
-        </aside>
-      </section>
-
-      <footer>
-        <p><strong>Transparência:</strong> Este upgrade é opcional e trata-se de uma compra separada para adicionar materiais de prevenção e correção de dores. O seu acesso ao curso principal permanece independente desta compra.</p>
-      </footer>
-    </div>
-  </main>
-
-  <script>
-    // Script mínimo para demonstrar comportamento; substitua pelas integrações reais do checkout
-    document.getElementById('checkoutForm').addEventListener('submit', function(e){
-      // neste ponto, normalmente você chamaria seu checkout externo
-      // aqui deixamos o comportamento padrão para permitir integração direta.
-    });
+  <script type="text/javascript">
+    var s=document.createElement("script");
+    s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/692ee33945aa9c385637d0a9/v4/player.js";
+    s.async=!0;
+    document.head.appendChild(s);
   </script>
+
+
+<!-- BOTÃO PERFECTPAY -->
+<div class="upsell-container">
+  <a href="https://www.checkout-ds24.com/answer/yes?template=light" class="btn-perfectpay">
+    CONFIRM AND ACCESS
+  </a>
+</div>
+
+  <!-- BOTÃO PERFECTPAY -->
+<div class="upsell-container">
+  <a href="https://www.checkout-ds24.com/answer/no" class="btn-perfectpay">
+    no
+  </a>
+</div>
+
+<style>
+.upsell-container {
+  max-width: 100%;
+  width: 100%;
+  padding: 20px;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.btn-perfectpay {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  margin: 25px auto 20px auto;
+  padding: 20px 22px;
+  background: #00c853;
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 10px;
+  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 0 rgba(0, 200, 83, 0.7);
+  transition: transform 0.2s ease;
+}
+
+.btn-perfectpay:hover {
+  transform: scale(1.05);
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.7); }
+  70% { box-shadow: 0 0 0 18px rgba(0, 200, 83, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 200, 83, 0); }
+}
+</style>
+
+  <div class="margin-grande"></div>
+
+<script src="https://www.digistore24-scripts.com/service/digistore.js"></script><script>digistoreUpsell()</script>
+
 </body>
 </html>
+
+
+
