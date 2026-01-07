@@ -466,8 +466,10 @@
                 <p>Please, <strong>make sure your sound is on.</strong></p>
             </div>
             
-            <button class="cta-button" onclick="window.location.href='https://blog.trendskalla.site/up3iinglescartlas/'">ACCESS NOW WITH DISCOUNT</button>
+         <div style="text-align:center" id="kiwify-upsell-EYrrCv4" data-upsell-url="https://blog.trendskalla.site/up3iinglescartlas/" data-downsell-url="https://blog.trendskalla.site/up3iinglescartlas/">
+          <button id="kiwify-upsell-trigger-EYrrCv4" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">ACCESS NOW WITH DISCOUNT</button>
             <div class="decline-link" id="openModalBtn">do not access</div>
+                </div><script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
         </div>
     </div>
     
@@ -494,14 +496,12 @@
                 </div>
                 
                 <div class="modal-buttons">
-                    <div style="text-align:center" id="kiwify-upsell-EYrrCv4" data-upsell-url="https://blog.trendskalla.site/up3iinglescartlas/" data-downsell-url="https://blog.trendskalla.site/up3iinglescartlas/">
-                        <button id="kiwify-upsell-trigger-EYrrCv4" class="btn-accept">
-                            YES! I WANT MY 90% DISCOUNT NOW
-                        </button>
-                        <button id="kiwify-upsell-cancel-trigger-EYrrCv4" class="btn-decline">
-                            No, I'll pay full price later
-                        </button>
-                    </div>
+                    <button id="acceptModalBtn" class="btn-accept">
+                        YES! I WANT MY 90% DISCOUNT NOW
+                    </button>
+                    <button id="declineModalBtn" class="btn-decline">
+                        No, I'll pay full price later
+                    </button>
                 </div>
             </div>
         </div>
@@ -519,12 +519,28 @@
         const openModalBtn = document.getElementById('openModalBtn');
         const modal = document.getElementById('declineModal');
         const modalClose = document.getElementById('modalClose');
+        const acceptModalBtn = document.getElementById('acceptModalBtn');
+        const declineModalBtn = document.getElementById('declineModalBtn');
+        const mainCTAButton = document.getElementById('mainCTAButton');
         
         // Open modal when clicking "do not access"
         openModalBtn.addEventListener('click', function(e) {
             e.preventDefault();
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+        });
+        
+        // Accept button in modal - closes modal and clicks main CTA
+        acceptModalBtn.addEventListener('click', function() {
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+            // Click the main CTA button
+            mainCTAButton.click();
+        });
+        
+        // Decline button in modal - redirects to downsell URL
+        declineModalBtn.addEventListener('click', function() {
+            window.location.href = 'https://blog.trendskalla.site/up3iinglescartlas/';
         });
         
         // Close modal with X button
