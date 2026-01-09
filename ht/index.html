@@ -1,535 +1,251 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>(1)</title>
-  
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-  <meta name="description" content="Descrição">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff">
-  <meta http-equiv="X-XSS-Protection" content="1; mode=block">
-  <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://www.mielmemoryfree.lat/vsl1">
-  <meta property="og:image" content="https://media.atomicatpages.net/Images/ogimage.png">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preload" as="font" href="https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" crossorigin>
-  <style>
-    /* cyrillic-ext */
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WRhyzbi.woff2) format('woff2');
-      unicode-range: U+0460-052F, U+1C80-1C8A, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
-    }
-    /* cyrillic */
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459W1hyzbi.woff2) format('woff2');
-      unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
-    }
-    /* vietnamese */
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WZhyzbi.woff2) format('woff2');
-      unicode-range: U+0102-0103, U+0110-0111, U+0128-0129, U+0168-0169, U+01A0-01A1, U+01AF-01B0, U+0300-0301, U+0303-0304, U+0308-0309, U+0323, U+0329, U+1EA0-1EF9, U+20AB;
-    }
-    /* latin-ext */
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wdhyzbi.woff2) format('woff2');
-      unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-    }
-    /* latin */
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 400;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-    /* More font weights */
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 500;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 600;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 700;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-    @font-face {
-      font-family: 'Montserrat';
-      font-style: normal;
-      font-weight: 900;
-      font-display: swap;
-      src: url(https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459Wlhyw.woff2) format('woff2');
-      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-    }
-
-    :root {
-      --a-g-bg-color: #fff;
-      --a-heading-color: #000;
-      --a-text-color: #000;
-      --a-button-color: #000;
-      --white: #ffffff;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: "Montserrat", sans-serif;
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-      overflow-x: hidden;
-      background: #fff;
-    }
-
-    .esconder {
-      display: none;
-    }
-
-    #countdown {
-      text-align: center;
-      font-weight: 700;
-      color: yellow;
-      font-size: 25px;
-    }
-
-    .atomicat-container-9b3ea42 > .a-o-cont {
-      padding: 10px 20px;
-    }
-
-    @media screen and (max-width: 480px) {
-      .atomicat-container-9b3ea42 > .a-o-cont {
-        padding: 10px;
-      }
-    }
-
-    .atomicat-container-9b3ea42 > .a-o-cont > .a-cont {
-      align-items: center;
-      flex-direction: row;
-      max-width: 1200px;
-    }
-
-    @media screen and (max-width: 1024px) {
-      .atomicat-container-9b3ea42 > .a-o-cont > .a-cont {
-        justify-content: space-between;
-      }
-    }
-
-    .a-b-cont .atomicat-container-9b3ea42.a-b-o-cont {
-      background: rgba(182, 38, 25, 1);
-    }
-
-    .a-o-cont {
-      display: flex;
-      width: 100%;
-      align-items: center;
-      max-width: 100%;
-      height: 100%;
-      margin: 0 auto;
-    }
-
-    .a-cont {
-      display: flex;
-      margin: 0 auto;
-      font-weight: 600;
-      min-height: 100%;
-      width: 100%;
-    }
-
-    .a-cont-b > .a-cont {
-      max-width: 1140px;
-    }
-
-    .a-b-o-cont {
-      width: 100%;
-      margin: 0 auto;
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-position: center;
-      max-width: 100%;
-      position: relative;
-    }
-
-    .a-i-cont {
-      display: flex;
-      flex-direction: column;
-      width: 100%;
-    }
-
-    .a-c-cont {
-      max-width: 100%;
-      min-width: 0;
-    }
-
-    .a-e-cont {
-      max-width: 100%;
-    }
-
-    .a-r {
-      position: relative;
-    }
-
-    .a-img-ele {
-      overflow: hidden;
-      text-align: center;
-    }
-
-    .a-img-ele img {
-      display: inline-block;
-      max-width: 100%;
-      height: auto;
-      vertical-align: middle;
-    }
-
-    .atomicat-heading-title,
-    .atomicat-text {
-      font-family: "Montserrat", sans-serif;
-      color: var(--a-text-color, #000);
-    }
-
-    .atomicat-heading-title h1,
-    .atomicat-heading-title h2,
-    .atomicat-heading-title h3 {
-      color: var(--a-heading-color, #000);
-    }
-
-    .atomicat-container-daed1d7 > .a-o-cont {
-      padding: 40px 20px;
-    }
-
-    @media screen and (max-width: 480px) {
-      .atomicat-container-daed1d7 > .a-o-cont {
-        padding: 20px 10px;
-      }
-    }
-
-    .atomicat-container-daed1d7 > .a-o-cont > .a-cont {
-      column-gap: 20px;
-      flex-direction: column;
-      row-gap: 20px;
-      max-width: 1200px;
-    }
-
-    .a-html .a-i-e-cont iframe {
-      width: 100%;
-      height: 100vh;
-      border: none;
-    }
-
-    @media screen and (max-width: 480px) {
-      .a-html .a-i-e-cont iframe {
-        height: 160vw;
-      }
-    }
-
-    .atomicat-container-dd89aa1 {
-      display: none;
-    }
-
-    .atomicat-container-dd89aa1.esconder {
-      display: none;
-    }
-
-    .atomicat-container-dd89aa1 > .a-o-cont {
-      padding: 30px 20px 20px;
-    }
-
-    @media screen and (max-width: 480px) {
-      .atomicat-container-dd89aa1 > .a-o-cont {
-        padding: 30px 10px 20px;
-      }
-    }
-
-    .atomicat-container-dd89aa1 > .a-o-cont > .a-cont {
-      flex-direction: column;
-      max-width: 1200px;
-    }
-
-    .a-b-cont .atomicat-container-dd89aa1.a-b-o-cont {
-      background: rgba(39, 39, 39, 1);
-    }
-
-    .atomicat-container-62621df {
-      display: none;
-    }
-
-    .atomicat-container-62621df.esconder {
-      display: none;
-    }
-
-    .atomicat-container-62621df > .a-o-cont {
-      padding: 40px 20px;
-    }
-
-    @media screen and (max-width: 480px) {
-      .atomicat-container-62621df > .a-o-cont {
-        padding: 20px 10px 60px;
-      }
-    }
-
-    .atomicat-container-62621df > .a-o-cont > .a-cont {
-      column-gap: 50px;
-      flex-direction: column;
-      row-gap: 50px;
-      max-width: 1200px;
-    }
-
-    .a-btn {
-      background: linear-gradient(360deg, rgba(252, 205, 21, 1) 50%, rgba(255, 216, 20, 1) 51%);
-      padding: 12px;
-      text-align: center;
-      font-size: 16px;
-      font-weight: 600;
-      word-break: break-word;
-      color: #000;
-      border-radius: 1rem;
-      display: inline-block;
-      text-decoration: none;
-      cursor: pointer;
-      border: none;
-    }
-
-    .atomicat-container-e840365 > .a-o-cont {
-      padding: 40px 20px;
-    }
-
-    .atomicat-container-e840365 > .a-o-cont > .a-cont {
-      flex-direction: column;
-      max-width: 1200px;
-    }
-
-    .a-b-cont .atomicat-container-e840365.a-b-o-cont {
-      background: rgba(245, 245, 245, 1);
-    }
-
-    .atomicat-container-d1c3086 > .a-o-cont {
-      padding: 40px 20px;
-    }
-
-    .atomicat-container-d1c3086 > .a-o-cont > .a-cont {
-      flex-direction: column;
-    }
-
-    .a-b-cont .atomicat-container-d1c3086.a-b-o-cont {
-      background: rgba(213, 213, 213, 1);
-    }
-
-    @media screen and (max-width: 480px) {
-      .a-cont {
-        flex-wrap: wrap;
-      }
-    }
-  </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", function() {
-      var SECONDS_TO_DISPLAY = 2110;
-      var CLASS_TO_DISPLAY = ".esconder";
-      var attempts = 0;
-      var elsHiddenList = [];
-      var elsDisplayed = false;
-      var elsHidden = document.querySelectorAll(CLASS_TO_DISPLAY);
-      var alreadyDisplayedKey = `alreadyElsDisplayed${SECONDS_TO_DISPLAY}`;
-      var alreadyElsDisplayed = localStorage.getItem(alreadyDisplayedKey);
-
-      function formatTime(seconds) {
-        let minutes = Math.floor(seconds / 60);
-        let remainingSeconds = seconds % 60;
-        return `${minutes < 10 ? '0' : ''}${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
-      }
-
-      function startCountdown(seconds, elementId) {
-        let time = seconds;
-        let countdownElement = document.getElementById(elementId);
-        const interval = setInterval(() => {
-          time--;
-          countdownElement.textContent = formatTime(time);
-          if (time <= 0) {
-            clearInterval(interval);
-            countdownElement.textContent = "00:00";
-          }
-        }, 1000);
-      }
-
-      var showHiddenElements = function() {
-        elsDisplayed = true;
-        elsHiddenList.forEach((e) => e.style.display = "block");
-        localStorage.setItem(alreadyDisplayedKey, true);
-        elsHiddenList.forEach((e, index) => {
-          var countdownId = `countdown${index + 1}`;
-          startCountdown(20 * 60, countdownId);
-        });
-      };
-
-      var startWatchVideoProgress = function() {
-        if (typeof smartplayer === 'undefined' || !(smartplayer.instances && smartplayer.instances.length)) {
-          if (attempts >= 10) return;
-          attempts += 1;
-          return setTimeout(function() {
-            startWatchVideoProgress()
-          }, 1000);
-        }
-        smartplayer.instances[0].on('timeupdate', () => {
-          if (elsDisplayed || smartplayer.instances[0].smartAutoPlay) return;
-          if (smartplayer.instances[0].video.currentTime < SECONDS_TO_DISPLAY) return;
-          showHiddenElements();
-        });
-      };
-
-      if (alreadyElsDisplayed === 'true') {
-        setTimeout(function() {
-          showHiddenElements();
-        }, 100);
-      } else {
-        startWatchVideoProgress();
-      }
-
-      setTimeout(function() {
-        elsHiddenList = Array.prototype.slice.call(elsHidden);
-      }, 0);
-    });
-  </script>
-</head>
-<body data-variant="wdd8v9we1ri" data-version="2.3" data-page-type="page" data-page="_HaTP8MUafQgBjgQPToJT">
-  <div class="a-b-cont">
-    <div class="atomicat-container-9b3ea42 a-b-o-cont">
-      <div class="a-o-cont a-cont-b">
-        <div class="a-cont a-i-cont">
-          <div class="atomicat-container-5e96fa3 a-b-o-cont" style="width: 25%;">
-            <div class="a-o-cont">
-              <div class="a-cont a-i-cont">
-                <div class="a-c-cont a-r">
-                  <div class="a-img-ele a-e-cont a-r">
-                    <img loading="eager" fetchpriority="high" decoding="async" width="512" height="512" src="https://media.atomicatpages.net/u/gEWj9v1qLzaberWI5i6bpMGdtNE2/Pictures/CDefyY1002508.webp?quality=90#422927" alt="" style="height: 30px; width: 30px;" />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="atomicat-container-47db7cd a-b-o-cont" style="width: 50%;">
-            <div class="a-o-cont">
-              <div class="a-cont a-i-cont">
-                <div class="a-c-cont a-r">
-                  <div class="atomicat-heading-title a-e-cont a-r">
-                    <h2 style="color: rgba(255,255,255, 1); font-size: 32px; font-weight: 500; text-align: center; line-height: 1.2em;">NEWS</h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="atomicat-container-8ca4c2a a-b-o-cont" style="width: 25%;"></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="atomicat-container-daed1d7 a-b-o-cont">
-      <div class="a-o-cont a-cont-b">
-        <div class="a-i-cont a-cont">
-          <div class="a-c-cont a-r">
-            <div class="atomicat-text a-e-cont a-r">
-              <p style="font-size: 12px;">Published 1 hour ago</p>
-            </div>
-          </div>
-          <div class="a-c-cont a-r">
-            <div class="atomicat-heading-title a-e-cont a-r">
-              <h1 style="color: rgba(0,0,0, 1); font-size: 36px; font-weight: 700; line-height: 1.2em;">URGENT: Scientists discover a natural method to eliminate stubborn fat, which can be done at home.</h1>
-            </div>
-          </div>
-          <div class="a-c-cont a-r">
-            <div class="atomicat-text a-e-cont a-r">
-              <p style="line-height: 1.2em; font-weight: 400; font-size: 18px; color: rgba(31,33,35, 1);">More than 15,000 people have already experienced significant weight loss by spending less than $50.</p>
-            </div>
-          </div>
-          <div class="a-c-cont a-r" style="width: 100%;">
-            <div class="a-html a-e-cont a-r">
-              <div class="a-i-e-cont">
-                
-
-<vturb-smartplayer id="ab-695d2970da723d6f8681a2d1" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/695d2970da723d6f8681a2d1/player.js", s.async=!0,document.head.appendChild(s); </script>
-
-                <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/695d2970da723d6f8681a2d1/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://m3u8.vturb.net">
-<link rel="dns-prefetch" href="https://api.vturb.com.br">
-
-
-                
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>(1)</title>
+    <meta name="description" content="Descrição">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta http-equiv="X-XSS-Protection" content="1; mode=block">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.mielmemoryfree.lat/vsl1">
+    <meta property="og:image" content="https://media.atomicatpages.net/Images/ogimage.png">
     
-    <div class="atomicat-container-d1c3086 a-b-o-cont">
-      <div class="a-cont-b a-o-cont">
-        <div class="a-cont a-i-cont">
-          <div class="a-c-cont a-r">
-            <div class="atomicat-text a-e-cont a-r">
-              <p style="text-align: center; line-height: 1.5em;">Copyright © 2026<br />All Rights Reserved</p>
-            </div>
-          </div>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: "Montserrat", sans-serif; min-height: 100vh; background: #fff; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+
+        /* Estrutura Original */
+        .header-bg { background: rgba(182, 38, 25, 1); padding: 10px 20px; width: 100%; }
+        .header-content { display: flex; align-items: center; max-width: 1200px; margin: 0 auto; justify-content: center; }
+        
+        .main-container { padding: 40px 20px; max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; }
+
+        /* Estilo Exato do Título e Texto (Conforme Original) */
+        .published-text { font-family: "Montserrat", sans-serif; font-size: 12px; color: #000; margin-bottom: 10px; }
+        
+        .headline { 
+            font-family: "Montserrat", sans-serif;
+            color: rgba(0,0,0, 1); 
+            font-size: 36px; 
+            font-weight: 700; 
+            line-height: 1.2em; 
+            margin-bottom: 15px;
+        }
+
+        .sub-headline { 
+            font-family: "Montserrat", sans-serif;
+            line-height: 1.2em; 
+            font-weight: 400; 
+            font-size: 18px; 
+            color: rgba(31,33,35, 1);
+            margin-bottom: 30px;
+        }
+
+        /* Estilo Facebook */
+        .fb-container { 
+            max-width: 650px; 
+            margin: 40px auto; 
+            background: #fff; 
+            padding: 12px; 
+            border-radius: 8px; 
+            border: 1px solid #dddfe2;
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+        }
+        .fb-header { font-size: 14px; color: #65676b; padding-bottom: 8px; border-bottom: 1px solid #ebedf0; margin-bottom: 15px; font-weight: 600; }
+        .fb-comment { display: flex; margin-bottom: 12px; }
+        .fb-profile-pic { width: 36px; height: 36px; border-radius: 50%; margin-right: 8px; object-fit: cover; }
+        .fb-comment-box { background-color: #f0f2f5; border-radius: 18px; padding: 8px 12px; display: inline-block; max-width: 90%; position: relative; }
+        .fb-name { font-weight: 700; font-size: 13px; color: #050505; cursor: pointer; }
+        .fb-text { font-size: 14px; line-height: 1.35; margin-top: 2px; color: #050505; }
+        .fb-result-img { display: block; width: 100%; max-width: 300px; border-radius: 10px; margin: 8px 0; border: 1px solid #ddd; object-fit: cover; }
+        .fb-actions { font-size: 12px; color: #65676b; margin: 4px 0 12px 48px; font-weight: 700; }
+        .fb-actions span { cursor: pointer; margin-right: 8px; }
+        .fb-actions span:hover { text-decoration: underline; }
+        .fb-reactions { position: absolute; bottom: -10px; right: -12px; background: #fff; padding: 2px 4px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.2); display: flex; align-items: center; gap: 2px; }
+        .fb-reaction-icons { font-size: 14px; }
+        .fb-reaction-count { font-size: 11px; color: #65676b; }
+        .fb-reply { margin-left: 48px; display: flex; margin-bottom: 8px; }
+        .fb-reply .fb-profile-pic { width: 24px; height: 24px; }
+
+        /* Footer Original */
+        .footer-bg { background: rgba(213, 213, 213, 1); padding: 40px 20px; text-align: center; margin-top: 40px; }
+
+        @media screen and (max-width: 480px) {
+            .headline { font-size: 28px; }
+            .fb-container { width: 100%; border-left: none; border-right: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header-bg">
+        <div class="header-content">
+            <img src="https://media.atomicatpages.net/u/gEWj9v1qLzaberWI5i6bpMGdtNE2/Pictures/CDefyY1002508.webp?quality=90" alt="" style="height: 30px; width: 30px; margin-right: 10px;">
+            <h2 style="color: #fff; font-size: 32px; font-weight: 500;">NEWS</h2>
         </div>
-      </div>
     </div>
-  </div>
 
+    <div class="main-container">
+        <p class="published-text">Published 1 hour ago</p>
+        
+        <h1 class="headline">URGENT: Scientists discover a natural method to eliminate stubborn fat, which can be done at home.</h1>
+        
+        <p class="sub-headline">More than 15,000 people have already experienced significant weight loss by spending less than $50.</p>
 
-  <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-xcod-sck
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
+        <div style="width: 100%; margin-bottom: 20px;">
+            <vturb-smartplayer id="ab-695d2970da723d6f8681a2d1" style="display: block; margin: 0 auto; width: 100%;"></vturb-smartplayer>
+            <script type="text/javascript">
+                var s=document.createElement("script");
+                s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/695d2970da723d6f8681a2d1/player.js", s.async=!0,document.head.appendChild(s);
+            </script>
+        </div>
+
+        <div class="fb-container">
+            <div class="fb-header">Top Comments</div>
+
+            <div class="fb-comment">
+                <img src="https://i.pravatar.cc/100?u=1" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Jennifer Collins</p>
+                    <p class="fb-text">I just finished my 30-day supply and I'm honestly in shock. I lost 18lbs without changing my coffee. Best decision ever! 😭🙏</p>
+                    <img src="https://i.postimg.cc/mkxcRdHg/paulinha.webp" class="fb-result-img">
+                    <div class="fb-reactions"><span class="fb-reaction-icons">👍❤️</span><span class="fb-reaction-count">142</span></div>
+                </div>
+            </div>
+            <div class="fb-actions"><span>Like</span> · <span>Reply</span> · <span>2m</span></div>
+
+            <div class="fb-comment">
+                <img src="https://i.pravatar.cc/100?u=2" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Amanda Wright</p>
+                    <p class="fb-text">Does this really work? I've spent so much money on supplements that do nothing... I'm afraid to try again.</p>
+                </div>
+            </div>
+            <div class="fb-actions"><span>Like</span> · <span>Reply</span> · <span>8m</span></div>
+
+            <div class="fb-reply">
+                <img src="https://i.pravatar.cc/100?u=3" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Jessica Miller</p>
+                    <p class="fb-text">@Amanda girl, I was exactly like you. But look at my progress below. It's not a pill, it's a metabolic trigger. Just watch the video!</p>
+                    <div class="fb-reactions"><span class="fb-reaction-icons">❤️</span><span class="fb-reaction-count">31</span></div>
+                </div>
+            </div>
+            <div class="fb-actions" style="margin-left: 80px;"><span>Like</span> · <span>Reply</span> · <span>5m</span></div>
+
+            <div class="fb-comment">
+                <img src="https://i.pravatar.cc/100?u=4" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Hannah Jiles</p>
+                    <p class="fb-text">My transformation still feels like a dream. Thank you for sharing this video!</p>
+                    <img src="https://i.postimg.cc/59vYpMhL/Celebrities-Weight-Loss-and-Transformations-Before-and-After-Pictures-Hannah-Jiles.webp" class="fb-result-img">
+                    <div class="fb-reactions"><span class="fb-reaction-icons">😮❤️</span><span class="fb-reaction-count">89</span></div>
+                </div>
+            </div>
+            <div class="fb-actions"><span>Like</span> · <span>Reply</span> · <span>14m</span></div>
+
+            <div class="fb-comment">
+                <img src="https://i.pravatar.cc/100?u=5" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Robert Wilson</p>
+                    <p class="fb-text">I bought it for my wife and she's already down 2 sizes. Now I'm starting it too lol.</p>
+                </div>
+            </div>
+            <div class="fb-actions"><span>Like</span> · <span>Reply</span> · <span>22m</span></div>
+
+            <div class="fb-comment">
+                <img src="https://i.pravatar.cc/100?u=6" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Rebecca Grafton</p>
+                    <p class="fb-text">Hardest part was finding new clothes that fit! This method is a lifesaver.</p>
+                    <img src="https://i.postimg.cc/nhVXH9Cc/Rebecca-Grafton-0-caf8b44bd2bf40df9b79172b1411c7e4.jpg" class="fb-result-img">
+                    <div class="fb-reactions"><span class="fb-reaction-icons">👍❤️</span><span class="fb-reaction-count">254</span></div>
+                </div>
+            </div>
+            <div class="fb-actions"><span>Like</span> · <span>Reply</span> · <span>31m</span></div>
+
+            <div class="fb-comment">
+                <img src="https://i.pravatar.cc/100?u=7" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Karen Smith</p>
+                    <p class="fb-text">How long does it take to arrive? I just bought my kit!</p>
+                </div>
+            </div>
+            <div class="fb-actions"><span>Like</span> · <span>Reply</span> · <span>45m</span></div>
+
+            <div class="fb-reply">
+                <img src="https://i.pravatar.cc/100?u=8" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Support Team</p>
+                    <p class="fb-text">Hi Karen! Shipping usually takes 3 to 5 business days. You'll receive tracking via email!</p>
+                </div>
+            </div>
+            <div class="fb-actions" style="margin-left: 80px;"><span>Like</span> · <span>Reply</span> · <span>38m</span></div>
+
+            <div class="fb-comment">
+                <img src="https://i.pravatar.cc/100?u=9" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Lucy Stevens</p>
+                    <p class="fb-text">Can't believe this isn't on the mainstream news. The results are undeniable.</p>
+                    <img src="https://i.postimg.cc/rp3sChgr/1821023-lucy-prevs-before-after-photos.jpg" class="fb-result-img">
+                    <div class="fb-reactions"><span class="fb-reaction-icons">❤️👍</span><span class="fb-reaction-count">112</span></div>
+                </div>
+            </div>
+            <div class="fb-actions"><span>Like</span> · <span>Reply</span> · <span>52m</span></div>
+
+            <div class="fb-comment">
+                <img src="https://i.pravatar.cc/100?u=10" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Michelle Brown</p>
+                    <p class="fb-text">The video explains everything perfectly. Follow it step by step and you won't regret it.</p>
+                    <img src="https://i.postimg.cc/fyhb1JGT/images.jpg" class="fb-result-img">
+                    <div class="fb-reactions"><span class="fb-reaction-icons">👍❤️</span><span class="fb-reaction-count">47</span></div>
+                </div>
+            </div>
+            <div class="fb-actions"><span>Like</span> · <span>Reply</span> · <span>1h</span></div>
+
+            <div class="fb-comment">
+                <img src="https://i.pravatar.cc/100?u=11" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Patricia Moore</p>
+                    <p class="fb-text">I'm 62... does this work for older women too or just younger people?</p>
+                </div>
+            </div>
+            <div class="fb-actions"><span>Like</span> · <span>Reply</span> · <span>1h</span></div>
+
+            <div class="fb-reply">
+                <img src="https://i.pravatar.cc/100?u=12" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Linda G.</p>
+                    <p class="fb-text">Patricia, I'm 65 and I lost 14lbs in the first month. Age is just a number with this! Go for it!</p>
+                    <div class="fb-reactions"><span class="fb-reaction-icons">❤️👍</span><span class="fb-reaction-count">22</span></div>
+                </div>
+            </div>
+            <div class="fb-actions" style="margin-left: 80px;"><span>Like</span> · <span>Reply</span> · <span>44m</span></div>
+
+            <div class="fb-comment">
+                <img src="https://i.pravatar.cc/100?u=13" class="fb-profile-pic">
+                <div class="fb-comment-box">
+                    <p class="fb-name">Barbara K.</p>
+                    <p class="fb-text">Just ordered my 6-bottle pack! So excited to start this journey! 🚀</p>
+                    <div class="fb-reactions"><span class="fb-reaction-icons">👍</span><span class="fb-reaction-count">3</span></div>
+                </div>
+            </div>
+            <div class="fb-actions"><span>Like</span> · <span>Reply</span> · <span>2h</span></div>
+        </div>
+    </div>
+
+    <div class="footer-bg">
+        <p style="line-height: 1.5;">Copyright © 2026<br>All Rights Reserved</p>
+    </div>
+
+    <script src="https://cdn.utmify.com.br/scripts/utms/latest.js" data-utmify-prevent-xcod-sck data-utmify-prevent-subids async defer></script>
 
 </body>
 </html>
-
-
-
