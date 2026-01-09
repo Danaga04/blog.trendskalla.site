@@ -1,270 +1,133 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>compra en análisis</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: "Poppins", sans-serif;
-      background: #000;
-      color: #fff;
-      line-height: 1.4;
-      text-align: center;
-    }
-    img {
-      max-width: 100%;
-      display: block;
-      margin: 0 auto;
-    }
-    .text-block {
-      padding: 20px 15px;
-      font-size: 16px;
-      line-height: 1.5;
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: left;
-    }
-    .highlight {
-      background: linear-gradient(90deg, #d80000, #7a0000);
-      padding: 12px;
-      border-radius: 6px;
-      font-weight: 600;
-      text-align: center;
-      margin: 20px auto;
-      max-width: 600px;
-    }
-    .protocol-box {
-      background: linear-gradient(180deg, #c51b1b, #6b0000);
-      padding: 20px;
-      border-radius: 8px;
-      max-width: 650px;
-      margin: 20px auto;
-      text-align: left;
-    }
-    .protocol-box h2 {
-      text-transform: uppercase;
-      font-weight: 800;
-      margin-bottom: 15px;
-      text-align: center;
-    }
-    .protocol-box p {
-      margin: 14px 0;
-      font-size: 15px;
-    }
-    .protocol-box .check {
-      color: #00ff5a;
-      font-weight: bold;
-      margin-right: 6px;
-    }
-    /* preço imagem */
-    .price {
-      margin: 30px 0;
-    }
-    /* hotmart form container */
-    #hotmart-sales-funnel {
-      margin: 20px auto;
-      max-width: 650px;
-    }
-    .header {
-      background: linear-gradient(90deg, #d80000, #7a0000);
-      color: #fff;
-      text-align: center;
-      padding: 20px 10px;
-    }
-    .header span {
-      background: #fff;
-      color: #d80000;
-      font-weight: 800;
-      font-size: 22px;
-      padding: 5px 10px;
-      display: inline-block;
-    }
-    .header p {
-      margin-top: 10px;
-      font-size: 16px;
-      font-style: italic;
-    }
-    .step {
-      text-align: center;
-      font-size: 18px;
-      font-weight: 700;
-      margin: 20px 0 10px;
-    }
-    .progress {
-      width: 90%;
-      margin: 0 auto;
-      height: 30px;
-      border: 1px solid #000;
-      border-radius: 5px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      width: 75%;
-      height: 100%;
-      background: linear-gradient(90deg, #16a34a, #0d6b3a);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-weight: 700;
-    }
-    .warning {
-      font-size: 14px;
-      margin: 10px 0;
-      text-align: center;
-    }
-    .warning span {
-      color: #ffcc00;
-      font-size: 18px;
-    }
-    .banner {
-      background: linear-gradient(90deg, #c51b1b, #6b0000);
-      color: #fff;
-      text-align: center;
-      padding: 12px;
-      font-weight: 700;
-      text-transform: uppercase;
-      margin: 15px auto;
-      width: 90%;
-      border-radius: 5px;
-    }
-    .content {
-      padding: 0 20px 30px;
-      font-size: 15px;
-    }
-    .content p {
-      margin: 12px 0;
-    }
-    .content strong {
-      font-weight: 700;
-    }
-    .pulse-button {
-      display:inline-block;
-      padding: 14px 28px;
-      margin: 20px; /* margem ao redor do botão */
-      background-color:#28a745;
-      color:#fff;
-      font-size:18px;
-      font-weight:bold;
-      text-decoration:none;
-      border-radius:8px;
-      text-align:center;
-      animation: pulse 1.5s infinite;
-    }
+    <meta charset="utf-8">
+    <title>Gelatin Burn Protocol</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    
+    <style>
+        /* Estilos Base para substituir o Webflow */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+        .w-container {
+            max-width: 940px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .heading {
+            font-size: 28px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin: 40px 0;
+            color: #1a1a1a;
+        }
+        .section {
+            padding: 20px 0;
+        }
+        .paragraph {
+            font-size: 14px;
+            color: #666;
+            text-align: justify;
+        }
+        .footer-text {
+            font-size: 12px;
+            color: #999;
+            margin-top: 50px;
+            border-top: 1px solid #eee;
+            padding-top: 20px;
+        }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.08); }
-      100% { transform: scale(1); }
-    }
-  </style>
+        /* --- ESTILO DO BOTÃO PULSANTE --- */
+        .cta-button {
+            display: inline-block;
+            padding: 20px 40px;
+            background-color: #28a745; /* Verde */
+            color: white;
+            text-decoration: none;
+            font-size: 22px;
+            font-weight: bold;
+            border-radius: 10px;
+            margin: 30px 0;
+            text-transform: uppercase;
+            box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+            animation: pulsing 1.5s infinite;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .cta-button:hover {
+            transform: scale(1.05);
+            background-color: #218838;
+        }
+
+        @keyframes pulsing {
+            0% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.7);
+            }
+            70% {
+                transform: scale(1);
+                box-shadow: 0 0 0 15px rgba(40, 167, 69, 0);
+            }
+            100% {
+                transform: scale(0.95);
+                box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <div class="header">
-    <span>IMPORTANT:</span>
-    <p>Quitter ou fermer cette page peut entraîner des erreurs lors de votre achat.</p>
-  </div>
+  <section>
+    <div class="w-layout-blockcontainer w-container">
+      <h1 class="heading">WATCH THE VIDEO BELOW TO DISCOVER THE NATURAL GELATIN BURN PROTOCOL</h1>
+    </div>
+  </section>
 
-  <!-- Step -->
-  <div class="step">ÉTAPE 3 SUR 4</div>
+  <section>
+    <div class="w-layout-blockcontainer w-container">
+      <div class="code-embed w-embed w-script">
+        <vturb-smartplayer id="vid-69163b132183320a47c8ff7e" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>
+        <script type="text/javascript"> 
+          var s=document.createElement("script"); 
+          s.src="https://scripts.converteai.net/db1d07c2-3170-4c84-a81a-c5e4038f5301/players/69163b132183320a47c8ff7e/v4/player.js", 
+          s.async=!0,document.head.appendChild(s); 
+        </script>
+      </div>
+      
+      <a href="https://pay.kiwify.com/nmDFq7t" class="cta-button">
+        GET ACCESS NOW!
+      </a>
+    </div>
+  </section>
 
-  <!-- Progress -->
-  <div class="progress">
-    <div class="progress-bar">75%</div>
-  </div>
+  <section class="section">
+    <div class="w-layout-blockcontainer w-container">
+      <p class="paragraph">
+        Please note that the information we provide is not intended to replace consultation with a qualified medical professional. We encourage you to inform your physician of changes you make to your lifestyle and discuss these with him or her. For questions or concerns about any medical conditions you may have, please contact your doctor.<br><br>
+        Statements on this website have not been evaluated by the Food and Drug Administration. Products are not intended to diagnose, treat, cure or prevent any disease. If you are pregnant, nursing, taking medication, or have a medical condition, consult your physician before using our products.<br><br>
+        The website's content and the product for sale is based upon the author's opinion and is provided solely on an "AS IS" and "AS AVAILABLE" basis. You should do your own research and confirm the information with other sources when searching for information regarding health issues and always review the information carefully with your professional health care provider before using any of the protocols presented on this website and/or in the product sold here.
+      </p>
+    </div>
+  </section>
 
-  <!-- Warning -->
-  <div class="warning">
-    <span>⚠</span> Cliquez sur la vidéo ci-dessous pour savoir comment y accéder  👇
-  </div>
+  <section class="section-3">
+    <div class="w-layout-blockcontainer w-container footer-text">
+      <p>© Copyright Gelatin Burn Protocol™ 2025 - All rights reserved.</p>
+      <p>
+        This site is not a part of the Facebook™ website or Facebook™ Inc. Additionally, this site is <strong>NOT endorsed by Facebook™ in any way</strong>. FACEBOOK™ is a trademark of FACEBOOK™, Inc. <strong>This product is not intended to diagnose, treat, cure, or prevent any disease.</strong> The information provided is for educational purposes only and does not replace professional medical advice. Individual results may vary.<br><br>
+        📧 Contact: If you have any questions, feel free to contact our support team:<br>
+        📩 <a href="mailto:contact@gelatinburnprotocol.com"><strong>contact@gelatinburnprotocol.com</strong></a><br>
+        <a href="#"><strong>Privacy Policy | Terms of Use</strong></a>
+      </p>
+    </div>
+  </section>
 
-  <!-- video vsl aqui -->
- <vturb-smartplayer id="vid-6903ec938687c6f8d6f446e3" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6903ec938687c6f8d6f446e3/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
-
-  
-  <!-- Sales Funnel Widget -->
-
-<div style="text-align:center" id="kiwify-upsell-4NmpsCY" data-upsell-url="https://vcbemcomseucorpo.site/methode-ancestrale-au-miel/" data-downsell-url="https://vcbemcomseucorpo.site/methode-ancestrale-au-miel/">
-          <button id="kiwify-upsell-trigger-4NmpsCY" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">ACCÉLÉRER 10 FOIS ET ACCÉDER</button>
-          <div id="kiwify-upsell-cancel-trigger-4NmpsCY" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">ne pas accéder</div>
-        </div><script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
-  
-<!-- CART - Sales Funnel Widget -->
-
-
-
-  
-<!-- Espaço abaixo do vídeo -->
-<div style="height: 1px;"></div>
-
-
-<div style="text-align:center; margin:20px 0; font-family: Arial, sans-serif;">
-
-
-
-</div>
-
-<!-- Espaço abaixo do botão -->
-<div style="height: 400px;"></div>
-  
-
-
-
-<canvas id="confetti"></canvas>
-
-<script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
-<script>
-    // Criação da instância do JSConfetti, especificando o canvas
-    const jsConfetti = new JSConfetti({ canvasId: 'confetti' });
-
-    // Dispara el confeti automáticamente cuando la página se carga
-    window.onload = () => {
-        jsConfetti.addConfetti();
-    };
-</script>
-
-<style>
-    #confetti {
-        position: fixed;
-        height: 100%;
-        width: 100%;
-        top: 0px;
-        left: 0px;
-        z-index: 999;
-        pointer-events: none;
-    }
-</style>
-  
-  <script>
-        $.get("https://ipinfo.io/json", function (response) {
-          $("#address").html(response.city);
-        }, "jsonp");
-      </script>
-
-  <script
-  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
-  data-utmify-prevent-subids
-  async
-  defer
-></script>
-  
-  
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
