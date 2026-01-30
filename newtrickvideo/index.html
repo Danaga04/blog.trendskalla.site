@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exclusive Presentation</title>
+    <style>
+        /* Modern Reset and Dark Theme */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #000;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            overflow-x: hidden;
+        }
+
+        /* Container for the VSL */
+        .vsl-wrapper {
+            width: 100%;
+            max-width: 900px; /* Optimal size for VSLs */
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 5vh;
+        }
+
+        /* Video Container responsiveness */
+        .video-player {
+            width: 100%;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
+            background: #0a0a0a; /* Pre-loading color */
+        }
+
+        /* Viewer Count Styling */
+        .viewer-count {
+            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #cccccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 50px;
+        }
+
+        /* Live Indicator Pulse */
+        .live-pulse {
+            height: 8px;
+            width: 8px;
+            background-color: #ff0000;
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 8px #ff0000;
+            animation: pulse-red 2s infinite;
+        }
+
+        @keyframes pulse-red {
+            0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0.7); }
+            70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(255, 0, 0, 0); }
+            100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(255, 0, 0, 0); }
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 600px) {
+            .vsl-wrapper {
+                padding: 10px;
+                margin-top: 2vh;
+            }
+            .viewer-count {
+                font-size: 14px;
+                width: fit-content;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="vsl-wrapper">
+        <div class="video-player">
+            <vturb-smartplayer id="ab-697cb3b113b941d28c22e3d3" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer>
+            <script type="text/javascript">
+                var s=document.createElement("script");
+                s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/697cb3b113b941d28c22e3d3/player.js", s.async=!0,document.head.appendChild(s);
+            </script>
+        </div>
+
+        <div class="viewer-count">
+            <span class="live-pulse"></span>
+            <span><strong id="counter">828</strong> people are watching now</span>
+        </div>
+    </div>
+
+    <script>
+        // Real-time viewer logic
+        function updateViewers() {
+            const counterElement = document.getElementById('counter');
+            let currentCount = parseInt(counterElement.innerText);
+            
+            // Randomly adds/subtracts to look natural (heavily weighted towards staying high)
+            const fluctuation = Math.floor(Math.random() * 7) - 2; 
+            currentCount += fluctuation;
+
+            // Safety floor to maintain authority
+            if (currentCount < 815) currentCount = 828;
+            
+            counterElement.innerText = currentCount;
+        }
+
+        // Update every 5 seconds
+        setInterval(updateViewers, 5000);
+    </script>
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+</body>
+</html>
