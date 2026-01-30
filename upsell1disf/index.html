@@ -22,7 +22,6 @@
         body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: #333; line-height: 1.6; padding-top: 60px; }
         h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
 
-        /* --- URGENCY BAR --- */
         .urgency-bar {
             position: fixed; top: 0; left: 0; width: 100%; background: var(--warning-yellow);
             color: #000; text-align: center; padding: 12px; font-weight: 800; font-size: 13px;
@@ -31,18 +30,14 @@
         .blink { animation: blinker 1.5s linear infinite; color: red; }
         @keyframes blinker { 50% { opacity: 0; } }
 
-        /* --- LAYOUT --- */
         .container { max-width: 600px; margin: 0 auto; padding: 20px; }
-        .sales-container { max-width: 750px; margin: 0 auto; padding: 40px 20px; display: none; }
         .hidden { display: none !important; }
         .fade-in { animation: fadeIn 0.5s ease-in; }
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* --- PROGRESS BAR --- */
         .prog-wrap { position: fixed; top: 45px; left: 0; width: 100%; height: 6px; background: #eee; z-index: 1000; }
         .prog-bar { height: 100%; background: var(--primary); width: 0%; transition: width 0.4s; }
 
-        /* --- QUIZ ELEMENTS --- */
         .q-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
         .q-num { color: var(--primary); font-weight: 700; font-size: 14px; margin-bottom: 10px; display: block; }
         .q-title { font-size: 24px; margin-bottom: 25px; line-height: 1.2; }
@@ -61,41 +56,21 @@
         .btn {
             display: block; width: 100%; padding: 20px; border: none; border-radius: 8px;
             background: var(--accent); color: #000; font-family: 'Montserrat'; font-weight: 800;
-            font-size: 18px; cursor: pointer; text-transform: uppercase; transition: 0.3s;
+            font-size: 18px; cursor: pointer; text-transform: uppercase; transition: 0.3s; text-align: center;
         }
         .btn:disabled { background: #ccc; cursor: not-allowed; }
         .btn-pulse { animation: pulse 2s infinite; }
         @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
 
-        /* --- INTERSTITIALS --- */
         .int-box { border-left: 5px solid var(--primary); background: #fff; padding: 25px; margin-bottom: 20px; }
         .int-box h3 { color: var(--primary); margin-bottom: 10px; font-size: 18px; }
 
-        /* --- BLURRED RESULTS --- */
         .blur-card { background: white; padding: 25px; border-radius: 12px; border: 1px solid #ddd; margin: 20px 0; }
         .row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 15px; }
         .blur-text { filter: blur(8px); background: #eee; color: transparent; user-select: none; }
 
-        /* --- SALES COPY STYLING --- */
-        .copy-section { margin-bottom: 50px; }
-        .copy-h { color: var(--primary); font-size: 26px; margin-bottom: 20px; line-height: 1.2; border-bottom: 3px solid var(--accent); display: inline-block; }
-        .copy-p { font-size: 18px; margin-bottom: 20px; color: #444; }
-        .copy-sub { font-size: 20px; font-weight: 800; margin: 30px 0 15px; color: var(--secondary); }
-        .bonus-box { background: #f0f0f0; padding: 30px; border-radius: 10px; margin: 30px 0; border: 1px dashed #999; }
-        .check-list { list-style: none; margin: 20px 0; }
-        .check-list li { padding-left: 30px; position: relative; margin-bottom: 12px; font-weight: 600; }
-        .check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: 900; }
-
-        /* --- FINAL OFFER --- */
-        .offer-cta { background: #111; color: white; padding: 40px 20px; border-radius: 15px; text-align: center; }
-        .price-tag { font-size: 50px; color: var(--accent); font-weight: 800; display: block; margin: 10px 0; }
-        .old-price { text-decoration: line-through; color: #888; font-size: 20px; }
-        .no-thanks { display: block; margin-top: 30px; color: #999; font-size: 13px; text-decoration: underline; }
-
-        @media (max-width: 480px) {
-            .q-title { font-size: 20px; }
-            .copy-h { font-size: 22px; }
-        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @media (max-width: 480px) { .q-title { font-size: 20px; } }
     </style>
 </head>
 <body>
@@ -128,8 +103,7 @@
             <span class="q-num">Step 2 of 5</span>
             <h2 class="q-title">Physical Metrics</h2>
             <input type="text" id="height" placeholder="Height (e.g. 5'10 or 180cm)" oninput="checkInp('height', 'b3')">
-            <input type="text" id="weight" placeholder="Weight (e.g. 190lbs or 86kg)" oninput="checkInp('height', 'b3')">
-            <p style="font-size: 12px; color: #888; margin-bottom: 15px;">Used to calculate blood saturation levels.</p>
+            <input type="text" id="weight" placeholder="Weight (e.g. 190lbs or 86kg)" oninput="checkInp('weight', 'b3')">
             <button class="btn" id="b3" disabled onclick="showNext('s4', 60)">Next Step</button>
         </div>
 
@@ -190,82 +164,33 @@
                 <div class="row"><strong>Peak Prediction:</strong> <span class="blur-text">█ Days</span></div>
             </div>
             <p style="text-align:center; font-size:14px; margin-bottom:20px; font-style:italic;">Your accelerated protocol is ready for review.</p>
-            <button class="btn btn-pulse" onclick="showSales()">See My Protocol</button>
-        </div>
-    </div>
-
-    <div class="sales-container" id="sales-page">
-        
-        <div class="copy-section">
-            <h1 class="copy-h">CALIBRATION PROTOCOL</h1>
-            <p class="copy-p" style="font-weight: 800; color: var(--secondary);">The Precision Dosage System That Accelerates Your Results by Up to 3X</p>
             
-            <h2 class="copy-sub">CONGRATULATIONS... And Here's What Most Men Don't Know Yet</h2>
-            <p class="copy-p">First — congratulations on taking action.</p>
-            <p class="copy-p">You just secured access to the same protocol that's helping thousands of men finally reverse erectile dysfunction by clearing the toxic plaque blocking blood flow to their penis.</p>
-            <p class="copy-p">The ingredients are right. The science is bulletproof. The mechanism works.</p>
-            
-            <p class="copy-p">The standard protocol you just purchased WILL work. But there's something I need to tell you... something that could mean the difference between seeing results in <strong>10 days... or in 3 days.</strong></p>
-        </div>
-
-        <div class="copy-section">
-            <h2 class="copy-h">THE HIDDEN VARIABLE THAT DETERMINES YOUR SPEED TO RESULTS</h2>
-            <p class="copy-p">Two men can take the exact same protocol... Yet one man wakes up on day 3 with raging morning wood... while the other takes 14 days. Why?</p>
-            <p class="copy-p">Because while the ROOT CAUSE is the same — toxic plaque — the <strong>SEVERITY</strong> of that blockage varies dramatically.</p>
-            <ul class="check-list">
-                <li>A 170-lb man needs DIFFERENT quantities than a 240-lb man</li>
-                <li>Age impacts how quickly your body processes compound</li>
-                <li>Underlying inflammation (Diabetes/HBP) changes vascular sensitivity</li>
-            </ul>
-        </div>
-
-        <div class="copy-section">
-            <h2 class="copy-h">THE TRUTH ABOUT "STANDARD DOSING"</h2>
-            <p class="copy-p">Standard protocols are optimized for <strong>SAFETY</strong>, not <strong>SPEED</strong>. It's calibrated to avoid overdoing it for smaller men... which means it might be UNDER-dosed for you.</p>
-            <p class="copy-p">Think of it like a clogged drain. You could pour in a standard cleaner and wait... OR you could calculate the EXACT amount based on the size of the pipe and the pressure. Same chemical. Dramatically different results.</p>
-        </div>
-
-        <div class="copy-section">
-            <h2 class="copy-h">WHAT HAPPENS WHEN YOU CALIBRATE</h2>
-            <p class="copy-p">When you add the Calibration Protocol today, we take your assessment data and generate a <strong>Personalized Dosage Matrix</strong> optimized for your arterial profile.</p>
-            <p class="copy-p">One user described it perfectly: <em>"It felt like my body had been waiting for the exact right formula. Everything just clicked into place faster than I expected."</em></p>
-        </div>
-
-        <div class="copy-section">
-            <h2 class="copy-h">HERE'S EXACTLY WHAT YOU GET</h2>
-            <ul class="check-list">
-                <li><strong>Your Exact Dosages:</strong> Precise measurements for each ingredient.</li>
-                <li><strong>Your Optimal Timing:</strong> When to take each dose for YOUR metabolic rhythm.</li>
-                <li><strong>Your Combination Sequence:</strong> Maximized absorption for YOUR body type.</li>
-                <li><strong>Your Estimated Timeline:</strong> Predicted phases based on YOUR arterial load.</li>
-            </ul>
-        </div>
-
-        <div class="bonus-box">
-            <h2 style="color:var(--primary); margin-bottom:15px;">BUT WAIT — THAT'S NOT ALL</h2>
-            <p><strong>Bonus #1: The Arterial Flush Accelerator ($47 Value)</strong> - A 72-hour "shock protocol" to pre-prime your system.</p>
-            <p><strong>Bonus #2: The Progress Tracker Dashboard ($39 Value)</strong> - monitor firmness and spontaneous erections.</p>
-            <p><strong>Bonus #3: The Recalibration Indicator Guide ($61 Value)</strong> - When to micro-adjust after 30 days.</p>
-        </div>
-
-        <div class="copy-section">
-            <h2 class="copy-h">HERE'S MY GUARANTEE</h2>
-            <p class="copy-p">If you don't feel like the personalized dosing made a measurable difference in your speed to results... send one email within 180 days and you'll get a full refund. No questions. No hassle.</p>
-        </div>
-
-        <div class="offer-cta">
-            <h2 style="color:white; margin-bottom:10px;">THE INVESTMENT</h2>
-            <p class="old-price">Clinical Value: $194</p>
-            <p style="color:var(--accent); font-weight:800;">YOUR PRICE TODAY (93% OFF)</p>
-            <span class="price-tag">$47</span>
-            <p style="font-size:14px; margin-bottom:20px;">One-time payment. Instant Access.</p>
-            <button class="btn btn-pulse" id="checkout-btn" style="font-size:22px;">🔓 UNLOCK MY PROTOCOL — $47</button>
-            
-            <a href="#" class="no-thanks" onclick="alert('Standard protocol selected.')">No, I'll continue with the standard protocol and average results.</a>
+            <div style="text-align:center" id="kiwify-upsell-3NM2U8x" data-upsell-url="https://appsell-software.com/app/sacred-chant" data-downsell-url="https://appsell-software.com/app/sacred-chant">
+                <button id="kiwify-upsell-trigger-3NM2U8x" class="btn btn-pulse" style="background-color:var(--accent); color:#000; width:100%;">SEE MY PROTOCOL</button>
+                <div id="kiwify-upsell-cancel-trigger-3NM2U8x" style="margin-top:1rem; cursor:pointer; font-size:13px; text-decoration:underline; color:#999;">No, I'll continue with the standard protocol and average results.</div>
+            </div>
+            <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
         </div>
     </div>
 
     <script>
+        // Inteligência de 1 Clique (Confirmação Automática)
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            const confirmBtn = document.getElementById('kiwify-upsell-modal-charge');
+            if (confirmBtn) {
+              confirmBtn.click();
+              observer.disconnect();
+            }
+          });
+        });
+
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+
+        // Funções do Quiz
         function updateProg(w) { document.getElementById('prog-bar').style.width = w + '%'; }
         
         function showNext(id, p) {
@@ -292,7 +217,6 @@
             const cb = card.querySelector('input');
             cb.checked = !cb.checked;
             card.classList.toggle('selected');
-            
             if(cb.id === 'c_none' && cb.checked) {
                 document.querySelectorAll(`#${sId} input:not(#c_none)`).forEach(i => {
                     i.checked = false; i.closest('.opt').classList.remove('selected');
@@ -308,8 +232,8 @@
             const v = document.querySelector('input[name="dur"]:checked').value;
             const h = document.getElementById('int1-h');
             const p = document.getElementById('int1-p');
-            if(v === 'short') { h.innerText = "Early Intervention Detected"; p.innerText = "Your vascular receptors are still highly responsive. Calibration will ensure we trigger the 'Flood Effect' immediately before plaque hardens."; }
-            else { h.innerText = "Chronic Pattern Found"; p.innerText = "Long-term dysfunction creates arterial resistance. A standard dose will move slowly. We need a 'Shock Saturation' load to break the plaque barrier."; }
+            if(v === 'short') { h.innerText = "Early Intervention Detected"; p.innerText = "Your vascular receptors are still highly responsive."; }
+            else { h.innerText = "Chronic Pattern Found"; p.innerText = "We need a 'Shock Saturation' load to break the plaque barrier."; }
             showNext('int1', 70);
         }
 
@@ -317,8 +241,8 @@
             const dia = document.getElementById('c_dia').checked;
             const hbp = document.getElementById('c_hbp').checked;
             const p = document.getElementById('int2-p');
-            if(dia || hbp) p.innerHTML = "<strong>CRITICAL ALERT:</strong> Inflammation markers from Diabetes/HBP actively neutralize generic supplement dosages. Your calibrated matrix will include higher initial concentrations to penetrate this inflammatory shield.";
-            else p.innerText = "No high-risk vascular blockers detected. Your body is primed for rapid absorption. We will focus your protocol on timing windows to maximize peak rigidity.";
+            if(dia || hbp) p.innerHTML = "<strong>CRITICAL ALERT:</strong> Inflammation markers detected. Matrix will adjust concentration.";
+            else p.innerText = "No high-risk vascular blockers detected. Your body is primed for rapid absorption.";
             showNext('int2', 90);
         }
 
@@ -328,20 +252,6 @@
             setTimeout(() => { document.getElementById('proc-text').innerText = "Calibrating dosages..."; }, 3000);
             setTimeout(() => { showNext('s8', 100); document.getElementById('prog-wrap').style.display='none'; }, 4500);
         }
-
-        function showSales() {
-            document.getElementById('quiz-area').style.display = 'none';
-            document.querySelector('.urgency-bar').style.display = 'none';
-            document.getElementById('sales-page').style.display = 'block';
-            window.scrollTo(0,0);
-        }
-
-        document.getElementById('checkout-btn').addEventListener('click', function() {
-            // INSERT KIWIFY SCRIPT HERE
-            console.log("Kiwify Triggered");
-        });
     </script>
-
-    <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
 </body>
 </html>
