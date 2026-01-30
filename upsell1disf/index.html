@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calibration Protocol | Optimize Your Results</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary: #8B0000;
+            --secondary: #1A1A1A;
+            --accent: #D4AF37;
+            --bg-light: #FAFAFA;
+            --warning-yellow: #FFCC00;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: #333; line-height: 1.6; padding-top: 60px; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
+
+        /* --- URGENCY BAR --- */
+        .urgency-bar {
+            position: fixed; top: 0; left: 0; width: 100%; background: var(--warning-yellow);
+            color: #000; text-align: center; padding: 12px; font-weight: 800; font-size: 13px;
+            z-index: 2000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .blink { animation: blinker 1.5s linear infinite; color: red; }
+        @keyframes blinker { 50% { opacity: 0; } }
+
+        /* --- LAYOUT --- */
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .sales-container { max-width: 750px; margin: 0 auto; padding: 40px 20px; display: none; }
+        .hidden { display: none !important; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        /* --- PROGRESS BAR --- */
+        .prog-wrap { position: fixed; top: 45px; left: 0; width: 100%; height: 6px; background: #eee; z-index: 1000; }
+        .prog-bar { height: 100%; background: var(--primary); width: 0%; transition: width 0.4s; }
+
+        /* --- QUIZ ELEMENTS --- */
+        .q-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .q-num { color: var(--primary); font-weight: 700; font-size: 14px; margin-bottom: 10px; display: block; }
+        .q-title { font-size: 24px; margin-bottom: 25px; line-height: 1.2; }
+        
+        input[type="text"], input[type="number"] {
+            width: 100%; padding: 15px; font-size: 18px; border: 2px solid #ddd; border-radius: 8px; margin-bottom: 20px;
+        }
+
+        .opt {
+            display: block; padding: 18px; border: 2px solid #eee; border-radius: 8px; margin-bottom: 12px;
+            cursor: pointer; font-weight: 600; transition: 0.2s; position: relative; padding-left: 50px;
+        }
+        .opt input { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; }
+        .opt.selected { border-color: var(--primary); background: #fff5f5; }
+
+        .btn {
+            display: block; width: 100%; padding: 20px; border: none; border-radius: 8px;
+            background: var(--accent); color: #000; font-family: 'Montserrat'; font-weight: 800;
+            font-size: 18px; cursor: pointer; text-transform: uppercase; transition: 0.3s;
+        }
+        .btn:disabled { background: #ccc; cursor: not-allowed; }
+        .btn-pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
+
+        /* --- INTERSTITIALS --- */
+        .int-box { border-left: 5px solid var(--primary); background: #fff; padding: 25px; margin-bottom: 20px; }
+        .int-box h3 { color: var(--primary); margin-bottom: 10px; font-size: 18px; }
+
+        /* --- BLURRED RESULTS --- */
+        .blur-card { background: white; padding: 25px; border-radius: 12px; border: 1px solid #ddd; margin: 20px 0; }
+        .row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 15px; }
+        .blur-text { filter: blur(8px); background: #eee; color: transparent; user-select: none; }
+
+        /* --- SALES COPY STYLING --- */
+        .copy-section { margin-bottom: 50px; }
+        .copy-h { color: var(--primary); font-size: 26px; margin-bottom: 20px; line-height: 1.2; border-bottom: 3px solid var(--accent); display: inline-block; }
+        .copy-p { font-size: 18px; margin-bottom: 20px; color: #444; }
+        .copy-sub { font-size: 20px; font-weight: 800; margin: 30px 0 15px; color: var(--secondary); }
+        .bonus-box { background: #f0f0f0; padding: 30px; border-radius: 10px; margin: 30px 0; border: 1px dashed #999; }
+        .check-list { list-style: none; margin: 20px 0; }
+        .check-list li { padding-left: 30px; position: relative; margin-bottom: 12px; font-weight: 600; }
+        .check-list li::before { content: '✓'; position: absolute; left: 0; color: var(--primary); font-weight: 900; }
+
+        /* --- FINAL OFFER --- */
+        .offer-cta { background: #111; color: white; padding: 40px 20px; border-radius: 15px; text-align: center; }
+        .price-tag { font-size: 50px; color: var(--accent); font-weight: 800; display: block; margin: 10px 0; }
+        .old-price { text-decoration: line-through; color: #888; font-size: 20px; }
+        .no-thanks { display: block; margin-top: 30px; color: #999; font-size: 13px; text-decoration: underline; }
+
+        @media (max-width: 480px) {
+            .q-title { font-size: 20px; }
+            .copy-h { font-size: 22px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="urgency-bar">
+        <span class="blink">⚠️</span> STOP: PURCHASE INCOMPLETE. DO NOT CLOSE THIS PAGE.
+    </div>
+
+    <div class="prog-wrap" id="prog-wrap">
+        <div class="prog-bar" id="prog-bar"></div>
+    </div>
+
+    <div class="container" id="quiz-area">
+        
+        <div id="s1" class="q-card fade-in">
+            <h1 style="color:var(--primary); font-size: 26px; margin-bottom: 15px;">Wait — Your Protocol Can Be Optimized</h1>
+            <p style="margin-bottom: 25px; font-weight: 600;">Before you finalize, let's calibrate your specific dosage for 3X faster results.</p>
+            <p style="margin-bottom: 20px; font-size: 15px; color: #666;">Standard dosing works for the "average" man. This calibration tool ensures the formula is precise for YOUR body weight and condition history.</p>
+            <button class="btn btn-pulse" onclick="showNext('s2', 20)">Start Calibration</button>
+        </div>
+
+        <div id="s2" class="q-card hidden">
+            <span class="q-num">Step 1 of 5</span>
+            <h2 class="q-title">What is your age?</h2>
+            <input type="number" id="age" placeholder="Enter age" oninput="checkInp('age', 'b2')">
+            <button class="btn" id="b2" disabled onclick="showNext('s3', 40)">Next Step</button>
+        </div>
+
+        <div id="s3" class="q-card hidden">
+            <span class="q-num">Step 2 of 5</span>
+            <h2 class="q-title">Physical Metrics</h2>
+            <input type="text" id="height" placeholder="Height (e.g. 5'10 or 180cm)" oninput="checkInp('height', 'b3')">
+            <input type="text" id="weight" placeholder="Weight (e.g. 190lbs or 86kg)" oninput="checkInp('height', 'b3')">
+            <p style="font-size: 12px; color: #888; margin-bottom: 15px;">Used to calculate blood saturation levels.</p>
+            <button class="btn" id="b3" disabled onclick="showNext('s4', 60)">Next Step</button>
+        </div>
+
+        <div id="s4" class="q-card hidden">
+            <span class="q-num">Step 3 of 5</span>
+            <h2 class="q-title">How long have you been noticing signs of dysfunction?</h2>
+            <label class="opt" onclick="selRad('s4', 'b4')"><input type="radio" name="dur" value="short"> Less than 6 months</label>
+            <label class="opt" onclick="selRad('s4', 'b4')"><input type="radio" name="dur" value="mid"> 6 months to 2 years</label>
+            <label class="opt" onclick="selRad('s4', 'b4')"><input type="radio" name="dur" value="long"> Over 2 years</label>
+            <button class="btn" id="b4" disabled onclick="handleDuration()">Analyze Timeline</button>
+        </div>
+
+        <div id="int1" class="q-card hidden">
+            <div class="int-box">
+                <h3 id="int1-h">Analyzing...</h3>
+                <p id="int1-p" style="font-size: 15px;"></p>
+            </div>
+            <button class="btn" onclick="showNext('s5', 80)">Continue</button>
+        </div>
+
+        <div id="s5" class="q-card hidden">
+            <span class="q-num">Step 4 of 5</span>
+            <h2 class="q-title">Do you have any of these conditions?</h2>
+            <label class="opt" onclick="selChk('s5', 'b5')"><input type="checkbox" id="c_dia" value="diabetes"> Diabetes</label>
+            <label class="opt" onclick="selChk('s5', 'b5')"><input type="checkbox" id="c_hbp" value="hbp"> High Blood Pressure</label>
+            <label class="opt" onclick="selChk('s5', 'b5')"><input type="checkbox" id="c_none" value="none"> None of the above</label>
+            <button class="btn" id="b5" disabled onclick="handleConditions()">Evaluate Vascular Health</button>
+        </div>
+
+        <div id="int2" class="q-card hidden">
+            <div class="int-box">
+                <h3>Vascular Integrity Alert</h3>
+                <p id="int2-p" style="font-size: 15px;"></p>
+            </div>
+            <button class="btn" onclick="showNext('s6', 100)">Final Step</button>
+        </div>
+
+        <div id="s6" class="q-card hidden">
+            <span class="q-num">Step 5 of 5</span>
+            <h2 class="q-title">Are you currently taking any medications?</h2>
+            <label class="opt" onclick="selRad('s6', 'b6')"><input type="radio" name="med" value="yes"> Yes</label>
+            <label class="opt" onclick="selRad('s6', 'b6')"><input type="radio" name="med" value="no"> No</label>
+            <button class="btn" id="b6" disabled onclick="processResults()">Finish Calibration</button>
+        </div>
+
+        <div id="s7" class="q-card hidden" style="text-align:center;">
+            <div style="width:50px; height:50px; border:5px solid #eee; border-top:5px solid var(--primary); border-radius:50%; margin:0 auto 20px; animation: spin 1s infinite linear;"></div>
+            <p id="proc-text" style="font-weight:700;">Analyzing vascular profile...</p>
+        </div>
+
+        <div id="s8" class="q-card hidden">
+            <h2 style="color:var(--primary); text-align:center; font-size:22px; margin-bottom:20px;">Calibration Complete</h2>
+            <div class="blur-card">
+                <div class="row"><strong>Vascular Profile:</strong> <span style="color:var(--primary); font-weight:800;">At Risk</span></div>
+                <div class="row"><strong>Arterial Load:</strong> <span>68/100 (Above Average)</span></div>
+                <div class="row"><strong>Personalized Dose:</strong> <span class="blur-text">████ mg</span></div>
+                <div class="row"><strong>Optimal Timing:</strong> <span class="blur-text">████████</span></div>
+                <div class="row"><strong>Peak Prediction:</strong> <span class="blur-text">█ Days</span></div>
+            </div>
+            <p style="text-align:center; font-size:14px; margin-bottom:20px; font-style:italic;">Your accelerated protocol is ready for review.</p>
+            <button class="btn btn-pulse" onclick="showSales()">See My Protocol</button>
+        </div>
+    </div>
+
+    <div class="sales-container" id="sales-page">
+        
+        <div class="copy-section">
+            <h1 class="copy-h">CALIBRATION PROTOCOL</h1>
+            <p class="copy-p" style="font-weight: 800; color: var(--secondary);">The Precision Dosage System That Accelerates Your Results by Up to 3X</p>
+            
+            <h2 class="copy-sub">CONGRATULATIONS... And Here's What Most Men Don't Know Yet</h2>
+            <p class="copy-p">First — congratulations on taking action.</p>
+            <p class="copy-p">You just secured access to the same protocol that's helping thousands of men finally reverse erectile dysfunction by clearing the toxic plaque blocking blood flow to their penis.</p>
+            <p class="copy-p">The ingredients are right. The science is bulletproof. The mechanism works.</p>
+            
+            <p class="copy-p">The standard protocol you just purchased WILL work. But there's something I need to tell you... something that could mean the difference between seeing results in <strong>10 days... or in 3 days.</strong></p>
+        </div>
+
+        <div class="copy-section">
+            <h2 class="copy-h">THE HIDDEN VARIABLE THAT DETERMINES YOUR SPEED TO RESULTS</h2>
+            <p class="copy-p">Two men can take the exact same protocol... Yet one man wakes up on day 3 with raging morning wood... while the other takes 14 days. Why?</p>
+            <p class="copy-p">Because while the ROOT CAUSE is the same — toxic plaque — the <strong>SEVERITY</strong> of that blockage varies dramatically.</p>
+            <ul class="check-list">
+                <li>A 170-lb man needs DIFFERENT quantities than a 240-lb man</li>
+                <li>Age impacts how quickly your body processes compound</li>
+                <li>Underlying inflammation (Diabetes/HBP) changes vascular sensitivity</li>
+            </ul>
+        </div>
+
+        <div class="copy-section">
+            <h2 class="copy-h">THE TRUTH ABOUT "STANDARD DOSING"</h2>
+            <p class="copy-p">Standard protocols are optimized for <strong>SAFETY</strong>, not <strong>SPEED</strong>. It's calibrated to avoid overdoing it for smaller men... which means it might be UNDER-dosed for you.</p>
+            <p class="copy-p">Think of it like a clogged drain. You could pour in a standard cleaner and wait... OR you could calculate the EXACT amount based on the size of the pipe and the pressure. Same chemical. Dramatically different results.</p>
+        </div>
+
+        <div class="copy-section">
+            <h2 class="copy-h">WHAT HAPPENS WHEN YOU CALIBRATE</h2>
+            <p class="copy-p">When you add the Calibration Protocol today, we take your assessment data and generate a <strong>Personalized Dosage Matrix</strong> optimized for your arterial profile.</p>
+            <p class="copy-p">One user described it perfectly: <em>"It felt like my body had been waiting for the exact right formula. Everything just clicked into place faster than I expected."</em></p>
+        </div>
+
+        <div class="copy-section">
+            <h2 class="copy-h">HERE'S EXACTLY WHAT YOU GET</h2>
+            <ul class="check-list">
+                <li><strong>Your Exact Dosages:</strong> Precise measurements for each ingredient.</li>
+                <li><strong>Your Optimal Timing:</strong> When to take each dose for YOUR metabolic rhythm.</li>
+                <li><strong>Your Combination Sequence:</strong> Maximized absorption for YOUR body type.</li>
+                <li><strong>Your Estimated Timeline:</strong> Predicted phases based on YOUR arterial load.</li>
+            </ul>
+        </div>
+
+        <div class="bonus-box">
+            <h2 style="color:var(--primary); margin-bottom:15px;">BUT WAIT — THAT'S NOT ALL</h2>
+            <p><strong>Bonus #1: The Arterial Flush Accelerator ($47 Value)</strong> - A 72-hour "shock protocol" to pre-prime your system.</p>
+            <p><strong>Bonus #2: The Progress Tracker Dashboard ($39 Value)</strong> - monitor firmness and spontaneous erections.</p>
+            <p><strong>Bonus #3: The Recalibration Indicator Guide ($61 Value)</strong> - When to micro-adjust after 30 days.</p>
+        </div>
+
+        <div class="copy-section">
+            <h2 class="copy-h">HERE'S MY GUARANTEE</h2>
+            <p class="copy-p">If you don't feel like the personalized dosing made a measurable difference in your speed to results... send one email within 180 days and you'll get a full refund. No questions. No hassle.</p>
+        </div>
+
+        <div class="offer-cta">
+            <h2 style="color:white; margin-bottom:10px;">THE INVESTMENT</h2>
+            <p class="old-price">Clinical Value: $194</p>
+            <p style="color:var(--accent); font-weight:800;">YOUR PRICE TODAY (93% OFF)</p>
+            <span class="price-tag">$47</span>
+            <p style="font-size:14px; margin-bottom:20px;">One-time payment. Instant Access.</p>
+            <button class="btn btn-pulse" id="checkout-btn" style="font-size:22px;">🔓 UNLOCK MY PROTOCOL — $47</button>
+            
+            <a href="#" class="no-thanks" onclick="alert('Standard protocol selected.')">No, I'll continue with the standard protocol and average results.</a>
+        </div>
+    </div>
+
+    <script>
+        function updateProg(w) { document.getElementById('prog-bar').style.width = w + '%'; }
+        
+        function showNext(id, p) {
+            document.querySelectorAll('.q-card').forEach(c => c.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+            document.getElementById(id).classList.add('fade-in');
+            updateProg(p);
+        }
+
+        function checkInp(inpId, btnId) {
+            const v = document.getElementById(inpId).value;
+            document.getElementById(btnId).disabled = v.length < 1;
+        }
+
+        function selRad(sId, bId) {
+            document.querySelectorAll(`#${sId} .opt`).forEach(o => o.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+            event.currentTarget.querySelector('input').checked = true;
+            document.getElementById(bId).disabled = false;
+        }
+
+        function selChk(sId, bId) {
+            const card = event.currentTarget;
+            const cb = card.querySelector('input');
+            cb.checked = !cb.checked;
+            card.classList.toggle('selected');
+            
+            if(cb.id === 'c_none' && cb.checked) {
+                document.querySelectorAll(`#${sId} input:not(#c_none)`).forEach(i => {
+                    i.checked = false; i.closest('.opt').classList.remove('selected');
+                });
+            } else if (cb.checked) {
+                document.getElementById('c_none').checked = false;
+                document.getElementById('c_none').closest('.opt').classList.remove('selected');
+            }
+            document.getElementById(bId).disabled = !document.querySelectorAll(`#${sId} input:checked`).length;
+        }
+
+        function handleDuration() {
+            const v = document.querySelector('input[name="dur"]:checked').value;
+            const h = document.getElementById('int1-h');
+            const p = document.getElementById('int1-p');
+            if(v === 'short') { h.innerText = "Early Intervention Detected"; p.innerText = "Your vascular receptors are still highly responsive. Calibration will ensure we trigger the 'Flood Effect' immediately before plaque hardens."; }
+            else { h.innerText = "Chronic Pattern Found"; p.innerText = "Long-term dysfunction creates arterial resistance. A standard dose will move slowly. We need a 'Shock Saturation' load to break the plaque barrier."; }
+            showNext('int1', 70);
+        }
+
+        function handleConditions() {
+            const dia = document.getElementById('c_dia').checked;
+            const hbp = document.getElementById('c_hbp').checked;
+            const p = document.getElementById('int2-p');
+            if(dia || hbp) p.innerHTML = "<strong>CRITICAL ALERT:</strong> Inflammation markers from Diabetes/HBP actively neutralize generic supplement dosages. Your calibrated matrix will include higher initial concentrations to penetrate this inflammatory shield.";
+            else p.innerText = "No high-risk vascular blockers detected. Your body is primed for rapid absorption. We will focus your protocol on timing windows to maximize peak rigidity.";
+            showNext('int2', 90);
+        }
+
+        function processResults() {
+            showNext('s7', 100);
+            setTimeout(() => { document.getElementById('proc-text').innerText = "Comparing against database..."; }, 1500);
+            setTimeout(() => { document.getElementById('proc-text').innerText = "Calibrating dosages..."; }, 3000);
+            setTimeout(() => { showNext('s8', 100); document.getElementById('prog-wrap').style.display='none'; }, 4500);
+        }
+
+        function showSales() {
+            document.getElementById('quiz-area').style.display = 'none';
+            document.querySelector('.urgency-bar').style.display = 'none';
+            document.getElementById('sales-page').style.display = 'block';
+            window.scrollTo(0,0);
+        }
+
+        document.getElementById('checkout-btn').addEventListener('click', function() {
+            // INSERT KIWIFY SCRIPT HERE
+            console.log("Kiwify Triggered");
+        });
+    </script>
+
+    <style>@keyframes spin { 100% { transform: rotate(360deg); } }</style>
+</body>
+</html>
