@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade Your Order</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        /* --- ESTILOS DO LAYOUT --- */
+        .warning-banner {
+            background-color: #c41e3a;
+            color: white;
+            padding: 12px 20px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .warning-banner strong {
+            font-weight: 700;
+        }
+        
+        .warning-icon {
+            font-size: 16px;
+            margin-right: 5px;
+        }
+        
+        .secure-badge {
+            background-color: white;
+            padding: 15px;
+            text-align: center;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .secure-badge img {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            justify-content: space-between;
+            background-color: white;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 20px;
+        }
+        
+        .nav-tab {
+            flex: 1;
+            padding: 15px 5px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        @media (min-width: 600px) {
+            .nav-tab { font-size: 13px; gap: 8px; }
+        }
+        
+        .nav-tab.completed {
+            background-color: #1e5a96;
+            color: white;
+        }
+        
+        .nav-tab.active {
+            background-color: #27af60;
+            color: white;
+        }
+        
+        .nav-tab.pending {
+            background-color: #95a5a6;
+            color: white;
+        }
+        
+        .checkmark { font-size: 18px; }
+        
+        .loader {
+            border: 2px solid #f3f3f3;
+            border-top: 2px solid #3498db;
+            border-radius: 50%;
+            width: 14px;
+            height: 14px;
+            animation: spin 1s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+            padding: 0 15px;
+        }
+        
+        .content-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 25px 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: left;
+        }
+        
+        @media (min-width: 600px) {
+            .content-box { padding: 40px; }
+        }
+
+        /* --- TIPOGRAFIA --- */
+        p {
+            margin-bottom: 18px;
+            font-size: 17px;
+            color: #333;
+        }
+
+        strong {
+            font-weight: 700;
+            color: #000;
+        }
+
+        ul {
+            margin-bottom: 20px;
+            padding-left: 0;
+            list-style: none;
+        }
+
+        li {
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            font-size: 17px;
+        }
+        
+        .arrow-list li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: #27af60;
+            font-weight: bold;
+        }
+
+        .cross-list li::before {
+            content: "❌";
+            position: absolute;
+            left: 0;
+            font-size: 14px;
+            top: 2px;
+        }
+
+        .check-list li::before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            font-size: 16px;
+            top: 1px;
+        }
+
+        .stat-box {
+            background-color: #f0f4f8;
+            border: 1px solid #dce4ec;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+
+        .module-container {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 25px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+        }
+
+        .module-title {
+            color: #1e5a96;
+            font-weight: 800;
+            font-size: 18px;
+            margin-bottom: 5px;
+            display: block;
+            text-transform: uppercase;
+        }
+        
+        .module-subtitle {
+            font-style: italic;
+            font-size: 15px;
+            color: #666;
+            margin-bottom: 15px;
+            display: block;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+
+        .price-section {
+            text-align: center;
+            background-color: #fcfcfc;
+            border: 2px dashed #27af60;
+            padding: 30px 20px;
+            border-radius: 10px;
+            margin: 40px 0;
+        }
+
+        .price-strike {
+            font-size: 20px;
+            color: #999;
+            text-decoration: line-through;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .price-final {
+            font-size: 36px;
+            color: #27af60;
+            font-weight: 900;
+            display: block;
+            margin-bottom: 20px;
+        }
+
+        .ps-section {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            font-size: 16px;
+        }
+
+        /* Botão Kiwify */
+        #kiwify-upsell-trigger-TgEppjK {
+            width: 100%;
+            max-width: 450px;
+            box-shadow: 0 4px 10px rgba(39, 175, 96, 0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            white-space: normal !important;
+            line-height: 1.3 !important;
+            padding: 20px !important;
+        }
+        
+        #kiwify-upsell-trigger-TgEppjK:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(39, 175, 96, 0.5);
+            background-color: #219150 !important;
+        }
+
+        .center-text { text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="warning-banner">
+        <span class="warning-icon">⚠️</span>
+        <strong>WARNING:</strong> Do not close or refresh this page, <strong>as it may cause errors with your purchase</strong>.
+    </div>
+    
+    <div class="secure-badge">
+        <img src="https://upgradeyourorder.com/wp-content/uploads/2025/10/secure-3.png" alt="Secure Payment">
+    </div>
+    
+    <div class="nav-tabs">
+        <div class="nav-tab completed"><span class="checkmark">✓</span> PURCHASE INFO</div>
+        <div class="nav-tab active">NEW OPPORTUNITY!</div>
+        <div class="nav-tab pending"><div class="loader"></div> ORDER CONFIRMATION</div>
+    </div>
+    
+    <div class="container">
+        <div class="content-box">
+            
+            <p><strong>Congratulations.</strong></p>
+            <p>You just made the decision that 99% of men are too proud, too scared, or too ignorant to make.</p>
+            <p>You're fixing your erection. You're getting your calibrated protocol. You're taking control of your sexual health.</p>
+            <p>And I need you to breathe easy right now.</p>
+            <p>Because here's what I can promise you:</p>
+            <p>The main protocol WILL restore your erectile function. The Calibration Protocol WILL accelerate your results. The science is bulletproof. The mechanism works.</p>
+            <p>You're going to wake up with morning wood again. You're going to feel blood rushing where it should. You're going to walk into the bedroom with confidence you haven't felt in years.</p>
+            <p>You've already won the hardest battle.</p>
+            <p>The plaque is getting cleared. The blood is flowing. Your penis is coming back to life.</p>
+            <p>But now I need to tell you something that nobody else will.</p>
+            <p>Something uncomfortable. Something most men discover too late.</p>
+            <p>Something that separates the guy who "can get hard again" from the guy who becomes absolutely unforgettable in bed.</p>
+
+            <p>Here's the brutal truth that no man wants to hear:</p>
+            <p><strong>Having an erection is NOT the same as knowing what to do with it.</strong></p>
+            <p>And here's the data that proves it:</p>
+            
+            <div class="stat-box">
+                <ul class="arrow-list">
+                    <li>75-80% of women do NOT achieve orgasm from penetration alone (Journal of Sexual Medicine, 2017)</li>
+                    <li>Women in same-sex relationships report 86% orgasm rate vs 65% in heterosexual relationships (Archives of Sexual Behavior, 2018)</li>
+                    <li>Only 18% of women say penetration is enough for complete satisfaction (Indiana University Study, 2020)</li>
+                </ul>
+            </div>
+
+            <p>Let me translate that for you:</p>
+            <p><strong>4 out of 5 women are NOT getting satisfied by a hard dick alone.</strong></p>
+            <p>They're faking it. They're lying. They're protecting your ego.</p>
+            <p>And you know how I know they're faking?</p>
+            <p>Because when women sleep with women — when the entire experience is built around understanding female anatomy instead of just "penetrate and hope" — their orgasm rate jumps to 86%.</p>
+            <p>That's a 21% difference.</p>
+            <p>Not because "women understand women better."</p>
+            <p>But because they've learned techniques that most men are never taught:</p>
+
+            <ul class="arrow-list">
+                <li>Where EXACTLY the clitoral structure extends (it's 4 inches long internally — most men only touch the tip)</li>
+                <li>The difference between A-spot, G-spot, U-spot, and PS-spot stimulation (yes, there are FOUR major internal zones)</li>
+                <li>How to combine clitoral + internal stimulation simultaneously (this is what causes "stacked" orgasms)</li>
+                <li>The precise finger movements that trigger female ejaculation (it's a learnable technique, not luck)</li>
+                <li>Tongue patterns and suction combinations that make her eyes roll back (there's actual science here)</li>
+                <li>Strategic positioning that lets you hit angles the average man never reaches</li>
+            </ul>
+
+            <p>And here's what kills me:</p>
+            <p>You're about to invest hundreds of dollars to get your erection back.</p>
+            <p>You're going to follow the protocol. Take the supplements. Do everything right.</p>
+            <p>And in 7-14 days, you're going to have a rock-hard erection again.</p>
+            <p>But when you get in bed with her...</p>
+            <p><strong>What are you going to DO with it?</strong></p>
+            <p>Are you going to:</p>
+
+            <ul class="cross-list">
+                <li>Pump away for 5-10 minutes while she "ooohs" and "ahhhs" to make you feel good?</li>
+                <li>Finish, roll over, and ask "was it good for you?" while she lies through her teeth?</li>
+                <li>Wonder why she never initiates sex even though you "fixed" your ED?</li>
+                <li>Notice her touching herself after you fall asleep because she didn't actually finish?</li>
+            </ul>
+
+            <p>Because here's the thing most men never realize:</p>
+            <p>She's not going to TELL you she didn't come.</p>
+            <p>She's not going to TEACH you what actually works.</p>
+            <p>She's going to protect your ego, fake enthusiasm, and quietly resent the mediocre sex.</p>
+            <p>And you'll never know.</p>
+            <p>You'll think, "Hey, I got my erection back, mission accomplished!"</p>
+            <p>Meanwhile, she's thinking about her ex who "wasn't as hard" but somehow made her come three times in a row because he actually knew where to touch her.</p>
+            <p>This is the uncomfortable reality:</p>
+            <p>Erectile dysfunction gave you an excuse.</p>
+            <p>"I can't perform because I can't get hard."</p>
+            <p>But once that excuse is gone...</p>
+            <p>Once you CAN get hard...</p>
+            <p>You're exposed.</p>
+            <p>If she's not satisfied, it's not because of your dick anymore.</p>
+            <p>It's because you don't know what the fuck you're doing.</p>
+            <p>And that's a harder pill to swallow than any Viagra.</p>
+
+            <p>Now here's the good news:</p>
+            <p><strong>Sexual skill is 100% learnable.</strong></p>
+            <p>It's not about "intuition" or "listening to her body" or any of that vague bullshit.</p>
+            <p>It's about specific techniques applied to specific anatomy in specific sequences.</p>
+            <p>Just like you learned that ED is caused by blocked arteries (not "low T" or "getting old"), you can learn the EXACT physiological mechanisms that cause female orgasm.</p>
+            <p>And once you know them?</p>
+            <p>You become the guy she can't stop thinking about.</p>
+            <p>The guy she brags about to her friends (in private).</p>
+            <p>The guy who ruined her for other men.</p>
+            <p>Not because of your dick size. Not because of how long you last.</p>
+            <p>Because you know her body better than she does.</p>
+            
+            <p><strong>Introducing: The Advanced Intimacy Protocol</strong></p>
+            
+            <p>This is NOT a "be romantic and communicate" course.</p>
+            <p>This is NOT "10 sex positions to try tonight."</p>
+            <p>This is a clinical, scientific breakdown of female sexual physiology and the exact techniques that reliably produce orgasms — the same techniques that give women in same-sex relationships an 86% orgasm rate.</p>
+            <p>We reverse-engineered what actually works. Studied the research. Interviewed sex therapists. Analyzed thousands of hours of clinical data.</p>
+            <p>And we built a step-by-step protocol that teaches you:</p>
+
+            <div class="module-container">
+                <span class="module-title">MODULE 1: ADVANCED FEMALE ANATOMY</span>
+                <span class="module-subtitle">(What Medical School Doesn't Teach)</span>
+                <ul class="arrow-list">
+                    <li>The Full Clitoral Structure — It's not a "button." It's a 4-inch internal organ with 8,000 nerve endings. You've been touching 10% of it.</li>
+                    <li>The Four Internal Zones — G-spot (you know this one), A-spot (anterior fornix, causes rapid lubrication), U-spot (urethral opening, highly sensitive), PS-spot (perineal sponge, between vagina and anus).</li>
+                    <li>Arousal Physiology — The exact progression of blood flow, lubrication, and vaginal tenting. How to tell if she's ACTUALLY ready vs just "wet enough."</li>
+                    <li>Orgasm Types — Clitoral, vaginal, blended, cervical, and full-body. They're all different. They all require different stimulation.</li>
+                    <li>Her Unique Map — How to identify HER specific anatomy (every woman's internal structure is slightly different — you need to learn HERS).</li>
+                </ul>
+            </div>
+
+            <div class="module-container">
+                <span class="module-title">MODULE 2: MANUAL STIMULATION MASTERY</span>
+                <span class="module-subtitle">(The Techniques That Actually Work)</span>
+                <ul class="arrow-list">
+                    <li>The 7 Clitoral Touch Patterns — Circles, figure-8s, tapping, lateral strokes, pulling, vibration, pressure waves. When to use each. How to combine them.</li>
+                    <li>The "Come Here" Technique — The ACTUAL way to stimulate the G-spot (not just "curling your finger" — there's a specific rhythm, pressure, and angle).</li>
+                    <li>Simultaneous Stimulation — How to use one hand internally and one externally at the same time without looking like you're playing Operation.</li>
+                    <li>The Squirt Protocol — Female ejaculation is a LEARNABLE TECHNIQUE. Here's the exact positioning, pressure, and motion pattern. (Hint: it's not the G-spot alone.)</li>
+                    <li>Reading Her Signals — Muscle contractions, breathing patterns, vocalizations. How to tell if you're doing it right or she's just being nice.</li>
+                </ul>
+            </div>
+
+            <div class="module-container">
+                <span class="module-title">MODULE 3: ORAL MASTERY</span>
+                <span class="module-subtitle">(Beyond "Just Lick It")</span>
+                <ul class="arrow-list">
+                    <li>The Alphabet Myth — Why the "spell the alphabet" advice is bullshit, and what actually works instead.</li>
+                    <li>Suction + Tongue + Breath — The triple-threat combination. How to create a "wave" sensation that builds and builds.</li>
+                    <li>Strategic Positioning — The 3 angles that give you maximum access while saving your neck and jaw.</li>
+                    <li>The Escalation Sequence — You don't start with aggressive licking. Here's the exact progression from teasing to intensity.</li>
+                    <li>Integrating Fingers — How to add internal stimulation during oral without losing rhythm or breaking flow.</li>
+                </ul>
+            </div>
+
+            <div class="module-container">
+                <span class="module-title">MODULE 4: PENETRATION STRATEGY</span>
+                <span class="module-subtitle">(It's Not About Size or Duration)</span>
+                <ul class="arrow-list">
+                    <li>Angle of Attack — The 4 primary angles and which internal zone each one stimulates. How to adjust your position to hit the exact spot she needs.</li>
+                    <li>Depth vs Pressure — Deep thrusting is overrated. Shallow, pressured grinding against her pubic bone stimulates the internal clitoris. This is the secret.</li>
+                    <li>Rhythm Variation — When to go slow, when to speed up, when to stop completely. (Hint: constant jackhammering is the WORST thing you can do.)</li>
+                    <li>The Coital Alignment Technique (CAT) — The modified missionary position that gives 70% of women reliable orgasms during penetration. Exact instructions.</li>
+                    <li>Positions That Actually Work — Not "50 positions to try." The 5 positions that mechanically guarantee clitoral and G-spot stimulation simultaneously.</li>
+                </ul>
+            </div>
+
+            <div class="module-container">
+                <span class="module-title">MODULE 5: ORGASM STACKING</span>
+                <span class="module-subtitle">(Multiple Orgasms Are A Protocol, Not Luck)</span>
+                <ul class="arrow-list">
+                    <li>The Refractory Period Myth — Men have one. Women DON'T. You can give her 3, 4, 5+ orgasms in a row if you know the technique.</li>
+                    <li>The Escalation Ladder — First orgasm: clitoral. Second: blended. Third: full-body. Here's the exact sequence.</li>
+                    <li>The Recovery Window — She needs 20-60 seconds between orgasms. Too fast = overstimulation. Too slow = resets. Here's how to time it.</li>
+                    <li>Edging Techniques — Bringing her to 90%, backing off, building again. This is how you create explosive releases.</li>
+                    <li>The "Forced Orgasm" Method — Continuing stimulation THROUGH her first orgasm to trigger a second. (Only works if you do it right — here's how.)</li>
+                </ul>
+            </div>
+
+            <div class="module-container">
+                <span class="module-title">MODULE 6: ADVANCED TECHNIQUES</span>
+                <span class="module-subtitle">(The Stuff Most Men Never Learn)</span>
+                <ul class="arrow-list">
+                    <li>Anal Stimulation for Her — It's not about penetration. It's about the nerve endings around the opening. How to do it safely and pleasurably.</li>
+                    <li>Toy Integration — How to use a vibrator during sex WITHOUT feeling replaced or inadequate. This makes you BETTER, not obsolete.</li>
+                    <li>Psychological Triggers — The dirty talk that works, the dominance/submission dynamics that heighten arousal. Based on female psychology research, not porn.</li>
+                    <li>Aftercare Protocol — What you do in the 5 minutes AFTER sex determines whether she wants to do it again. Most men fail here.</li>
+                    <li>Energy Management — How to give her multiple orgasms without exhausting yourself. Stamina isn't just physical — it's strategic.</li>
+                </ul>
+            </div>
+
+            <div class="module-container">
+                <span class="module-title">BONUS MODULE: REAL VS FAKE</span>
+                <span class="module-subtitle">(How To Tell If She Actually Came)</span>
+                <ul class="arrow-list">
+                    <li>Physiological Markers — Muscle contractions (you can FEEL them), pupil dilation, skin flushing, involuntary leg shaking.</li>
+                    <li>Breathing Patterns — Real orgasms have a specific breathing signature. Faked ones don't.</li>
+                    <li>Vocalizations — Performative moaning vs genuine loss of control. Here's the difference.</li>
+                    <li>Post-Orgasm Behavior — What she does in the 60 seconds after tells you everything.</li>
+                    <li>The Honest Conversation — How to ask her directly without making it awkward or defensive.</li>
+                </ul>
+            </div>
+
+            <p>Here's what you need to understand:</p>
+            <p>You're about to have your erection back.</p>
+            <p>Maybe in 3 days. Maybe in 7. Maybe in 14.</p>
+            <p>But it's coming.</p>
+            <p>And when it does, you have two choices:</p>
+            
+            <p><strong>PATH 1: Wing It</strong></p>
+            <p>Go into the bedroom with a hard dick and hope for the best.</p>
+            <p>Do what you've always done. Assume penetration is enough. Finish in 10 minutes and ask "was it good?"</p>
+            <p>She'll say yes. She'll smile. She'll cuddle.</p>
+            <p>And she'll never tell you the truth.</p>
+            <p>You'll never know if you're actually good or just "good enough."</p>
+            <p>You'll never know if she's satisfied or settling.</p>
+            <p>You'll have your erection back, but you won't have mastery.</p>
+
+            <p><strong>PATH 2: Become Undeniable</strong></p>
+            <p>Learn the actual anatomy. Master the techniques. Follow the protocols.</p>
+            <p>Walk into the bedroom with your hard dick AND the knowledge of exactly where to touch, how to move, when to speed up, when to slow down.</p>
+            <p>Make her come before penetration. Make her come during penetration. Make her come again after you finish.</p>
+            <p>Become the guy she brags about. The guy she initiates with. The guy who ruined her for everyone else.</p>
+            <p>Not because of your dick.</p>
+            <p>Because you know what the fuck you're doing.</p>
+            
+            <div style="background-color:#f4f4f4; padding:20px; border-radius:8px; margin: 30px 0;">
+                <h3 style="text-align:center; margin-bottom:20px;">WHAT YOU GET TODAY:</h3>
+                <ul class="check-list">
+                    <li><strong>6 Complete Training Modules (video + PDF)</strong><br>
+                        Advanced Female Anatomy<br>
+                        Manual Stimulation Mastery<br>
+                        Oral Mastery<br>
+                        Penetration Strategy<br>
+                        Orgasm Stacking<br>
+                        Advanced Techniques
+                    </li>
+                    <li><strong>Illustrated Anatomy Guides (medical-grade diagrams)</strong><br>
+                        Full clitoral structure map<br>
+                        Internal zone locations<br>
+                        Nerve ending density charts<br>
+                        Position angle breakdowns
+                    </li>
+                    <li><strong>Technique Demonstration Videos (animated, clinical — NOT porn)</strong><br>
+                        Finger techniques with exact hand positions<br>
+                        Tongue pattern demonstrations<br>
+                        Positioning and angle adjustments
+                    </li>
+                    <li><strong>BONUS #1: The Real vs Fake Checklist ($47 value)</strong><br>
+                        Physiological markers of genuine orgasm<br>
+                        How to tell if she's faking<br>
+                        The conversation guide for honest feedback
+                    </li>
+                    <li><strong>BONUS #2: Dirty Talk Scripts ($39 value)</strong><br>
+                        What to say (and when)<br>
+                        Psychological triggers for female arousal<br>
+                        Tone, pacing, and delivery
+                    </li>
+                    <li><strong>BONUS #3: Toy Integration Guide ($29 value)</strong><br>
+                        How to use vibrators during sex<br>
+                        Positions that work with toys<br>
+                        Making technology your ally, not competitor
+                    </li>
+                    <li><strong>BONUS #4: Quick Reference Cards ($19 value)</strong><br>
+                        Printable guides for each technique<br>
+                        Zone maps you can review before sex<br>
+                        Troubleshooting flowcharts
+                    </li>
+                </ul>
+            </div>
+
+            <div class="price-section">
+                <h3 style="margin-bottom:15px; color:#333;">THE INVESTMENT</h3>
+                <p>Let's be real about what this is worth:</p>
+                <p>A single session with a certified sex therapist? $150-300.</p>
+                <p>A weekend "tantric sex" workshop? $500-1,200.</p>
+                <p>A private consultation with a sexologist? $200-400.</p>
+                <p>Total: $850-1,900 for basic education.</p>
+                <p>And none of them will be this direct. This technical. This actionable.</p>
+                <p>I'm not charging you $1,900.</p>
+                <p>I'm not charging you $500.</p>
+                <p>Because you've already proven you're serious by investing in your erectile health...</p>
+                <p>I'm giving you the Advanced Intimacy Protocol for <strong style="color:#27af60">$57</strong>.</p>
+                <p>That's 92% off what men pay for worse information through clinical channels.</p>
+                <p><strong>But only if you add it right now.</strong></p>
+                
+                <hr style="margin: 20px 0; border: 0; border-top: 1px solid #ddd;">
+                
+                <p class="center-text"><strong>WHY THIS PRICE EXISTS ONLY NOW</strong></p>
+                <p class="center-text">You're already in the system. You've already committed to fixing your sexual health.</p>
+                <p class="center-text">The Advanced Intimacy Protocol is the completion of that commitment.</p>
+                <p class="center-text">You're getting your erection back (the hardware).</p>
+                <p class="center-text">This gives you the software to run it.</p>
+                <p class="center-text">But if you leave this page and come back later?</p>
+                <p class="center-text">This price disappears.</p>
+                <p class="center-text">Because at that point, this becomes a standalone course. And standalone, it's $297.</p>
+                <p class="center-text">Right now, as a one-time offer to men who just purchased the ED protocol, it's <strong style="color:#27af60">$57</strong>.</p>
+                <p class="center-text">This offer exists only on this page. Only right now.</p>
+                
+                <div class="price-box" style="margin-top:20px;">
+                    <span class="price-strike">$297</span>
+                    <span class="price-final">$57</span>
+                </div>
+            </div>
+
+            <div style="background-color:#f8f9fa; border-left:5px solid #1e5a96; padding:15px; margin: 30px 0;">
+                <p><strong>YOUR GUARANTEE</strong></p>
+                <p>Same as everything else: 180-day money-back guarantee.</p>
+                <p>If you go through this training and don't see measurable improvement in her satisfaction...</p>
+                <p>If you don't feel more confident in your sexual skill...</p>
+                <p>If you don't think this was worth 10x the price...</p>
+                <p>One email. Full refund. No questions.</p>
+                <p>You risk nothing.</p>
+            </div>
+
+            <p class="center-text" style="font-size:18px;"><strong>THE REAL QUESTION</strong></p>
+            <p>Look, you're about to have your erection back.</p>
+            <p>That's not optional. That's happening.</p>
+            <p>The only question is:</p>
+            <p>Do you want to be just another guy with a hard dick?</p>
+            <p>Or do you want to be the guy she can't stop thinking about?</p>
+            <p>Because I can tell you right now:</p>
+            <p>Hard dicks are common.</p>
+            <p>Men who actually know female anatomy? Rare as fuck.</p>
+            <p>The guy who can make her come three times before he even penetrates her?</p>
+            <p>She'll never let you go.</p>
+            
+            <p style="margin-top:30px;"><strong>WHAT HAPPENS NEXT</strong></p>
+            <p>When you click the button below, you get instant access to:</p>
+            <ul class="arrow-list">
+                <li>All 6 training modules</li>
+                <li>Illustrated anatomy guides</li>
+                <li>Technique demonstration videos</li>
+                <li>All 4 bonus resources</li>
+                <li>Lifetime access + future updates</li>
+            </ul>
+            <p>You can start watching in 60 seconds.</p>
+            <p>You can review the anatomy tonight.</p>
+            <p>You can practice the techniques this week.</p>
+            <p>And when your erection comes back...</p>
+            <p>You'll be ready.</p>
+            <p>Not just to "have sex again."</p>
+            <p>To completely rewrite what she thinks is possible in bed.</p>
+
+            <div style="text-align:center; margin-top: 40px; margin-bottom: 20px;" id="kiwify-upsell-TgEppjK" data-upsell-url="https://vitalitynews.live/natural-potency-protocol/" data-downsell-url="https://vitalitynews.live/natural-potency-protocol/">
+                <button id="kiwify-upsell-trigger-TgEppjK" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">YES — ADD ADVANCED INTIMACY PROTOCOL — $57<br><span style="font-size:14px; font-weight:400;">Instant access • 180-day guarantee • Lifetime updates</span></button>
+                <div id="kiwify-upsell-cancel-trigger-TgEppjK" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">No thanks, I'll figure it out on my own</div>
+            </div>
+            <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+
+            <div class="ps-section">
+                <p><strong>P.S. — Do The Math</strong></p>
+                <p>If this protocol helps you give her just ONE real orgasm that she wasn't going to have otherwise...</p>
+                <p>And that ONE orgasm makes her initiate sex twice as often...</p>
+                <p>And that leads to 12 more sexual encounters this year...</p>
+                <p>What's that worth to you?</p>
+                <p>$57 is nothing.</p>
+                
+                <p style="margin-top:20px;"><strong>P.P.S. — The Uncomfortable Truth</strong></p>
+                <p>Right now, you might be thinking:</p>
+                <p>"I'll figure this out naturally. I don't need a course."</p>
+                <p>Here's the thing:</p>
+                <p>You've been "figuring it out naturally" for how long?</p>
+                <p>And how many women have told you — honestly — that you're the best they've ever had?</p>
+                <p>Natural talent is a myth.</p>
+                <p>Every guy who's great in bed learned to be great.</p>
+                <p>They studied anatomy. They practiced techniques. They got EDUCATED.</p>
+                <p>You can keep winging it...</p>
+                <p>Or you can spend 3 hours learning what takes most men 10 years to figure out (if they ever do).</p>
+                <p>$57. Right now. This page only.</p>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px; color: #7f8c8d; font-size: 13px;">
+                Secure encrypted checkout • Same 180-day guarantee • Educational content only
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        // Observa o modal da Kiwify para confirmação
+        const confirmBtn = document.getElementById('kiwify-upsell-modal-charge');
+        if (confirmBtn) {
+          confirmBtn.click();
+          // Opcional: Para o observer após clicar para evitar cliques múltiplos
+          observer.disconnect();
+        }
+      });
+    });
+
+    observer.observe(document.body, {
+      childList: true,
+      subtree: true
+    });
+    </script>
+
+<script
+  src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+  data-utmify-prevent-xcod-sck
+  data-utmify-prevent-subids
+  async
+  defer
+></script>
+
+</body>
+</html>
