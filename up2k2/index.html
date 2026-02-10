@@ -327,10 +327,11 @@
                 
                 <p><span class="tsl-highlight">So your investment today is only $69</span> — less than what you spend on medicines in a single week. But this special access exists only if you act right now, in the next few minutes, before this page disappears forever.</p>
                 
-                <div style="text-align:center; margin: 40px 0;" id="kiwify-upsell-EYrrCv4" data-upsell-url="https://blog.trendskalla.site/up3iinglescartlas/" data-downsell-url="https://blog.trendskalla.site/up3iinglescartlas/">
-                    <button id="kiwify-upsell-trigger-EYrrCv4" style="background-color:#27AF60;padding:15px 20px;cursor:pointer;color:#FFFFFF;font-weight:700;border-radius:8px;border:none;font-size:22px;width:100%; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">ACCESS NOW WITH DISCOUNT</button>
-                    <div class="decline-link" id="openModalBtn">do not access</div>
+                <div style="text-align:center" id="kiwify-upsell-XvGRjA6" data-upsell-url="https://blog.trendskalla.site/up3k2/" data-downsell-url="https://blog.trendskalla.site/up3k2/">
+                  <button id="kiwify-upsell-trigger-XvGRjA6" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">ACCESS NOW WITH DISCOUNT</button>
+                  <div id="kiwify-upsell-cancel-trigger-XvGRjA6" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">do not access</div>
                 </div>
+                <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
                 <p><strong>Unconditional lifetime guarantee. Forever.</strong> If at any moment you decide that it did not work for your health, I will refund every single cent. No questions, no explanations, no drama. This page may be removed from the Internet at any time. Do not let regret and illness follow you for the rest of your life.</p>
             </div>
             <div class="sound-notice">
@@ -364,27 +365,36 @@
     </div>
     
     <script>
-        const openModalBtn = document.getElementById('openModalBtn');
+        // Mapeamento dos novos IDs fornecidos
+        const mainCTAButton = document.getElementById('kiwify-upsell-trigger-XvGRjA6');
+        const declineModalBtn = document.getElementById('declineModalBtn');
         const modal = document.getElementById('declineModal');
         const modalClose = document.getElementById('modalClose');
         const acceptModalBtn = document.getElementById('acceptModalBtn');
-        const declineModalBtn = document.getElementById('declineModalBtn');
-        const mainCTAButton = document.getElementById('kiwify-upsell-trigger-EYrrCv4');
         
+        // TRUQUE IMPORTANTE: Clonamos o botão de cancelar para remover o evento padrão da Kiwify
+        // Isso impede que a Kiwify redirecione imediatamente e permite que nosso Modal abra primeiro
+        const oldCancelBtn = document.getElementById('kiwify-upsell-cancel-trigger-XvGRjA6');
+        const openModalBtn = oldCancelBtn.cloneNode(true);
+        oldCancelBtn.parentNode.replaceChild(openModalBtn, oldCancelBtn);
+
+        // Lógica do Modal de "Espere"
         openModalBtn.addEventListener('click', function(e) {
             e.preventDefault();
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
         
+        // Se aceitar no Modal -> Clica no botão de compra oficial da Kiwify
         acceptModalBtn.addEventListener('click', function() {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
             mainCTAButton.click();
         });
         
+        // Se recusar no Modal -> Redireciona para o downsell (Atualizado com o link do seu novo script)
         declineModalBtn.addEventListener('click', function() {
-            window.location.href = 'https://blog.trendskalla.site/up3iinglescartlas/';
+            window.location.href = 'https://blog.trendskalla.site/up3k2/';
         });
         
         modalClose.addEventListener('click', function() {
@@ -392,6 +402,7 @@
             document.body.style.overflow = 'auto';
         });
 
+        // Auto-Click para confirmar o Upsell da Kiwify se abrir o modal nativo deles
         (function() {
             const observer = new MutationObserver((mutations) => {
                 for (const mutation of mutations) {
@@ -405,13 +416,5 @@
             observer.observe(document.body, { childList: true, subtree: true });
         })();
     </script>
-    <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
 </body>
 </html>
-
-
-
-
-
-
-
