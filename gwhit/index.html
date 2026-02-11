@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upgrade Your Order - Maintenance Guide</title>
+    <style>
+        * {box-sizing: border-box; margin: 0; padding: 0;}
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #444;
+            background-color: #f9f9f9;
+            font-size: 16px;
+        }
+        .container {
+            max-width: 700px;
+            margin: 20px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #eee;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .progress-bar {
+            background-color: #eee;
+            border-radius: 10px;
+            height: 8px;
+            margin: 20px 0;
+        }
+        .progress-fill {
+            background-color: #27AF60;
+            width: 85%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .status-text {
+            text-align: center;
+            font-size: 13px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: bold;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            font-size: 26px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            font-size: 20px;
+            margin: 25px 0 15px;
+            color: #333;
+        }
+        p { margin-bottom: 15px; }
+        .feature-box {
+            background-color: #f8faff;
+            border: 1px solid #e1e8f5;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .price-section {
+            background-color: #fff;
+            border: 2px dashed #27AF60;
+            padding: 25px;
+            text-align: center;
+            margin: 30px 0;
+            border-radius: 10px;
+        }
+        .new-price {
+            color: #27AF60;
+            font-size: 36px;
+            font-weight: bold;
+            display: block;
+        }
+        #kiwify-upsell-trigger-HlmoS9o {
+            width: 100%;
+            background-color: #27AF60;
+            color: white;
+            padding: 20px;
+            font-size: 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        #kiwify-upsell-trigger-HlmoS9o:hover { background-color: #219150; }
+        #kiwify-upsell-cancel-trigger-HlmoS9o {
+            display: block;
+            text-align: center;
+            margin-top: 15px;
+            color: #999;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="status-text">Wait! Your order is being processed...</div>
+    <div class="progress-bar">
+        <div class="progress-fill"></div>
+    </div>
+
+    <h1>Add the 90-Day Metabolic Maintenance Guide</h1>
+
+    <p>Congratulations on securing the main protocol. To help you maintain your results and build sustainable habits, many members choose to follow a structured roadmap for the post-initial phase.</p> 
+
+    <p>The <strong>Metabolic Reset Accelerator</strong> is a detailed 90-day schedule designed to help stabilize your nutritional routine and prevent you from falling back into old patterns.</p>
+
+    <div class="feature-box">
+        <strong>What’s included in the guide:</strong>
+        <ul style="margin-top:10px; padding-left:20px;">
+            <li>3-month dietary transition calendar.</li>
+            <li>Weekly nutritional adjustment guide.</li>
+            <li>Social event and travel substitution list.</li>
+            <li>Long-term habit maintenance method.</li>
+        </ul>
+    </div>
+
+    <h2>Why 90 Days?</h2>
+    <p>Scientific studies suggest that the body requires time to adapt to a new routine and metabolic rate. This guide provides the necessary support to ensure this transition is organized, helping you turn your progress into a permanent lifestyle.</p>
+
+    <div class="price-section">
+        <p>Special one-time offer:</p>
+        <span class="new-price">$49.00</span>
+        <p style="font-size: 14px; color: #666;">One-time payment. Instant digital access.</p>
+    </div>
+
+    <div id="kiwify-upsell-HlmoS9o" data-upsell-url="http://blog.trendskalla.site/up1gelatin" data-downsell-url="http://blog.trendskalla.site/up1gelatin">
+        <button id="kiwify-upsell-trigger-HlmoS9o">YES, ADD TO MY ORDER</button>
+        <div id="kiwify-upsell-cancel-trigger-HlmoS9o">No thanks, I prefer to continue with just the basic guide.</div>
+    </div>
+
+    <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+
+    <p style="font-size: 11px; color: #bbb; text-align: center; margin-top: 30px; line-height: 1.2;">
+        *Results may vary from person to person. This product does not substitute professional medical advice. Please consult your physician before starting any new nutritional program.
+    </p>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const triggerBtn = document.getElementById('kiwify-upsell-trigger-HlmoS9o');
+        if(triggerBtn) {
+            triggerBtn.addEventListener('click', function() {
+                const observer = new MutationObserver(function(mutations) {
+                    mutations.forEach(function(mutation) {
+                        if (mutation.addedNodes.length) {
+                            const confirmBtn = document.querySelector('.swal2-confirm') || 
+                                               document.querySelector('.swal-button--confirm') ||
+                                               document.querySelector('button.swal2-confirm');
+                            if (confirmBtn) {
+                                setTimeout(() => confirmBtn.click(), 100); 
+                                observer.disconnect();
+                            }
+                        }
+                    });
+                });
+                observer.observe(document.body, { childList: true, subtree: true });
+                setTimeout(() => observer.disconnect(), 5000);
+            });
+        }
+    });
+</script>
+
+</body>
+</html>
