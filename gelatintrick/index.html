@@ -1,336 +1,277 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- Google Tag Manager -->
-<script>!function(){"use strict";function l(e){for(var t=e,r=0,n=document.cookie.split(";");r<n.length;r++){var o=n[r].split("=");if(o[0].trim()===t)return o[1]}}function s(e){return localStorage.getItem(e)}function u(e){return window[e]}function A(e,t){e=document.querySelector(e);return t?null==e?void 0:e.getAttribute(t):null==e?void 0:e.textContent}var e=window,t=document,r="script",n="dataLayer",o="https://track.bienetreviesalud.com",a="",i="ekhyzaids",c="eugdb1hu=GgBUJi40RSVAUF0nNzMjTQVZW09LXwwFTgYABBQcHBkWEgAECRgEHhdKCg4X",g="stapeUserId",v="",E="",d=!1;try{var d=!!g&&(m=navigator.userAgent,!!(m=new RegExp("Version/([0-9._]+)(.*Mobile)?.*Safari.*").exec(m)))&&16.4<=parseFloat(m[1]),f="stapeUserId"===g,I=d&&!f?function(e,t,r){void 0===t&&(t="");var n={cookie:l,localStorage:s,jsVariable:u,cssSelector:A},t=Array.isArray(t)?t:[t];if(e&&n[e])for(var o=n[e],a=0,i=t;a<i.length;a++){var c=i[a],c=r?o(c,r):o(c);if(c)return c}else console.warn("invalid uid source",e)}(g,v,E):void 0;d=d&&(!!I||f)}catch(e){console.error(e)}var m=e,g=(m[n]=m[n]||[],m[n].push({"gtm.start":(new Date).getTime(),event:"gtm.js"}),t.getElementsByTagName(r)[0]),v=I?"&bi="+encodeURIComponent(I):"",E=t.createElement(r),f=(d&&(i=8<i.length?i.replace(/([a-z]{8}$)/,"kp$1"):"kp"+i),!d&&a?a:o);E.async=!0,E.src=f+"/"+i+".js?"+c+v,null!=(e=g.parentNode)&&e.insertBefore(E,g)}();</script>
-<!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Exclusive Presentation</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Health - Daily Updates</title>
     <style>
-        /* Estilo da Headline para leitura escaneável */
-        .headline {
-            letter-spacing: -0.02em;
-            line-height: 1.1; 
-        }
+        /* General Reset & Typography */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: Helvetica, Arial, sans-serif; background-color: #fff; color: #1c1e21; line-height: 1.4; }
         
-        /* Animação suave para a mudança de números */
-        .fade-num {
-            transition: opacity 0.5s ease-in-out;
-        }
+        /* Header Styles */
+        header { width: 100%; }
+        .top-bar { background-color: #b01b1b; height: 60px; display: flex; align-items: center; justify-content: center; position: relative; }
+        .logo { color: #fff; font-size: 24px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
+        .menu-icon { position: absolute; right: 20px; color: #fff; font-size: 24px; cursor: pointer; }
+        .sub-bar { background-color: #8a1515; color: #fff; font-size: 10px; padding: 8px 20px; text-align: right; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; }
 
-        /* Estilização específica para a seção de comentários parecer nativa do FB */
-        .fb-comment-bg {
-            background-color: #f0f2f5;
-        }
-        .fb-name {
-            color: #050505;
-            font-weight: 600;
-        }
-        .fb-text {
-            color: #050505;
-        }
-        .fb-meta {
-            color: #65676b;
-        }
-        .fb-link {
-            color: #65676b;
-            font-weight: 600;
-            cursor: pointer;
-        }
-        .fb-link:hover {
-            text-decoration: underline;
-        }
+        /* Main Container */
+        .container { max-width: 800px; margin: 0 auto; padding: 20px 15px; }
+
+        /* Article Meta */
+        .article-meta { margin-bottom: 20px; }
+        .author { font-weight: bold; font-size: 14px; color: #000; }
+        .date { font-size: 12px; color: #757575; margin-top: 4px; display: block; }
+
+        /* Video Section */
+        .video-wrapper { margin-bottom: 40px; width: 100%; display: flex; justify-content: center; flex-direction: column; align-items: center;}
+        
+        /* Facebook Comments Styles */
+        .fb-section { background-color: #fff; margin-top: 20px; }
+        .fb-header { font-weight: bold; color: #65676b; margin-bottom: 15px; border-bottom: 1px solid #e5e5e5; padding-bottom: 10px; }
+        
+        .comment-row { display: flex; margin-bottom: 12px; }
+        .comment-avatar img { width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; object-fit: cover; }
+        
+        .comment-content { flex: 1; }
+        .bubble { background-color: #f0f2f5; padding: 10px 15px; border-radius: 18px; display: inline-block; position: relative; }
+        .user-name { font-weight: bold; font-size: 13px; color: #050505; display: block; margin-bottom: 3px; }
+        .comment-text { font-size: 14px; color: #050505; }
+        
+        .comment-actions { font-size: 12px; color: #65676b; margin: 2px 0 0 15px; }
+        .comment-actions span { margin-right: 10px; cursor: pointer; }
+        .comment-actions span:hover { text-decoration: underline; }
+        .action-blue { color: #65676b; font-weight: bold; } /* FB style typically keeps meta gray unless active, keeping subtle */
+        
+        .comment-image { margin-top: 10px; max-width: 100%; border-radius: 10px; border: 1px solid #ddd; display: block; }
+        
+        /* Replies styling */
+        .reply-row { display: flex; margin-left: 50px; margin-bottom: 12px; margin-top: -5px; }
+        .reply-avatar img { width: 30px; height: 30px; border-radius: 50%; margin-right: 10px; object-fit: cover; }
+
+        /* Footer */
+        footer { background-color: #f0f2f5; padding: 30px 20px; text-align: center; font-size: 12px; color: #65676b; margin-top: 50px; border-top: 1px solid #ddd; }
+        footer a { color: #65676b; text-decoration: none; margin: 0 10px; }
+
+        /* Utility */
+        .blue-link { color: #385898; cursor: pointer; font-weight: 600;}
     </style>
 </head>
-<body class="bg-white min-h-screen flex flex-col items-center font-sans text-gray-900">
+<body>
 
-    <!-- 
-      BARRA DE ESCASSEZ E PROVA SOCIAL (ESTILO FAIXA VERMELHA)
-      Posicionada fora do container principal para ocupar 100% da largura
-      AUMENTADA: Padding maior (py-5) e texto maior (text-base/text-lg) para máximo destaque
-    -->
-    <div class="w-full bg-[#cc0000] text-white text-center py-5 px-4 shadow-md relative z-50">
-        <p class="text-base md:text-lg font-medium leading-snug">
-            <span id="viewer-count" class="font-bold text-[#ffcc00] text-xl">1 467</span> 
-            people are watching this presentation. Due to high demand, it is only available until 
-            <span id="current-date" class="font-bold text-[#ffcc00]"></span>
-        </p>
-    </div>
+    <header>
+        <div class="top-bar">
+            <div class="logo">HEALTH</div>
+            <div class="menu-icon">☰</div>
+        </div>
+        <div class="sub-bar">
+            Daily Updates on Wellness
+        </div>
+    </header>
 
-    <!-- Aumentei o container principal para max-w-6xl para permitir que os comentários cresçam mais -->
-    <main class="w-full max-w-6xl flex flex-col items-center pt-8 md:pt-12 px-4">
-        
-        <!-- VSL CONTAINER -->
-   <vturb-smartplayer id="vid-693582c9e212f51b19a26f40" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/693582c9e212f51b19a26f40/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
-
-      <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/693582c9e212f51b19a26f40/v4/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="preload" href="https://cdn.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/693580b9332125736afe4fcb/main.m3u8" as="fetch">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://api.vturb.com.br">
-
-      
-        <!-- Aviso de Som (Francês) -->
-        <p class="mt-6 text-center text-gray-600 text-sm md:text-base flex items-center justify-center gap-2 font-medium">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
-            </svg>
-            Ensure your sound is turned on.
-        </p>
-
-        <!-- PROVA SOCIAL DE MÍDIA -->
-        <div class="mt-8 flex justify-center w-full px-4">
-            <img 
-                src="https://i.ibb.co/21Y3KWnz/midias.webp" 
-                alt="Vu dans les grands médias" 
-                class="w-full max-w-[500px] md:max-w-[600px] object-contain opacity-80 grayscale hover:grayscale-0 transition-all duration-500"
-            >
+    <main class="container">
+        <div class="article-meta">
+            <div class="author">By Dr. Jennifer Ashton</div>
+            <span class="date">Updated 30 minutes ago</span>
         </div>
 
-        <!-- SEÇÃO DE COMENTÁRIOS FACEBOOK (LARGURA e TÍTULO AUMENTADOS) -->
-        <!-- Aumentado de max-w-4xl para max-w-5xl para dominar a tela -->
-        <div class="mt-12 w-full max-w-5xl bg-white rounded-lg p-3 md:p-8 shadow-sm border border-gray-100">
-            <!-- Título aumentado para text-2xl e mais escuro para destaque -->
-            <p class="text-2xl text-gray-800 mb-8 border-b pb-4 font-bold px-2">23 Comments</p>
+        <div class="video-wrapper">
+            <vturb-smartplayer id="vid-698c970c1e643e3dce3959bb" style="display: block; margin: 0 auto; width: 100%; max-width: 400px;"></vturb-smartplayer> 
+            <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/698c970c1e643e3dce3959bb/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+        </div>
 
-            <div class="flex flex-col space-y-6">
-
-                <!-- Comentário 1: Johann Meier (Pessoa 1) -->
-                <div class="flex items-start space-x-3">
-                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/1tRGh9wN/pessoa-1.jpg" alt="User">
-                    <div class="flex-1">
-                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
-                            <div class="fb-name text-[15px] leading-tight mb-1">Johann Meier</div>
-                            <div class="fb-text text-[15px] leading-snug">
-                                At first, I was skeptical, but after trying it, I'm thrilled! I've finally reached my ideal weight, and it's helped me achieve my goals.
-                                <!-- Imagem Real Adicionada -->
-                                <img src="https://i.ibb.co/Z1cT1HTG/foto1.webp" alt="foto1" class="mt-3 rounded-lg w-full max-w-sm object-cover border border-gray-300 shadow-sm">
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
-                            <span class="fb-link">I like</span>
-                            <span class="fb-link">Reply</span>
-                            <span>4 min</span>
-                             <div class="flex items-center space-x-1 ml-auto">
-                                <div class="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center border border-white shadow-sm"><svg class="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/></svg></div>
-                                <span>12</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comentário 2: Felix Braun (Pessoa 2) -->
-                <div class="flex items-start space-x-3">
-                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/ycPTgm0m/pessoa-2.jpg" alt="User">
-                    <div class="flex-1">
-                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
-                            <div class="fb-name text-[15px] leading-tight mb-1">Felix Braun</div>
-                            <div class="fb-text text-[15px] leading-snug">The scientific basis of this approach impresses me. It seems much more effective than the usual miracle methods.</div>
-                        </div>
-                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
-                            <span class="fb-link">Like</span>
-                            <span class="fb-link">Reply</span>
-                            <span>9 min</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comentário 3: Lea Schneider (Pessoa 3) -->
-                <div class="flex items-start space-x-3">
-                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/3mMJ5Wv5/pessoa-3.jpg" alt="User">
-                    <div class="flex-1">
-                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
-                            <div class="fb-name text-[15px] leading-tight mb-1">Lea Schneider</div>
-                            <div class="fb-text text-[15px] leading-snug">I had tried everything to lose weight, but nothing worked. After watching this video, hope returned.</div>
-                        </div>
-                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
-                            <span class="fb-link">like</span>
-                            <span class="fb-link">reply</span>
-                            <span>18 min</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comentário 4: Nikolas Vogel (Pessoa 4) -->
-                <div class="flex items-start space-x-3">
-                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/xdt0HxM/pessoa-4.jpg" alt="User">
-                    <div class="flex-1">
-                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
-                            <div class="fb-name text-[15px] leading-tight mb-1">Nikolas Vogel</div>
-                            <div class="fb-text text-[15px] leading-snug">
-                                Finally, a weight loss program that really works! After countless diets and supplements, this is the only one that has given me real results.
-                                <!-- Imagem Real Adicionada -->
-                                <img src="https://i.ibb.co/HfwDdDDs/foto-2.webp" alt="foto-2" class="mt-3 rounded-lg w-full max-w-sm object-cover border border-gray-300 shadow-sm">
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
-                            <span class="fb-link">like</span>
-                            <span class="fb-link">reply</span>
-                            <span>20 min</span>
-                             <div class="flex items-center space-x-1 ml-auto">
-                                <div class="w-4 h-4 rounded-full bg-blue-500 flex items-center justify-center border border-white shadow-sm"><svg class="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z"/></svg></div>
-                                <span>24</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comentário 5: Miriam Hoffmann (Pessoa 5) -->
-                <div class="flex items-start space-x-3">
-                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/3ydHvhSL/pessoa-5.jpg" alt="User">
-                    <div class="flex-1">
-                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
-                            <div class="fb-name text-[15px] leading-tight mb-1">Miriam Hoffmann</div>
-                            <div class="fb-text text-[15px] leading-snug">Finally, a realistic and achievable solution for losing weight.</div>
-                        </div>
-                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
-                            <span class="fb-link">like</span>
-                            <span class="fb-link">reply</span>
-                            <span>26 min</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comentário 6: Laura Fischer (Pessoa 6) -->
-                <div class="flex items-start space-x-3">
-                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/rKmN1k3k/pessoa-6.jpg" alt="User">
-                    <div class="flex-1">
-                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
-                            <div class="fb-name text-[15px] leading-tight mb-1">Laura Fischer</div>
-                            <div class="fb-text text-[15px] leading-snug">I was afraid of possible side effects, but the trick shown in the video is gentle on the stomach and did not cause any adverse reactions.</div>
-                        </div>
-                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
-                            <span class="fb-link">like</span>
-                            <span class="fb-link">reply</span>
-                            <span>31 min</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comentário 7: Frieda Keller (Pessoa 7) -->
-                <div class="flex items-start space-x-3">
-                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/1GW0Fd3W/pessoa-7.jpg" alt="User">
-                    <div class="flex-1">
-                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
-                            <div class="fb-name text-[15px] leading-tight mb-1">Frieda Keller</div>
-                            <div class="fb-text text-[15px] leading-snug">Binge eating was a problem for me, but this video showed me how to control it and achieve my weight loss goals.</div>
-                        </div>
-                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
-                            <span class="fb-link">like</span>
-                            <span class="fb-link">reply</span>
-                            <span>47 min</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comentário 8: Sofia Neumann (Pessoa 8) -->
-                <div class="flex items-start space-x-3">
-                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/YTQDxxyk/pessoa-8.jpg" alt="User">
-                    <div class="flex-1">
-                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
-                            <div class="fb-name text-[15px] leading-tight mb-1">Sofia Neumann</div>
-                            <div class="fb-text text-[15px] leading-snug">I love this tip—it's super simple. Every morning, I add it to my water and I'm ready for the day.</div>
-                        </div>
-                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
-                            <span class="fb-link">like</span>
-                            <span class="fb-link">reply</span>
-                            <span>50 min</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Comentário 9: Klara Wolf (Pessoa 9) -->
-                <div class="flex items-start space-x-3">
-                    <img class="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-200" src="https://i.ibb.co/CsDKX9c0/pessoa-9.jpg" alt="User">
-                    <div class="flex-1">
-                        <div class="bg-[#f0f2f5] rounded-2xl px-5 py-4 inline-block">
-                            <div class="fb-name text-[15px] leading-tight mb-1">Klara Wolf</div>
-                            <div class="fb-text text-[15px] leading-snug">This tip is fantastic! It broke through my weight loss plateau and the pounds have disappeared for good.</div>
-                        </div>
-                        <div class="flex items-center space-x-4 mt-1 ml-4 text-[13px] fb-meta font-medium">
-                            <span class="fb-link">like</span>
-                            <span class="fb-link">reply</span>
-                            <span>55 min</span>
-                        </div>
-                    </div>
-                </div>
-
+        <section class="fb-section">
+            <div class="fb-header">
+                184 comments
             </div>
-            
-        </div>
 
-        <!-- ESPAÇO PARA O BOTÃO (DELAY) -->
-        <div class="mt-10 mb-24 w-full text-center hidden">
-            <!-- Placeholder do botão futuro -->
-        </div>
+            <div class="comment-row">
+                <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Sarah Jenkins</span>
+                        <div class="comment-text">Girls, I strictly followed the gelatin morning ritual mentioned in the video and this is me after 3 weeks! I can't believe the bloating is completely gone. 😍</div>
+                    </div>
+                    <img src="https://i.postimg.cc/52Y5PfJN/Celebrities-Weight-Loss-and-Transformations-Before-and-After-Pictures-Hannah-Jiles.webp" class="comment-image" alt="Transformation 1">
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>15m</span>
+                    </div>
+                </div>
+            </div>
 
+            <div class="comment-row">
+                <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Michelle Ross</span>
+                        <div class="comment-text">Thank you so much for sharing this. I was skeptical about the gelatin thing but my metabolism feels like it's 20 again.</div>
+                    </div>
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>32m</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-row">
+                <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/12.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Linda Meyer</span>
+                        <div class="comment-text">Does this gelatin trick actually work for women over 50? I've tried everything (keto, fasting) and nothing sticks. I don't want to waste my time again.</div>
+                    </div>
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>45m</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reply-row">
+                <div class="reply-avatar"><img src="https://randomuser.me/api/portraits/women/33.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Karen Smith</span>
+                        <div class="comment-text"><span class="blue-link">Linda Meyer</span> Yes! I'm 54 and I've lost 15lbs in the first month. It targets the menopause belly specifically. Watch the whole video, it explains why.</div>
+                    </div>
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>12m</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="reply-row">
+                <div class="reply-avatar"><img src="https://randomuser.me/api/portraits/women/90.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Susan Miller</span>
+                        <div class="comment-text">It worked for me too Linda! Best decision I made this year.</div>
+                    </div>
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>8m</span>
+                    </div>
+                </div>
+            </div>
+
+             <div class="comment-row">
+                <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/28.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Jessica Brown</span>
+                        <div class="comment-text">I thought it was just hype, but look at my transformation! The gelatin really helps with skin elasticity too while you lose the weight. Highly recommend! 👇👇</div>
+                    </div>
+                    <img src="https://i.postimg.cc/DZMyY3n3/TELEMMGLPICT000436404569-17558594932680-trans-Nv-BQz-QNjv4Bqq-Vzuuqp-Fly-LIwi-B6NTm-Jwf-SVWe-Z-v-EN7.webp" class="comment-image" alt="Transformation 2">
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>1h</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-row">
+                <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/50.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Amanda White</span>
+                        <div class="comment-text">My husband noticed the change before I did! My jeans are finally loose.</div>
+                    </div>
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>1h</span>
+                    </div>
+                </div>
+            </div>
+
+             <div class="comment-row">
+                <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Ashley Davis</span>
+                        <div class="comment-text">I was ready to give up until I saw this video about gelatin. This is the only thing that moved the needle for me. Down 24 lbs!!</div>
+                    </div>
+                    <img src="https://i.postimg.cc/Qt2VdZPS/images.jpg" class="comment-image" alt="Transformation 3">
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>2h</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-row">
+                <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/22.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Jennifer Wilson</span>
+                        <div class="comment-text">It's actually super easy to make. I just do it before breakfast.</div>
+                    </div>
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>2h</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-row">
+                <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/19.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Elizabeth Taylor</span>
+                        <div class="comment-text">Finally something that isn't a scam pill. It's just natural ingredients. Love it.</div>
+                    </div>
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>3h</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-row">
+                <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/88.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Nancy Harris</span>
+                        <div class="comment-text">My doctor was actually surprised by my blood work results after I started this.</div>
+                    </div>
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>3h</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comment-row">
+                <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/75.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Patricia Lewis</span>
+                        <div class="comment-text">Down 2 dress sizes in time for my daughter's wedding! Blessed! 🙏</div>
+                    </div>
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>4h</span>
+                    </div>
+                </div>
+            </div>
+
+             <div class="comment-row">
+                <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/42.jpg" alt="User"></div>
+                <div class="comment-content">
+                    <div class="bubble">
+                        <span class="user-name">Lisa Clark</span>
+                        <div class="comment-text">Just try it girls, you have nothing to lose but the weight!</div>
+                    </div>
+                    <div class="comment-actions">
+                        <span>Like</span> <span>Reply</span> <span>5h</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
     </main>
 
-    <!-- RODAPÉ SIMPLES (FRANCÊS) -->
-    <footer class="w-full mt-auto py-8 border-t border-gray-100 bg-gray-50">
-        
-        <!-- DISCLAIMER LEGAL -->
-        <div class="max-w-5xl mx-auto px-4 mb-6 text-center border-b border-gray-200 pb-6">
-            <p class="text-xs text-gray-500 leading-relaxed max-w-4xl mx-auto">
-                The results of this content may vary from person to person, depending on each individual. Copying or reproducing any images or text from this site is expressly prohibited, and violators will be subject to appropriate penalties. The information contained on this site or in emails sent has been developed for educational purposes only. It is not intended to replace the advice or treatment of professionals in the field. Some testimonials or reviews may be fictitious.
-            </p>
-        </div>
-
-        <div class="max-w-5xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center text-xs md:text-sm text-gray-500">
-            <p>&copy; 2025 Your Company. All rights reserved.</p>
-            <div class="flex gap-6 mt-3 md:mt-0">
-                <a href="#" class="hover:text-gray-800 hover:underline">Terms of Use</a>
-                <a href="#" class="hover:text-gray-800 hover:underline">Privacy</a>
-            </div>
-        </div>
+    <footer>
+        <p>Copyright © 2024 Health Magazine. All Rights Reserved.</p>
+        <br>
+        <p>
+            <a href="#">Privacy Policy</a> | 
+            <a href="#">Terms of Service</a> | 
+            <a href="#">Contact Us</a>
+        </p>
+        <br>
+        <p style="font-size: 10px; color: #999;">This site is not part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
     </footer>
 
- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // 1. CONFIGURAÇÃO DA DATA (Fuso Horário de Nova York/EUA)
-        const dateElement = document.getElementById('current-date');
-        
-        // Usa 'America/New_York' e 'en-US' para formatação correta (mm/dd/yyyy)
-        const dateOptions = { timeZone: 'America/New_York', day: '2-digit', month: '2-digit', year: 'numeric' };
-        // O localizador 'en-US' é usado para garantir o formato **MM/DD/YYYY**
-        const formattedDate = new Date().toLocaleDateString('en-US', dateOptions);
-        
-        dateElement.textContent = formattedDate;
-
-        // 2. CONFIGURAÇÃO DO CONTADOR DE VISUALIZADORES
-        const viewerElement = document.getElementById('viewer-count');
-        let currentViewers = 1467; // Pode ajustar o número inicial
-        
-        function getRandomInt(min, max) {
-            return Math.floor(Math.random() * (max - min + 1)) + min;
-        }
-
-        function updateViewers() {
-            // Variação ajustada para números maiores (flutuação mais dinâmica)
-            const change = getRandomInt(-12, 18); 
-            currentViewers += change;
-
-            // Limites ajustados para a escala de 1400+
-            if (currentViewers < 1380) currentViewers = 1410;
-            if (currentViewers > 1650) currentViewers = 1620;
-
-            // .toLocaleString('en-US') usa a **vírgula** como separador de milhar (ex: 1,467)
-            viewerElement.textContent = currentViewers.toLocaleString('en-US');
-            
-            const nextUpdate = getRandomInt(2500, 5000); 
-            setTimeout(updateViewers, nextUpdate);
-        }
-
-        setTimeout(updateViewers, 3000);
-    });
-</script>
-    
 </body>
 </html>
-
