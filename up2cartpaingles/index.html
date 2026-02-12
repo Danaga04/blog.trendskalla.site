@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Order Is Not Complete Yet</title>
+    <title>check this!</title>
     <style>
         * {
             margin: 0;
@@ -139,12 +139,13 @@
         }
 
         /* --- ESTILOS DA TSL (TEXT SALES LETTER) --- */
+        /* ALTERAÇÃO AQUI: Removido border, background e padding para tirar o contorno */
         .tsl-wrapper {
             text-align: left;
-            background-color: #fff;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
+            background-color: transparent;
+            padding: 0;
+            border: none; 
+            border-radius: 0;
             margin: 20px 0;
             line-height: 1.6;
             color: #2c3e50;
@@ -258,7 +259,7 @@
         @media (max-width: 768px) {
             .container { padding: 0 15px; }
             h1 { font-size: 24px; }
-            .tsl-wrapper { font-size: 16px; padding: 15px; }
+            .tsl-wrapper { font-size: 16px; padding: 0; }
         }
     </style>
 </head>
@@ -281,7 +282,7 @@
     <div class="container">
         <div class="content-box">
             <h1>Your Order Is Not Complete Yet</h1>
-            <p class="subtitle">Please Read This Urgent Message Below Now</p>
+            <p class="subtitle">Please watch this Urgent Message Below Now</p>
             
             <div class="arrow-down">↓</div>
             
