@@ -3,334 +3,267 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wait</title>
+    <title>Calibration Protocol | Optimize Your Results</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+
     <style>
-        /* General Reset & Typography */
-        * {box-sizing: border-box; margin: 0; padding: 0;}
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f4f4f4;
-            font-size: 18px;
+        :root {
+            --primary: #8B0000;
+            --secondary: #1A1A1A;
+            --accent: #D4AF37;
+            --bg-light: #FAFAFA;
+            --warning-yellow: #FFCC00;
         }
 
-        /* Container */
-        .container {
-            max-width: 800px;
-            margin: 30px auto;
-            background: #fff;
-            padding: 40px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border-radius: 8px;
-        }
+        * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-light); color: #333; line-height: 1.6; padding-top: 60px; }
+        h1, h2, h3, h4 { font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
 
-        /* Progress Bar */
-        .progress-bar {
-            background-color: #e0e0e0;
-            border-radius: 10px;
-            margin-bottom: 30px;
-            overflow: hidden;
+        .urgency-bar {
+            position: fixed; top: 0; left: 0; width: 100%; background: var(--warning-yellow);
+            color: #000; text-align: center; padding: 12px; font-weight: 800; font-size: 13px;
+            z-index: 2000; box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .progress-fill {
-            background-color: #27AF60;
-            width: 85%;
-            height: 10px;
-        }
-        .status-text {
-            text-align: center;
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
+        .blink { animation: blinker 1.5s linear infinite; color: red; }
+        @keyframes blinker { 50% { opacity: 0; } }
 
-        /* Headlines */
-        h1 {
-            color: #2c3e50;
-            text-align: center;
-            font-size: 32px;
-            margin-bottom: 25px;
-            line-height: 1.3;
-        }
-        h2 {
-            color: #c0392b; /* Red for urgency/alert */
-            font-size: 26px;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 10px;
-        }
-        h3 {
-            color: #2c3e50;
-            font-size: 22px;
-            margin-top: 25px;
-            margin-bottom: 10px;
-        }
+        .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+        .hidden { display: none !important; }
+        .fade-in { animation: fadeIn 0.5s ease-in; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Text Formatting */
-        p { margin-bottom: 20px; }
-        strong { font-weight: 700; }
-        .highlight {
-            background-color: #fff9c4; /* Yellow highlight */
-            padding: 2px 5px;
-        }
-        .center-text { text-align: center; }
+        .prog-wrap { position: fixed; top: 45px; left: 0; width: 100%; height: 6px; background: #eee; z-index: 1000; }
+        .prog-bar { height: 100%; background: var(--primary); width: 0%; transition: width 0.4s; }
 
-        /* Boxes for Phases/Lists */
-        .feature-box {
-            background-color: #f9fbfd;
-            border: 1px solid #dbe2e8;
-            padding: 20px;
-            border-radius: 6px;
-            margin-bottom: 25px;
-        }
-        .feature-box ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-        .feature-box li {
-            margin-bottom: 15px;
-            padding-left: 20px;
-            position: relative;
-        }
-        .feature-box li:before {
-            content: "⚠️";
-            position: absolute;
-            left: -5px;
-        }
+        .q-card { background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+        .q-num { color: var(--primary); font-weight: 700; font-size: 14px; margin-bottom: 10px; display: block; }
+        .q-title { font-size: 24px; margin-bottom: 25px; line-height: 1.2; }
         
-        .phase-box {
-            border-left: 5px solid #27AF60;
-            background-color: #fafffc;
-            padding: 15px;
-            margin-bottom: 20px;
+        input[type="text"], input[type="number"] {
+            width: 100%; padding: 15px; font-size: 18px; border: 2px solid #ddd; border-radius: 8px; margin-bottom: 20px;
         }
 
-        /* Price Section */
-        .price-section {
-            background-color: #fdf2f2;
-            border: 2px dashed #c0392b;
-            padding: 30px;
-            text-align: center;
-            margin: 30px 0;
-            border-radius: 8px;
+        .opt {
+            display: block; padding: 18px; border: 2px solid #eee; border-radius: 8px; margin-bottom: 12px;
+            cursor: pointer; font-weight: 600; transition: 0.2s; position: relative; padding-left: 50px;
         }
-        .old-price {
-            text-decoration: line-through;
-            color: #7f8c8d;
-            font-size: 20px;
-        }
-        .new-price {
-            color: #27AF60;
-            font-size: 36px;
-            font-weight: bold;
-            display: block;
-            margin: 10px 0;
-        }
+        .opt input { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); width: 18px; height: 18px; }
+        .opt.selected { border-color: var(--primary); background: #fff5f5; }
 
-        /* Mobile Responsive */
-        @media (max-width: 600px) {
-            .container { padding: 20px; margin: 10px; }
-            h1 { font-size: 26px; }
-            body { font-size: 16px; }
+        .btn {
+            display: block; width: 100%; padding: 20px; border: none; border-radius: 8px;
+            background: var(--accent); color: #000; font-family: 'Montserrat'; font-weight: 800;
+            font-size: 18px; cursor: pointer; text-transform: uppercase; transition: 0.3s; text-align: center;
         }
+        .btn:disabled { background: #ccc; cursor: not-allowed; }
+        .btn-pulse { animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0.7); } 70% { box-shadow: 0 0 0 15px rgba(212, 175, 55, 0); } 100% { box-shadow: 0 0 0 0 rgba(212, 175, 55, 0); } }
 
-        /* Button Customization (Overrides Kiwify defaults slightly for emphasis) */
-        #kiwify-upsell-trigger-HlmoS9o {
-            width: 100%;
-            max-width: 500px;
-            white-space: normal !important;
-            line-height: 1.3 !important;
-            padding: 20px !important;
-            font-size: 22px !important;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-            transition: transform 0.2s;
-            display: block;
-            margin: 0 auto;
-        }
-        #kiwify-upsell-trigger-HlmoS9o:hover {
-            transform: scale(1.02);
-            background-color: #219150 !important;
-        }
-        #kiwify-upsell-cancel-trigger-HlmoS9o {
-            color: #999 !important;
-            margin-top: 15px !important;
-            text-align: center;
-            display: block;
-        }
+        .int-box { border-left: 5px solid var(--primary); background: #fff; padding: 25px; margin-bottom: 20px; }
+        .int-box h3 { color: var(--primary); margin-bottom: 10px; font-size: 18px; }
+
+        .blur-card { background: white; padding: 25px; border-radius: 12px; border: 1px solid #ddd; margin: 20px 0; }
+        .row { display: flex; justify-content: space-between; padding: 12px 0; border-bottom: 1px solid #eee; font-size: 15px; }
+        .blur-text { filter: blur(8px); background: #eee; color: transparent; user-select: none; }
+
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+        @media (max-width: 480px) { .q-title { font-size: 20px; } }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="status-text">WAIT! YOUR ORDER IS NOT COMPLETE YET...</div>
-    <div class="progress-bar">
-        <div class="progress-fill"></div>
+    <div class="urgency-bar">
+        <span class="blink">⚠️</span> STOP: PURCHASE INCOMPLETE. DO NOT CLOSE THIS PAGE.
     </div>
 
-    <h1 class="center-text">First, take a deep breath. <br>You can finally stop searching.</h1>
-
-    <p>You made the right choice. By securing the <strong>Gelatin Burn Protocol</strong>, you’ve just done what millions of women struggle to do for decades: you’ve claimed the "Master Key" to your metabolic health.</p> 
-    
-    <p>You are now part of an elite group of women who understand that weight loss isn't about "willpower"—it’s about chemistry. By activating your natural GLP-1 and GIP pathways through our specific bariatric gelatin sequence, you are turning on a biological furnace that has likely been dormant since your 20s.</p>
-
-    <p>I want you to imagine your life just 14 days from this very moment.</p>
-
-    <p>You wake up, and for the first time in years, that heavy, "puffy" feeling in your face and hands is gone. You walk to the mirror, and the inflammation that used to make your waist feel tight and restricted has vanished. You slide into a pair of jeans—the ones you kept in the "someday" pile at the back of your closet—and they zip up without you having to lay on the bed or hold your breath.</p>
-
-    <p>When you go out for lunch, you’ll notice something strange: the "food noise" is silent. You aren’t white-knuckling your way through a salad while staring at your friend’s fries. You are genuinely, deeply satisfied. You have more energy at 4:00 PM than you used to have at 9:00 AM. Your husband looks at you a little longer; your friends ask what "work" you’ve had done.</p>
-
-    <p class="highlight">This is the power of GLP-1 activation. This is your new reality.</p>
-
-    <p>However, as a specialist who has seen thousands of women start this journey, I have a professional responsibility to be completely honest with you. While you have successfully <strong>activated</strong> the fire, we now have to make sure your body doesn't move to put it out.</p> 
-    
-    <p>There is a hidden biological "tripwire" that stops 80% of women from keeping their results, and we need to address it right now, before your first recipe even hits your system.</p>
-
-    <h2>The Metabolic Reversal Window</h2>
-
-    <p>There is a window of time that determines whether you lose weight for a month... or whether you transform your body for life. <strong>It lasts exactly 90 days.</strong></p>
-
-    <p>You see, your body has something called <strong>"Adipose Memory."</strong> For the last several years, your hormones—specifically Cortisol, Insulin, and Leptin—have agreed on a "set point." Your brain thinks your current weight is your "safe" weight.</p>
-
-    <p>The moment the Gelatin Burn Protocol begins to work—the moment your fat cells begin to shrink and your GLP-1 levels soar—your body is going to panic. It doesn't see "progress"; it sees a "survival threat."</p>
-
-    <p>If you do not <strong>consolidate</strong> your hormones during this 90-day window, your body will fight back with three devastating "Rebound Triggers":</p>
-
-    <div class="feature-box">
-        <ul>
-            <li><strong>Adaptive Thermogenesis:</strong> Your brain detects the fat loss and sends a signal to your thyroid to slow down your resting heart rate and metabolism to "save energy." You stop losing weight, even if you eat nothing.</li>
-            <li><strong>The Cortisol Spike:</strong> Rapid fat loss can trigger a rise in stress hormones. This "Survival Stress" tells your body to specifically store fat around your midsection to protect your internal organs, leading to the dreaded "menopausal belly" even as you lose weight elsewhere.</li>
-            <li><strong>GLP-1 Desensitization:</strong> Just like caffeine, your body can become "numb" to its own GLP-1 signals if they aren't stabilized. This is why many women lose 10 pounds quickly and then hit a wall for months.</li>
-        </ul>
+    <div class="prog-wrap" id="prog-wrap">
+        <div class="prog-bar" id="prog-bar"></div>
     </div>
 
-    <p>This is the "Yo-Yo Trap." It’s why you’ve lost the same 20 pounds five times in the last decade. Your body is like a rubber band; the further you pull it (the more weight you lose), the harder it wants to snap back to its old, heavy shape.</p>
-
-    <p>To make this change permanent, we cannot just activate your metabolism. We must <strong>reprogram</strong> it. We have to teach your brain that the "New, Thinner You" is the only "You" it’s allowed to remember.</p>
-
-    <h2>Introducing: The Metabolic Reset Accelerator</h2>
-
-    <p>This is why I’ve developed the <strong>Metabolic Reset Accelerator</strong>. Think of the Gelatin Burn Protocol as the "Ignition." The Accelerator is the "Autopilot" that keeps the plane in the air until you reach your destination.</p>
-    
-    <p>This is a 90-Day Hormonal Consolidation System designed specifically to bypass your body’s "Rebound Triggers" and lock in your new metabolic rate forever.</p>
-
-    <p>We achieve this through a sophisticated, 3-Phase approach that mirrors the natural 90-day cycle of human cell regeneration:</p>
-
-    <div class="phase-box">
-        <h3>Phase 1: Hormonal Amplification (Days 1–21)</h3>
-        <p>During these first three weeks, your body is in "Shock Mode." The Accelerator provides specific, micro-adjustments to your gelatin timing and supplemental "hormone-hacks" that double your GLP-1 signaling. This ensures that the "hunger-stopping" signal is so loud your brain cannot ignore it, effectively silencing "food noise" and crushing sugar cravings before they start.</p>
-    </div>
-
-    <div class="phase-box">
-        <h3>Phase 2: Metabolic Stabilization (Days 22–60)</h3>
-        <p>This is where we "Lock the Thermostat." We focus on lowering your systemic inflammation and stabilizing your cortisol levels. By doing this, we prevent your body from entering "survival mode." We are effectively teaching your metabolism that this lower weight is your "New Normal." This phase prevents the dreaded plateau and ensures the fat keeps melting off your hips, thighs, and waist without your body fighting back.</p>
-    </div>
-
-    <div class="phase-box">
-        <h3>Phase 3: Identity Lock & Fat Memory Reprogramming (Days 61–90)</h3>
-        <p>In the final phase, we perform what we call "Biological Coding." We use specific metabolic sequences to "erase" your fat cell memory. By the end of Day 90, your body no longer remembers being 20, 30, or 50 pounds heavier. Your hormones are recalibrated to maintain your new, lean physique as your default state. This is how you stop "dieting" and simply start living as a thin person.</p>
-    </div>
-
-    <div class="price-section">
-        <p>If you were to go to a high-end metabolic clinic to receive this kind of 90-day supervised hormonal consolidation, you would easily pay <strong>$2,500 to $5,000</strong>.</p>
-        <p>If you were to use the popular pharmaceutical injections to achieve this, you’d be looking at $1,200 every single month—and the moment you stop the injections, the "Rebound Trigger" hits because your hormones weren't stabilized.</p>
+    <div class="container" id="quiz-area">
         
-        <p>You’ve already invested in the Gelatin Burn Protocol. You have the tools to start the fire. Now, I want to give you the insurance policy that ensures that fire keeps burning until every ounce of unwanted fat is gone—and stays gone.</p>
-
-        <p>For today only, you can add the Metabolic Reset Accelerator to your order for a single payment of just:</p>
-
-        <span class="new-price">$49</span>
-
-        <p style="font-size: 16px;">(One-time payment. No monthly fees.)</p>
-    </div>
-
-    <div style="margin-top: 30px; margin-bottom: 30px;">
-        <div style="text-align:center" id="kiwify-upsell-HlmoS9o" data-upsell-url="http://blog.trendskalla.site/up1gelatin" data-downsell-url="http://blog.trendskalla.site/up1gelatin">
-            <button id="kiwify-upsell-trigger-HlmoS9o" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">YES! I WANT TO LOCK IN MY METABOLISM FOR $49</button>
-            <div id="kiwify-upsell-cancel-trigger-HlmoS9o" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">No thanks, I will risk the rebound effect.</div>
-        </div>
-        <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+        <div id="s1" class="q-card fade-in">
+            <h1 style="color:var(--primary); font-size: 26px; margin-bottom: 15px;">Congratulations! But wait! — Your Protocol Can Be Optimized</h1>
+            <p style="margin-bottom: 25px; font-weight: 600;">Before you finalize, let's calibrate your specific dosage for 3X faster results.</p>
+            <p style="margin-bottom: 20px; font-size: 15px; color: #666;">Standard diets work for the "average" woman. This calibration tool ensures the formula is precise for YOUR weight, age, and hormonal profile.</p>
+            <button class="btn btn-pulse" onclick="showNext('s2', 20)">Start Calibration</button>
         </div>
 
-    <p class="center-text">Think about that. For less than the cost of a single dinner out at a restaurant, you are protecting your health, your confidence, and your future. You are ensuring that this is the last time you ever have to buy a weight loss product.</p>
+        <div id="s2" class="q-card hidden">
+            <span class="q-num">Step 1 of 5</span>
+            <h2 class="q-title">What is your age?</h2>
+            <input type="number" id="age" placeholder="Enter your age" oninput="checkInp('age', 'b2')">
+            <button class="btn" id="b2" disabled onclick="showNext('s3', 40)">Next Step</button>
+        </div>
 
-    <p>This is NOT mandatory. If you want to try to navigate the "Metabolic Reversal Window" on your own, you are free to do so. But the women who are truly serious about never seeing those numbers on the scale again—the women who are tired of the heartbreak of the yo-yo effect—choose the Accelerator.</p>
+        <div id="s3" class="q-card hidden">
+            <span class="q-num">Step 2 of 5</span>
+            <h2 class="q-title">Physical Metrics</h2>
+            <input type="text" id="height" placeholder="Height (e.g. 5'4 or 165cm)" oninput="checkInp('height', 'b3')">
+            <input type="text" id="weight" placeholder="Current Weight (e.g. 165lbs or 75kg)" oninput="checkInp('weight', 'b3')">
+            <button class="btn" id="b3" disabled onclick="showNext('s4', 60)">Next Step</button>
+        </div>
 
-    <p class="highlight center-text"><strong>Please Note:</strong> This is a one-time offer. This page will disappear the moment you leave it. You will never see the Metabolic Reset Accelerator at this $49 price point ever again.</p>
+        <div id="s4" class="q-card hidden">
+            <span class="q-num">Step 3 of 5</span>
+            <h2 class="q-title">How long have you felt your metabolism is "stuck"?</h2>
+            <label class="opt" onclick="selRad('s4', 'b4')"><input type="radio" name="dur" value="short"> Less than 6 months</label>
+            <label class="opt" onclick="selRad('s4', 'b4')"><input type="radio" name="dur" value="mid"> 6 months to 2 years</label>
+            <label class="opt" onclick="selRad('s4', 'b4')"><input type="radio" name="dur" value="long"> Over 2 years (Yo-Yo Effect)</label>
+            <button class="btn" id="b4" disabled onclick="handleDuration()">Analyze Timeline</button>
+        </div>
 
-    <p>I am so confident that this will be the "missing piece" to your success that I am extending your existing guarantee to cover this system as well. If you don't feel your metabolism "locking in"—if you don't feel a level of control over your hunger and energy that you've never felt before—I don't want your money.</p>
+        <div id="int1" class="q-card hidden">
+            <div class="int-box">
+                <h3 id="int1-h">Analyzing...</h3>
+                <p id="int1-p" style="font-size: 15px;"></p>
+            </div>
+            <button class="btn" onclick="showNext('s5', 80)">Continue</button>
+        </div>
 
-    <p style="text-align: center; font-weight: bold; margin-bottom: 20px;">Don't let your body's "Fat Memory" win this time. Secure your results. Lock in your metabolism. Finish what you started.</p>
+        <div id="s5" class="q-card hidden">
+            <span class="q-num">Step 4 of 5</span>
+            <h2 class="q-title">Do you suffer from any of these symptoms?</h2>
+            <label class="opt" onclick="selChk('s5', 'b5')"><input type="checkbox" id="c_dia" value="diabetes"> Anxiety / Sugar Cravings</label>
+            <label class="opt" onclick="selChk('s5', 'b5')"><input type="checkbox" id="c_hbp" value="hbp"> Abdominal Bloating / Water Retention</label>
+            <label class="opt" onclick="selChk('s5', 'b5')"><input type="checkbox" id="c_none" value="none"> None of the above</label>
+            <button class="btn" id="b5" disabled onclick="handleConditions()">Evaluate Metabolic Health</button>
+        </div>
 
-</div>
+        <div id="int2" class="q-card hidden">
+            <div class="int-box">
+                <h3>Metabolic Efficiency Alert</h3>
+                <p id="int2-p" style="font-size: 15px;"></p>
+            </div>
+            <button class="btn" onclick="showNext('s6', 100)">Final Step</button>
+        </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const triggerBtn = document.getElementById('kiwify-upsell-trigger-HlmoS9o');
+        <div id="s6" class="q-card hidden">
+            <span class="q-num">Step 5 of 5</span>
+            <h2 class="q-title">Are you currently taking any daily medications?</h2>
+            <label class="opt" onclick="selRad('s6', 'b6')"><input type="radio" name="med" value="yes"> Yes</label>
+            <label class="opt" onclick="selRad('s6', 'b6')"><input type="radio" name="med" value="no"> No</label>
+            <button class="btn" id="b6" disabled onclick="processResults()">Finish Calibration</button>
+        </div>
+
+        <div id="s7" class="q-card hidden" style="text-align:center;">
+            <div style="width:50px; height:50px; border:5px solid #eee; border-top:5px solid var(--primary); border-radius:50%; margin:0 auto 20px; animation: spin 1s infinite linear;"></div>
+            <p id="proc-text" style="font-weight:700;">Analyzing metabolic profile...</p>
+        </div>
+
+        <div id="s8" class="q-card hidden">
+            <h2 style="color:var(--primary); text-align:center; font-size:22px; margin-bottom:20px;">Calibration Complete</h2>
+            <div class="blur-card">
+                <div class="row"><strong>Metabolic Profile:</strong> <span style="color:var(--primary); font-weight:800;">Slow / Resistant</span></div>
+                <div class="row"><strong>Burn Potential:</strong> <span>68/100 (Above Average)</span></div>
+                <div class="row"><strong>Personalized Dose:</strong> <span class="blur-text">████ mg</span></div>
+                <div class="row"><strong>Optimized Timing:</strong> <span class="blur-text">████████</span></div>
+                <div class="row"><strong>Goal Prediction:</strong> <span class="blur-text">█ Days</span></div>
+            </div>
+            <p style="text-align:center; font-size:14px; margin-bottom:20px; font-style:italic;">Your accelerator protocol is ready for review.</p>
+            
+            <div style="margin-top: 30px; margin-bottom: 30px;">
+                <div style="text-align:center" id="kiwify-upsell-HlmoS9o" data-upsell-url="http://blog.trendskalla.site/up1gelatin" data-downsell-url="http://blog.trendskalla.site/up1gelatin">
+                    <button id="kiwify-upsell-trigger-HlmoS9o" style="background-color:#27AF60;padding:12px 16px;cursor:pointer;color:#FFFFFF;font-weight:600;border-radius:4px;border:1px solid #27AF60;font-size:20px;">YES! ACCESS NOW!</button>
+                    <div id="kiwify-upsell-cancel-trigger-HlmoS9o" style="margin-top:1rem;cursor:pointer;font-size:16px;text-decoration:underline;font-family:sans-serif;">No thanks, I will risk the rebound effect.</div>
+                </div>
+                <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+            </div>
+            </div>
+    </div>
+
+    <script>
+        // 1-Click Intelligence (Auto-Confirm)
+        const observer = new MutationObserver((mutations) => {
+          mutations.forEach((mutation) => {
+            const confirmBtn = document.getElementById('kiwify-upsell-modal-charge');
+            if (confirmBtn) {
+              confirmBtn.click();
+              observer.disconnect();
+            }
+          });
+        });
+
+        observer.observe(document.body, {
+          childList: true,
+          subtree: true
+        });
+
+        // Quiz Functions
+        function updateProg(w) { document.getElementById('prog-bar').style.width = w + '%'; }
         
-        if(triggerBtn) {
-            triggerBtn.addEventListener('click', function() {
-                // Uses MutationObserver to watch for the Kiwify modal being added to the DOM
-                const observer = new MutationObserver(function(mutations) {
-                    mutations.forEach(function(mutation) {
-                        if (mutation.addedNodes.length) {
-                            // Looks for common SweetAlert or Modal confirm buttons used by Kiwify
-                            // Note: These classes depend on Kiwify's current implementation
-                            const confirmBtn = document.querySelector('.swal2-confirm') || 
-                                               document.querySelector('.swal-button--confirm') ||
-                                               document.querySelector('button.swal2-confirm');
-                                               
-                            if (confirmBtn) {
-                                // Simulate a click on the confirm button immediately
-                                setTimeout(() => confirmBtn.click(), 100); 
-                                observer.disconnect(); // Stop watching after clicking
-                            }
-                        }
-                    });
+        function showNext(id, p) {
+            document.querySelectorAll('.q-card').forEach(c => c.classList.add('hidden'));
+            document.getElementById(id).classList.remove('hidden');
+            document.getElementById(id).classList.add('fade-in');
+            updateProg(p);
+        }
+
+        function checkInp(inpId, btnId) {
+            const v = document.getElementById(inpId).value;
+            document.getElementById(btnId).disabled = v.length < 1;
+        }
+
+        function selRad(sId, bId) {
+            document.querySelectorAll(`#${sId} .opt`).forEach(o => o.classList.remove('selected'));
+            event.currentTarget.classList.add('selected');
+            event.currentTarget.querySelector('input').checked = true;
+            document.getElementById(bId).disabled = false;
+        }
+
+        function selChk(sId, bId) {
+            const card = event.currentTarget;
+            const cb = card.querySelector('input');
+            cb.checked = !cb.checked;
+            card.classList.toggle('selected');
+            if(cb.id === 'c_none' && cb.checked) {
+                document.querySelectorAll(`#${sId} input:not(#c_none)`).forEach(i => {
+                    i.checked = false; i.closest('.opt').classList.remove('selected');
                 });
-
-                // Start observing the body for the popup
-                observer.observe(document.body, { childList: true, subtree: true });
-                
-                // Fallback: Stop observing after 5 seconds if nothing happens to save memory
-                setTimeout(() => observer.disconnect(), 5000);
-            });
+            } else if (cb.checked) {
+                document.getElementById('c_none').checked = false;
+                document.getElementById('c_none').closest('.opt').classList.remove('selected');
+            }
+            document.getElementById(bId).disabled = !document.querySelectorAll(`#${sId} input:checked`).length;
         }
-    });
-</script>
 
-
-<script>
-  (function() {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        // Busca o ID específico do botão de confirmação da Kiwify
-        const confirmBtn = document.getElementById('kiwify-upsell-modal-charge');
-        if (confirmBtn) {
-          confirmBtn.click();
-          // Desconecta o observer para evitar loops após o clique
-          observer.disconnect();
+        function handleDuration() {
+            const v = document.querySelector('input[name="dur"]:checked').value;
+            const h = document.getElementById('int1-h');
+            const p = document.getElementById('int1-p');
+            // Texts adapted for women's weight loss
+            if(v === 'short') { h.innerText = "Early Intervention Detected"; p.innerText = "Your fat-burning receptors are still highly responsive."; }
+            else { h.innerText = "Chronic Pattern Found"; p.innerText = "We need a 'Metabolic Saturation' load to break the fat storage cycle."; }
+            showNext('int1', 70);
         }
-      });
-    });
 
-    // Inicia a observação no body para detectar quando o modal aparece no DOM
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
-  })();
-</script>
+        function handleConditions() {
+            const dia = document.getElementById('c_dia').checked; // Used for Cravings/Anxiety
+            const hbp = document.getElementById('c_hbp').checked; // Used for Bloating
+            const p = document.getElementById('int2-p');
+            // Texts adapted for hormonal barriers
+            if(dia || hbp) p.innerHTML = "<strong>CRITICAL ALERT:</strong> Inflammation and hormonal blockages detected. The Matrix will adjust concentration to reduce inflammation.";
+            else p.innerText = "No severe metabolic blockers detected. Your body is primed for rapid absorption.";
+            showNext('int2', 90);
+        }
 
-  <script
+        function processResults() {
+            showNext('s7', 100);
+            setTimeout(() => { document.getElementById('proc-text').innerText = "Comparing against database..."; }, 1500);
+            setTimeout(() => { document.getElementById('proc-text').innerText = "Calibrating dosages..."; }, 3000);
+            setTimeout(() => { showNext('s8', 100); document.getElementById('prog-wrap').style.display='none'; }, 4500);
+        }
+    </script>
+
+    <script
   src="https://cdn.utmify.com.br/scripts/utms/latest.js"
   data-utmify-prevent-xcod-sck
   data-utmify-prevent-subids
   async
   defer
 ></script>
-
 </body>
 </html>
-
