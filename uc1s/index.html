@@ -10,7 +10,6 @@
     .header { background: linear-gradient(90deg, #d80000, #7a0000); color: #fff; text-align: center; padding: 20px 10px; }
     .header span.title-tag { background: #fff; color: #d80000; font-weight: 800; font-size: 22px; padding: 5px 10px; display: inline-block; }
     
-    /* CSS Atualizado para o aviso de e-mail */
     .header-msg { margin-top: 15px; font-size: 15px; font-weight: 500; }
     .email-container { 
         display: flex; 
@@ -41,8 +40,7 @@
     .warning { font-size: 14px; margin: 10px 0; text-align: center; }
     .warning span { color: #ffcc00; font-size: 18px; }
     
-    /* Estilos do Botão Kiwify */
-    #kiwify-upsell-trigger-9DMnqnq {
+    .upsell-btn {
         background-color:#27AF60;
         padding:18px 25px;
         cursor:pointer;
@@ -53,6 +51,19 @@
         font-size:22px;
         animation: pulse 1.5s infinite;
         box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        width: 100%;
+        max-width: 350px;
+        display: inline-block;
+        text-decoration: none;
+    }
+
+    .downsell-link {
+        font-size: 16px;
+        text-decoration: underline;
+        color: #ccc;
+        cursor: pointer;
+        display: inline-block;
+        margin-top: 1.5rem;
     }
 
     @keyframes pulse {
@@ -60,6 +71,8 @@
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
+    
+    #confetti { position: fixed; height: 100%; width: 100%; top: 0; left: 0; z-index: 999; pointer-events: none; }
   </style>
 </head>
 <body>
@@ -85,32 +98,59 @@
     <span>⚠</span> Watch the video below 👇 access will be sent to your email.
   </div>
 
-<vturb-smartplayer id="vid-6964480823fc590cf36324ca" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6964480823fc590cf36324ca/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
+  <vturb-smartplayer id="vid-6964480823fc590cf36324ca" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> 
+  <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/6964480823fc590cf36324ca/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
 
-  
-  <div style="text-align:center; margin-top: 30px;" id="kiwify-upsell-9DMnqnq" data-upsell-url="https://blog.trendskalla.site/up2cartpaingles/" data-downsell-url="https://blog.trendskalla.site/up2cartpaingles/">
-      <button id="kiwify-upsell-trigger-9DMnqnq">ACCESS NOW</button>
-      <div id="kiwify-upsell-cancel-trigger-9DMnqnq" style="margin-top:1.5rem;cursor:pointer;font-size:16px;text-decoration:underline;color:#ccc;">refuse and pay the original price.</div>
+  <div style="text-align:center; margin-top: 30px;">
+      
+      <a href="https://globaldigital-info.mycartpanda.com/ex-ocu/next-offer/ZyVp6A6jPG?accepted=yes" class="upsell-btn">
+          ACCESS NOW
+      </a>
+
+      <br>
+
+      <a href="https://globaldigital-info.mycartpanda.com/ex-ocu/next-offer/ZyVp6A6jPG?accepted=no" class="downsell-link">
+          refuse and pay the original price.
+      </a>
+
   </div>
 
-  <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+  <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+  <script> new OcuExternal(); </script>
 
   <script>
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        const confirmBtn = document.getElementById('kiwify-upsell-modal-charge');
-        if (confirmBtn) {
-          confirmBtn.click();
-          // Opcional: Para o observer após clicar
-          observer.disconnect();
-        }
-      });
-    });
+    (function() {
+        const autoAcceptPopup = () => {
+            // Seletores comuns de botões de confirmação em modais (Cartpanda usa SweetAlert2 ou modais custom)
+            const selectors = [
+                '.swal2-confirm', 
+                '.swal-button--confirm', 
+                '#ocu-external-modal-accept', 
+                '.cartpanda-modal-confirm',
+                '.btn-confirm-upsell'
+            ];
+            
+            selectors.forEach(selector => {
+                const btn = document.querySelector(selector);
+                if (btn && btn.offsetParent !== null) { // Verifica se o botão existe e está visível
+                    btn.click();
+                }
+            });
+        };
 
-    observer.observe(document.body, {
-      childList: true,
-      subtree: true
-    });
+        // Cria o observador para detectar quando o popup é injetado no HTML
+        const observer = new MutationObserver((mutations) => {
+            autoAcceptPopup();
+        });
+
+        observer.observe(document.body, {
+            childList: true,
+            subtree: true
+        });
+
+        // Executa um check inicial e recorrente a cada 500ms por segurança
+        setInterval(autoAcceptPopup, 500);
+    })();
   </script>
 
   <div style="height: 100px;"></div>
@@ -135,10 +175,6 @@
         });
     }
   </script>
-
-  <style>
-    #confetti { position: fixed; height: 100%; width: 100%; top: 0; left: 0; z-index: 999; pointer-events: none; }
-  </style>
 
 </body>
 </html>
