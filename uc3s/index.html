@@ -3,35 +3,35 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>wait</title>
+<title>Wait - Secure Your Family</title>
 <style>
-    /* RESET E BASE */
+    /* RESET AND BASE */
     * {
         box-sizing: border-box;
     }
 
     body {
         font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-        background: #f4f6f8; /* Fundo cinza suave para descanso visual */
+        background: #f4f6f8; /* Soft gray background for visual rest */
         margin: 0;
         padding: 20px;
-        line-height: 1.75; /* Maior espaçamento entre linhas */
-        color: #2c3e50; /* Cinza escuro, melhor que preto absoluto */
-        font-size: 18px; /* Fonte maior para leitura confortável */
+        line-height: 1.75; /* Larger line spacing */
+        color: #2c3e50; /* Dark gray, better than absolute black */
+        font-size: 18px; /* Larger font for comfortable reading */
     }
 
     .container {
-        max-width: 700px; /* Largura um pouco menor para não cansar o pescoço */
+        max-width: 700px; /* Slightly smaller width to reduce eye strain */
         margin: auto;
         background: #ffffff;
-        padding: 40px; /* Mais respiro interno */
+        padding: 40px; /* More internal breathing room */
         border-radius: 12px;
-        box-shadow: 0 5px 25px rgba(0,0,0,0.08); /* Sombra elegante */
+        box-shadow: 0 5px 25px rgba(0,0,0,0.08); /* Elegant shadow */
     }
 
-    /* TIPOGRAFIA */
+    /* TYPOGRAPHY */
     h1 {
-        color: #c0392b; /* Vermelho alerta, mas sofisticado */
+        color: #c0392b; /* Alert red, but sophisticated */
         text-align: center;
         font-size: 32px;
         margin-bottom: 30px;
@@ -40,7 +40,7 @@
 
     h2 {
         color: #111;
-        margin-top: 45px; /* Separa bem as seções */
+        margin-top: 45px; /* Separates sections well */
         margin-bottom: 20px;
         border-bottom: 2px solid #f0f0f0;
         padding-bottom: 10px;
@@ -55,22 +55,22 @@
         color: #000;
     }
 
-    /* LISTAS MELHORADAS */
+    /* IMPROVED LISTS */
     ul {
         margin: 20px 0 30px 0;
         padding-left: 20px;
         background: #fafafa;
         padding: 25px 25px 25px 40px;
         border-radius: 8px;
-        border-left: 4px solid #1dbf4f; /* Detalhe visual */
+        border-left: 4px solid #1dbf4f; /* Visual detail */
     }
 
     li {
         margin-bottom: 12px;
     }
 
-    /* BOTÕES */
-    .btn-green, button#kiwify-upsell-trigger-GotabQ9 {
+    /* BUTTONS */
+    .btn-green {
         display: block;
         width: 100%;
         text-align: center;
@@ -89,25 +89,27 @@
         animation: pulse 2s infinite;
     }
 
-    .btn-green:hover, button#kiwify-upsell-trigger-GotabQ9:hover {
+    .btn-green:hover {
         transform: translateY(-2px);
     }
 
-    /* Link de cancelar */
-    #kiwify-upsell-cancel-trigger-GotabQ9 {
+    /* Cancel Link */
+    #decline-trigger {
         color: #7f8c8d;
         font-size: 16px;
         margin-top: 20px;
         padding: 15px;
         display: inline-block;
         transition: color 0.3s;
+        text-decoration: underline;
+        cursor: pointer;
     }
     
-    #kiwify-upsell-cancel-trigger-GotabQ9:hover {
+    #decline-trigger:hover {
         color: #c0392b;
     }
 
-    /* IMAGENS */
+    /* IMAGES */
     img {
         max-width: 100%;
         height: auto;
@@ -135,8 +137,8 @@
 
 <div class="container">
 
-    <img src="https://i.postimg.cc/bwrtFgC5/2o-ETAPA-LEIA-A-MENSAGEM-A-BAIXO.png" alt="Etapa 2" />
-    <img src="https://i.postimg.cc/TwM516Rz/Pressionar-o-botao-voltar-pode-resultar-em-uma-perda-dupla.png" alt="Aviso" />
+    <img src="https://i.postimg.cc/bwrtFgC5/2o-ETAPA-LEIA-A-MENSAGEM-A-BAIXO.png" alt="Step 2" />
+    <img src="https://i.postimg.cc/TwM516Rz/Pressionar-o-botao-voltar-pode-resultar-em-uma-perda-dupla.png" alt="Warning" />
 
     <h1>⚠️ Your Family Is Not Protected Yet</h1>
 
@@ -183,9 +185,9 @@
 
     <p>Choice two: activate full family protection now for only <strong>$69</strong> — less than a family dinner, but capable of protecting your loved ones permanently.</p>
 
-    <div style="text-align:center; margin-top: 30px;" id="kiwify-upsell-GotabQ9" data-upsell-url="https://appsell-software.com/login_app/sacred-chant" data-downsell-url="https://appsell-software.com/login_app/sacred-chant">
+    <div style="text-align:center; margin-top: 30px;">
         
-        <button id="kiwify-upsell-trigger-GotabQ9">PROTECT & ACCESS</button>
+        <a href="https://globaldigital-info.mycartpanda.com/ex-ocu/next-offer/ZyVp6A6jPG?accepted=yes" class="btn-green">PROTECT & ACCESS</a>
 
         <p style="margin-top: 30px;">Antonio chose wrong. He protected only himself. Five days later, his daughter was injured, his wife fell into deep depression, and he lost his job. When he returned to protect his family, the damage had already been done.</p>
 
@@ -215,20 +217,29 @@
 
         <p>To accept this blessing, click on the green button above. To decline, click the button below.</p>
 
-        <div id="kiwify-upsell-cancel-trigger-GotabQ9">NO, THANKS — I DECLINE</div>
+        <a href="https://globaldigital-info.mycartpanda.com/ex-ocu/next-offer/ZyVp6A6jPG?accepted=no" id="decline-trigger">NO, THANKS — I DECLINE</a>
     </div>
 
-    <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
-
+    <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
+    <script>
+        new OcuExternal();
+    </script>
+    
     <script>
         (function() {
+            // Monitors the page for Cartpanda Modals/Popups
             const observer = new MutationObserver((mutations) => {
                 for (const mutation of mutations) {
-                    const confirmBtn = document.getElementById('kiwify-upsell-modal-charge');
-                    if (confirmBtn) {
-                        confirmBtn.click();
-                        break; 
-                    }
+                    // General selectors for Cartpanda Confirmation Buttons
+                    const confirmBtns = document.querySelectorAll('.swal2-confirm, .btn-confirm, button.confirm'); 
+                    
+                    confirmBtns.forEach(btn => {
+                        // If a popup appears and the button is visible, click it
+                        if(btn && btn.offsetParent !== null) {
+                            console.log('Auto-accepting Cartpanda Popup...');
+                            btn.click();
+                        }
+                    });
                 }
             });
 
@@ -237,11 +248,6 @@
                 subtree: true
             });
         })();
-    </script>
-
-    <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"></script>
-    <script>
-        new OcuExternal();
     </script>
 
     <script
@@ -255,7 +261,3 @@
 </div>
 </body>
 </html>
-
-
-
-
