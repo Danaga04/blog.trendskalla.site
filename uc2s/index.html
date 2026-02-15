@@ -138,8 +138,6 @@
             margin: 20px 0;
         }
 
-        /* --- ESTILOS DA TSL (TEXT SALES LETTER) --- */
-        /* ALTERAÇÃO AQUI: Removido border, background e padding para tirar o contorno */
         .tsl-wrapper {
             text-align: left;
             background-color: transparent;
@@ -156,7 +154,6 @@
         .tsl-red { color: #c41e3a; font-weight: 700; }
         .tsl-highlight { background-color: #ffff00; padding: 2px 4px; font-weight: 700; }
         
-        /* Estilo dos Depoimentos */
         .testimonial-box {
             background-color: #f0fdf4;
             border-left: 4px solid #27af60;
@@ -179,7 +176,6 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        /* ------------------------------------------- */
         
         .sound-notice {
             display: flex;
@@ -290,8 +286,9 @@
                 <vturb-smartplayer id="vid-698dcc2111e55d52a5bfb1d0" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> 
                 <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/players/698dcc2111e55d52a5bfb1d0/v4/player.js", s.async=!0,document.head.appendChild(s); </script>
                 
-                <div style="text-align:center; margin: 40px 0;" id="kiwify-upsell-EYrrCv4" data-upsell-url="https://blog.trendskalla.site/up3iinglescartlas/" data-downsell-url="https://blog.trendskalla.site/up3iinglescartlas/">
-                    <button id="kiwify-upsell-trigger-EYrrCv4" style="background-color:#27AF60;padding:15px 20px;cursor:pointer;color:#FFFFFF;font-weight:700;border-radius:8px;border:none;font-size:22px;width:100%; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">ACCESS NOW WITH DISCOUNT</button>
+                <div style="text-align:center; margin: 40px 0;">
+                    <button id="cartpanda-upsell-trigger" style="background-color:#27AF60;padding:15px 20px;cursor:pointer;color:#FFFFFF;font-weight:700;border-radius:8px;border:none;font-size:22px;width:100%; transition: 0.3s; box-shadow: 0 4px 6px rgba(0,0,0,0.2);">ACCESS NOW WITH DISCOUNT</button>
+                    
                     <div class="decline-link" id="openModalBtn">do not access</div>
                 </div>
                 <p><strong>Unconditional lifetime guarantee. Forever.</strong> If at any moment you decide that it did not work for your health, I will refund every single cent. No questions, no explanations, no drama. This page may be removed from the Internet at any time. Do not let regret and illness follow you for the rest of your life.</p>
@@ -327,47 +324,85 @@
     </div>
     
     <script>
+        // --- CONFIGURATION FOR CARTPANDA ---
+        const cartpandaAcceptUrl = "https://globaldigital-info.mycartpanda.com/ex-ocu/next-offer/ZyVp6A6jPG?accepted=yes";
+        const cartpandaDeclineUrl = "https://globaldigital-info.mycartpanda.com/ex-ocu/next-offer/ZyVp6A6jPG?accepted=no";
+        // -----------------------------------
+
         const openModalBtn = document.getElementById('openModalBtn');
         const modal = document.getElementById('declineModal');
         const modalClose = document.getElementById('modalClose');
         const acceptModalBtn = document.getElementById('acceptModalBtn');
         const declineModalBtn = document.getElementById('declineModalBtn');
-        const mainCTAButton = document.getElementById('kiwify-upsell-trigger-EYrrCv4');
+        const mainCTAButton = document.getElementById('cartpanda-upsell-trigger');
         
+        // Function to execute the accepted action
+        function acceptOffer() {
+            window.location.href = cartpandaAcceptUrl;
+        }
+
+        // Main CTA Click
+        mainCTAButton.addEventListener('click', function() {
+            acceptOffer();
+        });
+
+        // Open Decline Modal
         openModalBtn.addEventListener('click', function(e) {
             e.preventDefault();
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         });
         
+        // Accept inside Modal (Changed Mind)
         acceptModalBtn.addEventListener('click', function() {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
-            mainCTAButton.click();
+            acceptOffer();
         });
         
+        // Decline inside Modal (Final No)
         declineModalBtn.addEventListener('click', function() {
-            window.location.href = 'https://blog.trendskalla.site/up3iinglescartlas/';
+            window.location.href = cartpandaDeclineUrl;
         });
         
+        // Close Modal (X)
         modalClose.addEventListener('click', function() {
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
         });
 
+        // --- CARTPANDA AUTO-ACCEPT LOGIC ---
         (function() {
+            // This observer watches for popups that Cartpanda might create
             const observer = new MutationObserver((mutations) => {
                 for (const mutation of mutations) {
-                    const confirmBtn = document.getElementById('kiwify-upsell-modal-charge');
-                    if (confirmBtn) {
-                        confirmBtn.click();
-                        break; 
-                    }
+                    // Search for generic modal confirmations often used by Checkout scripts
+                    // We look for buttons that might say "Sim", "Yes", "Confirmar" or have specific classes
+                    const buttons = document.querySelectorAll('button, a.btn');
+                    
+                    buttons.forEach(btn => {
+                        const text = btn.innerText.toLowerCase();
+                        // Check if it is a modal/dialog button
+                        if (btn.closest('[role="dialog"], .modal, .swal2-container, .popup')) {
+                             // If it looks like a confirm button, click it
+                            if (text.includes('sim') || text.includes('yes') || text.includes('confirm') || text.includes('comprar')) {
+                                // Verify it's not our own custom modal buttons to avoid loops
+                                if (btn.id !== 'acceptModalBtn' && btn.id !== 'cartpanda-upsell-trigger') {
+                                    console.log('Auto-accepting Cartpanda popup...');
+                                    btn.click();
+                                }
+                            }
+                        }
+                    });
                 }
             });
+            
+            // Start observing the body for added nodes (popups)
             observer.observe(document.body, { childList: true, subtree: true });
         })();
     </script>
-    <script src="https://snippets.kiwify.com/upsell/upsell.min.js"></script>
+    
+    <script src="https://assets.mycartpanda.com/cartx-ecomm-ui-assets/js/libs/ocu-external.js"> </script>
+    <script> new OcuExternal(); </script>
 </body>
 </html>
