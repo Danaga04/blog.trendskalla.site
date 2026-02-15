@@ -3,33 +3,138 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health - Daily Updates</title>
+    <title>GMA - Wellness News</title>
     <style>
-        /* General Reset & Typography */
+        /* --- General Reset & Typography --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Helvetica, Arial, sans-serif; background-color: #fff; color: #1c1e21; line-height: 1.4; }
+        body { 
+            font-family: 'Proxima Nova', 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+            background-color: #fff; 
+            color: #222; 
+            line-height: 1.5; 
+        }
+
+        /* --- Header Styles (GMA Style) --- */
+        header { width: 100%; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+
+        /* Yellow Top Banner */
+        .gma-yellow-bar { 
+            background-color: #fce355; 
+            color: #000; 
+            font-size: 13px; 
+            font-weight: bold; 
+            text-align: center; 
+            padding: 10px 20px; 
+            letter-spacing: 0.5px;
+        }
+
+        /* Main Navigation */
+        .gma-nav { 
+            background-color: #fff; 
+            height: 70px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            padding: 0 5%; 
+            border-bottom: 1px solid #eee;
+        }
+
+        .gma-logo { 
+            color: #12397d; /* GMA Blue */
+            font-size: 32px; 
+            font-weight: 900; 
+            letter-spacing: -1px; 
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+        }
+
+        .gma-menu {
+            display: none; /* Hidden on small mobile, visible on desktop */
+        }
         
-        /* Header Styles */
-        header { width: 100%; }
-        .top-bar { background-color: #b01b1b; height: 60px; display: flex; align-items: center; justify-content: center; position: relative; }
-        .logo { color: #fff; font-size: 24px; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; }
-        .menu-icon { position: absolute; right: 20px; color: #fff; font-size: 24px; cursor: pointer; }
-        .sub-bar { background-color: #8a1515; color: #fff; font-size: 10px; padding: 8px 20px; text-align: right; text-transform: uppercase; font-weight: bold; letter-spacing: 1px; }
-
-        /* Main Container */
-        .container { max-width: 800px; margin: 0 auto; padding: 20px 15px; }
-
-        /* Article Meta */
-        .article-meta { margin-bottom: 20px; }
-        .author { font-weight: bold; font-size: 14px; color: #000; }
-        .date { font-size: 12px; color: #757575; margin-top: 4px; display: block; }
-
-        /* Video Section */
-        .video-wrapper { margin-bottom: 40px; width: 100%; display: flex; justify-content: center; flex-direction: column; align-items: center;}
+        .gma-menu a {
+            color: #000;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            margin: 0 15px;
+            text-transform: capitalize;
+        }
         
-        /* Facebook Comments Styles */
-        .fb-section { background-color: #fff; margin-top: 20px; }
-        .fb-header { font-weight: bold; color: #65676b; margin-bottom: 15px; border-bottom: 1px solid #e5e5e5; padding-bottom: 10px; }
+        .gma-menu a:hover { color: #12397d; }
+
+        .search-icon { font-size: 18px; cursor: pointer; color: #333; }
+
+        /* Tablet/Desktop Menu display */
+        @media (min-width: 768px) {
+            .gma-menu { display: block; }
+        }
+
+        /* --- Main Container --- */
+        .container { max-width: 900px; margin: 0 auto; padding: 30px 20px; }
+
+        /* --- Article Typography --- */
+        .category-tag {
+            color: #12397d;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 12px;
+            margin-bottom: 10px;
+            display: inline-block;
+        }
+
+        .headline {
+            font-size: 32px;
+            line-height: 1.2;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #000;
+        }
+
+        .article-meta { 
+            margin-bottom: 30px; 
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            padding: 15px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .author-avatar {
+            width: 40px; height: 40px; background-color: #ddd; border-radius: 50%; margin-right: 12px;
+        }
+        
+        .meta-text div { font-size: 13px; }
+        .author-name { font-weight: bold; color: #333; }
+        .date { color: #666; }
+
+        /* --- Video Section --- */
+        .video-wrapper { 
+            margin-bottom: 40px; 
+            width: 100%; 
+            background: #000;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* --- Comments Section (Facebook Style maintained) --- */
+        .fb-section { 
+            background-color: #fff; 
+            margin-top: 30px; 
+            padding-top: 20px;
+        }
+        
+        .fb-header { 
+            font-weight: bold; 
+            color: #65676b; 
+            margin-bottom: 20px; 
+            border-bottom: 1px solid #e5e5e5; 
+            padding-bottom: 10px; 
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        
+        /* Specific FB Font override to keep comments looking authentic */
+        .fb-section * { font-family: Helvetica, Arial, sans-serif; }
         
         .comment-row { display: flex; margin-bottom: 12px; }
         .comment-avatar img { width: 40px; height: 40px; border-radius: 50%; margin-right: 10px; object-fit: cover; }
@@ -42,62 +147,77 @@
         .comment-actions { font-size: 12px; color: #65676b; margin: 2px 0 0 15px; }
         .comment-actions span { margin-right: 10px; cursor: pointer; }
         .comment-actions span:hover { text-decoration: underline; }
-        .action-blue { color: #65676b; font-weight: bold; } /* FB style typically keeps meta gray unless active, keeping subtle */
         
         .comment-image { margin-top: 10px; max-width: 100%; border-radius: 10px; border: 1px solid #ddd; display: block; }
         
-        /* Replies styling */
         .reply-row { display: flex; margin-left: 50px; margin-bottom: 12px; margin-top: -5px; }
         .reply-avatar img { width: 30px; height: 30px; border-radius: 50%; margin-right: 10px; object-fit: cover; }
 
-        /* Footer */
-        footer { background-color: #f0f2f5; padding: 30px 20px; text-align: center; font-size: 12px; color: #65676b; margin-top: 50px; border-top: 1px solid #ddd; }
-        footer a { color: #65676b; text-decoration: none; margin: 0 10px; }
-
-        /* Utility */
         .blue-link { color: #385898; cursor: pointer; font-weight: 600;}
+
+        /* --- Footer --- */
+        footer { 
+            background-color: #222; /* Darker footer for GMA style */
+            padding: 40px 20px; 
+            text-align: center; 
+            font-size: 13px; 
+            color: #fff; 
+            margin-top: 60px; 
+        }
+        
+        footer a { color: #fff; text-decoration: none; margin: 0 15px; }
+        footer .disclaimer { margin-top: 20px; font-size: 11px; color: #aaa; line-height: 1.4; max-width: 800px; margin-left: auto; margin-right: auto;}
     </style>
 </head>
 <body>
 
     <header>
-        <div class="top-bar">
-            <div class="logo">HEALTH</div>
-            <div class="menu-icon">☰</div>
+        <div class="gma-yellow-bar">
+            BREAKING NEWS: New Wellness Protocol Taking The Internet By Storm
         </div>
-        <div class="sub-bar">
-            Daily Updates on Wellness
+        
+        <div class="gma-nav">
+            <a href="#" class="gma-logo">GMA</a>
+            <div class="gma-menu">
+                <a href="#">Video</a>
+                <a href="#">Culture</a>
+                <a href="#">Family</a>
+                <a href="#" style="color:#12397d; border-bottom: 2px solid #12397d; padding-bottom: 24px;">Wellness</a>
+                <a href="#">Food</a>
+                <a href="#">Living</a>
+            </div>
+            <div class="search-icon">🔍</div>
         </div>
     </header>
 
     <main class="container">
+        
+        <span class="category-tag">Wellness / Health</span>
+        
         <div class="article-meta">
-            <div class="author">By Dr. Jennifer Ashton</div>
-            <span class="date">Updated 30 minutes ago</span>
+            <div class="author-avatar" style="background-image: url('https://randomuser.me/api/portraits/women/68.jpg'); background-size: cover;"></div>
+            <div class="meta-text">
+                <div class="author-name">By Dr. Jennifer Ashton</div>
+                <div class="date">February 15, 2026 • 5 min read</div>
+            </div>
         </div>
 
         <div class="video-wrapper">
-
-
-
-            
-            <vturb-smartplayer id="ab-698f2f4aaa67549cb8e3ac21" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/698f2f4aaa67549cb8e3ac21/player.js", s.async=!0,document.head.appendChild(s); </script>
-
-
-<script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-<link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/698f2f4aaa67549cb8e3ac21/player.js" as="script">
-<link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-<link rel="dns-prefetch" href="https://cdn.converteai.net">
-<link rel="dns-prefetch" href="https://scripts.converteai.net">
-<link rel="dns-prefetch" href="https://images.converteai.net">
-<link rel="dns-prefetch" href="https://m3u8.vturb.net">
-<link rel="dns-prefetch" href="https://api.vturb.com.br">
-            
+            <vturb-smartplayer id="ab-698f2f4aaa67549cb8e3ac21" style="display: block; margin: 0 auto; width: 100%; "></vturb-smartplayer> 
+            <script type="text/javascript"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/698f2f4aaa67549cb8e3ac21/player.js", s.async=!0,document.head.appendChild(s); </script>
+            <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
+            <link rel="preload" href="https://scripts.converteai.net/80d0b89d-7901-4c62-bf15-807e2dab2483/ab-test/698f2f4aaa67549cb8e3ac21/player.js" as="script">
+            <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
+            <link rel="dns-prefetch" href="https://cdn.converteai.net">
+            <link rel="dns-prefetch" href="https://scripts.converteai.net">
+            <link rel="dns-prefetch" href="https://images.converteai.net">
+            <link rel="dns-prefetch" href="https://m3u8.vturb.net">
+            <link rel="dns-prefetch" href="https://api.vturb.com.br">
         </div>
 
         <section class="fb-section">
             <div class="fb-header">
-                184 comments
+                184 Comments
             </div>
 
             <div class="comment-row">
@@ -166,7 +286,7 @@
                 </div>
             </div>
 
-             <div class="comment-row">
+            <div class="comment-row">
                 <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/28.jpg" alt="User"></div>
                 <div class="comment-content">
                     <div class="bubble">
@@ -193,7 +313,7 @@
                 </div>
             </div>
 
-             <div class="comment-row">
+            <div class="comment-row">
                 <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User"></div>
                 <div class="comment-content">
                     <div class="bubble">
@@ -259,7 +379,7 @@
                 </div>
             </div>
 
-             <div class="comment-row">
+            <div class="comment-row">
                 <div class="comment-avatar"><img src="https://randomuser.me/api/portraits/women/42.jpg" alt="User"></div>
                 <div class="comment-content">
                     <div class="bubble">
@@ -276,17 +396,16 @@
     </main>
 
     <footer>
-        <p>Copyright © 2024 Health Magazine. All Rights Reserved.</p>
+        <p>Copyright © 2026 GMA Wellness. All Rights Reserved.</p>
         <br>
         <p>
             <a href="#">Privacy Policy</a> | 
-            <a href="#">Terms of Service</a> | 
-            <a href="#">Contact Us</a>
+            <a href="#">Terms of Use</a> | 
+            <a href="#">Interest-Based Ads</a>
         </p>
         <br>
-        <p style="font-size: 10px; color: #999;">This site is not part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
+        <p class="disclaimer">This site is not part of the Facebook website or Facebook Inc. Additionally, this site is NOT endorsed by Facebook in any way. FACEBOOK is a trademark of FACEBOOK, Inc.</p>
     </footer>
 
 </body>
 </html>
-
