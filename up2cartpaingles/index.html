@@ -13,7 +13,8 @@
         
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background-color: #f5f5f5;
+            background-color: #ffffff; /* Fundo agora é branco */
+            color: #333;
         }
         
         .warning-banner {
@@ -41,7 +42,8 @@
             display: flex;
             justify-content: flex-end;
             align-items: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            /* Sombra removida para ficar clean, ou manter suave */
+            border-bottom: 1px solid #eee; 
         }
         
         .secure-badge img {
@@ -105,16 +107,17 @@
         }
         
         .container {
-            max-width: 600px;
-            margin: 30px auto;
-            padding: 0 20px;
+            max-width: 600px; /* Mantém largura máxima para leitura confortável */
+            margin: 0 auto;
+            padding: 20px; /* Espaçamento lateral simples */
         }
         
+        /* AQUI ESTÁ A MUDANÇA PRINCIPAL: Removemos o visual de caixa */
         .content-box {
-            background-color: white;
-            border-radius: 12px;
-            padding: 40px 30px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            background-color: transparent;
+            border-radius: 0;
+            padding: 20px 0;
+            box-shadow: none;
             text-align: center;
         }
         
@@ -139,7 +142,6 @@
         }
 
         /* --- ESTILOS DA TSL (TEXT SALES LETTER) --- */
-        /* ALTERAÇÃO AQUI: Removido border, background e padding para tirar o contorno */
         .tsl-wrapper {
             text-align: left;
             background-color: transparent;
@@ -179,7 +181,6 @@
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
-        /* ------------------------------------------- */
         
         .sound-notice {
             display: flex;
@@ -190,6 +191,7 @@
             padding: 15px;
             background-color: #f8f9fa;
             border-radius: 8px;
+            border: 1px solid #eee; /* Adicionei borda leve para destacar no fundo branco */
         }
         
         .sound-icon { font-size: 24px; }
@@ -206,6 +208,7 @@
         
         .decline-link:hover { color: #34495e; }
         
+        /* MODAL */
         .modal-overlay {
             display: none;
             position: fixed;
@@ -260,6 +263,18 @@
             .container { padding: 0 15px; }
             h1 { font-size: 24px; }
             .tsl-wrapper { font-size: 16px; padding: 0; }
+            
+            .nav-tabs { justify-content: center; }
+            .nav-tab { padding: 10px 4px; font-size: 10px; gap: 4px; }
+            .checkmark { font-size: 14px; }
+            
+            .content-box { padding: 10px 0; } /* Remove padding extra no mobile */
+            
+            .modal-content { padding: 30px 20px; margin: 0 10px; max-width: 100%; }
+            .modal-title { font-size: 26px; }
+            .modal-subtitle { font-size: 18px; }
+            .price-now { font-size: 36px; }
+            .btn-accept { font-size: 18px; padding: 15px; }
         }
     </style>
 </head>
